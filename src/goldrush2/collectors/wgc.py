@@ -14,6 +14,7 @@ from urllib.request import Request, urlopen
 
 WGC_PAGE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
 WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves-by-country"
+WGC_OFFICIAL_HOLDINGS_PAGE_URL = WGC_OFFICIAL_CHANGES_PAGE_URL
 CACHE_MAX_AGE_DAYS = 7
 USER_AGENT = "Mozilla/5.0 GoldRush2 WGC downloader"
 LAST_FETCH_USED_CACHE = False
@@ -69,7 +70,7 @@ def _find_download_url(page: bytes, *, page_url: str = WGC_PAGE_URL, workbook_pa
     match = re.search(pattern, text, re.IGNORECASE)
     if not match:
         raise WGCError("WGC workbook link was not found; authentication or page structure may have changed")
-    return urljoin(page_url, unquote(match.group(1)))
+    return urljoin(page_url, unquote(match.group(1).strip()))
 
 
 def _filename(url: str) -> str:
@@ -112,3 +113,8 @@ def fetch_wgc_workbook(cache_dir: Path) -> Path | None:
 def fetch_wgc_official_changes(cache_dir: Path) -> Path | None:
     """Download the current WGC/IMF IFS official-changes workbook."""
     return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_CHANGES_PAGE_URL, cache_pattern="Changes_*_IFS.xlsx", link_pattern="changes")
+
+
+def fetch_wgc_official_holdings(cache_dir: Path) -> Path | None:
+    """Download the current WGC official-holdings workbook."""
+    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_HOLDINGS_PAGE_URL, cache_pattern="*official*holdings*.xlsx", link_pattern="official")

@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-003/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-006/L7-001/L7-004/L7-005/L8-001 complete (25/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-006/L7-001/L7-004/L7-005/L8-001 complete (27/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,12 +20,12 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="25" max="45">25/45</progress> **25/45 variables complete (56%)**
+**DR2 completion:** <progress value="27" max="45">27/45</progress> **27/45 variables complete (60%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
 | 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Not started | Not started |
-| 2 | L0-002 | Central-Bank Gold Holdings | Gold held by central banks and official institutions. | Carried forward | Not started | Not started |
+| 2 | L0-002 | Central-Bank Gold Holdings | Gold held by central banks and official institutions. | Carried forward | Complete - WGC official-holdings PDF panel, latest source-month aggregate in tonnes; historical lookbacks degrade because the workbook is a cross-sectional snapshot | Not started |
 | 3 | L0-003 | Gold ETF Holdings | The stock of physical gold held by exchange-traded funds. | Carried forward | Complete - WGC ETF workbook Holdings by month sheet, monthly global tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
 | 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Not started | Not started |
 | 5 | L0-006 | Gold Recycling Flow | Gold returned to market through recycling and secondary supply. | Carried forward | Not started | Not started |
@@ -55,7 +55,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 29 | L4-008 | Interest Expense / Government Revenue | Government interest costs relative to its revenue base. | Carried forward | Complete - U.S. Treasury MTS Table 3 lines 130/360; annual September FYTD ratio with 1FY/5FY comparisons | Not started |
 | 30 | L4-009 | Treasury Maturity Structure | The maturity composition and refinancing profile of US Treasury debt. | Carried forward | Complete - U.S. Treasury MSPD Table 3 Market; monthly debt-maturing-within-one-year ratio with 1/3/12/60M comparisons | Not started |
 | 31 | L5-001 | Monthly Official-Sector Gold Purchase Volume | Monthly gold purchases by central banks and other official institutions. | Carried forward | Complete - WGC/IMF IFS official-changes workbook canonical monthly country aggregation with 5/63/252/756 valid-observation lookbacks | Not started |
-| 32 | L5-002 | Gold Share of Official Reserves | Gold's share of total official reserve assets. | Carried forward | Not started | Not started |
+| 32 | L5-002 | Gold Share of Official Reserves | Gold's share of total official reserve assets. | Carried forward | Complete - WGC official-holdings PDF two-panel share extraction, latest source-month mean fraction; historical lookbacks degrade because the workbook is a cross-sectional snapshot | Not started |
 | 33 | L5-003 | Reserve Composition Change / USD Share Change | Changes in the currency composition of official reserves, especially the dollar share. | Carried forward | Not started | Not started |
 | 34 | L5-006 | Official-Sector Gold Sales / Lending | Gold supplied through official-sector sales, swaps, or lending. | Carried forward | Complete - WGC/IMF IFS official-changes workbook negative canonical changes aggregated as a net-reduction proxy with 5/63/252/756 valid-observation lookbacks | Not started |
 | 35 | L6-001 | Active Conflict and Escalation Signal | Gemini-derived assessment of active conflict and escalation affecting safe-haven demand. | Carried forward | Not started | Not started |
@@ -99,6 +99,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L8-001 | Shared WGC ETF workbook collector; Demand by month sheet sums numeric per-fund monthly gold demand in tonnes with 5, 63, 252, and 756 valid-observation lookbacks; rising net flows signal bullish for gold | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 43 focused WGC/L0/L8 tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-07-31 with signals `+1, -1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L5-001 | Shared WGC official-changes collector; canonical country rows from the Monthly sheet are aggregated into global signed net purchase tonnes, excluding labels ending in `*` | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 41 focused WGC/L5 tests and 389 full-suite tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-06-01 with signals `+1, -1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L5-006 | Shared WGC official-changes collector; canonical negative country changes are converted to positive monthly net reductions, excluding labels ending in `*` and values below 0.0001 tonnes; output is explicitly a sales/lending net-reduction proxy | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 41 focused WGC/L5 tests and 389 full-suite tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-06-01 with signals `+1, -1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L0-002 | Shared WGC official-holdings collector; latest dated canonical panel rows are summed into a current holdings total in tonnes, excluding aggregate rows and duplicate countries | Workbook is validated as XLSX and cached for seven days; because the source is a cross-sectional snapshot with non-uniform entity dates, no pseudo-history is synthesized and all four live lookbacks are zero-confidence for insufficient comparable history | 44 focused WGC/official-holdings tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-06-30 with all horizons `signal 0, confidence 0` due unavailable history | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L5-002 | Shared WGC official-holdings collector; latest dated canonical two-panel rows are averaged into a current gold-share fraction, preserving panel source dates and excluding aggregate rows | Workbook is validated as XLSX and cached for seven days; because the source is a cross-sectional snapshot with non-uniform entity dates, no pseudo-history is synthesized and all four live lookbacks are zero-confidence for insufficient comparable history | 44 focused WGC/official-holdings tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-06-30 with all horizons `signal 0, confidence 0` due unavailable history | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 

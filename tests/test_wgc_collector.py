@@ -69,3 +69,11 @@ def test_official_changes_target(monkeypatch, tmp_path):
     path = wgc.fetch_wgc_official_changes(tmp_path)
     assert path is not None
     assert path.name == "Changes_latest_as_of_Aug2026_IFS.xlsx"
+
+
+def test_official_holdings_target(monkeypatch, tmp_path):
+    page = b'<a href="/download/file/7739/World_official_gold_holdings_as_of_Aug2026_IFS.xlsx ">download</a>'
+    monkeypatch.setattr(wgc, "_request", lambda url, **kwargs: page if url == wgc.WGC_OFFICIAL_HOLDINGS_PAGE_URL else xlsx_bytes())
+    path = wgc.fetch_wgc_official_holdings(tmp_path)
+    assert path is not None
+    assert path.name == "World_official_gold_holdings_as_of_Aug2026_IFS.xlsx"

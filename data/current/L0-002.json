@@ -1,0 +1,71 @@
+{
+  "variable_id": "L0-002",
+  "as_of_date": "2026-09-01",
+  "source_name": "WGC Official Holdings - Central Bank Gold Holdings (tonnes)",
+  "source_url": "https://www.gold.org/",
+  "data_frequency": "Monthly",
+  "observation_date": "2026-06-30",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 0,
+      "evidence": {
+        "data": {
+          "current_value": 22667.5208291162,
+          "current_date": "2026-06-30",
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null,
+          "change_pct": null
+        },
+        "summary": "MISSING DATA \u2014 5 valid monthly observations are required; 1 are available."
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 0,
+      "evidence": {
+        "data": {
+          "current_value": 22667.5208291162,
+          "current_date": "2026-06-30",
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null,
+          "change_pct": null
+        },
+        "summary": "MISSING DATA \u2014 63 valid monthly observations are required; 1 are available."
+      }
+    },
+    "1-3y": {
+      "signal": 0,
+      "confidence": 0,
+      "evidence": {
+        "data": {
+          "current_value": 22667.5208291162,
+          "current_date": "2026-06-30",
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null,
+          "change_pct": null
+        },
+        "summary": "MISSING DATA \u2014 252 valid monthly observations are required; 1 are available."
+      }
+    },
+    "3-10y": {
+      "signal": 0,
+      "confidence": 0,
+      "evidence": {
+        "data": {
+          "current_value": 22667.5208291162,
+          "current_date": "2026-06-30",
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null,
+          "change_pct": null
+        },
+        "summary": "MISSING DATA \u2014 756 valid monthly observations are required; 1 are available."
+      }
+    }
+  },
+  "calculation_method": "Sum of canonical WGC official-holdings panel entities grouped by reported holdings-as-of month"
+}

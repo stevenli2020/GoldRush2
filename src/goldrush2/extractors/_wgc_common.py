@@ -29,6 +29,11 @@ def parse_date(value: Any) -> str | None:
             return parser(text).isoformat()
         except ValueError:
             pass
+    for pattern in ("%b %Y", "%B %Y"):
+        try:
+            return datetime.strptime(text, pattern).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
     return None
 
 
@@ -58,6 +63,45 @@ def parse_official_changes_workbook(path: Any) -> list[dict[str, Any]]:
             records.append({"country": country, "date": observation_date, "value": float(value)})
     if not records:
         raise ValueError("WGC Monthly sheet contained no canonical numeric changes")
+    return records
+
+
+def parse_official_holdings_workbook(path: Any) -> list[dict[str, Any]]:
+    """Read the two canonical entity panels from the WGC PDF sheet."""
+    from openpyxl import load_workbook
+
+    workbook = load_workbook(path, read_only=True, data_only=True)
+    if "PDF" not in workbook.sheetnames:
+        raise ValueError("WGC PDF sheet was not found")
+    rows = list(workbook["PDF"].iter_rows(values_only=True))
+    header_index = next((index for index, row in enumerate(rows) if {str(value).strip().lower() for value in row if value is not None} >= {"tonnes", "% of reserves**", "holdings as of"}), None)
+    if header_index is None:
+        raise ValueError("WGC official-holdings header was not found")
+    records: list[dict[str, Any]] = []
+    seen_countries: set[str] = set()
+    for panel, name_index, tonnes_index, share_index, date_index, rank_index in (("left", 1, 2, 3, 4, 0), ("right", 6, 7, 8, 9, 5)):
+        for row in rows[header_index + 1 :]:
+            name = str(row[name_index]).strip() if name_index < len(row) and row[name_index] is not None else ""
+            if not name or name.lower() in {"none", "nan", "total", "aggregate"}:
+                break
+            if name in seen_countries:
+                continue
+            if rank_index >= len(row) or not finite(row[rank_index]):
+                break
+            tonnes = row[tonnes_index] if tonnes_index < len(row) else None
+            if not finite(tonnes) or float(tonnes) < 0:
+                raise ValueError(f"Invalid official holdings for {name}")
+            raw_share = row[share_index] if share_index < len(row) else None
+            if isinstance(raw_share, str):
+                raw_share = raw_share.split(")", 1)[-1].strip()
+            if finite(raw_share) and not 0 <= float(raw_share) <= 1:
+                raise ValueError(f"Invalid reserve share for {name}")
+            share_value = float(raw_share) if finite(raw_share) else None
+            source_date = row[date_index] if date_index < len(row) else None
+            seen_countries.add(name)
+            records.append({"country": name, "panel": panel, "date": parse_date(source_date), "source_date": str(source_date) if source_date is not None else None, "holdings": float(tonnes), "share": share_value})
+    if not records:
+        raise ValueError("WGC official-holdings sheet contained no valid records")
     return records
 
 
