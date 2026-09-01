@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 44 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - FRED collector and L1-001/L1-002 complete (2/44) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - FRED collector and L1-001/L1-002/L1-007 complete (3/44) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -33,7 +33,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 9 | L1-003 | Forward Real Rates | Market-implied real interest rates for future periods. | Carried forward | Not started | Not started |
 | 10 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | Not started | Not started |
 | 11 | L1-006 | Expected Policy Rate | The expected policy-rate component of current real opportunity cost. | Carried forward | Not started | Not started |
-| 12 | L1-007 | 5Y5Y Forward Real Rate | The expected five-year real rate beginning five years ahead. | Carried forward | Not started | Not started |
+| 12 | L1-007 | 5Y5Y Forward Real Rate | The expected five-year real rate beginning five years ahead. | Carried forward | Owner approved - derived from L1-001/L1-002 | Not started |
 | 13 | L2-001 | DXY US Dollar Index | Dollar valuation against the major currencies represented in DXY. | Carried forward | Not started | Not started |
 | 14 | L2-002 | Broad Trade-Weighted Nominal US Dollar Index | Dollar valuation against a broad trade-weighted currency basket. | Carried forward | Not started | Not started |
 | 15 | L2-003 | USD/CNY | The dollar-renminbi exchange rate and its China purchasing-power channel. | Carried forward | Not started | Not started |
@@ -73,6 +73,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 |---|---|---|---|---|---|
 | 2026-09-01 | L1-001 | Shared FRED `series_observations` collector for `DFII10`; lookbacks 5, 63, 252, and 756 valid observations | Live source overwrites the raw response; failed collection uses cache younger than 7 days; older cache returns `STALE DATA` with zero confidence | 17 tests passed in WSL; live FRED run returned 6,172 raw observations and latest observation date 2026-08-28; all four horizon outputs validated | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L1-002 | Reused shared FRED `series_observations` collector for `DFII5`; lookbacks 5, 63, and 252 valid observations; `3-10y` structurally inapplicable | Live source overwrites the raw response; failed collection uses cache younger than 7 days; older cache returns `STALE DATA` with zero confidence for applicable horizons | 8 focused L1-002 tests and 25 combined tests passed in WSL; live FRED run returned 6,172 raw observations and latest observation date 2026-08-28; all four horizon outputs validated | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L1-007 | Derived from current L1-001 `DFII10` and L1-002 `DFII5` caches using the approved 5Y5Y no-arbitrage formula; lookbacks 5, 63, 252, and 756 aligned observations | No raw cache of its own; stale or zero-confidence dependency returns `STALE DEPENDENT DATA`/`DEPENDENCY FAILED`; fresh dependency caches are annotated in evidence | 11 focused L1-007 tests and 36 combined tests passed in WSL; live output formula and four horizons validated with latest underlying date 2026-08-28 | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 
