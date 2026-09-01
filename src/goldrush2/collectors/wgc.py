@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 WGC_PAGE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
 WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves-by-country"
 WGC_OFFICIAL_HOLDINGS_PAGE_URL = WGC_OFFICIAL_CHANGES_PAGE_URL
+WGC_GDT_PAGE_URL = "https://www.gold.org/goldhub/data/gold-demand-by-country"
 CACHE_MAX_AGE_DAYS = 7
 USER_AGENT = "Mozilla/5.0 GoldRush2 WGC downloader"
 LAST_FETCH_USED_CACHE = False
@@ -25,8 +26,9 @@ class WGCError(RuntimeError):
     """Raised when the WGC workbook cannot be downloaded or validated."""
 
 
-def _latest_workbook(cache_dir: Path, pattern: str = "ETF_Flows_*.xlsx") -> Path | None:
-    candidates = [path for path in cache_dir.glob(pattern) if path.is_file()]
+def _latest_workbook(cache_dir: Path, pattern: str | tuple[str, ...] = "ETF_Flows_*.xlsx") -> Path | None:
+    patterns = (pattern,) if isinstance(pattern, str) else pattern
+    candidates = [path for current_pattern in patterns for path in cache_dir.glob(current_pattern) if path.is_file()]
     return max(candidates, key=lambda path: path.stat().st_mtime, default=None)
 
 
@@ -66,11 +68,11 @@ def _request(url: str, *, referer: str | None = None) -> bytes:
 
 def _find_download_url(page: bytes, *, page_url: str = WGC_PAGE_URL, workbook_pattern: str = r"(?:etf[^\"']*flow|flow[^\"']*etf)") -> str:
     text = html.unescape(page.decode("utf-8", errors="replace"))
-    pattern = rf"href=[\"']([^\"']*?/download/file/[^\"']*{workbook_pattern}[^\"']*\.xlsx?[^\"']*)[\"']"
+    pattern = rf"""href="([^"]*?/download/file/[^"]*{workbook_pattern}[^"]*\.xlsx?[^\"]*)"|href='([^']*?/download/file/[^']*{workbook_pattern}[^']*\.xlsx?[^']*)'"""
     match = re.search(pattern, text, re.IGNORECASE)
     if not match:
         raise WGCError("WGC workbook link was not found; authentication or page structure may have changed")
-    return urljoin(page_url, unquote(match.group(1).strip()))
+    return urljoin(page_url, unquote((match.group(1) or match.group(2)).strip()))
 
 
 def _filename(url: str) -> str:
@@ -118,3 +120,13 @@ def fetch_wgc_official_changes(cache_dir: Path) -> Path | None:
 def fetch_wgc_official_holdings(cache_dir: Path) -> Path | None:
     """Download the current WGC official-holdings workbook."""
     return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_HOLDINGS_PAGE_URL, cache_pattern="*official*holdings*.xlsx", link_pattern="official")
+
+
+def fetch_wgc_gdt_workbook(cache_dir: Path) -> Path | None:
+    """Download the current WGC Gold Demand Trends workbook."""
+    return _fetch_workbook(
+        cache_dir,
+        page_url=WGC_GDT_PAGE_URL,
+        cache_pattern=("GDT*.xlsx", "Gold_Demand_Trends_*.xlsx"),
+        link_pattern=r"(?:gdt|gold[_-]?demand|demand[_-]?trends)",
+    )

@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-006/L7-001/L7-004/L7-005/L8-001 complete (27/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-006/L7-001/L7-004/L7-005/L8-001 complete (29/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,15 +20,15 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="27" max="45">27/45</progress> **27/45 variables complete (60%)**
+**DR2 completion:** <progress value="29" max="45">29/45</progress> **29/45 variables complete (64%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
 | 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Not started | Not started |
 | 2 | L0-002 | Central-Bank Gold Holdings | Gold held by central banks and official institutions. | Carried forward | Complete - WGC/IMF IFS official-changes Monthly sheet, canonical country changes cumulatively summed from 2002-01 as a holdings index in tonnes; 5/63/252 lookbacks valid and 756 is source-limited | Not started |
 | 3 | L0-003 | Gold ETF Holdings | The stock of physical gold held by exchange-traded funds. | Carried forward | Complete - WGC ETF workbook Holdings by month sheet, monthly global tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
-| 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Not started | Not started |
-| 5 | L0-006 | Gold Recycling Flow | Gold returned to market through recycling and secondary supply. | Carried forward | Not started | Not started |
+| 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Complete - WGC GDT quarterly workbook `Gold Balance` total bar-and-coin row with bars/official coins/medals component reconciliation; 1-3y and 3-10y use 4Q/20Q lookbacks; short horizons structurally inapplicable | Not started |
+| 5 | L0-006 | Gold Recycling Flow | Gold returned to market through recycling and secondary supply. | Carried forward | Complete - WGC GDT quarterly workbook dynamically detects recycled-gold row across `Gold Balance`/`Supply`/`Supply_and_Demand`; 1-3y and 3-10y use 4Q/20Q lookbacks; short horizons structurally inapplicable | Not started |
 | 6 | L0-009 | Gold Lease Rates / Forward Rates | The cost and availability of borrowing or financing physical gold. | Carried forward | Not started | Not started |
 | 7 | L1-001 | 10Y TIPS Real Yield | The inflation-adjusted yield on 10-year US Treasury securities. | Carried forward | Owner approved - FRED DFII10 | Not started |
 | 8 | L1-002 | 5Y TIPS Real Yield | The inflation-adjusted yield on 5-year US Treasury securities. | Carried forward | Owner approved - FRED DFII5 | Not started |
@@ -101,6 +101,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L5-006 | Shared WGC official-changes collector; canonical negative country changes are converted to positive monthly net reductions, excluding labels ending in `*` and values below 0.0001 tonnes; output is explicitly a sales/lending net-reduction proxy | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 41 focused WGC/L5 tests and 389 full-suite tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-06-01 with signals `+1, -1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L0-002 | Shared WGC/IMF IFS official-changes collector; canonical Monthly country changes are aggregated and cumulatively summed from the first reported month (2002-01) | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cache; older cache returns `STALE DATA`; the 756-month horizon is zero-confidence because the source has 294 monthly observations | 34 focused historical L0/L5 tests passed in WSL; live run used the authenticated cached Changes workbook through 2026-06-01 and returned signals `+1, +1, +1, 0` with confidence `1, 1, 1, 0` | Revised per Steven on 2026-09-01 |
 | 2026-09-01 | L5-002 | Shared WGC/IMF IFS official-changes collector; cumulative canonical net changes are used as the explicitly labelled reserve-share proxy | The workbook contains no total-reserves denominator; output documents `cumulative_net_changes_proxy` and tonnes units rather than claiming a 0-1 share; source failure uses a fresh cache and older cache returns `STALE DATA` | 34 focused historical L0/L5 tests passed in WSL; live run used the authenticated cached Changes workbook through 2026-06-01 and returned signals `+1, +1, +1, 0` with confidence `1, 1, 1, 0` | Revised per Steven on 2026-09-01 |
+| 2026-09-01 | L0-005 | Shared WGC GDT collector; quarterly `Gold Balance` total bar-and-coin demand with bars, official coins, and medals/imitation components reconciled | Workbook is validated as XLSX and cached for seven days; parsed demand/recycling series share a persistent cache; source failure uses fresh cache and older cache returns `STALE DATA`; short horizons are structurally inapplicable and longer horizons use 4Q/20Q lookbacks | 37 focused WGC/GDT tests passed in WSL; manual placement of the verified GDT workbook produced latest observation 2026-06-30 with signals `0, 0, -1, +1` and confidence `1, 1, 1, 1` | Implemented per Steven on 2026-09-01 |
+| 2026-09-01 | L0-006 | Shared WGC GDT collector; dynamically detects the recycled-gold row across `Gold Balance`, `Supply`, and `Supply_and_Demand` sheets and emits quarterly tonnes | Workbook is validated as XLSX and cached for seven days; parsed demand/recycling series share a persistent cache; invalid negative global totals are rejected; short horizons are structurally inapplicable and longer horizons use 4Q/20Q lookbacks | 37 focused WGC/GDT tests passed in WSL; manual placement of the verified GDT workbook produced latest observation 2026-06-30 with signals `0, 0, +1, -1` and confidence `1, 1, 1, 1` | Implemented per Steven on 2026-09-01 |
 
 ## Tracker rules
 
