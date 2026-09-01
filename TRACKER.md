@@ -20,6 +20,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
+**DR2 completion:** <progress value="9" max="45">9/45</progress> **9/45 variables complete (20%)**
+
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
 | 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Not started | Not started |
