@@ -1,0 +1,69 @@
+{
+  "variable_id": "L2-001",
+  "as_of_date": "2026-09-01",
+  "source_name": "Yahoo Finance DX-Y.NYB - US Dollar Index (DXY)",
+  "source_url": "https://finance.yahoo.com/quote/DX-Y.NYB/",
+  "observation_date": "2026-08-31",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 99.43000030517578,
+          "current_date": "2026-08-31",
+          "comparison_value": 99.0,
+          "comparison_date": "2026-08-24",
+          "change_absolute": 0.4300003052,
+          "change_pct": 0.4343437426
+        },
+        "summary": "USD index rose by 0.43 points, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 99.43000030517578,
+          "current_date": "2026-08-31",
+          "comparison_value": 99.19999694824219,
+          "comparison_date": "2026-06-01",
+          "change_absolute": 0.2300033569,
+          "change_pct": 0.2318582298
+        },
+        "summary": "USD index rose by 0.23 points, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 99.43000030517578,
+          "current_date": "2026-08-31",
+          "comparison_value": 97.80999755859375,
+          "comparison_date": "2025-08-28",
+          "change_absolute": 1.6200027466,
+          "change_pct": 1.6562752142
+        },
+        "summary": "USD index rose by 1.62 points, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 99.43000030517578,
+          "current_date": "2026-08-31",
+          "comparison_value": 104.05999755859375,
+          "comparison_date": "2023-08-28",
+          "change_absolute": -4.6299972534,
+          "change_pct": -4.4493536056
+        },
+        "summary": "USD index fell by 4.63 points, bullish for gold."
+      }
+    }
+  }
+}
