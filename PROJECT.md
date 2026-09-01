@@ -17,7 +17,7 @@ GR2 is deliberately an MVP:
 
 ## 2. Fixed scope
 
-GR2 uses only the 44 variables listed in `TRACKER.md`. Their layer numbers, variable IDs, and names remain unchanged.
+GR2 uses only the 45 variables listed in `TRACKER.md`. Their layer numbers, variable IDs, and names remain unchanged except for the owner-approved restoration of L1-004 as 2Y TIPS Real Yield.
 
 The four horizons are `1-5d`, `1-3m`, `1-3y`, and `3-10y`.
 
@@ -39,13 +39,13 @@ GR2 produces a current outlook only. It does not preserve past outlooks or recon
 | L9 | Regional Physical-Market Dynamics | Local premiums, imports, and consumer demand that reveal physical-market tightness in major gold markets. |
 | L10 | Market Microstructure and Derivatives | Futures positioning, open interest, leverage, and market activity that can amplify gold-price moves. |
 
-GR1 Layer 11 is outside GR2 because none of its variables appears in the agreed 44-variable tracker.
+GR1 Layer 11 is outside GR2 because none of its variables appears in the agreed 45-variable tracker.
 
 ## 4. Development roadmap
 
 ### DR1 — Define layers and variables
 
-- Carry forward the 11 layers and 44 variables identified above.
+- Carry forward the 11 layers and 45 variables identified above.
 - Preserve IDs and names.
 - Simplify definitions where doing so improves clarity without changing the variable's economic meaning.
 - Treat `PROJECT.md` and `TRACKER.md` as GR2's self-contained definition; GR1 remains background reference.
