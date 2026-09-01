@@ -1,0 +1,65 @@
+{
+  "variable_id": "L2-002",
+  "as_of_date": "2026-09-01",
+  "source_name": "FRED DTWEXBGS - Broad Trade-Weighted Nominal US Dollar Index",
+  "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+  "observation_date": "2026-08-28",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 118.7479,
+          "current_date": "2026-08-28",
+          "comparison_value": 118.3195,
+          "comparison_date": "2026-08-24",
+          "change_percentage_points": 0.4284
+        },
+        "summary": "USD index rose by 0.43 points, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 118.7479,
+          "current_date": "2026-08-28",
+          "comparison_value": 119.1653,
+          "comparison_date": "2026-06-01",
+          "change_percentage_points": -0.4174
+        },
+        "summary": "USD index fell by 0.42 points, bullish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 118.7479,
+          "current_date": "2026-08-28",
+          "comparison_value": 120.7274,
+          "comparison_date": "2025-08-27",
+          "change_percentage_points": -1.9795
+        },
+        "summary": "USD index fell by 1.98 points, bullish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 118.7479,
+          "current_date": "2026-08-28",
+          "comparison_value": 120.3554,
+          "comparison_date": "2023-08-22",
+          "change_percentage_points": -1.6075
+        },
+        "summary": "USD index fell by 1.61 points, bullish for gold."
+      }
+    }
+  }
+}
