@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-007 complete (5/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-007 complete (5/45); L1-005 in progress |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -32,7 +32,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 8 | L1-002 | 5Y TIPS Real Yield | The inflation-adjusted yield on 5-year US Treasury securities. | Carried forward | Owner approved - FRED DFII5 | Not started |
 | 9 | L1-003 | Forward Real Rates | Market-implied forward real rates from the Federal Reserve Board TIPS curve. | Carried forward | Complete - owner approved two-node FRB composite | Not started |
 | 10 | L1-004 | 2Y TIPS Real Yield | Federal Reserve Board estimate of the smoothed yield on hypothetical 2-year TIPS. | Owner-approved restoration | Complete - owner approved Federal Reserve Board TIPS Yield Curve `TIPSY02` | Not started |
-| 11 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | Not started | Not started |
+| 11 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | In progress - FRED `ACMTP10` monthly series | Not started |
 | 12 | L1-006 | Expected Policy Rate | The expected policy-rate component of current real opportunity cost. | Carried forward | Not started | Not started |
 | 13 | L1-007 | 5Y5Y Forward Real Rate | The expected five-year real rate beginning five years ahead. | Carried forward | Owner approved - derived from L1-001/L1-002 | Not started |
 | 14 | L2-001 | DXY US Dollar Index | Dollar valuation against the major currencies represented in DXY. | Carried forward | Not started | Not started |
