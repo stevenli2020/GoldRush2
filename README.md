@@ -19,6 +19,9 @@ source .venv/bin/activate
 set -a; source .env; set +a
 gr2 collect L4-001
 gr2 collect L4-001 --force
+gr2 collect L4-001 -v       # major refresh decisions
+gr2 collect L4-001 -vv      # source and date details
+gr2 collect L4-001 -vvv     # cache paths and metadata
 gr2 collect --all --dry-run
 ```
 

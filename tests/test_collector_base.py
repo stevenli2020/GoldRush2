@@ -8,8 +8,8 @@ from goldrush2.collectors.base import BaseCollector, SourceUnavailableError
 
 
 class FakeCollector(BaseCollector):
-    def __init__(self, cache_dir, *, latest="2024-01-02", full=None, incremental=None, force=False, always_refresh=False, latest_error=None, incremental_error=None):
-        super().__init__(cache_dir, force=force, always_refresh=always_refresh)
+    def __init__(self, cache_dir, *, latest="2024-01-02", full=None, incremental=None, force=False, always_refresh=False, verbose=0, latest_error=None, incremental_error=None):
+        super().__init__(cache_dir, force=force, always_refresh=always_refresh, verbose=verbose)
         self.latest = latest
         self.full = full if full is not None else [{"date": "2024-01-01", "value": 1.0}]
         self.incremental = incremental if incremental is not None else [{"date": "2024-01-02", "value": 2.0}]
@@ -97,6 +97,15 @@ def test_deduplicate_keeps_latest_record_for_each_date(tmp_path):
     collector = FakeCollector(tmp_path)
     rows = collector._deduplicate([{"date": "2024-01-02", "value": 1.0}, {"date": "2024-01-01", "value": 1.0}, {"date": "2024-01-02", "value": 2.0}])
     assert rows == [{"date": "2024-01-01", "value": 1.0}, {"date": "2024-01-02", "value": 2.0}]
+
+
+def test_verbose_output_increases_execution_detail(tmp_path, capsys):
+    collector = FakeCollector(tmp_path, verbose=3)
+    collector.run()
+    output = capsys.readouterr().out
+    assert "normalized cache missing" in output
+    assert "normalized cache=" in output
+    assert "metadata=" in output
 
 
 def test_always_refresh_uses_incremental_without_setting_manual_force_timestamp(tmp_path):

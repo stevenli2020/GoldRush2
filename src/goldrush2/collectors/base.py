@@ -25,10 +25,11 @@ class BaseCollector(ABC):
     ``date`` field.  This class owns the policy-independent cache lifecycle.
     """
 
-    def __init__(self, cache_dir: Path, force: bool = False, always_refresh: bool = False) -> None:
+    def __init__(self, cache_dir: Path, force: bool = False, always_refresh: bool = False, verbose: int = 0) -> None:
         self.cache_dir = Path(cache_dir)
         self.force = force
         self.always_refresh = always_refresh
+        self.verbose = verbose
         self.action: str | None = None
         self.warning: str | None = None
 
@@ -99,6 +100,10 @@ class BaseCollector(ABC):
         temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         os.replace(temporary, path)
 
+    def _log(self, message: str, level: int = 1) -> None:
+        if self.verbose >= level:
+            print(f"[collector] {message}")
+
     @staticmethod
     def _now() -> str:
         return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -118,6 +123,9 @@ class BaseCollector(ABC):
         }
         self.save_meta(meta)
         self.action = action
+        self._log(f"{action} refresh wrote {len(rows)} observations; latest={meta['last_observation_date']}", 1)
+        self._log(f"normalized cache={self.cache_path}", 3)
+        self._log(f"metadata={meta}", 3)
         return rows
 
     def run(self) -> list[dict[str, Any]]:
@@ -126,8 +134,10 @@ class BaseCollector(ABC):
         has_cache = self.cache_path.exists()
         meta = self.load_meta() if has_cache else {}
         last_date = meta.get("last_observation_date") or (self._latest_date(existing) if existing else None)
+        self._log(f"cache={self.cache_path} exists={has_cache} observations={len(existing)} latest={last_date or 'none'}", 3)
 
         if self.force or not has_cache:
+            self._log("manual force refresh" if self.force else "normalized cache missing; requesting full download")
             try:
                 return self._save_updated([], self.download_full(), "full")
             except SourceUnavailableError:
@@ -138,9 +148,11 @@ class BaseCollector(ABC):
                 raise
 
         if self.always_refresh:
+            self._log(f"always_refresh policy; requesting incremental data since {last_date or 'source latest'}")
             try:
                 return self._save_updated(existing, self.download_incremental(last_date or self._latest_date(existing)), "incremental")
             except (NotImplementedError, SourceUnavailableError):
+                self._log("incremental refresh unavailable; falling back to full download", 2)
                 try:
                     return self._save_updated([], self.download_full(), "full")
                 except SourceUnavailableError:
@@ -149,19 +161,25 @@ class BaseCollector(ABC):
                     return existing
 
         try:
+            self._log("checking source latest observation date")
             source_date = self.fetch_latest_observation_date()
+            self._log(f"source latest={source_date}; cached latest={last_date or 'none'}", 2)
         except SourceUnavailableError:
+            self._log("source check failed; using normalized cache", 1)
             self.action = "cache"
             self.warning = "SOURCE UNAVAILABLE — cached data used"
             return existing
 
         if last_date is not None and source_date <= last_date:
             self.action = "skip"
+            self._log("source is unchanged; skipping download")
             return existing
 
         try:
+            self._log(f"source is newer; requesting incremental data since {last_date or source_date}")
             return self._save_updated(existing, self.download_incremental(last_date or source_date), "incremental")
         except (NotImplementedError, SourceUnavailableError):
+            self._log("incremental refresh unavailable; falling back to full download", 2)
             try:
                 return self._save_updated([], self.download_full(), "full")
             except SourceUnavailableError:

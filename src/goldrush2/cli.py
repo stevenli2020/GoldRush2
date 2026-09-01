@@ -134,6 +134,7 @@ def cmd_collect(args: argparse.Namespace) -> int:
             continue
         try:
             collector = create_collector(variable_id, config, force=args.force)
+            collector.verbose = getattr(args, "verbose", 0)
             if args.dry_run:
                 print(f"{variable_id}: action=planned strategy={config.get('refresh_strategy')} source={config.get('source')}")
                 continue
@@ -152,6 +153,7 @@ def main(argv: list[str] | None = None) -> int:
     collect.add_argument("--all", action="store_true", help="refresh every configured variable")
     collect.add_argument("--force", action="store_true", help="ignore source-date checks and request full refreshes")
     collect.add_argument("--dry-run", action="store_true", help="show collection plans without source requests")
+    collect.add_argument("-v", "--verbose", action="count", default=0, help="show execution details; repeat for more detail")
     collect.set_defaults(handler=cmd_collect)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
