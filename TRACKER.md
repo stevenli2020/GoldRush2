@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L4-003/L4-004 complete (9/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L4-001/L4-002/L4-003/L4-004 complete (11/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -46,8 +46,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 20 | L3-004 | Probability Distribution of Future Policy Outcomes | Market-implied probabilities across possible future policy-rate outcomes. | Carried forward | Not started | Not started |
 | 21 | L3-005 | FOMC Dot Plot Path | Federal Reserve participants' published policy-rate projections. | Carried forward | Not started | Not started |
 | 22 | L3-006 | FOMC Statements / Forward-Guidance Signal | Gemini-derived direction from official FOMC statements and guidance. | Carried forward | Not started | Not started |
-| 23 | L4-001 | CPI Inflation Rate | Headline US consumer-price inflation. | Carried forward | Not started | Not started |
-| 24 | L4-002 | Core PCE Inflation Rate | The Federal Reserve's preferred underlying consumer-inflation measure. | Carried forward | Not started | Not started |
+| 23 | L4-001 | CPI Inflation Rate | Headline US consumer-price inflation. | Carried forward | Complete - FRED `CPIAUCSL`, monthly Scheme A index comparisons with 5/63/252/756 lookbacks | Not started |
+| 24 | L4-002 | Core PCE Inflation Rate | The Federal Reserve's preferred underlying consumer-inflation measure. | Carried forward | Complete - FRED `PCEPILFE`, monthly Scheme A index comparisons with 5/63/252/756 lookbacks | Not started |
 | 25 | L4-003 | 5Y Breakeven Inflation | Market-implied average inflation over the next five years. | Carried forward | Complete - FRED `T5YIE` with 5/63/252/756 valid-observation lookbacks | Not started |
 | 26 | L4-004 | 10Y Breakeven Inflation | Market-implied average inflation over the next ten years. | Carried forward | Complete - FRED `T10YIE` with 5/63/252/756 valid-observation lookbacks | Not started |
 | 27 | L4-006 | Fiscal Deficit / GDP | The government fiscal deficit relative to economic output. | Carried forward | Not started | Not started |
@@ -83,6 +83,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L1-006 | CME Section 10 `30D FED FD FUT` collector with ZQ contract parsing; FRED DFF benchmark and FEDTARMD annual SEP supplement; nearest active, target-three-month, and furthest-available mappings | CME and FRED dependencies use 7-day caches; source failures preserve cache with explicit annotation; stale/missing dependencies degrade affected horizons to zero confidence | 8 focused tests passed in WSL; live run used source-confirmed cached CME bulletin after HTTP 403, live FRED DFF/FEDTARMD, and validated all four horizon outputs; 3-month evidence records target date and actual expiry deviation | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-003 | Shared FRED `T5YIE` collector; daily breakeven observations with 5, 63, 252, and 756 valid-observation lookbacks; falling values signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 16 focused tests and 108 full-suite tests passed in WSL; live run produced latest observation 2026-08-31 with all four horizons at confidence 1 | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-004 | Shared FRED `T10YIE` collector; daily breakeven observations with 5, 63, 252, and 756 valid-observation lookbacks; falling values signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 16 focused tests and 108 full-suite tests passed in WSL; live run produced latest observation 2026-08-31 with all four horizons at confidence 1 | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L4-001 | Shared FRED `CPIAUCSL` collector; monthly raw-index Scheme A comparisons with 5, 63, 252, and 756 valid observations; rising index signals bearish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 142 full-suite tests passed in WSL; live run produced latest observation 2026-07-01 with all four horizons at confidence 1 | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L4-002 | Shared FRED `PCEPILFE` collector; monthly raw-index Scheme A comparisons with 5, 63, 252, and 756 valid observations; rising index signals bearish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 142 full-suite tests passed in WSL; live run produced latest observation 2026-07-01 with all four horizons at confidence 1 | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 
