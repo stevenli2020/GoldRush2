@@ -1,0 +1,81 @@
+{
+  "variable_id": "L1-006",
+  "as_of_date": "2026-09-01",
+  "source_name": "CME 30-Day Fed Funds Futures + FRED DFF/FEDTARMD",
+  "source_url": "https://www.cmegroup.com/daily_bulletin/Section10_Interest_Rate_Futures_Continued.pdf",
+  "observation_date": "2026-08-29",
+  "current_rate_benchmark": "FRED DFF",
+  "calculation_method": "CME ZQ implied rate (100 - settlement price) versus DFF; FEDTARMD annual SEP supplement for 3-10y",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "contract": "ZQQ26",
+          "expiry_date": "2026-08-31",
+          "settlement_price": 96.37,
+          "implied_rate": 3.6299999999999955,
+          "current_rate": 3.63,
+          "current_rate_date": "2026-08-28",
+          "expected_change_pp": -0.0,
+          "threshold_pp": 0.1
+        },
+        "summary": "CME ZQQ26 implied rate 3.63% vs current rate 3.63% \u2014 within the neutral threshold. DEPENDENT SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "contract": "ZQX26",
+          "expiry_date": "2026-11-30",
+          "settlement_price": 96.215,
+          "implied_rate": 3.7849999999999966,
+          "current_rate": 3.63,
+          "current_rate_date": "2026-08-28",
+          "expected_change_pp": 0.155,
+          "threshold_pp": 0.1,
+          "target_date": "2026-11-29",
+          "target_deviation_days": 1
+        },
+        "summary": "CME ZQX26 implied rate 3.78% vs current rate 3.63% \u2014 expected rate increase, bearish for gold. Contract expires 2026-11-30 vs target 2026-11-29. DEPENDENT SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "contract": "ZQG28",
+          "expiry_date": "2028-02-29",
+          "settlement_price": 95.97,
+          "implied_rate": 4.030000000000001,
+          "current_rate": 3.63,
+          "current_rate_date": "2026-08-28",
+          "expected_change_pp": 0.4,
+          "threshold_pp": 0.1
+        },
+        "summary": "CME ZQG28 implied rate 4.03% vs current rate 3.63% \u2014 expected rate increase, bearish for gold. DEPENDENT SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "source": "FEDTARMD_annual_sep_projection",
+          "prediction_value": 3.4,
+          "prediction_date": "2028-01-01",
+          "current_rate": 3.63,
+          "current_rate_date": "2026-08-28",
+          "expected_change_pp": -0.23,
+          "threshold_pp": 0.1,
+          "frequency": "Annual"
+        },
+        "summary": "FEDTARMD annual SEP projection 3.40% dated 2028-01-01 vs current rate 3.63% \u2014 long-term expected rate cut, bullish for gold; this is a central bank forecast, not market-implied."
+      }
+    }
+  }
+}
