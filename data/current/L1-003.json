@@ -1,0 +1,70 @@
+{
+  "variable_id": "L1-003",
+  "as_of_date": "2026-09-01",
+  "source_name": "Federal Reserve Board TIPS Yield Curve (smoothed yields)",
+  "source_url": "https://www.federalreserve.gov/data/yield-curve-tables/feds200805.csv",
+  "observation_date": "2026-08-21",
+  "calculation_method": "Composite of 2Y3Y and 5Y5Y forward rates, equally weighted (1Y1Y omitted because 1Y TIPS spot data is not available from the FRB dataset)",
+  "forward_nodes": {
+    "forward_2y3y": 1.9798783918787644,
+    "forward_5y5y": 2.856948035823703
+  },
+  "horizons": {
+    "1-5d": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.4184132138512338,
+          "current_date": "2026-08-21",
+          "comparison_value": 2.4361012515738856,
+          "comparison_date": "2026-08-17",
+          "change_percentage_points": -0.0176880377
+        },
+        "summary": "The composite forward real rate fell by 0.02 percentage points, bullish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.4184132138512338,
+          "current_date": "2026-08-21",
+          "comparison_value": 2.3020148519475647,
+          "comparison_date": "2026-05-22",
+          "change_percentage_points": 0.1163983619
+        },
+        "summary": "The composite forward real rate rose by 0.12 percentage points, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.4184132138512338,
+          "current_date": "2026-08-21",
+          "comparison_value": 2.084676877950231,
+          "comparison_date": "2025-08-20",
+          "change_percentage_points": 0.3337363359
+        },
+        "summary": "The composite forward real rate rose by 0.33 percentage points, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.4184132138512338,
+          "current_date": "2026-08-21",
+          "comparison_value": 1.629096117008877,
+          "comparison_date": "2023-08-14",
+          "change_percentage_points": 0.7893170968
+        },
+        "summary": "The composite forward real rate rose by 0.79 percentage points, bearish for gold."
+      }
+    }
+  }
+}
