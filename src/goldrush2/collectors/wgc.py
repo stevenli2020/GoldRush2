@@ -13,6 +13,7 @@ from urllib.parse import unquote, urljoin
 from urllib.request import Request, urlopen
 
 WGC_PAGE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
+WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves-by-country"
 CACHE_MAX_AGE_DAYS = 7
 USER_AGENT = "Mozilla/5.0 GoldRush2 WGC downloader"
 LAST_FETCH_USED_CACHE = False
@@ -23,8 +24,8 @@ class WGCError(RuntimeError):
     """Raised when the WGC workbook cannot be downloaded or validated."""
 
 
-def _latest_workbook(cache_dir: Path) -> Path | None:
-    candidates = [path for path in cache_dir.glob("ETF_Flows_*.xlsx") if path.is_file()]
+def _latest_workbook(cache_dir: Path, pattern: str = "ETF_Flows_*.xlsx") -> Path | None:
+    candidates = [path for path in cache_dir.glob(pattern) if path.is_file()]
     return max(candidates, key=lambda path: path.stat().st_mtime, default=None)
 
 
@@ -62,13 +63,13 @@ def _request(url: str, *, referer: str | None = None) -> bytes:
         raise WGCError(f"WGC is unavailable: {exc.reason}") from exc
 
 
-def _find_download_url(page: bytes) -> str:
+def _find_download_url(page: bytes, *, page_url: str = WGC_PAGE_URL, workbook_pattern: str = r"(?:etf[^\"']*flow|flow[^\"']*etf)") -> str:
     text = html.unescape(page.decode("utf-8", errors="replace"))
-    pattern = r"href=[\"']([^\"']*?/download/file/[^\"']*(?:etf[^\"']*flow|flow[^\"']*etf)[^\"']*\.xlsx?[^\"']*)[\"']"
+    pattern = rf"href=[\"']([^\"']*?/download/file/[^\"']*{workbook_pattern}[^\"']*\.xlsx?[^\"']*)[\"']"
     match = re.search(pattern, text, re.IGNORECASE)
     if not match:
-        raise WGCError("WGC ETF workbook link was not found; authentication or page structure may have changed")
-    return urljoin(WGC_PAGE_URL, unquote(match.group(1)))
+        raise WGCError("WGC workbook link was not found; authentication or page structure may have changed")
+    return urljoin(page_url, unquote(match.group(1)))
 
 
 def _filename(url: str) -> str:
@@ -76,19 +77,18 @@ def _filename(url: str) -> str:
     return name if name.lower().endswith((".xlsx", ".xls")) else "ETF_Flows_download.xlsx"
 
 
-def fetch_wgc_workbook(cache_dir: Path) -> Path | None:
-    """Download the current WGC ETF workbook, using a seven-day cache fallback."""
+def _fetch_workbook(cache_dir: Path, *, page_url: str, cache_pattern: str, link_pattern: str) -> Path | None:
     global LAST_FETCH_USED_CACHE, LAST_FETCH_STALE
     LAST_FETCH_USED_CACHE = False
     LAST_FETCH_STALE = False
     cache_dir.mkdir(parents=True, exist_ok=True)
-    cached = _latest_workbook(cache_dir)
+    cached = _latest_workbook(cache_dir, cache_pattern)
     if cached is not None and _fresh(cached):
         return cached
     try:
-        page = _request(WGC_PAGE_URL)
-        download_url = _find_download_url(page)
-        content = _request(download_url, referer=WGC_PAGE_URL)
+        page = _request(page_url)
+        download_url = _find_download_url(page, page_url=page_url, workbook_pattern=link_pattern)
+        content = _request(download_url, referer=page_url)
         if not content.startswith(b"PK\x03\x04"):
             raise WGCError("WGC response is not a valid XLSX workbook")
         path = cache_dir / _filename(download_url)
@@ -102,3 +102,13 @@ def fetch_wgc_workbook(cache_dir: Path) -> Path | None:
             return cached
         LAST_FETCH_STALE = cached is not None
         return None
+
+
+def fetch_wgc_workbook(cache_dir: Path) -> Path | None:
+    """Download the current WGC ETF workbook, using a seven-day cache fallback."""
+    return _fetch_workbook(cache_dir, page_url=WGC_PAGE_URL, cache_pattern="ETF_Flows_*.xlsx", link_pattern=r"(?:etf[^\"']*flow|flow[^\"']*etf)")
+
+
+def fetch_wgc_official_changes(cache_dir: Path) -> Path | None:
+    """Download the current WGC/IMF IFS official-changes workbook."""
+    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_CHANGES_PAGE_URL, cache_pattern="Changes_*_IFS.xlsx", link_pattern="changes")

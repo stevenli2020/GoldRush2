@@ -32,6 +32,35 @@ def parse_date(value: Any) -> str | None:
     return None
 
 
+def parse_official_changes_workbook(path: Any) -> list[dict[str, Any]]:
+    """Read canonical country/date changes from the WGC Monthly sheet."""
+    from openpyxl import load_workbook
+
+    workbook = load_workbook(path, read_only=True, data_only=True)
+    if "Monthly" not in workbook.sheetnames:
+        raise ValueError("WGC Monthly sheet was not found")
+    rows = list(workbook["Monthly"].iter_rows(values_only=True))
+    header_index = next((index for index, row in enumerate(rows) if len(row) > 1 and str(row[1]).strip().lower() == "country"), None)
+    if header_index is None:
+        raise ValueError("WGC Monthly country header was not found")
+    dates = [(index, parse_date(value)) for index, value in enumerate(rows[header_index]) if index >= 3 and parse_date(value) is not None]
+    if not dates:
+        raise ValueError("WGC Monthly date columns were not found")
+    records: list[dict[str, Any]] = []
+    for row in rows[header_index + 1 :]:
+        country = str(row[1]).strip() if len(row) > 1 and row[1] is not None else ""
+        if not country or country.lower() == "nan" or country.endswith("*"):
+            continue
+        for column, observation_date in dates:
+            value = row[column] if column < len(row) else None
+            if value in (None, "") or not finite(value):
+                continue
+            records.append({"country": country, "date": observation_date, "value": float(value)})
+    if not records:
+        raise ValueError("WGC Monthly sheet contained no canonical numeric changes")
+    return records
+
+
 def empty_data() -> dict[str, Any]:
     """Return the common empty evidence data shape."""
     return {"current_value": None, "current_date": None, "comparison_value": None, "comparison_date": None, "change_absolute": None, "change_pct": None}
@@ -51,6 +80,8 @@ def build_output(
     cached: bool = False,
     as_of_date: str | None = None,
     value_label: str,
+    rising_signal: int = 1,
+    falling_signal: int = -1,
 ) -> dict[str, Any]:
     """Build standard four-horizon monthly output using rising/falling direction."""
     ordered = sorted(observations, key=lambda item: str(item["date"]))
@@ -71,9 +102,9 @@ def build_output(
         change = round(current_value - comparison_value, 10)
         change_pct = round(change / comparison_value * 100, 10) if comparison_value else None
         if change > 0:
-            signal, direction = 1, "rose"
+            signal, direction = rising_signal, "rose"
         elif change < 0:
-            signal, direction = -1, "fell"
+            signal, direction = falling_signal, "fell"
         else:
             signal, direction = 0, "was unchanged"
         percentage_text = f"{change_pct:+.2f}%" if change_pct is not None else "percentage change unavailable"
