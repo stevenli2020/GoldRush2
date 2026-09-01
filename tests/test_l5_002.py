@@ -40,7 +40,15 @@ def changes_workbook(tmp_path):
 
 
 def test_parser_uses_changes_only_cumulative_fallback(tmp_path):
-    assert l5_002.parse_reserve_share_workbook(changes_workbook(tmp_path))[-1] == {"date": "2002-03-01", "value": 13.0}
+    assert l5_002.parse_reserve_share_workbook(changes_workbook(tmp_path), cache_path=tmp_path / "parsed.json")[-1] == {"date": "2002-03-01", "value": 13.0}
+
+
+def test_parser_reuses_shared_persistent_cache(tmp_path, monkeypatch):
+    workbook = changes_workbook(tmp_path)
+    cache_path = tmp_path / "parsed.json"
+    expected = l5_002.parse_reserve_share_workbook(workbook, cache_path=cache_path)
+    monkeypatch.setattr("goldrush2.extractors._wgc_common.parse_official_changes_workbook", lambda path: (_ for _ in ()).throw(AssertionError("XLSX was parsed again")))
+    assert l5_002.parse_reserve_share_workbook(workbook, cache_path=cache_path) == expected
 
 
 def test_proxy_is_explicit_and_not_fraction_claim():

@@ -15,17 +15,18 @@ SOURCE_NAME = "WGC/IMF IFS Official Changes - Gold Share of Official Reserves (c
 SOURCE_URL = "https://www.gold.org/"
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "wgc"
+PARSED_CACHE_PATH = PROJECT_ROOT / "data" / "cache" / "wgc" / "official_changes_monthly.json"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / f"{VARIABLE_ID}.json"
 
 
-def parse_reserve_share_workbook(path: Path) -> list[dict[str, Any]]:
+def parse_reserve_share_workbook(path: Path, *, cache_path: Path | None = PARSED_CACHE_PATH) -> list[dict[str, Any]]:
     """Build the approved changes-only fallback for reserve-share history.
 
     The Monthly sheet contains signed country changes but no total-reserves
     denominator. Consequently this returns a cumulative net-change proxy,
     not a reported 0-1 reserve-share fraction.
     """
-    return cumulative_net_change_series(path)
+    return cumulative_net_change_series(path, cache_path=cache_path)
 
 
 def build_output(observations: list[dict[str, Any]], *, cached: bool = False, as_of_date: str | None = None) -> dict[str, Any]:

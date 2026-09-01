@@ -40,11 +40,19 @@ def changes_workbook(tmp_path):
 
 
 def test_parser_builds_cumulative_canonical_history(tmp_path):
-    assert l0_002.parse_holdings_workbook(changes_workbook(tmp_path)) == [
+    assert l0_002.parse_holdings_workbook(changes_workbook(tmp_path), cache_path=tmp_path / "parsed.json") == [
         {"date": "2002-01-01", "value": 12.0},
         {"date": "2002-02-01", "value": 9.0},
         {"date": "2002-03-01", "value": 13.0},
     ]
+
+
+def test_parser_reuses_persistent_cache(tmp_path, monkeypatch):
+    workbook = changes_workbook(tmp_path)
+    cache_path = tmp_path / "parsed.json"
+    expected = l0_002.parse_holdings_workbook(workbook, cache_path=cache_path)
+    monkeypatch.setattr("goldrush2.extractors._wgc_common.parse_official_changes_workbook", lambda path: (_ for _ in ()).throw(AssertionError("XLSX was parsed again")))
+    assert l0_002.parse_holdings_workbook(workbook, cache_path=cache_path) == expected
 
 
 def test_insufficient_history():

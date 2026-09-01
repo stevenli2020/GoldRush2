@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
 import math
 from datetime import date, datetime
+from pathlib import Path
 from typing import Any
 
 HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 252, "3-10y": 756}
@@ -66,13 +68,24 @@ def parse_official_changes_workbook(path: Any) -> list[dict[str, Any]]:
     return records
 
 
-def cumulative_net_change_series(path: Any) -> list[dict[str, Any]]:
+def cumulative_net_change_series(path: Any, *, cache_path: Any | None = None) -> list[dict[str, Any]]:
     """Build a monthly cumulative index from canonical WGC country changes.
 
     The official-changes workbook reports signed monthly changes rather than
     a level.  This fallback starts at zero at the first reported month and
     cumulatively sums the global canonical-country changes thereafter.
     """
+    source_path = Path(path)
+    source_stat = source_path.stat()
+    if cache_path is not None:
+        parsed_cache = Path(cache_path)
+        try:
+            cached = json.loads(parsed_cache.read_text(encoding="utf-8"))
+            if (cached.get("source_file") == source_path.name and cached.get("source_mtime_ns") == source_stat.st_mtime_ns and cached.get("source_size") == source_stat.st_size and isinstance(cached.get("observations"), list)):
+                return cached["observations"]
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError, AttributeError):
+            pass
+
     totals: dict[str, float] = {}
     for record in parse_official_changes_workbook(path):
         observation_date = str(record["date"])
@@ -84,6 +97,13 @@ def cumulative_net_change_series(path: Any) -> list[dict[str, Any]]:
     for observation_date in sorted(totals):
         cumulative += totals[observation_date]
         series.append({"date": observation_date, "value": round(cumulative, 10)})
+    if cache_path is not None:
+        parsed_cache = Path(cache_path)
+        parsed_cache.parent.mkdir(parents=True, exist_ok=True)
+        payload = {"source_file": source_path.name, "source_mtime_ns": source_stat.st_mtime_ns, "source_size": source_stat.st_size, "observations": series}
+        temporary = parsed_cache.with_suffix(parsed_cache.suffix + ".tmp")
+        temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        temporary.replace(parsed_cache)
     return series
 
 
