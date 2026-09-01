@@ -1,0 +1,86 @@
+{
+  "variable_id": "L7-005",
+  "as_of_date": "2026-09-01",
+  "source_name": "FRED SOFR - EFFR spread (repo funding stress)",
+  "source_url": "https://fred.stlouisfed.org/series/SOFR",
+  "data_frequency": "Daily",
+  "observation_date": "2026-08-31",
+  "horizons": {
+    "1-5d": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 5.0,
+          "current_date": "2026-08-31",
+          "comparison_value": 3.0,
+          "comparison_date": "2026-08-25",
+          "change_basis_points": 2.0,
+          "change_pct": 66.6666666667,
+          "sofr": 3.68,
+          "effr": 3.63,
+          "comparison_sofr": 3.66,
+          "comparison_effr": 3.63
+        },
+        "summary": "SOFR-EFFR spread rose by 2.00bp, indicating increased funding stress, bullish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 5.0,
+          "current_date": "2026-08-31",
+          "comparison_value": 1.0,
+          "comparison_date": "2026-06-02",
+          "change_basis_points": 4.0,
+          "change_pct": 400.0,
+          "sofr": 3.68,
+          "effr": 3.63,
+          "comparison_sofr": 3.63,
+          "comparison_effr": 3.62
+        },
+        "summary": "SOFR-EFFR spread rose by 4.00bp, indicating increased funding stress, bullish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 5.0,
+          "current_date": "2026-08-31",
+          "comparison_value": 3.0,
+          "comparison_date": "2025-08-27",
+          "change_basis_points": 2.0,
+          "change_pct": 66.6666666667,
+          "sofr": 3.68,
+          "effr": 3.63,
+          "comparison_sofr": 4.36,
+          "comparison_effr": 4.33
+        },
+        "summary": "SOFR-EFFR spread rose by 2.00bp, indicating increased funding stress, bullish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 5.0,
+          "current_date": "2026-08-31",
+          "comparison_value": -3.0,
+          "comparison_date": "2023-08-21",
+          "change_basis_points": 8.0,
+          "change_pct": -266.6666666667,
+          "sofr": 3.68,
+          "effr": 3.63,
+          "comparison_sofr": 5.3,
+          "comparison_effr": 5.33
+        },
+        "summary": "SOFR-EFFR spread rose by 8.00bp, indicating increased funding stress, bullish for gold."
+      }
+    }
+  }
+}
