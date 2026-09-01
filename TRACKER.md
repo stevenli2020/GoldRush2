@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L7-001/L7-004/L7-005 complete (21/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-003/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L7-001/L7-004/L7-005/L8-001 complete (23/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,13 +20,13 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="21" max="45">21/45</progress> **21/45 variables complete (47%)**
+**DR2 completion:** <progress value="23" max="45">23/45</progress> **23/45 variables complete (51%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
 | 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Not started | Not started |
 | 2 | L0-002 | Central-Bank Gold Holdings | Gold held by central banks and official institutions. | Carried forward | Not started | Not started |
-| 3 | L0-003 | Gold ETF Holdings | The stock of physical gold held by exchange-traded funds. | Carried forward | Not started | Not started |
+| 3 | L0-003 | Gold ETF Holdings | The stock of physical gold held by exchange-traded funds. | Carried forward | Complete - WGC ETF workbook Holdings by month sheet, monthly global tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
 | 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Not started | Not started |
 | 5 | L0-006 | Gold Recycling Flow | Gold returned to market through recycling and secondary supply. | Carried forward | Not started | Not started |
 | 6 | L0-009 | Gold Lease Rates / Forward Rates | The cost and availability of borrowing or financing physical gold. | Carried forward | Not started | Not started |
@@ -64,7 +64,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 38 | L7-003 | Global Private Non-Financial Credit Growth | Growth in credit to private non-financial borrowers across major economies. | Carried forward | Not started | Not started |
 | 39 | L7-004 | Credit-Spread Financial Stress | Credit-market risk and financial stress measured through borrowing spreads. | Carried forward | Complete - FRED `BAMLH0A0HYM2` daily high-yield OAS with 5/63/252/756 valid-observation lookbacks | Not started |
 | 40 | L7-005 | Treasury Repo Funding Stress | Stress in secured short-term US Treasury funding markets. | Carried forward | Complete - aligned FRED `SOFR` minus `EFFR` spread in basis points with 5/63/252/756 valid-observation lookbacks | Not started |
-| 41 | L8-001 | Gold ETF Net Flows | Current investment money flowing into or out of gold ETFs. | Carried forward | Not started | Not started |
+| 41 | L8-001 | Gold ETF Net Flows | Current investment money flowing into or out of gold ETFs. | Carried forward | Complete - WGC ETF workbook Demand by month sheet, summed per-fund monthly tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
 | 42 | L9-001 | Shanghai Gold Exchange Premium/Discount | The local Chinese physical gold price relative to the international benchmark. | Carried forward | Not started | Not started |
 | 43 | L9-004 | India Physical Gold Imports and Consumer Demand | Indian gold imports and consumer acquisition as a regional physical-demand signal. | Carried forward | Not started | Not started |
 | 44 | L10-001 | COMEX Managed-Money Net Positioning | Net speculative futures positioning reported for COMEX gold. | Carried forward | Not started | Not started |
@@ -95,6 +95,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L7-001 | Shared FRED `WALCL` collector; weekly Federal Reserve total assets with 5, 63, 252, and 756 valid observations; rising assets signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 293 full-suite tests passed in WSL; live run produced latest observation 2026-08-26 with signals `-1, +1, -1, +1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L7-004 | Shared FRED `BAMLH0A0HYM2` collector; daily ICE BofA high-yield OAS with 5, 63, 252, and 756 valid observations; widening spreads signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 293 full-suite tests passed in WSL; live run produced latest observation 2026-08-28 with signals `-1, -1, -1, -1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L7-005 | Shared FRED `SOFR` and `EFFR` collectors; inner-joined common dates and calculated the secured-minus-unsecured overnight-rate spread in basis points with 5, 63, 252, and 756 valid-observation lookbacks; rising spread signals bullish for gold | Each FRED response overwrites its raw cache on success; failed dependency uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; stale or missing dependency returns zero confidence | 18 focused tests and 311 full-suite tests passed in WSL; live run produced latest observation 2026-08-31 with signals `+1, +1, +1, +1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L0-003 | Shared WGC ETF workbook collector; Holdings by month sheet yields monthly global gold holdings in tonnes with 5, 63, 252, and 756 valid-observation lookbacks; rising holdings signal bullish for gold | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 43 focused WGC/L0/L8 tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-07-31 with signals `-1, +1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L8-001 | Shared WGC ETF workbook collector; Demand by month sheet sums numeric per-fund monthly gold demand in tonnes with 5, 63, 252, and 756 valid-observation lookbacks; rising net flows signal bullish for gold | Workbook is validated as XLSX and cached for seven days; source failure uses a fresh cached workbook; older cache returns `STALE DATA` with zero confidence | 43 focused WGC/L0/L8 tests passed in WSL; live run using authenticated WGC source produced latest observation 2026-07-31 with signals `+1, -1, +1, 0` and confidence `1, 1, 1, 0` | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 
