@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009 complete (18/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L7-001/L7-004 complete (20/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,7 +20,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="18" max="45">18/45</progress> **18/45 variables complete (40%)**
+**DR2 completion:** <progress value="20" max="45">20/45</progress> **20/45 variables complete (44%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
@@ -60,9 +60,9 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 34 | L5-006 | Official-Sector Gold Sales / Lending | Gold supplied through official-sector sales, swaps, or lending. | Carried forward | Not started | Not started |
 | 35 | L6-001 | Active Conflict and Escalation Signal | Gemini-derived assessment of active conflict and escalation affecting safe-haven demand. | Carried forward | Not started | Not started |
 | 36 | L6-002 | Sanctions and Sovereign-Asset Freeze Events | Gemini-derived assessment of sanctions and asset restrictions affecting reserve security. | Carried forward | Not started | Not started |
-| 37 | L7-001 | Major Central-Bank Balance-Sheet Liquidity | Realized liquidity supplied or withdrawn through major central-bank balance sheets. | Carried forward | Not started | Not started |
+| 37 | L7-001 | Major Central-Bank Balance-Sheet Liquidity | Realized liquidity supplied or withdrawn through major central-bank balance sheets. | Carried forward | Complete - FRED `WALCL` weekly total assets with 5/63/252/756 valid-observation lookbacks | Not started |
 | 38 | L7-003 | Global Private Non-Financial Credit Growth | Growth in credit to private non-financial borrowers across major economies. | Carried forward | Not started | Not started |
-| 39 | L7-004 | Credit-Spread Financial Stress | Credit-market risk and financial stress measured through borrowing spreads. | Carried forward | Not started | Not started |
+| 39 | L7-004 | Credit-Spread Financial Stress | Credit-market risk and financial stress measured through borrowing spreads. | Carried forward | Complete - FRED `BAMLH0A0HYM2` daily high-yield OAS with 5/63/252/756 valid-observation lookbacks | Not started |
 | 40 | L7-005 | Treasury Repo Funding Stress | Stress in secured short-term US Treasury funding markets. | Carried forward | Not started | Not started |
 | 41 | L8-001 | Gold ETF Net Flows | Current investment money flowing into or out of gold ETFs. | Carried forward | Not started | Not started |
 | 42 | L9-001 | Shanghai Gold Exchange Premium/Discount | The local Chinese physical gold price relative to the international benchmark. | Carried forward | Not started | Not started |
@@ -92,6 +92,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L4-007 | Shared FRED `GFDEGDQ188S` collector; quarterly debt/GDP comparisons using approved 8-quarter and 20-quarter lookbacks; 1-5d and 1-3m structurally inapplicable with confidence 1 | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence for applicable horizons | 14 focused tests and 227 full-suite tests passed in WSL; live run produced latest observation 2026-01-01 with signals `0, 0, -1, -1` and confidence 1 | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-008 | Paginated U.S. Treasury Fiscal Data MTS Table 3 collector; pairs September FYTD Total Receipts line 130 with gross Treasury interest line 360 and calculates annual interest/revenue ratio | Full page envelopes are cached for seven days; source failure uses fresh cache with explicit annotation; older cache returns `STALE DATA` and zero confidence | 32 focused Treasury/L4 tests and 259 full-suite tests passed in WSL; live run produced latest observation 2025-09-30 with signals `0, 0, +1, +1` and confidence 1 | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-009 | Paginated U.S. Treasury Fiscal Data MSPD Table 3 Market collector; computes marketable debt maturing within one year divided by Total Marketable outstanding, excluding summary/matured/missing-maturity rows | Full page envelopes are cached for seven days; source failure uses fresh cache with explicit annotation; older cache returns `STALE DATA` and zero confidence | 32 focused Treasury/L4 tests and 259 full-suite tests passed in WSL; live run produced latest observation 2026-07-31 with signals `+1, +1, +1, +1` and confidence 1 | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L7-001 | Shared FRED `WALCL` collector; weekly Federal Reserve total assets with 5, 63, 252, and 756 valid observations; rising assets signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 293 full-suite tests passed in WSL; live run produced latest observation 2026-08-26 with signals `-1, +1, -1, +1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L7-004 | Shared FRED `BAMLH0A0HYM2` collector; daily ICE BofA high-yield OAS with 5, 63, 252, and 756 valid observations; widening spreads signal bullish for gold | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 17 focused tests and 293 full-suite tests passed in WSL; live run produced latest observation 2026-08-28 with signals `-1, -1, -1, -1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 
