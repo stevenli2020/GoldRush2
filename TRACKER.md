@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 44 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | Not started |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - FRED collector and L1-001 complete (1/44) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -28,7 +28,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Not started | Not started |
 | 5 | L0-006 | Gold Recycling Flow | Gold returned to market through recycling and secondary supply. | Carried forward | Not started | Not started |
 | 6 | L0-009 | Gold Lease Rates / Forward Rates | The cost and availability of borrowing or financing physical gold. | Carried forward | Not started | Not started |
-| 7 | L1-001 | 10Y TIPS Real Yield | The inflation-adjusted yield on 10-year US Treasury securities. | Carried forward | Not started | Not started |
+| 7 | L1-001 | 10Y TIPS Real Yield | The inflation-adjusted yield on 10-year US Treasury securities. | Carried forward | Complete - FRED DFII10 | Not started |
 | 8 | L1-002 | 5Y TIPS Real Yield | The inflation-adjusted yield on 5-year US Treasury securities. | Carried forward | Not started | Not started |
 | 9 | L1-003 | Forward Real Rates | Market-implied real interest rates for future periods. | Carried forward | Not started | Not started |
 | 10 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | Not started | Not started |
@@ -66,6 +66,12 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 42 | L9-004 | India Physical Gold Imports and Consumer Demand | Indian gold imports and consumer acquisition as a regional physical-demand signal. | Carried forward | Not started | Not started |
 | 43 | L10-001 | COMEX Managed-Money Net Positioning | Net speculative futures positioning reported for COMEX gold. | Carried forward | Not started | Not started |
 | 44 | L10-002 | COMEX Gold Futures Open Interest | Outstanding COMEX gold futures contracts and associated market participation. | Carried forward | Not started | Not started |
+
+## DR2 implementation evidence
+
+| Date | Variable | Collector and extractor | Freshness and degradation | Verification |
+|---|---|---|---|---|
+| 2026-09-01 | L1-001 | Shared FRED `series_observations` collector for `DFII10`; lookbacks 5, 63, 252, and 756 valid observations | Live source overwrites the raw response; failed collection uses cache younger than 7 days; older cache returns `STALE DATA` with zero confidence | 17 tests passed in WSL; live FRED run returned 6,172 raw observations and latest observation date 2026-08-28; all four horizon outputs validated |
 
 ## Tracker rules
 
