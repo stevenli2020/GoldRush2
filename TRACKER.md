@@ -30,8 +30,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 6 | L0-009 | Gold Lease Rates / Forward Rates | The cost and availability of borrowing or financing physical gold. | Carried forward | Not started | Not started |
 | 7 | L1-001 | 10Y TIPS Real Yield | The inflation-adjusted yield on 10-year US Treasury securities. | Carried forward | Owner approved - FRED DFII10 | Not started |
 | 8 | L1-002 | 5Y TIPS Real Yield | The inflation-adjusted yield on 5-year US Treasury securities. | Carried forward | Owner approved - FRED DFII5 | Not started |
-| 9 | L1-003 | Forward Real Rates | Market-implied forward real rates from the Federal Reserve Board TIPS curve. | Carried forward | Owner approved - two-node FRB composite | Not started |
-| 10 | L1-004 | 2Y TIPS Real Yield | Federal Reserve Board estimate of the smoothed yield on hypothetical 2-year TIPS. | Owner-approved restoration | Owner approved - Federal Reserve Board TIPS Yield Curve `TIPSY02` | Not started |
+| 9 | L1-003 | Forward Real Rates | Market-implied forward real rates from the Federal Reserve Board TIPS curve. | Carried forward | Complete - owner approved two-node FRB composite | Not started |
+| 10 | L1-004 | 2Y TIPS Real Yield | Federal Reserve Board estimate of the smoothed yield on hypothetical 2-year TIPS. | Owner-approved restoration | Complete - owner approved Federal Reserve Board TIPS Yield Curve `TIPSY02` | Not started |
 | 11 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | Not started | Not started |
 | 12 | L1-006 | Expected Policy Rate | The expected policy-rate component of current real opportunity cost. | Carried forward | Not started | Not started |
 | 13 | L1-007 | 5Y5Y Forward Real Rate | The expected five-year real rate beginning five years ahead. | Carried forward | Owner approved - derived from L1-001/L1-002 | Not started |
