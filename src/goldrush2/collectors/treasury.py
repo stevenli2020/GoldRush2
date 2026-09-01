@@ -5,9 +5,12 @@ from __future__ import annotations
 import json
 import time
 from pathlib import Path
+from typing import Any, Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import urlopen
+
+from goldrush2.collectors.base import BaseCollector, SourceUnavailableError
 
 CACHE_MAX_AGE_DAYS = 7
 
@@ -94,3 +97,55 @@ def flatten_data(payload: dict) -> list[dict]:
     for page in payload.get("pages", []):
         rows.extend(row for row in page.get("data", []) if isinstance(row, dict))
     return rows
+
+
+def fetch_latest_treasury_date(endpoint: str, filters: dict) -> str:
+    """Read the newest record date using the API's one-page response."""
+    query_filters = dict(filters)
+    query_filters["sort"] = "-record_date"
+    try:
+        with urlopen(f"{endpoint}?{_query(query_filters, 1)}", timeout=30) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except (HTTPError, URLError, TimeoutError, OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise TreasuryError(f"Treasury latest-date request failed: {exc}") from exc
+    rows = payload.get("data") if isinstance(payload, dict) else None
+    if not isinstance(rows, list) or not rows or not isinstance(rows[0], dict):
+        raise TreasuryError("Treasury latest-date response has no data")
+    record_date = rows[0].get("record_date")
+    if not isinstance(record_date, str) or not record_date:
+        raise TreasuryError("Treasury latest-date response has no record_date")
+    return record_date
+
+
+class TreasuryCollector(BaseCollector):
+    """Normalized-cache adapter for one paginated Treasury table."""
+
+    def __init__(
+        self,
+        cache_dir: Path,
+        endpoint: str,
+        filters: dict[str, Any],
+        raw_path: Path,
+        normalizer: Callable[[list[dict]], list[dict[str, Any]]],
+        *,
+        force: bool = False,
+        always_refresh: bool = False,
+    ) -> None:
+        super().__init__(cache_dir, force=force, always_refresh=always_refresh)
+        self.endpoint = endpoint
+        self.filters = filters
+        self.raw_path = Path(raw_path)
+        self.normalizer = normalizer
+
+    def fetch_latest_observation_date(self) -> str:
+        try:
+            return fetch_latest_treasury_date(self.endpoint, self.filters)
+        except TreasuryError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
+
+    def download_full(self) -> list[dict[str, Any]]:
+        try:
+            payload = fetch_treasury_table(self.endpoint, self.filters, self.raw_path)
+            return self.normalizer(flatten_data(payload))
+        except TreasuryError as exc:
+            raise SourceUnavailableError(str(exc)) from exc

@@ -1,4 +1,4 @@
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import json
 import os
 import sys
@@ -21,14 +21,15 @@ class FakeFrame:
 
 
 def test_download_extracts_close_skips_zero_volume_and_current_day(monkeypatch):
+    today = date.today()
     rows = [
-        (datetime(2026, 8, 28), {"Close": 97.1, "Volume": 10}),
-        (datetime(2026, 9, 1), {"Close": 97.2, "Volume": 10}),
-        (datetime(2026, 8, 27), {"Close": 97.0, "Volume": 0}),
+        (datetime.combine(today - timedelta(days=2), datetime.min.time()), {"Close": 97.1, "Volume": 10}),
+        (datetime.combine(today, datetime.min.time()), {"Close": 97.2, "Volume": 10}),
+        (datetime.combine(today - timedelta(days=3), datetime.min.time()), {"Close": 97.0, "Volume": 0}),
     ]
     monkeypatch.setitem(sys.modules, "yfinance", SimpleNamespace(download=lambda *args, **kwargs: FakeFrame(rows)))
     result = yahoo._download("DX-Y.NYB")
-    assert result == [{"date": "2026-08-28", "value": 97.1}]
+    assert result == [{"date": (today - timedelta(days=2)).isoformat(), "value": 97.1}]
 
 
 def test_download_rejects_invalid_symbol(monkeypatch):

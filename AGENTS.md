@@ -15,3 +15,7 @@
 ### 7. Make architectural decisions for the long term. Do not accept a stopgap that only works for now and is meant to be replaced later.
 
 ### 8. Study how established products solve the problem before designing a solution. Adopt their proven patterns and conventions rather than inventing an approach from scratch.
+
+### 9. Keep collection caches layered and source-aware.
+
+Raw source responses belong in `data/raw/`; normalized per-variable observations and `_meta.json` belong in `data/cache/`; signal outputs belong only in `data/current/`. Use the policy in `config/refresh_policies.yaml`, preserve cached data when a source is unavailable, and make cache writes atomic.

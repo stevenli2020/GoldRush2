@@ -9,6 +9,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from goldrush2.collectors.base import BaseCollector, SourceUnavailableError
+
 CACHE_MAX_AGE_DAYS = 7
 LAST_FETCH_USED_CACHE = False
 
@@ -44,13 +46,18 @@ def _write_cache(cache_path: Path, observations: list[dict[str, str | float]]) -
     temporary.replace(cache_path)
 
 
-def _download(symbol: str) -> list[dict[str, str | float]]:
+def _download(symbol: str, *, start_date: str | None = None, period: str = "10y") -> list[dict[str, str | float]]:
     try:
         import yfinance as yf
 
         # Ten years comfortably covers the longest 756-observation lookback
         # while avoiding the much larger, timeout-prone full-history payload.
-        frame = yf.download(symbol, period="10y", interval="1d", auto_adjust=False, progress=False, threads=False, timeout=30)
+        parameters: dict[str, Any] = {"interval": "1d", "auto_adjust": False, "progress": False, "threads": False, "timeout": 30}
+        if start_date is None:
+            parameters["period"] = period
+        else:
+            parameters["start"] = start_date
+        frame = yf.download(symbol, **parameters)
     except Exception as exc:
         raise YahooError(f"Yahoo Finance request failed for {symbol}: {exc}") from exc
     if frame is None or frame.empty:
@@ -101,3 +108,34 @@ def fetch_yahoo_series(symbol: str, cache_path: Path) -> list[dict[str, str | fl
         if cache_path.exists():
             raise YahooError(f"STALE DATA — Yahoo cache is 7 days old or older: {exc}") from exc
         raise
+
+
+class YahooCollector(BaseCollector):
+    """Normalized-cache adapter for a finalized Yahoo daily series."""
+
+    def __init__(self, cache_dir: Path, symbol: str, raw_path: Path, *, force: bool = False, always_refresh: bool = False) -> None:
+        super().__init__(cache_dir, force=force, always_refresh=always_refresh)
+        self.symbol = symbol
+        self.raw_path = Path(raw_path)
+
+    def fetch_latest_observation_date(self) -> str:
+        try:
+            observations = _download(self.symbol, period="5d")
+        except YahooError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
+        return max(str(row["date"]) for row in observations)
+
+    def download_full(self) -> list[dict[str, str | float]]:
+        try:
+            return fetch_yahoo_series(self.symbol, self.raw_path)
+        except YahooError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
+
+    def download_incremental(self, since_date: str) -> list[dict[str, str | float]]:
+        try:
+            incoming = _download(self.symbol, start_date=since_date)
+            prior = _load_cache(self.raw_path) if self.raw_path.exists() else []
+            _write_cache(self.raw_path, self._deduplicate([*prior, *incoming]))
+            return incoming
+        except YahooError as exc:
+            raise SourceUnavailableError(str(exc)) from exc

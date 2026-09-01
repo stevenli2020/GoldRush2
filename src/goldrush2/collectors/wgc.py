@@ -8,9 +8,12 @@ import os
 import re
 import time
 from pathlib import Path
+from typing import Any, Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import unquote, urljoin
 from urllib.request import Request, urlopen
+
+from goldrush2.collectors.base import BaseCollector, SourceUnavailableError
 
 WGC_PAGE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
 WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves-by-country"
@@ -80,13 +83,13 @@ def _filename(url: str) -> str:
     return name if name.lower().endswith((".xlsx", ".xls")) else "ETF_Flows_download.xlsx"
 
 
-def _fetch_workbook(cache_dir: Path, *, page_url: str, cache_pattern: str, link_pattern: str) -> Path | None:
+def _fetch_workbook(cache_dir: Path, *, page_url: str, cache_pattern: str, link_pattern: str, force: bool = False) -> Path | None:
     global LAST_FETCH_USED_CACHE, LAST_FETCH_STALE
     LAST_FETCH_USED_CACHE = False
     LAST_FETCH_STALE = False
     cache_dir.mkdir(parents=True, exist_ok=True)
     cached = _latest_workbook(cache_dir, cache_pattern)
-    if cached is not None and _fresh(cached):
+    if cached is not None and _fresh(cached) and not force:
         return cached
     try:
         page = _request(page_url)
@@ -107,26 +110,64 @@ def _fetch_workbook(cache_dir: Path, *, page_url: str, cache_pattern: str, link_
         return None
 
 
-def fetch_wgc_workbook(cache_dir: Path) -> Path | None:
+def fetch_wgc_workbook(cache_dir: Path, *, force: bool = False) -> Path | None:
     """Download the current WGC ETF workbook, using a seven-day cache fallback."""
-    return _fetch_workbook(cache_dir, page_url=WGC_PAGE_URL, cache_pattern="ETF_Flows_*.xlsx", link_pattern=r"(?:etf[^\"']*flow|flow[^\"']*etf)")
+    return _fetch_workbook(cache_dir, page_url=WGC_PAGE_URL, cache_pattern="ETF_Flows_*.xlsx", link_pattern=r"(?:etf[^\"']*flow|flow[^\"']*etf)", force=force)
 
 
-def fetch_wgc_official_changes(cache_dir: Path) -> Path | None:
+def fetch_wgc_official_changes(cache_dir: Path, *, force: bool = False) -> Path | None:
     """Download the current WGC/IMF IFS official-changes workbook."""
-    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_CHANGES_PAGE_URL, cache_pattern="Changes_*_IFS.xlsx", link_pattern="changes")
+    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_CHANGES_PAGE_URL, cache_pattern="Changes_*_IFS.xlsx", link_pattern="changes", force=force)
 
 
-def fetch_wgc_official_holdings(cache_dir: Path) -> Path | None:
+def fetch_wgc_official_holdings(cache_dir: Path, *, force: bool = False) -> Path | None:
     """Download the current WGC official-holdings workbook."""
-    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_HOLDINGS_PAGE_URL, cache_pattern="*official*holdings*.xlsx", link_pattern="official")
+    return _fetch_workbook(cache_dir, page_url=WGC_OFFICIAL_HOLDINGS_PAGE_URL, cache_pattern="*official*holdings*.xlsx", link_pattern="official", force=force)
 
 
-def fetch_wgc_gdt_workbook(cache_dir: Path) -> Path | None:
+def fetch_wgc_gdt_workbook(cache_dir: Path, *, force: bool = False) -> Path | None:
     """Download the current WGC Gold Demand Trends workbook."""
     return _fetch_workbook(
         cache_dir,
         page_url=WGC_GDT_PAGE_URL,
         cache_pattern=("GDT*.xlsx", "Gold_Demand_Trends_*.xlsx"),
         link_pattern=r"(?:gdt|gold[_-]?demand|demand[_-]?trends)",
+        force=force,
     )
+
+
+class WGCWorkbookCollector(BaseCollector):
+    """Normalized-cache adapter for a WGC workbook and variable parser."""
+
+    def __init__(self, cache_dir: Path, raw_dir: Path, fetcher: Callable[..., Path | None], normalizer: Callable[[Path], list[dict[str, Any]]], *, force: bool = False, always_refresh: bool = False) -> None:
+        super().__init__(cache_dir, force=force, always_refresh=always_refresh)
+        self.raw_dir = Path(raw_dir)
+        self.fetcher = fetcher
+        self.normalizer = normalizer
+        self._downloaded_records: list[dict[str, Any]] | None = None
+
+    def _download_and_normalize(self) -> list[dict[str, Any]]:
+        # WGC publishes the observation date inside the workbook, so checking
+        # for a newer source observation requires fetching the current file.
+        workbook = self.fetcher(self.raw_dir, force=True)
+        if workbook is None:
+            raise SourceUnavailableError("WGC workbook is unavailable")
+        try:
+            records = self.normalizer(workbook)
+        except (OSError, ValueError, KeyError) as exc:
+            raise SourceUnavailableError(f"WGC workbook parsing failed: {exc}") from exc
+        if LAST_FETCH_USED_CACHE:
+            self.warning = "SOURCE UNAVAILABLE — cached workbook used"
+        return records
+
+    def fetch_latest_observation_date(self) -> str:
+        self._downloaded_records = self._download_and_normalize()
+        if not self._downloaded_records:
+            raise SourceUnavailableError("WGC workbook contains no normalized observations")
+        return max(str(row["date"]) for row in self._downloaded_records)
+
+    def download_full(self) -> list[dict[str, Any]]:
+        if self._downloaded_records is not None:
+            records, self._downloaded_records = self._downloaded_records, None
+            return records
+        return self._download_and_normalize()

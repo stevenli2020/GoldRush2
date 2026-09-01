@@ -1,0 +1,36 @@
+# Completed GR2 variables use these source-aware cache refresh policies.
+# Variables not listed default to check_last_observation_date when added later.
+
+L1-001: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: DFII10 }
+L1-002: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: DFII5 }
+L2-002: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: DTWEXBGS }
+L2-003: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: DEXCHUS }
+L4-003: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: T5YIE }
+L4-004: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: T10YIE }
+L7-004: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: BAMLH0A0HYM2 }
+
+L7-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: fred, series_id: WALCL }
+
+L4-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: fred, series_id: CPIAUCSL }
+L4-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: fred, series_id: PCEPILFE }
+L4-006: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: fred, series_id: FYFSGDA188S }
+L4-007: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: fred, series_id: GFDEGDQ188S }
+
+L2-001: { data_frequency: Daily, refresh_strategy: always_refresh, source: yahoo, ticker: DX-Y.NYB }
+
+L4-008: { data_frequency: Annual, refresh_strategy: check_last_observation_date, source: treasury, endpoint: mts_table_3 }
+L4-009: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: treasury, endpoint: mspd_table_3 }
+
+L0-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
+L5-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
+L5-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
+L5-006: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
+
+L0-003: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
+L8-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
+
+L0-005: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }
+L0-006: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }
+L9-004: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }
+
+L1-006: { data_frequency: Mixed, refresh_strategy: always_refresh, source: cme_futures }

@@ -12,6 +12,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
+from goldrush2.collectors.base import BaseCollector, SourceUnavailableError
+
 FRED_OBSERVATIONS_URL = "https://api.stlouisfed.org/fred/series/observations"
 
 
@@ -73,6 +75,9 @@ def fetch_series(
     *,
     api_key: str | None = None,
     raw_path: Path | None = None,
+    observation_start: str | None = None,
+    sort_order: str | None = None,
+    limit: int = 100000,
     timeout: float = 30,
 ) -> list[dict[str, str | float]]:
     """Fetch a complete FRED series and optionally save its raw JSON payload."""
@@ -80,14 +85,12 @@ def fetch_series(
     if not resolved_api_key:
         raise FredCredentialError("FRED_API_KEY is not set")
 
-    query = urlencode(
-        {
-            "series_id": series_id,
-            "api_key": resolved_api_key,
-            "file_type": "json",
-            "limit": 100000,
-        }
-    )
+    parameters: dict[str, str | int] = {"series_id": series_id, "api_key": resolved_api_key, "file_type": "json", "limit": limit}
+    if observation_start is not None:
+        parameters["observation_start"] = observation_start
+    if sort_order is not None:
+        parameters["sort_order"] = sort_order
+    query = urlencode(parameters)
     try:
         with urlopen(f"{FRED_OBSERVATIONS_URL}?{query}", timeout=timeout) as response:
             payload = json.loads(response.read().decode("utf-8"))
@@ -113,3 +116,43 @@ def load_cached_series(path: Path) -> list[dict[str, str | float]]:
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise FredDataError(f"Cannot read cached FRED response: {path}") from exc
     return parse_observations(payload)
+
+
+def fetch_latest_series_date(series_id: str, *, api_key: str | None = None) -> str:
+    """Read the most recent valid FRED observation with a one-row request."""
+    observations = fetch_series(series_id, api_key=api_key, sort_order="desc", limit=1)
+    if not observations:
+        raise FredDataError(f"FRED returned no valid observations for {series_id}")
+    return str(observations[0]["date"])
+
+
+class FredCollector(BaseCollector):
+    """Normalized-cache adapter for one FRED observations series."""
+
+    def __init__(self, cache_dir: Path, series_id: str, raw_path: Path, *, force: bool = False, always_refresh: bool = False, api_key: str | None = None) -> None:
+        super().__init__(cache_dir, force=force, always_refresh=always_refresh)
+        self.series_id = series_id
+        self.raw_path = Path(raw_path)
+        self.api_key = api_key
+
+    def fetch_latest_observation_date(self) -> str:
+        try:
+            return fetch_latest_series_date(self.series_id, api_key=self.api_key)
+        except FredError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
+
+    def download_full(self) -> list[dict[str, Any]]:
+        try:
+            return fetch_series(self.series_id, api_key=self.api_key, raw_path=self.raw_path)
+        except FredError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
+
+    def download_incremental(self, since_date: str) -> list[dict[str, Any]]:
+        try:
+            incoming = fetch_series(self.series_id, api_key=self.api_key, observation_start=since_date)
+            prior = load_cached_series(self.raw_path) if self.raw_path.exists() else []
+            merged = self._deduplicate([*prior, *incoming])
+            _write_raw_payload(self.raw_path, {"observations": merged})
+            return incoming
+        except FredError as exc:
+            raise SourceUnavailableError(str(exc)) from exc
