@@ -1,0 +1,67 @@
+{
+  "variable_id": "L9-004",
+  "as_of_date": "2026-09-01",
+  "source_name": "WGC GDT - India Net Gold Imports (consumer demand proxy)",
+  "source_url": "https://www.gold.org/",
+  "data_frequency": "Quarterly",
+  "observation_date": "2026-06-30",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "summary": "Quarterly data does not support 1-5d horizon."
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "summary": "Quarterly data does not support 1-3m horizon."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 98.059694375,
+          "current_date": "2026-06-30",
+          "comparison_value": 127.37824375,
+          "comparison_date": "2025-06-30",
+          "change_absolute": -29.318549375,
+          "change_pct": -23.0169207173,
+          "components": {
+            "jewellery": 75.09821782,
+            "bar_coin": 50.25048632,
+            "gross_imports": 98.392694375,
+            "net_imports": 98.059694375
+          }
+        },
+        "summary": "India net gold imports fell by 29.32 tonnes (-23.02%), bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 98.059694375,
+          "current_date": "2026-06-30",
+          "comparison_value": 131.73696,
+          "comparison_date": "2021-06-30",
+          "change_absolute": -33.677265625,
+          "change_pct": -25.5640221431,
+          "components": {
+            "jewellery": 75.09821782,
+            "bar_coin": 50.25048632,
+            "gross_imports": 98.392694375,
+            "net_imports": 98.059694375
+          }
+        },
+        "summary": "India net gold imports fell by 33.68 tonnes (-25.56%), bearish for gold."
+      }
+    }
+  },
+  "calculation_method": "WGC GDT India net bullion imports; current India demand and import components retained as evidence"
+}

@@ -12,6 +12,7 @@ from typing import Any
 
 HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 252, "3-10y": 756}
 QUARTER_HORIZON_LOOKBACKS = {"1-3y": 4, "3-10y": 20}
+GDT_CACHE_VERSION = 2
 
 
 def finite(value: Any) -> bool:
@@ -127,16 +128,17 @@ def quarter_end_date(year: int, quarter: int) -> str:
     return f"{year:04d}-{month:02d}-{calendar.monthrange(year, month)[1]:02d}"
 
 
-def parse_gdt_quarterly_workbook(path: Any, *, cache_path: Any | None = None) -> dict[str, list[dict[str, Any]]]:
-    """Parse quarterly bar-and-coin demand and recycled supply from a WGC GDT workbook."""
+def parse_gdt_quarterly_workbook(path: Any, *, cache_path: Any | None = None, include_india: bool = False) -> dict[str, list[dict[str, Any]]]:
+    """Parse the quarterly series used by GR2 from a WGC GDT workbook."""
     source_path = Path(path)
     source_stat = source_path.stat()
     if cache_path is not None:
         parsed_cache = Path(cache_path)
         try:
             cached = json.loads(parsed_cache.read_text(encoding="utf-8"))
-            if (cached.get("source_file") == source_path.name and cached.get("source_mtime_ns") == source_stat.st_mtime_ns and cached.get("source_size") == source_stat.st_size and isinstance(cached.get("observations"), dict)):
-                return cached["observations"]
+            observations = cached.get("observations")
+            if (cached.get("cache_version") == GDT_CACHE_VERSION and cached.get("source_file") == source_path.name and cached.get("source_mtime_ns") == source_stat.st_mtime_ns and cached.get("source_size") == source_stat.st_size and isinstance(observations, dict) and (not include_india or "india" in observations)):
+                return observations
         except (OSError, UnicodeDecodeError, json.JSONDecodeError, AttributeError):
             pass
 
@@ -212,11 +214,45 @@ def parse_gdt_quarterly_workbook(path: Any, *, cache_path: Any | None = None) ->
         recycling.append({"date": observation_date, "value": round(numeric, 10)})
     if not recycling:
         raise ValueError("WGC GDT workbook contained no quarterly recycled-gold supply")
+
     observations = {"demand": demand, "recycling": recycling}
+    if include_india:
+        component_rows: dict[str, tuple[tuple[Any, ...], dict[int, str]]] = {}
+        for component, sheet_name, label in (
+            ("jewellery", "Jewellery", "India"),
+            ("bar_coin", "Bar and Coin", "India"),
+            ("gross_imports", "India Supply", "Gross Bullion Imports"),
+            ("net_imports", "India Supply", "Net Bullion Imports"),
+        ):
+            rows = rows_for(sheet_name)
+            row = find_row(rows, lambda value, expected=label: value.strip().lower() == expected.lower())
+            component_columns = quarter_columns(rows)
+            if row is None or not component_columns:
+                raise ValueError(f"WGC GDT {label} row or quarterly header was not found in {sheet_name}")
+            component_rows[component] = (row, component_columns)
+
+        common_dates = set.intersection(*(set(component_columns.values()) for _, component_columns in component_rows.values()))
+        india: list[dict[str, Any]] = []
+        for observation_date in sorted(common_dates):
+            components: dict[str, float] = {}
+            for component, (row, component_columns) in component_rows.items():
+                column = next(index for index, value in component_columns.items() if value == observation_date)
+                value = row[column] if column < len(row) else None
+                if not finite(value):
+                    break
+                numeric = float(value)
+                if numeric < 0:
+                    raise ValueError(f"Negative WGC GDT India {component} value for {observation_date}")
+                components[component] = round(numeric, 10)
+            if len(components) == len(component_rows):
+                india.append({"date": observation_date, "value": components["net_imports"], "components": components})
+        if not india:
+            raise ValueError("WGC GDT workbook contained no complete quarterly India component panel")
+        observations["india"] = india
     if cache_path is not None:
         parsed_cache = Path(cache_path)
         parsed_cache.parent.mkdir(parents=True, exist_ok=True)
-        payload = {"source_file": source_path.name, "source_mtime_ns": source_stat.st_mtime_ns, "source_size": source_stat.st_size, "observations": observations}
+        payload = {"cache_version": GDT_CACHE_VERSION, "source_file": source_path.name, "source_mtime_ns": source_stat.st_mtime_ns, "source_size": source_stat.st_size, "observations": observations}
         temporary = parsed_cache.with_suffix(parsed_cache.suffix + ".tmp")
         temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         temporary.replace(parsed_cache)
@@ -246,6 +282,8 @@ def build_quarterly_output(
             data = empty_data()
             if current is not None:
                 data.update({"current_value": float(current["value"]), "current_date": str(current["date"])})
+                if "components" in current:
+                    data["components"] = current["components"]
             summary = f"MISSING DATA — {lookback} prior quarterly observations are required; {max(0, len(ordered) - 1)} are available."
             if cached:
                 summary += " SOURCE UNAVAILABLE — cached data used."
@@ -265,7 +303,10 @@ def build_quarterly_output(
         summary = f"{value_label} {direction} by {abs(change):.2f} tonnes ({pct_text}), {'bullish' if signal == 1 else 'bearish' if signal == -1 else 'neutral'} for gold."
         if cached:
             summary += " SOURCE UNAVAILABLE — cached data used."
-        horizons[horizon] = {"signal": signal, "confidence": 1, "evidence": {"data": {"current_value": current_value, "current_date": str(current["date"]), "comparison_value": comparison_value, "comparison_date": str(comparison["date"]), "change_absolute": change, "change_pct": change_pct}, "summary": summary}}
+        data = {"current_value": current_value, "current_date": str(current["date"]), "comparison_value": comparison_value, "comparison_date": str(comparison["date"]), "change_absolute": change, "change_pct": change_pct}
+        if "components" in current:
+            data["components"] = current["components"]
+        horizons[horizon] = {"signal": signal, "confidence": 1, "evidence": {"data": data, "summary": summary}}
     return {"variable_id": variable_id, "as_of_date": as_of_date or date.today().isoformat(), "source_name": source_name, "source_url": source_url, "data_frequency": "Quarterly", "observation_date": str(current["date"]) if current else None, "horizons": horizons}
 
 
