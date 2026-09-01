@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-004/L1-007 complete (4/45); L1-003 pending L1-004 |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-004/L1-007 complete (4/45); L1-003 in progress |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -30,7 +30,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 6 | L0-009 | Gold Lease Rates / Forward Rates | The cost and availability of borrowing or financing physical gold. | Carried forward | Not started | Not started |
 | 7 | L1-001 | 10Y TIPS Real Yield | The inflation-adjusted yield on 10-year US Treasury securities. | Carried forward | Owner approved - FRED DFII10 | Not started |
 | 8 | L1-002 | 5Y TIPS Real Yield | The inflation-adjusted yield on 5-year US Treasury securities. | Carried forward | Owner approved - FRED DFII5 | Not started |
-| 9 | L1-003 | Forward Real Rates | Market-implied real interest rates for future periods. | Carried forward | Pending L1-004 | Not started |
+| 9 | L1-003 | Forward Real Rates | Market-implied forward real rates from the Federal Reserve Board TIPS curve. | Carried forward | In progress - two-node FRB composite | Not started |
 | 10 | L1-004 | 2Y TIPS Real Yield | Federal Reserve Board estimate of the smoothed yield on hypothetical 2-year TIPS. | Owner-approved restoration | Owner approved - Federal Reserve Board TIPS Yield Curve `TIPSY02` | Not started |
 | 11 | L1-005 | Treasury Term Premium | Estimated compensation for holding longer-duration US Treasury risk. | Carried forward | Not started | Not started |
 | 12 | L1-006 | Expected Policy Rate | The expected policy-rate component of current real opportunity cost. | Carried forward | Not started | Not started |
