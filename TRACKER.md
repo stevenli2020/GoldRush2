@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007 complete (16/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009 complete (18/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,7 +20,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="16" max="45">16/45</progress> **16/45 variables complete (36%)**
+**DR2 completion:** <progress value="18" max="45">18/45</progress> **18/45 variables complete (40%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
@@ -52,8 +52,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 26 | L4-004 | 10Y Breakeven Inflation | Market-implied average inflation over the next ten years. | Carried forward | Complete - FRED `T10YIE` with 5/63/252/756 valid-observation lookbacks | Not started |
 | 27 | L4-006 | Fiscal Deficit / GDP | The government fiscal deficit relative to economic output. | Carried forward | Complete - FRED `FYFSGDA188S`, quarterly 8Q/20Q comparisons; short horizons not applicable | Not started |
 | 28 | L4-007 | Debt / GDP | Government debt relative to economic output. | Carried forward | Complete - FRED `GFDEGDQ188S`, quarterly 8Q/20Q comparisons; short horizons not applicable | Not started |
-| 29 | L4-008 | Interest Expense / Government Revenue | Government interest costs relative to its revenue base. | Carried forward | Not started | Not started |
-| 30 | L4-009 | Treasury Maturity Structure | The maturity composition and refinancing profile of US Treasury debt. | Carried forward | Not started | Not started |
+| 29 | L4-008 | Interest Expense / Government Revenue | Government interest costs relative to its revenue base. | Carried forward | Complete - U.S. Treasury MTS Table 3 lines 130/360; annual September FYTD ratio with 1FY/5FY comparisons | Not started |
+| 30 | L4-009 | Treasury Maturity Structure | The maturity composition and refinancing profile of US Treasury debt. | Carried forward | Complete - U.S. Treasury MSPD Table 3 Market; monthly debt-maturing-within-one-year ratio with 1/3/12/60M comparisons | Not started |
 | 31 | L5-001 | Monthly Official-Sector Gold Purchase Volume | Monthly gold purchases by central banks and other official institutions. | Carried forward | Not started | Not started |
 | 32 | L5-002 | Gold Share of Official Reserves | Gold's share of total official reserve assets. | Carried forward | Not started | Not started |
 | 33 | L5-003 | Reserve Composition Change / USD Share Change | Changes in the currency composition of official reserves, especially the dollar share. | Carried forward | Not started | Not started |
@@ -90,6 +90,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L2-001 | Reusable Yahoo Finance collector for `DX-Y.NYB`; finalized daily close observations exclude the current date and filter positive volume when available; zero-volume index feeds are accepted after date finalization | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence | 23 focused tests and 199 full-suite tests passed in WSL; live run produced 2,511 observations through 2026-08-31 with signals `-1, -1, -1, +1` and confidence 1 for all horizons | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-006 | Shared FRED `FYFSGDA188S` collector; quarterly fiscal deficit/GDP comparisons using approved 8-quarter and 20-quarter lookbacks; 1-5d and 1-3m structurally inapplicable with confidence 1 | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence for applicable horizons | 14 focused tests and 227 full-suite tests passed in WSL; live run produced latest observation 2025-01-01 with signals `0, 0, +1, +1` and confidence 1 | Approved by Steven on 2026-09-01 |
 | 2026-09-01 | L4-007 | Shared FRED `GFDEGDQ188S` collector; quarterly debt/GDP comparisons using approved 8-quarter and 20-quarter lookbacks; 1-5d and 1-3m structurally inapplicable with confidence 1 | Live source overwrites raw response; failed collection uses cache younger than 7 days with `SOURCE UNAVAILABLE — cached data used`; older cache returns `STALE DATA` with zero confidence for applicable horizons | 14 focused tests and 227 full-suite tests passed in WSL; live run produced latest observation 2026-01-01 with signals `0, 0, -1, -1` and confidence 1 | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L4-008 | Paginated U.S. Treasury Fiscal Data MTS Table 3 collector; pairs September FYTD Total Receipts line 130 with gross Treasury interest line 360 and calculates annual interest/revenue ratio | Full page envelopes are cached for seven days; source failure uses fresh cache with explicit annotation; older cache returns `STALE DATA` and zero confidence | 32 focused Treasury/L4 tests and 259 full-suite tests passed in WSL; live run produced latest observation 2025-09-30 with signals `0, 0, +1, +1` and confidence 1 | Approved by Steven on 2026-09-01 |
+| 2026-09-01 | L4-009 | Paginated U.S. Treasury Fiscal Data MSPD Table 3 Market collector; computes marketable debt maturing within one year divided by Total Marketable outstanding, excluding summary/matured/missing-maturity rows | Full page envelopes are cached for seven days; source failure uses fresh cache with explicit annotation; older cache returns `STALE DATA` and zero confidence | 32 focused Treasury/L4 tests and 259 full-suite tests passed in WSL; live run produced latest observation 2026-07-31 with signals `+1, +1, +1, +1` and confidence 1 | Approved by Steven on 2026-09-01 |
 
 ## Tracker rules
 
