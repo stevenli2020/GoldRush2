@@ -66,6 +66,27 @@ def parse_official_changes_workbook(path: Any) -> list[dict[str, Any]]:
     return records
 
 
+def cumulative_net_change_series(path: Any) -> list[dict[str, Any]]:
+    """Build a monthly cumulative index from canonical WGC country changes.
+
+    The official-changes workbook reports signed monthly changes rather than
+    a level.  This fallback starts at zero at the first reported month and
+    cumulatively sums the global canonical-country changes thereafter.
+    """
+    totals: dict[str, float] = {}
+    for record in parse_official_changes_workbook(path):
+        observation_date = str(record["date"])
+        totals[observation_date] = totals.get(observation_date, 0.0) + float(record["value"])
+    if not totals:
+        raise ValueError("WGC Monthly sheet contained no dated changes")
+    cumulative = 0.0
+    series: list[dict[str, Any]] = []
+    for observation_date in sorted(totals):
+        cumulative += totals[observation_date]
+        series.append({"date": observation_date, "value": round(cumulative, 10)})
+    return series
+
+
 def parse_official_holdings_workbook(path: Any) -> list[dict[str, Any]]:
     """Read the two canonical entity panels from the WGC PDF sheet."""
     from openpyxl import load_workbook
