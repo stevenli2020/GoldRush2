@@ -160,14 +160,19 @@ class FedCollector(BaseCollector):
         raise SourceUnavailableError(f"FOMC statement unavailable for {meeting_date or 'latest'}")
 
     def _get_recent_meeting_dates(self, count: int = 2) -> list[str]:
+        self._log(f"requesting FOMC calendar: {FOMC_CALENDAR_URL}", 2)
         try:
             with urlopen(Request(FOMC_CALENDAR_URL, headers={"User-Agent": "GoldRush2 Fed collector"}), timeout=30) as response:
                 html = response.read().decode("utf-8", errors="replace")
             dates = re.findall(r"monetary(\d{8})a\.htm", html, re.I)
-            return sorted({datetime.strptime(item, "%Y%m%d").date().isoformat() for item in dates}, reverse=True)[:count]
+            recent = sorted({datetime.strptime(item, "%Y%m%d").date().isoformat() for item in dates}, reverse=True)[:count]
+            self._log(f"calendar returned recent statement dates={recent}", 2)
+            return recent
         except (HTTPError, URLError, TimeoutError, OSError, ValueError):
             today = date.today()
-            return [(today - timedelta(days=42 * index)).isoformat() for index in range(count)]
+            fallback = [(today - timedelta(days=42 * index)).isoformat() for index in range(count)]
+            self._log(f"calendar unavailable; using fallback candidate dates={fallback}", 1)
+            return fallback
 
     def _ensure_minimum_cache_entries(self) -> None:
         records = self.load_cache()
@@ -232,20 +237,43 @@ class FedCollector(BaseCollector):
         if self.variable_id != "L3-006":
             return super().run()
         records = self.load_cache()
-        if self.force or len(records) < 2:
-            try:
-                latest = self._fetch_fomc_statement()
-                records = self._deduplicate([*records, latest])
-                self._atomic_json(self.cache_path, records)
-                self._ensure_minimum_cache_entries()
-                records = self.load_cache()
-                self.save_meta({"last_observation_date": self._latest_date(records), "downloaded_at": self._now(), "source_etag": None, "force_refreshed_at": self._now() if self.force else None})
-                self.action = "full"
+        cached_latest = self._latest_date(records) if records else None
+        self._log(f"L3-006 cache={self.cache_path} observations={len(records)} latest={cached_latest or 'none'}", 1)
+        self._log(f"force={self.force} always_refresh={self.always_refresh}", 3)
+        try:
+            recent_dates = self._get_recent_meeting_dates(2)
+            source_latest = recent_dates[0] if recent_dates else None
+            self._log(f"source latest={source_latest or 'unknown'}; cached latest={cached_latest or 'none'}", 1)
+            needs_refresh = self.force or len(records) < 2 or (source_latest is not None and (cached_latest is None or source_latest > cached_latest))
+            if not needs_refresh:
+                self.action = "skip"
+                self._log("source is unchanged and two statements are cached; skipping download", 1)
                 return records
-            except SourceUnavailableError:
-                if records:
-                    self.action, self.warning = "cache", "SOURCE UNAVAILABLE — cached data used"
-                    return records
-                raise
-        self.action = "skip"
-        return records
+
+            known = {str(row.get("date")) for row in records}
+            incoming: list[dict[str, Any]] = []
+            for meeting_date in recent_dates:
+                if not self.force and meeting_date in known:
+                    self._log(f"statement {meeting_date} already cached", 3)
+                    continue
+                self._log(f"fetching FOMC statement {meeting_date}", 2)
+                try:
+                    incoming.append(self._fetch_fomc_statement(meeting_date))
+                except SourceUnavailableError as exc:
+                    self._log(str(exc), 2)
+            updated = self._deduplicate([*records, *incoming])
+            if len(updated) < 2:
+                raise SourceUnavailableError("Fewer than two FOMC statements are available")
+            self._atomic_json(self.cache_path, updated)
+            previous_meta = self.load_meta()
+            self.save_meta({"last_observation_date": self._latest_date(updated), "downloaded_at": self._now(), "source_etag": previous_meta.get("source_etag"), "force_refreshed_at": self._now() if self.force else previous_meta.get("force_refreshed_at")})
+            self.action = "full" if self.force or not records else "incremental"
+            self._log(f"{self.action} refresh wrote {len(updated)} statements; latest={self._latest_date(updated)}", 1)
+            self._log(f"metadata={self.load_meta()}", 3)
+            return updated
+        except SourceUnavailableError:
+            if records:
+                self.action, self.warning = "cache", "SOURCE UNAVAILABLE — cached data used"
+                self._log("source unavailable; using cached FOMC statements", 1)
+                return records
+            raise
