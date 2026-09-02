@@ -45,14 +45,20 @@ def build_output(statements: list[dict[str, Any]], existing: dict[str, Any] | No
     return _merge_ai(_base(ordered[-1], ordered), existing, force_refresh)
 
 
-def run(cache_path: Path = CACHE_PATH, output_path: Path = OUTPUT_PATH, force_refresh: bool = False) -> dict[str, Any]:
+def run(cache_path: Path = CACHE_PATH, output_path: Path = OUTPUT_PATH, force_refresh: bool = False, verbose: int = 0) -> dict[str, Any]:
     statements = json.loads(Path(cache_path).read_text(encoding="utf-8"))
     existing = json.loads(output_path.read_text(encoding="utf-8")) if output_path.exists() else None
     output = build_output(statements, existing, force_refresh)
+    if verbose >= 1:
+        print(f"[extract] L3-006 cache={cache_path} statements={len(statements)} latest={output['observation_date']}")
     if force_refresh or output.get("ai_status") != "success":
+        if verbose >= 1:
+            print(f"[extract] L3-006 AI scoring {'forced' if force_refresh else 'required'}")
         from goldrush2.ai.fomc_scorer import score_l3_006
-        output = score_l3_006(force=force_refresh, cache_path=cache_path, output_path=output_path)
+        output = score_l3_006(force=force_refresh, cache_path=cache_path, output_path=output_path, verbose=verbose)
         return output
+    if verbose >= 1:
+        print("[extract] L3-006 using cached AI score")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = output_path.with_suffix(output_path.suffix + ".tmp")
     temporary.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")

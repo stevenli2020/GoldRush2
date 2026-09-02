@@ -232,6 +232,8 @@ def cmd_extract(args: argparse.Namespace) -> int:
         kwargs = _extractor_kwargs(module, variable_id, output_path)
         if "force_refresh" in inspect.signature(run).parameters:
             kwargs["force_refresh"] = bool(getattr(args, "force", False))
+        if "verbose" in inspect.signature(run).parameters:
+            kwargs["verbose"] = int(getattr(args, "verbose", 0))
         output = run(**kwargs)
     except (OSError, ValueError, KeyError, AttributeError, TypeError, ImportError, RuntimeError) as exc:
         print(f"{variable_id}: action=failed detail={exc}")
@@ -263,6 +265,7 @@ def main(argv: list[str] | None = None) -> int:
     output_group.add_argument("--pretty", action="store_true", help="print indented JSON after extraction")
     extract.add_argument("--check", action="store_true", help="list discovered extractors and mapping status")
     extract.add_argument("--force", action="store_true", help="force regeneration and AI scoring where supported")
+    extract.add_argument("-v", "--verbose", action="count", default=0, help="show execution details; repeat for more detail")
     extract.set_defaults(handler=cmd_extract)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):

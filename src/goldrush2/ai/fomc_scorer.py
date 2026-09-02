@@ -55,7 +55,7 @@ def _confidence(status: str) -> float:
     return {"PASS": 1.0, "FLAG": 0.5, "BLOCKED": 0.0}.get(status, 0.0)
 
 
-def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]] | None = None, cache_path: Path | None = None, output_path: Path | None = None) -> dict[str, Any]:
+def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]] | None = None, cache_path: Path | None = None, output_path: Path | None = None, verbose: int = 0) -> dict[str, Any]:
     cache_path = Path(cache_path or CACHE_PATH)
     output_path = Path(output_path or OUTPUT_PATH)
     statements = sorted(_load(cache_path, []), key=lambda row: str(row.get("date", "")))
@@ -65,11 +65,15 @@ def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]]
     prior = statements[-2] if len(statements) > 1 else None
     scores = _load(SCORES_PATH, {})
     if not force and current["date"] in scores:
+        if verbose >= 1:
+            print(f"[ai] using cached L3-006 score for {current['date']}")
         return _write_output(current, statements, scores[current["date"]], output_path)
     invoke = call or _call_gemini
     prior_text = prior.get("text", "") if prior else "(none available)"
     model = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
     try:
+        if verbose >= 1:
+            print(f"[ai] running Gemini baseline and {len(ROLES)} jury assessments with model={model}")
         baseline = invoke(PROMPT_PHASE1.format(current=current.get("text", ""), prior=prior_text), model)
         baseline_score = float(baseline["baseline_score"])
         coverage = float(baseline.get("coverage", 1.0))
@@ -101,6 +105,8 @@ def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]]
         (RAW_DIR / f"{current['date']}_jury.json").write_text(json.dumps(raw_jury, indent=2) + "\n", encoding="utf-8")
         return _write_output(current, statements, entry, output_path)
     except Exception as exc:
+        if verbose >= 1:
+            print(f"[ai] scoring failed: {exc}")
         from goldrush2.extractors.l3_006 import build_output
         base = build_output(statements)
         base["ai_status"] = "error"
