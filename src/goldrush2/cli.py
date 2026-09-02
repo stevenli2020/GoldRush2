@@ -208,7 +208,7 @@ def cmd_collect(args: argparse.Namespace) -> int:
         variable_id = str(variable_id).upper()
         config = policies.get(variable_id)
         if config is None:
-            if variable_id in {"L1-003", "L1-005"}:
+            if variable_id in {"L1-003", "L1-004", "L1-005", "L1-007", "L7-005"}:
                 print(
                     f"{variable_id}: no standalone collector policy; its extractor "
                     f"refreshes the underlying FRED data internally. "
