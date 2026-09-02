@@ -1,0 +1,39 @@
+{
+  "variable_id": "L3-005",
+  "data_frequency": "Quarterly",
+  "source_name": "FOMC SEP Summary",
+  "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260318.htm",
+  "observation_date": "2026-03-18",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "reason": "quarterly data"
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "reason": "quarterly data"
+      }
+    },
+    "1-3y": {
+      "signal": null,
+      "confidence": 0,
+      "evidence": {
+        "error": "No data exactly 1 year prior",
+        "current_date": "2026-03-18"
+      }
+    },
+    "3-10y": {
+      "signal": null,
+      "confidence": 0,
+      "evidence": {
+        "error": "No data exactly 5 years prior",
+        "current_date": "2026-03-18"
+      }
+    }
+  }
+}

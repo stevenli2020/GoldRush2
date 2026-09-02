@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-001/L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (34/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-001/L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L3-005/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (35/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,7 +20,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="34" max="45">34/45</progress> **34/45 variables complete (76%)**
+**DR2 completion:** <progress value="35" max="45">35/45</progress> **35/45 variables complete (78%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
@@ -44,7 +44,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 18 | L3-002 | OIS Forward Policy Curve | The future policy-rate path implied by overnight-index swaps. | Carried forward | Not started | Not started |
 | 19 | L3-003 | Expected Terminal Policy Rate | The market-implied endpoint of the current monetary-policy cycle. | Carried forward | Not started | Not started |
 | 20 | L3-004 | Probability Distribution of Future Policy Outcomes | Market-implied probabilities across possible future policy-rate outcomes. | Carried forward | Not started | Not started |
-| 21 | L3-005 | FOMC Dot Plot Path | Federal Reserve participants' published policy-rate projections. | Carried forward | Not started | Not started |
+| 21 | L3-005 | FOMC Dot Plot Path | Federal Reserve participants' published policy-rate projections for the end of the next calendar year. | Carried forward | Complete - Fed SEP HTML median collector with release-history cache and exact 1-year/5-year comparisons | Not started |
 | 22 | L3-006 | FOMC Statements / Forward-Guidance Signal | Gemini-derived direction from official FOMC statements and guidance. | Carried forward | Not started | Not started |
 | 23 | L4-001 | CPI Inflation Rate | Headline US consumer-price inflation. | Carried forward | Complete - FRED `CPIAUCSL`, monthly Scheme A index comparisons with 5/63/252/756 lookbacks | Not started |
 | 24 | L4-002 | Core PCE Inflation Rate | The Federal Reserve's preferred underlying consumer-inflation measure. | Carried forward | Complete - FRED `PCEPILFE`, monthly Scheme A index comparisons with 5/63/252/756 lookbacks | Not started |

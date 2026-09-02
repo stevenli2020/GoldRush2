@@ -18,6 +18,7 @@ from goldrush2.collectors.base import BaseCollector, CollectorError
 from goldrush2.collectors.bis import BISCollector
 from goldrush2.collectors.imf import IMFCollector
 from goldrush2.collectors.fred import FredCollector
+from goldrush2.collectors.fed import FedCollector
 from goldrush2.collectors.treasury import TreasuryCollector
 from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_above_ground_stocks, fetch_wgc_gold_premiums, fetch_wgc_gdt_workbook, fetch_wgc_official_changes, fetch_wgc_workbook
 from goldrush2.collectors.yahoo import YahooCollector
@@ -60,8 +61,11 @@ def _extractor_kwargs(module: Any, variable_id: str, output_path: Path) -> dict[
     parameters = inspect.signature(run).parameters
     paths: dict[str, Path] = {"output_path": output_path}
     if "cache_path" in parameters:
-        cache_root = "imf" if variable_id == "L5-003" else "bis"
-        paths["cache_path"] = PROJECT_ROOT / "data" / "cache" / cache_root / f"{variable_id}.json"
+        if hasattr(module, "CACHE_PATH"):
+            paths["cache_path"] = PROJECT_ROOT / module.CACHE_PATH
+        else:
+            cache_root = "imf" if variable_id == "L5-003" else "bis"
+            paths["cache_path"] = PROJECT_ROOT / "data" / "cache" / cache_root / f"{variable_id}.json"
     if "raw_dir" in parameters:
         paths["raw_dir"] = PROJECT_ROOT / "data" / "raw" / "wgc"
     if "raw_path" in parameters and hasattr(module, "RAW_PATH"):
@@ -158,6 +162,8 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         return BISCollector(PROJECT_ROOT / "data" / "cache" / "bis", raw_dir / "bis" / "Q.5A.P.A.M.USD.A.csv", force=force, always_refresh=always_refresh)
     if source == "imf_cofer":
         return IMFCollector(PROJECT_ROOT / "data" / "cache" / "imf", raw_dir / "imf" / "cofer.csv", force=force, always_refresh=always_refresh)
+    if source == "fed_sep":
+        return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-005.html", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L3-005_snapshot.html")
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
