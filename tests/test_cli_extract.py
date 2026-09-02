@@ -11,7 +11,7 @@ from goldrush2 import cli
 def test_discover_extractors_finds_all_current_modules():
     discovered = cli.discover_extractors()
 
-    assert len(discovered) == 36
+    assert len(discovered) == 38
     assert discovered["L0-006"] == "goldrush2.extractors.l0_006"
     assert discovered["L7-003"] == "goldrush2.extractors.l7_003"
 

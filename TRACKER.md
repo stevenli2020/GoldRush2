@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-001/L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L3-005/L3-006/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (36/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-001/L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L3-005/L3-006/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L6-001/L6-002/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (38/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,7 +20,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="36" max="45">36/45</progress> **36/45 variables complete (80%)**
+**DR2 completion:** <progress value="38" max="45">38/45</progress> **38/45 variables complete (84%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
@@ -58,8 +58,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 32 | L5-002 | Gold Share of Official Reserves | Gold's share of total official reserve assets. | Carried forward | Complete - WGC/IMF IFS official-changes Monthly sheet cumulative net-change proxy; the workbook has no reserve denominator, so values are tonnes proxy rather than a true 0-1 share; 5/63/252 lookbacks valid and 756 is source-limited | Not started |
 | 33 | L5-003 | Reserve Composition Change / USD Share Change | Changes in the currency composition of official reserves, especially the dollar share. | Carried forward | Complete - IMF COFER world aggregate `G001` USD allocated-reserves share; QoQ change with LARGE_SHIFT flag and 4Q/20Q share comparisons | Not started |
 | 34 | L5-006 | Official-Sector Gold Sales / Lending | Gold supplied through official-sector sales, swaps, or lending. | Carried forward | Complete - WGC/IMF IFS official-changes workbook negative canonical changes aggregated as a net-reduction proxy with 5/63/252/756 valid-observation lookbacks | Not started |
-| 35 | L6-001 | Active Conflict and Escalation Signal | Gemini-derived assessment of active conflict and escalation affecting safe-haven demand. | Carried forward | Not started | Not started |
-| 36 | L6-002 | Sanctions and Sovereign-Asset Freeze Events | Gemini-derived assessment of sanctions and asset restrictions affecting reserve security. | Carried forward | Not started | Not started |
+| 35 | L6-001 | Active Conflict and Escalation Signal | Caldara-Iacoviello GPRD_ACT deterministic daily proxy. | Daily | Complete | Implemented; owner approval pending |
+| 36 | L6-002 | Sanctions and Sovereign-Asset Freeze Events | OFAC SDN delta deterministic event scoring. | Event-driven | Complete | Implemented; owner approval pending |
 | 37 | L7-001 | Major Central-Bank Balance-Sheet Liquidity | Realized liquidity supplied or withdrawn through major central-bank balance sheets. | Carried forward | Complete - FRED `WALCL` weekly total assets with 5/63/252/756 valid-observation lookbacks | Not started |
 | 38 | L7-003 | Global Private Non-Financial Credit Growth | Growth in credit to private non-financial borrowers across major economies. | Carried forward | Complete - BIS WS_TC(2.0) quarterly USD billions; YoY growth with 4Q/20Q comparisons and HIGH_GROWTH evidence flag | Not started |
 | 39 | L7-004 | Credit-Spread Financial Stress | Credit-market risk and financial stress measured through borrowing spreads. | Carried forward | Complete - FRED `BAMLH0A0HYM2` daily high-yield OAS with 5/63/252/756 valid-observation lookbacks | Not started |

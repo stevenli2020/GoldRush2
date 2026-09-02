@@ -22,6 +22,8 @@ from goldrush2.collectors.fed import FedCollector
 from goldrush2.collectors.treasury import TreasuryCollector
 from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_above_ground_stocks, fetch_wgc_gold_premiums, fetch_wgc_gdt_workbook, fetch_wgc_official_changes, fetch_wgc_workbook
 from goldrush2.collectors.yahoo import YahooCollector
+from goldrush2.collectors.gpr import GPRCollector
+from goldrush2.collectors.ofac import OFACCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = PROJECT_ROOT / "config" / "refresh_policies.yaml"
@@ -166,6 +168,10 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-005.html", variable_id="L3-005", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L3-005_snapshot.html")
     if source == "fed_statement":
         return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-006.html", variable_id="L3-006", force=force, always_refresh=always_refresh)
+    if source == "gpr":
+        return GPRCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "gpr" / "L6-001.zip", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-001_snapshot.csv")
+    if source == "ofac":
+        return OFACCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "ofac" / "L6-002.xml", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-002_snapshot.xml")
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":

@@ -1,0 +1,24 @@
+"""Deterministic GPRD_ACT signal extraction."""
+from __future__ import annotations
+import json
+from datetime import date
+from pathlib import Path
+import pandas as pd
+CACHE_PATH=Path("data/cache/L6-001.json")
+def run(cache_path=CACHE_PATH, output_path=Path("data/current/L6-001.json"), force_refresh=False, verbose=0):
+    rows=json.loads(Path(cache_path).read_text()) if Path(cache_path).exists() else []
+    df=pd.DataFrame(rows)
+    if not df.empty: df["date"]=pd.to_datetime(df["date"]); df["value"]=pd.to_numeric(df["value"],errors="coerce"); df=df.dropna().sort_values("date")
+    latest=df.iloc[-1] if len(df) else None; horizons={}
+    for h,conf in (("1-5d",1.0),("1-3m",0.7)):
+        if len(df)<60: horizons[h]={"signal":0,"confidence":0,"evidence":{"reason":"Insufficient history for 60 observations"}}; continue
+        vals=df["value"].tail(60); ma5=float(vals.tail(5).mean()); ma20=float(vals.tail(20).mean()); std=float(vals.std(ddof=0)); score=max(-1.0,min(1.0,(ma5-ma20)/max(std,0.1))); sig=1 if score>0 else -1 if score<0 else 0
+        horizons[h]={"signal":sig,"confidence":conf,"evidence":{"data":{"score":score,"ma5":ma5,"ma20":ma20,"std60":std,"current_date":latest["date"].date().isoformat()}}}
+    for h in ("1-3y","3-10y"): horizons[h]={"signal":0,"confidence":0,"evidence":{"reason":"GPRD_ACT is a short-term indicator; long-term signals disabled"}}
+    if latest is None: obs=None
+    else: obs=latest["date"].date().isoformat()
+    out={"variable_id":"L6-001","data_frequency":"Daily","source_name":"Caldara-Iacoviello GPRD_ACT","source_url":"https://www.matteoiacoviello.com/gpr_files/data_daily.zip","observation_date":obs,"horizons":horizons}
+    output_path=Path(output_path); output_path.parent.mkdir(parents=True,exist_ok=True); output_path.write_text(json.dumps(out,indent=2)+"\n")
+    if verbose: print(f"[extract] L6-001 observations={len(df)} latest={obs}")
+    return out
+extract=run

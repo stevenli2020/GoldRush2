@@ -43,3 +43,5 @@ L0-006: { data_frequency: Quarterly, refresh_strategy: check_last_observation_da
 L9-004: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }
 
 L1-006: { data_frequency: Mixed, refresh_strategy: always_refresh, source: cme_futures }
+L6-001: { data_frequency: Daily, refresh_strategy: check_last_observation_date, source: gpr, stale_threshold_days: 7 }
+L6-002: { data_frequency: Event-driven, refresh_strategy: check_last_observation_date, source: ofac, stale_threshold_days: 60 }
