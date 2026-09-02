@@ -1,6 +1,6 @@
 """Deterministic OFAC event signal extraction."""
 from __future__ import annotations
-import json
+import json, os, tempfile
 from pathlib import Path
 CACHE_PATH=Path("data/cache/L6-002.json")
 def _score(e):
@@ -20,7 +20,10 @@ def run(cache_path=CACHE_PATH, output_path=Path("data/current/L6-002.json"), for
     total=max((e["score"] for e in active.values()),default=0); top=next(iter(active.values()),None)
     short={"signal":1 if total>0 else 0,"confidence":total/100,"evidence":{"total_score":total,"active_events_count":len(active),"top_event":top.get("name") if top else None}}
     out={"variable_id":"L6-002","data_frequency":"Event-driven","source_name":"OFAC SDN Delta","source_url":"https://sanctionslists.ofac.treas.gov/","observation_date":max((e.get("date","") for e in events),default=None),"horizons":{"1-5d":short,"1-3m":{**short,"evidence":{"total_score":total}},"1-3y":{"signal":0,"confidence":0,"evidence":{"reason":"Event-driven signals are short-term; long-term disabled"}},"3-10y":{"signal":0,"confidence":0,"evidence":{"reason":"Event-driven signals are short-term; long-term disabled"}}}}
-    Path(output_path).parent.mkdir(parents=True,exist_ok=True); Path(output_path).write_text(json.dumps(out,indent=2)+"\n");
+    output_path=Path(output_path); output_path.parent.mkdir(parents=True,exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=output_path.parent, delete=False) as tmp:
+        json.dump(out,tmp,indent=2); tmp.write("\n"); temporary=tmp.name
+    os.replace(temporary, output_path)
     if verbose: print(f"[extract] L6-002 events={len(events)} active={len(active)} score={total}")
     return out
 extract=run

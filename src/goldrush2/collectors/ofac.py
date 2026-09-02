@@ -64,7 +64,7 @@ class OFACCollector(BaseCollector):
         for e in rows:
             key=e.get("entity_id") or e.get("name")
             if e.get("action")=="REMOVE": active.pop(key,None)
-            else: active[key]=e
+            else: active[key]={**e,"score":e.get("score",0)}
         self._atomic_json(self.state_path,{"active_events":list(active.values()),"last_processed_date":today})
         return self.cache_path
     def fetch_latest_observation_date(self):

@@ -1,6 +1,7 @@
 """Deterministic GPRD_ACT signal extraction."""
 from __future__ import annotations
-import json
+import json, os
+import tempfile
 from datetime import date
 from pathlib import Path
 import pandas as pd
@@ -22,7 +23,10 @@ def run(cache_path=CACHE_PATH, output_path=Path("data/current/L6-001.json"), for
     if latest is None: obs=None
     else: obs=latest["date"].date().isoformat()
     out={"variable_id":"L6-001","data_frequency":"Daily","source_name":"GPRD_ACT (Caldara–Iacoviello)","source_url":"https://www.matteoiacoviello.com/gpr.htm","observation_date":obs,"horizons":horizons}
-    output_path=Path(output_path); output_path.parent.mkdir(parents=True,exist_ok=True); output_path.write_text(json.dumps(out,indent=2)+"\n")
+    output_path=Path(output_path); output_path.parent.mkdir(parents=True,exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=output_path.parent, delete=False) as tmp:
+        json.dump(out,tmp,indent=2); tmp.write("\n"); temporary=tmp.name
+    os.replace(temporary, output_path)
     if verbose: print(f"[extract] L6-001 observations={len(df)} latest={obs}")
     return out
 extract=run
