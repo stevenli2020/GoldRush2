@@ -115,8 +115,11 @@ class CFTCCollector(BaseCollector):
         for year in range(self.FIRST_YEAR, date.today().year + 1):
             try:
                 text = self._fetch_historical_report(year)
-                all_rows.extend(self._parse_text_rows(text))
+                year_rows = self._parse_text_rows(text)
+                all_rows.extend(year_rows)
+                self._log(f"historical {year}: {len(year_rows)} gold rows", 3)
             except SourceUnavailableError:
+                self._log(f"historical {year}: unavailable", 3)
                 continue
         by_date = {row["date"]: row for row in all_rows}
         return [by_date[key] for key in sorted(by_date)]
@@ -138,17 +141,22 @@ class CFTCCollector(BaseCollector):
     def fetch(self, force: bool = False) -> dict[str, Path]:
         if not force and self._fresh(self.l10_001_cache_path, self.l10_001_meta_path) and self._fresh(self.l10_002_cache_path, self.l10_002_meta_path):
             self.action = "cache"
+            self._log("both L10 caches are fresh; skipping CFTC download", 1)
             return {"L10-001": self.l10_001_cache_path, "L10-002": self.l10_002_cache_path}
+        self._log("requesting current CFTC gold report", 1)
         try:
             current = self._parse_report(self._fetch_current_report())
+            self._log(f"current report date={current['date']}; loading historical reports", 2)
             rows = self._load_history()
             by_date = {row["date"]: row for row in rows}
             by_date[current["date"]] = current
             rows = [by_date[key] for key in sorted(by_date)]
             self._save_both(rows, force=force)
             self.action = "full"
+            self._log(f"CFTC refresh wrote {len(rows)} observations; latest={rows[-1]['date']}", 1)
             return {"L10-001": self.l10_001_cache_path, "L10-002": self.l10_002_cache_path}
         except (SourceUnavailableError, ValueError):
+            self._log("CFTC source unavailable; checking snapshot fallback", 1)
             snapshots = []
             for variable in ("L10-001", "L10-002"):
                 snapshot = self.raw_dir / f"{variable}_snapshot.json"
@@ -159,6 +167,7 @@ class CFTCCollector(BaseCollector):
             if len(snapshots) == 2:
                 self.action = "snapshot"
                 self.warning = "SOURCE UNAVAILABLE — snapshots used"
+                self._log("CFTC snapshot fallback loaded", 1)
                 return {"L10-001": snapshots[0], "L10-002": snapshots[1]}
             raise
 
@@ -174,4 +183,3 @@ class CFTCCollector(BaseCollector):
         if not rows:
             raise SourceUnavailableError("CFTC returned no historical gold observations")
         return rows
-
