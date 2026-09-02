@@ -66,9 +66,18 @@ def test_collector_source_metadata_is_preserved(tmp_path):
     assert c.SOURCE_NAME.startswith("CME FedWatch")
 
 
+def test_collector_verbose_request_lifecycle(monkeypatch, tmp_path, capsys):
+    c = FedWatchCollector(tmp_path / "cache", tmp_path / "raw", verbose=2)
+    import cme_fedwatch
+    monkeypatch.setattr(cme_fedwatch, "get_history", lambda **kwargs: payload())
+    c._fetch()
+    output = capsys.readouterr().out
+    assert "CME FedWatch request started" in output
+    assert "CME FedWatch request completed" in output
+
+
 def test_collector_normalizes_sorted_unique_dates():
     data = payload()
     data["history"] = [data["history"][1], data["history"][0], data["history"][1]]
     rows = FedWatchCollector._normalize(data)
     assert [row["date"] for row in rows] == ["2026-08-28", "2026-09-01"]
-

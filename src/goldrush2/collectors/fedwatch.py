@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -52,16 +53,22 @@ class FedWatchCollector(BaseCollector):
         return sorted({row["date"]: row for row in rows}.values(), key=lambda row: row["date"])
 
     def _fetch(self) -> dict[str, Any]:
+        started = time.monotonic()
+        self._log("CME FedWatch request started: meeting=next days=260", 2)
         try:
             from cme_fedwatch import get_history
-            return get_history(meeting="next", days=260)
+            payload = get_history(meeting="next", days=260)
+            self._log(f"CME FedWatch request completed: history={len(payload.get('history', []))} elapsed={time.monotonic() - started:.1f}s", 2)
+            return payload
         except Exception as exc:
+            self._log(f"CME FedWatch request failed after {time.monotonic() - started:.1f}s: {exc}", 1)
             raise SourceUnavailableError(f"CME FedWatch request failed: {exc}") from exc
 
     def fetch(self, force: bool = False) -> Path:
         self.force = force
         if self.cache_path.exists() and not force:
             self.action = "cache"
+            self._log(f"CME FedWatch cache reused: {self.cache_path}", 2)
             return self.cache_path
         try:
             raw = self._fetch()
