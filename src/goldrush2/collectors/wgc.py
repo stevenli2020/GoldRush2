@@ -105,8 +105,12 @@ def _fetch_workbook(cache_dir: Path, *, page_url: str, cache_pattern: str, link_
         temporary.replace(path)
         return path
     except WGCError:
-        if cached is not None and _fresh(cached):
+        if cached is not None and (_fresh(cached) or force):
+            # A force refresh still degrades safely to the last workbook when
+            # WGC authentication or the download endpoint is unavailable.
+            # The stale flag lets callers surface that provenance to users.
             LAST_FETCH_USED_CACHE = True
+            LAST_FETCH_STALE = not _fresh(cached)
             return cached
         LAST_FETCH_STALE = cached is not None
         return None
