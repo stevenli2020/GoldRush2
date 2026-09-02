@@ -24,6 +24,7 @@ from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_above_groun
 from goldrush2.collectors.yahoo import YahooCollector
 from goldrush2.collectors.gpr import GPRCollector
 from goldrush2.collectors.ofac import OFACCollector
+from goldrush2.collectors.cftc import CFTCCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = PROJECT_ROOT / "config" / "refresh_policies.yaml"
@@ -51,7 +52,7 @@ def discover_extractors() -> dict[str, str]:
     discovered: dict[str, str] = {}
     for module_info in pkgutil.iter_modules([str(EXTRACTORS_PATH)]):
         name = module_info.name
-        if re.fullmatch(r"l\d_\d{3}", name):
+        if re.fullmatch(r"l\d+_\d{3}", name):
             variable_id = name.upper().replace("_", "-")
             discovered[variable_id] = f"goldrush2.extractors.{name}"
     return dict(sorted(discovered.items()))
@@ -172,6 +173,8 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         return GPRCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "gpr" / "L6-001.zip", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-001_snapshot.csv")
     if source == "ofac":
         return OFACCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "ofac" / "L6-002.xml", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-002_snapshot.xml")
+    if source == "cftc_cot":
+        return CFTCCollector(PROJECT_ROOT / "data" / "cache", raw_dir, force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
