@@ -4,8 +4,10 @@
   "source_name": "Federal Reserve FOMC Statement",
   "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
   "observation_date": "2026-07-29",
-  "ai_status": "not_run",
-  "ai": null,
+  "ai_status": "error",
+  "ai": {
+    "error": "Install google-generativeai, beautifulsoup4, and pandas to enable Gemini scoring"
+  },
   "horizons": {
     "1-5d": {
       "signal": 0,
