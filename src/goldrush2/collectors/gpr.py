@@ -1,6 +1,7 @@
 """Caldara-Iacoviello daily geopolitical risk collector."""
 from __future__ import annotations
-import io, json, tempfile, zipfile
+import io, json, tempfile, zipfile, re
+from urllib.parse import urljoin
 from pathlib import Path
 from typing import Any
 import pandas as pd
@@ -9,7 +10,7 @@ from .base import BaseCollector, SourceUnavailableError
 
 class GPRCollector(BaseCollector):
     handles_vars = ["L6-001"]
-    SOURCE_URL = "https://www.matteoiacoviello.com/gpr_files/data_daily.zip"
+    SOURCE_URL = "https://www.matteoiacoviello.com/gpr.htm"
     def __init__(self, cache_dir: Path, raw_path: Path, force=False, always_refresh=False, verbose=0, snapshot_path: Path|None=None):
         super().__init__(cache_dir, force, always_refresh, verbose); self.raw_path=Path(raw_path); self.snapshot_path=snapshot_path
     @property
@@ -19,16 +20,24 @@ class GPRCollector(BaseCollector):
     def fetch(self, force=False):
         if self.raw_path.exists() and not (force or self.force): return self.raw_path
         try:
-            r=requests.get(self.SOURCE_URL, timeout=30); r.raise_for_status(); self.raw_path.parent.mkdir(parents=True, exist_ok=True); self.raw_path.write_bytes(r.content); return self.raw_path
+            page=requests.get(self.SOURCE_URL, timeout=30); page.raise_for_status()
+            match=re.search(r'href=["\']([^"\']*data_gpr_daily_recent(?:_[0-9]{8})?\.dta)["\']', page.text, re.I)
+            if not match: raise SourceUnavailableError("GPR page contains no daily DTA link")
+            url=urljoin(self.SOURCE_URL, match.group(1)); r=requests.get(url, timeout=30); r.raise_for_status(); self.raw_path.parent.mkdir(parents=True, exist_ok=True); self.raw_path.write_bytes(r.content); self.source_url=url; return self.raw_path
         except Exception as exc:
             if self.snapshot_path and self.snapshot_path.exists(): return self.snapshot_path
             raise SourceUnavailableError(f"GPR source unavailable: {exc}") from exc
     def _read(self, path):
         if path.suffix.lower()==".csv": return pd.read_csv(path)
-        with zipfile.ZipFile(path) as z:
-            name=next((n for n in z.namelist() if n.lower().endswith(".dta")), None)
-            if not name: raise SourceUnavailableError("GPR archive contains no DTA file")
-            return pd.read_stata(io.BytesIO(z.read(name)))
+        try:
+            with zipfile.ZipFile(path) as z:
+                name=next((n for n in z.namelist() if n.lower().endswith(".dta")), None)
+                if not name: raise SourceUnavailableError("GPR archive contains no DTA file")
+                return pd.read_stata(io.BytesIO(z.read(name)))
+        except zipfile.BadZipFile:
+            # The raw path retains the historical .zip name; pass bytes so
+            # pandas does not infer ZIP compression from that suffix.
+            return pd.read_stata(io.BytesIO(path.read_bytes()))
     def parse(self, raw_path):
         df=self._read(Path(raw_path)); cols={str(c).lower():c for c in df.columns}
         if "date" not in cols or "gprd_act" not in cols: raise SourceUnavailableError("GPR data lacks date/GPRD_ACT columns")
