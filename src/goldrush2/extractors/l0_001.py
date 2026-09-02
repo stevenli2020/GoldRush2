@@ -60,8 +60,11 @@ def parse_above_ground_workbook(path: Path, *, cache_path: Path | None = PARSED_
             continue
         try:
             year_number = int(float(year))
-        except (TypeError, ValueError) as exc:
-            raise ValueError(f"invalid annual year: {year}") from exc
+        except (TypeError, ValueError):
+            # WGC may append a non-annual YTD column (for example YTD'26*).
+            # L0-001 is annual, so ignore that column rather than rejecting
+            # the otherwise valid historical series.
+            continue
         value = _finite(total_row[index] if index < len(total_row) else None)
         if value is None or value < 0:
             raise ValueError(f"above-ground stock must be non-negative for {year_number}")
