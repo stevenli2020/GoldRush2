@@ -30,7 +30,8 @@
           "comparison_stock": 209500.0,
           "comparison_date": "2022-12-31",
           "change_tonnes": 11200.0,
-          "change_pct": 5.3460620525
+          "change_pct": 5.3460620525,
+          "3_years_ago_year": 2022
         },
         "summary": "Above-ground gold stock rose by 11,200 tonnes (+5.35%) compared to 3 years ago, bullish for gold. SOURCE UNAVAILABLE \u2014 cached data used."
       }
@@ -45,7 +46,8 @@
           "comparison_stock": 195000.0,
           "comparison_date": "2018-12-31",
           "change_tonnes": 25700.0,
-          "change_pct": 13.1794871795
+          "change_pct": 13.1794871795,
+          "7_years_ago_year": 2018
         },
         "summary": "Above-ground gold stock rose by 25,700 tonnes (+13.18%) compared to 7 years ago, bullish for gold. SOURCE UNAVAILABLE \u2014 cached data used."
       }

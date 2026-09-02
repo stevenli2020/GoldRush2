@@ -81,6 +81,16 @@ def test_three_and_seven_year_lookbacks():
     output = build_output(observations(10))
     assert output["horizons"]["1-3y"]["evidence"]["data"]["comparison_date"] == "2016-12-31"
     assert output["horizons"]["3-10y"]["evidence"]["data"]["comparison_date"] == "2012-12-31"
+    assert output["horizons"]["1-3y"]["evidence"]["data"]["3_years_ago_year"] == 2016
+
+
+def test_gap_does_not_use_nearest_observation():
+    rows = [row for row in observations(10) if row["date"] != "2016-12-31"]
+    output = build_output(rows)
+    horizon = output["horizons"]["1-3y"]
+    assert horizon["signal"] is None and horizon["confidence"] == 0
+    assert horizon["evidence"]["error"] == "No data exactly 3 years prior"
+    assert horizon["evidence"]["current_year"] == 2019
 
 
 def test_insufficient_history():

@@ -45,7 +45,9 @@ def parse_above_ground_workbook(path: Path, *, cache_path: Path | None = PARSED_
     rows = list(workbook[sheet_name].iter_rows(values_only=True))
     if not rows or not str(rows[0][0]).lower().startswith("above-ground stocks"):
         raise ValueError("above-ground stocks title is missing")
-    header_index = next((index for index, row in enumerate(rows) if any(str(value).strip() == "2010" for value in row if value is not None)), None)
+    # Locate the row containing annual year labels instead of assuming a
+    # fixed spreadsheet offset; WGC may insert title or methodology rows.
+    header_index = next((index for index, row in enumerate(rows) if sum(1 for value in row if value is not None and str(value).strip().isdigit() and 1900 <= int(float(value)) <= 2100) >= 2), None)
     if header_index is None:
         raise ValueError("annual year header was not found")
     header = rows[header_index]
@@ -88,13 +90,15 @@ def build_output(observations: list[dict[str, Any]], *, cached: bool = False) ->
         "1-3m": {"signal": 0, "confidence": 1, "evidence": {"summary": "Annual data does not support 1-3m horizon."}},
     }
     for horizon, lookback in (("1-3y", 3), ("3-10y", 7)):
-        if current is None or len(rows) <= lookback:
-            summary = f"MISSING DATA — {lookback} prior annual observations are required."
+        target_year = int(str(current["date"])[:4]) - lookback if current else None
+        comparison = next((row for row in rows if current and row["date"] == f"{target_year:04d}-12-31"), None)
+        if current is None or comparison is None:
+            summary = f"MISSING DATA — no observation exactly {lookback} years prior."
             if cached or LAST_FETCH_STALE:
                 summary += " SOURCE UNAVAILABLE — cached data used."
-            horizons[horizon] = {"signal": 0, "confidence": 0, "evidence": {"data": {"current_stock": current["value"] if current else None, "current_date": current["date"] if current else None, "comparison_stock": None, "comparison_date": None, "change_tonnes": None, "change_pct": None}, "summary": summary}}
+            data = {"current_stock": current["value"] if current else None, "current_date": current["date"] if current else None, "comparison_stock": None, "comparison_date": None, "change_tonnes": None, "change_pct": None, f"{lookback}_years_ago_year": target_year}
+            horizons[horizon] = {"signal": None, "confidence": 0, "evidence": {"data": data, "error": f"No data exactly {lookback} years prior", "current_year": int(str(current["date"])[:4]) if current else None, "summary": summary}}
             continue
-        comparison = rows[-1 - lookback]
         change = round(float(current["value"]) - float(comparison["value"]), 10)
         change_pct = round(change / float(comparison["value"]) * 100, 10) if comparison["value"] else None
         signal = 1 if change > 0 else -1 if change < 0 else 0
@@ -102,7 +106,7 @@ def build_output(observations: list[dict[str, Any]], *, cached: bool = False) ->
         summary = f"Above-ground gold stock {direction} by {abs(change):,.0f} tonnes ({change_pct:+.2f}%) compared to {lookback} years ago, {'bullish' if signal == 1 else 'bearish' if signal == -1 else 'neutral'} for gold."
         if cached or LAST_FETCH_USED_CACHE:
             summary += " SOURCE UNAVAILABLE — cached data used."
-        data = {"current_stock": float(current["value"]), "current_date": current["date"], "comparison_stock": float(comparison["value"]), "comparison_date": comparison["date"], "change_tonnes": change, "change_pct": change_pct}
+        data = {"current_stock": float(current["value"]), "current_date": current["date"], "comparison_stock": float(comparison["value"]), "comparison_date": comparison["date"], "change_tonnes": change, "change_pct": change_pct, f"{lookback}_years_ago_year": target_year}
         horizons[horizon] = {"signal": signal, "confidence": 1, "evidence": {"data": data, "summary": summary}}
     return {"variable_id": VARIABLE_ID, "data_frequency": "Annual", "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "observation_date": current["date"] if current else None, "as_of_date": date.today().isoformat(), "horizons": horizons}
 
