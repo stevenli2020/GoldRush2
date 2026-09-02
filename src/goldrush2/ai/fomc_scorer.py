@@ -11,9 +11,14 @@ from pathlib import Path
 from typing import Any, Callable
 
 try:
-    import google.generativeai as genai
+    from google import genai
 except ImportError:  # pragma: no cover - environment dependent
     genai = None
+
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover - environment dependent
+    load_dotenv = None
 
 ROOT = Path(__file__).resolve().parents[3]
 CACHE_PATH = ROOT / "data/cache/L3-006.json"
@@ -27,6 +32,11 @@ PROMPT_PHASE2 = """You are a {role}. Assess the hawkishness of the current FOMC 
 ROLES = ("CENTRAL_BANK_POLICY_ECONOMIST", "GOLD_CROSS_ASSET_STRATEGIST", "FINANCIAL_COMMUNICATIONS_ANALYST")
 
 
+def _load_project_env() -> None:
+    if load_dotenv is not None:
+        load_dotenv(ROOT / ".env", override=False)
+
+
 def _load(path: Path, default: Any) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -38,12 +48,13 @@ def _load(path: Path, default: Any) -> Any:
 
 def _call_gemini(prompt: str, model: str) -> dict[str, Any]:
     if genai is None:
-        raise RuntimeError("Install google-generativeai, beautifulsoup4, and pandas to enable Gemini scoring")
+        raise RuntimeError("Install google-genai, python-dotenv, beautifulsoup4, and pandas to enable Gemini scoring")
+    _load_project_env()
     key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is not configured")
-    genai.configure(api_key=key)
-    response = genai.GenerativeModel(model).generate_content(prompt, generation_config={"response_mime_type": "application/json", "temperature": 0})
+    client = genai.Client(api_key=key)
+    response = client.models.generate_content(model=model, contents=prompt, config={"response_mime_type": "application/json", "temperature": 0})
     text = getattr(response, "text", "") or ""
     parsed = json.loads(text)
     if not isinstance(parsed, dict):
@@ -56,6 +67,7 @@ def _confidence(status: str) -> float:
 
 
 def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]] | None = None, cache_path: Path | None = None, output_path: Path | None = None, verbose: int = 0) -> dict[str, Any]:
+    _load_project_env()
     cache_path = Path(cache_path or CACHE_PATH)
     output_path = Path(output_path or OUTPUT_PATH)
     statements = sorted(_load(cache_path, []), key=lambda row: str(row.get("date", "")))

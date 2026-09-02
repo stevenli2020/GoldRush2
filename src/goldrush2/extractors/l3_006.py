@@ -6,11 +6,6 @@ import os
 from pathlib import Path
 from typing import Any
 
-try:
-    import google.generativeai as genai  # optional; scorer supplies the error state when absent
-except ImportError:  # pragma: no cover - environment dependent
-    genai = None
-
 VARIABLE_ID = "L3-006"
 CACHE_PATH = Path("data/cache/L3-006.json")
 OUTPUT_PATH = Path("data/current/L3-006.json")
