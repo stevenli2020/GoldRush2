@@ -33,6 +33,8 @@ L8-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date
 
 # WGC — China premium/discount workbook (weekly)
 L9-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: wgc_premiums }
+L0-001: { data_frequency: Annual, refresh_strategy: check_last_observation_date, source: wgc_above_ground }
+L9-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: wgc_premiums }
 
 L0-005: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }
 L0-006: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: wgc_gdt }

@@ -20,6 +20,7 @@ WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves
 WGC_OFFICIAL_HOLDINGS_PAGE_URL = WGC_OFFICIAL_CHANGES_PAGE_URL
 WGC_GDT_PAGE_URL = "https://www.gold.org/goldhub/data/gold-demand-by-country"
 WGC_PREMIUMS_PAGE_URL = "https://www.gold.org/goldhub/data/gold-premium"
+WGC_ABOVE_GROUND_PAGE_URL = "https://www.gold.org/goldhub/data/how-much-gold"
 CACHE_MAX_AGE_DAYS = 7
 USER_AGENT = "Mozilla/5.0 GoldRush2 WGC downloader"
 LAST_FETCH_USED_CACHE = False
@@ -144,6 +145,17 @@ def fetch_wgc_gold_premiums(cache_dir: Path, *, force: bool = False) -> Path | N
         page_url=WGC_PREMIUMS_PAGE_URL,
         cache_pattern="gold-premiums.xlsx",
         link_pattern=r"gold-premiums",
+        force=force,
+    )
+
+
+def fetch_wgc_above_ground_stocks(cache_dir: Path, *, force: bool = False) -> Path | None:
+    """Download WGC's annual above-ground gold stocks workbook."""
+    return _fetch_workbook(
+        cache_dir,
+        page_url=WGC_ABOVE_GROUND_PAGE_URL,
+        cache_pattern=("Above-ground_stocks_*.xlsx", "above-ground-gold-stocks*.xlsx"),
+        link_pattern=r"above-ground-gold-stocks|above-ground[_-]?stocks",
         force=force,
     )
 

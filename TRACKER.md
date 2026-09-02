@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (33/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-001/L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-003/L5-006/L7-001/L7-003/L7-004/L7-005/L8-001/L9-001/L9-004 complete (34/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,11 +20,11 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="33" max="45">33/45</progress> **33/45 variables complete (73%)**
+**DR2 completion:** <progress value="34" max="45">34/45</progress> **34/45 variables complete (76%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
-| 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Not started | Not started |
+| 1 | L0-001 | Above-Ground Gold Stock | Total accumulated above-ground gold and its change over time. | Carried forward | Complete - WGC GoldHub `Above-ground stocks` annual Total row in tonnes; 3-year/7-year comparisons with non-negative validation | Not started |
 | 2 | L0-002 | Central-Bank Gold Holdings | Gold held by central banks and official institutions. | Carried forward | Complete - WGC/IMF IFS official-changes Monthly sheet, canonical country changes cumulatively summed from 2002-01 as a holdings index in tonnes; 5/63/252 lookbacks valid and 756 is source-limited | Not started |
 | 3 | L0-003 | Gold ETF Holdings | The stock of physical gold held by exchange-traded funds. | Carried forward | Complete - WGC ETF workbook Holdings by month sheet, monthly global tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
 | 4 | L0-005 | Bar-and-Coin Investment Holdings / Demand | Physical bar-and-coin investment demand and its contribution to market absorption. | Carried forward | Complete - WGC GDT quarterly workbook `Gold Balance` total bar-and-coin row with bars/official coins/medals component reconciliation; 1-3y and 3-10y use 4Q/20Q lookbacks; short horizons structurally inapplicable | Not started |
@@ -110,6 +110,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-02 | L9-001 | Shared WGC gold-premiums collector; exact `Chinese premiums-discounts` 5-day moving-average series with weekly 5/63/252/756 comparisons; owner-approved USD/oz signal basis | Raw workbook and parsed `data/cache/wgc/gold_premiums.json` are cached; unavailable source is explicitly annotated in evidence | 21 focused tests and 514 full-suite tests passed in WSL; live output through 2026-08-21 produced signals `-1, -1, -1, -1` with confidence `1, 1, 1, 1` | Approved by Steven on 2026-09-02 |
 | 2026-09-02 | L7-003 | BIS SDMX `WS_TC(2.0)` series `Q.5A.P.A.M.USD.A`; approved dimensions are filtered, quarterly USD-billion levels converted to quarter-end dates, and YoY growth calculated | Raw CSV is atomically cached under `data/raw/bis`; normalized observations use BaseCollector refresh/fallback behavior; 270-day publication-lag threshold is preserved in collector metadata | 28 focused tests and 542 full-suite tests passed in WSL; live BIS endpoint timed out during implementation, so the committed output is explicitly a verified cached replay | Approved by Steven on 2026-09-02 |
 | 2026-09-02 | L5-003 | IMF COFER SDMX `G001.AFXRA.CI_USD.SHRO_PT.Q`; approved world aggregate/USD-share dimensions are filtered, quarterly shares normalized, and QoQ changes calculated | Raw CSV is atomically cached under `data/raw/imf`; normalized observations use BaseCollector refresh/fallback behavior; 200-day publication-lag threshold and LARGE_SHIFT evidence flag are preserved | 27 focused tests and 575 full-suite tests passed in WSL; verified GR1 COFER snapshot replay produced latest observation 2026-03-31 and signals `+1, -1` for 1-3y/3-10y | Approved by Steven on 2026-09-02 |
+| 2026-09-02 | L0-001 | Shared WGC above-ground-stocks collector; exact `Above-ground stocks` annual Total row in tonnes with 3-year/7-year comparisons | Raw workbook and parsed `data/cache/wgc/l0_001.json` are cached; unavailable source is explicitly annotated in evidence | 18 focused tests and 593 full-suite tests passed in WSL; verified WGC workbook replay produced latest observation 2025-12-31 and signals `+1, +1` with confidence `1, 1` for long horizons | Implemented — owner approval pending |
 
 ## Tracker rules
 
