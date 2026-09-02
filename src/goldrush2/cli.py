@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import argparse
 from datetime import date, timedelta
+import importlib
+import inspect
+import json
+import pkgutil
 from pathlib import Path
+import re
 from typing import Any
 
 import yaml
@@ -18,6 +23,7 @@ from goldrush2.collectors.yahoo import YahooCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = PROJECT_ROOT / "config" / "refresh_policies.yaml"
+EXTRACTORS_PATH = PROJECT_ROOT / "src" / "goldrush2" / "extractors"
 
 
 def load_policies(path: Path = POLICY_PATH) -> dict[str, dict[str, Any]]:
@@ -34,6 +40,42 @@ def load_policies(path: Path = POLICY_PATH) -> dict[str, dict[str, Any]]:
 def get_all_variables(policies: dict[str, dict[str, Any]]) -> list[str]:
     """Return every variable with an implemented collection policy."""
     return sorted(policies)
+
+
+def discover_extractors() -> dict[str, str]:
+    """Discover extractor modules named like ``l0_001`` and map their IDs."""
+    discovered: dict[str, str] = {}
+    for module_info in pkgutil.iter_modules([str(EXTRACTORS_PATH)]):
+        name = module_info.name
+        if re.fullmatch(r"l\d_\d{3}", name):
+            variable_id = name.upper().replace("_", "-")
+            discovered[variable_id] = f"goldrush2.extractors.{name}"
+    return dict(sorted(discovered.items()))
+
+
+def _extractor_kwargs(module: Any, variable_id: str, output_path: Path) -> dict[str, Path]:
+    """Build path arguments supported by an extractor's ``run`` function."""
+    run = getattr(module, "run")
+    parameters = inspect.signature(run).parameters
+    paths: dict[str, Path] = {"output_path": output_path}
+    if "cache_path" in parameters:
+        paths["cache_path"] = PROJECT_ROOT / "data" / "cache" / "bis" / f"{variable_id}.json"
+    if "raw_dir" in parameters:
+        paths["raw_dir"] = PROJECT_ROOT / "data" / "raw" / "wgc"
+    if "raw_path" in parameters and hasattr(module, "RAW_PATH"):
+        paths["raw_path"] = Path(module.RAW_PATH)
+    return {name: path for name, path in paths.items() if name in parameters}
+
+
+def _print_extractor_check(extractors: dict[str, str]) -> None:
+    """Print discovered extractor modules and whether they expose ``run``."""
+    for variable_id, module_name in extractors.items():
+        try:
+            module = importlib.import_module(module_name)
+            status = "OK" if callable(getattr(module, "run", None)) else "MISSING run()"
+        except Exception as exc:  # pragma: no cover - defensive diagnostic output
+            status = f"IMPORT ERROR: {exc}"
+        print(f"{variable_id}: {module_name} [{status}]")
 
 
 def _wgc_normalizer(variable_id: str):
@@ -155,18 +197,31 @@ def cmd_collect(args: argparse.Namespace) -> int:
 
 
 def cmd_extract(args: argparse.Namespace) -> int:
+    extractors = discover_extractors()
+    if getattr(args, "check", False):
+        _print_extractor_check(extractors)
+        return 0
     variable_id = args.variable.upper()
-    if variable_id != "L7-003":
+    module_name = extractors.get(variable_id)
+    if module_name is None:
         print(f"{variable_id}: no extractor command is configured")
         return 1
-    from goldrush2.extractors import l7_003
 
     try:
-        output = l7_003.run(PROJECT_ROOT / "data" / "cache" / "bis" / f"{variable_id}.json", PROJECT_ROOT / "data" / "current" / f"{variable_id}.json")
-    except (OSError, ValueError, KeyError) as exc:
+        module = importlib.import_module(module_name)
+        run = getattr(module, "run")
+        output_path = PROJECT_ROOT / "data" / "current" / f"{variable_id}.json"
+        output = run(**_extractor_kwargs(module, variable_id, output_path))
+    except (OSError, ValueError, KeyError, AttributeError, TypeError, ImportError, RuntimeError) as exc:
         print(f"{variable_id}: action=failed detail={exc}")
         return 1
-    print(f"{variable_id}: action=extract observation_date={output['observation_date']}")
+    if getattr(args, "pretty", False):
+        print(json.dumps(output, indent=2, default=str))
+    elif getattr(args, "print_json", False):
+        print(json.dumps(output, default=str))
+    else:
+        observation_date = output.get("observation_date") if isinstance(output, dict) else None
+        print(f"{variable_id}: action=extract observation_date={observation_date}")
     return 0
 
 
@@ -181,11 +236,17 @@ def main(argv: list[str] | None = None) -> int:
     collect.add_argument("-v", "--verbose", action="count", default=0, help="show execution details; repeat for more detail")
     collect.set_defaults(handler=cmd_collect)
     extract = commands.add_parser("extract", help="build current variable output from normalized cache")
-    extract.add_argument("variable", help="variable ID")
+    extract.add_argument("variable", nargs="?", help="variable ID")
+    output_group = extract.add_mutually_exclusive_group()
+    output_group.add_argument("--print", dest="print_json", action="store_true", help="print compact JSON after extraction")
+    output_group.add_argument("--pretty", action="store_true", help="print indented JSON after extraction")
+    extract.add_argument("--check", action="store_true", help="list discovered extractors and mapping status")
     extract.set_defaults(handler=cmd_extract)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")
+    if args.command == "extract" and not args.check and not args.variable:
+        parser.error("extract requires a variable ID or --check")
     return args.handler(args)
 
 

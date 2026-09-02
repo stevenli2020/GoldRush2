@@ -26,3 +26,17 @@ gr2 collect --all --dry-run
 ```
 
 The mixed CME/FRED L1-006 collector remains internal to its existing extractor and is reported as delegated by `gr2 collect`.
+
+## Extractor commands
+
+The extraction command discovers every `l<layer>_<variable>` module under
+`src/goldrush2/extractors`, so adding a module automatically makes its variable
+available without another CLI mapping entry. Each discovered module must expose
+the existing `run()` function and writes its result to `data/current/`.
+
+```bash
+gr2 extract L0-006             # write the file and print a one-line summary
+gr2 extract L7-003 --print     # write the file and print compact JSON
+gr2 extract L7-003 --pretty    # write the file and print indented JSON
+gr2 extract --check            # list discovered modules and mapping status
+```
