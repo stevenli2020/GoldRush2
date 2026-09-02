@@ -163,7 +163,9 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
     if source == "imf_cofer":
         return IMFCollector(PROJECT_ROOT / "data" / "cache" / "imf", raw_dir / "imf" / "cofer.csv", force=force, always_refresh=always_refresh)
     if source == "fed_sep":
-        return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-005.html", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L3-005_snapshot.html")
+        return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-005.html", variable_id="L3-005", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L3-005_snapshot.html")
+    if source == "fed_statement":
+        return FedCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "L3-006.html", variable_id="L3-006", force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
@@ -241,6 +243,22 @@ def cmd_extract(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_score(args: argparse.Namespace) -> int:
+    variable_id = args.variable.upper()
+    if variable_id != "L3-006":
+        print(f"Error: AI scoring not supported for {variable_id}")
+        print("Currently only L3-006 supports AI scoring.")
+        return 1
+    try:
+        from goldrush2.ai.fomc_scorer import score_l3_006
+
+        print(json.dumps(score_l3_006(force=args.force), indent=2, default=str))
+        return 0
+    except (OSError, ValueError, RuntimeError) as exc:
+        print(f"Error during scoring: {exc}")
+        return 1
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="gr2")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -258,6 +276,10 @@ def main(argv: list[str] | None = None) -> int:
     output_group.add_argument("--pretty", action="store_true", help="print indented JSON after extraction")
     extract.add_argument("--check", action="store_true", help="list discovered extractors and mapping status")
     extract.set_defaults(handler=cmd_extract)
+    score = commands.add_parser("score", help="run optional AI scoring")
+    score.add_argument("variable", help="variable ID")
+    score.add_argument("--force", action="store_true", help="force a new AI score")
+    score.set_defaults(handler=cmd_score)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")

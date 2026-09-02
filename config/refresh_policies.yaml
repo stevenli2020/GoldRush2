@@ -28,6 +28,7 @@ L5-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date
 L5-006: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
 L5-003: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: imf_cofer }
 L3-005: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: fed_sep, stale_threshold_days: 120 }
+L3-006: { data_frequency: Event-driven, refresh_strategy: check_last_observation_date, source: fed_statement, stale_threshold_days: 60, ai: { enabled: true, min_score_change: 1.0, gemini_model: gemini-3.5-flash-lite, temperature: 0.0, max_backfill_days: 180 } }
 
 L0-003: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
 L8-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
