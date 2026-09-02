@@ -12,7 +12,7 @@ import yaml
 from goldrush2.collectors.base import BaseCollector, CollectorError
 from goldrush2.collectors.fred import FredCollector
 from goldrush2.collectors.treasury import TreasuryCollector
-from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_gdt_workbook, fetch_wgc_official_changes, fetch_wgc_workbook
+from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_gold_premiums, fetch_wgc_gdt_workbook, fetch_wgc_official_changes, fetch_wgc_workbook
 from goldrush2.collectors.yahoo import YahooCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -72,6 +72,10 @@ def _wgc_normalizer(variable_id: str):
         from goldrush2.extractors.l9_004 import parse_india_workbook
 
         return parse_india_workbook
+    if variable_id == "L9-001":
+        from goldrush2.extractors.l9_001 import parse_premiums_workbook
+
+        return parse_premiums_workbook
     raise ValueError(f"No WGC normalizer is configured for {variable_id}")
 
 
@@ -82,6 +86,8 @@ def _wgc_fetcher(source: str):
         return fetch_wgc_workbook
     if source == "wgc_gdt":
         return fetch_wgc_gdt_workbook
+    if source == "wgc_premiums":
+        return fetch_wgc_gold_premiums
     raise ValueError(f"Unsupported WGC source: {source}")
 
 

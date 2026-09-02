@@ -1,0 +1,74 @@
+{
+  "variable_id": "L9-001",
+  "data_frequency": "Weekly",
+  "source_name": "WGC - China Physical Gold Premium/Discount (USD/oz)",
+  "source_url": "https://www.gold.org/",
+  "observation_date": "2026-08-21",
+  "as_of_date": "2026-09-02",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": -2.003030999999828,
+          "current_date": "2026-08-21",
+          "comparison_value_pct": null,
+          "comparison_date": "2026-08-14",
+          "change_pct": -1.354644,
+          "absolute_level": "negative"
+        },
+        "summary": "China gold premium narrowed by 1.35 USD/oz compared to 5 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: -2.00 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis. SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": -2.003030999999828,
+          "current_date": "2026-08-21",
+          "comparison_value_pct": null,
+          "comparison_date": "2026-05-26",
+          "change_pct": -30.308719,
+          "absolute_level": "negative"
+        },
+        "summary": "China gold premium narrowed by 30.31 USD/oz compared to 63 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: -2.00 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis. SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": -2.003030999999828,
+          "current_date": "2026-08-21",
+          "comparison_value_pct": null,
+          "comparison_date": "2025-09-03",
+          "change_pct": -3.33768,
+          "absolute_level": "negative"
+        },
+        "summary": "China gold premium narrowed by 3.34 USD/oz compared to 252 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: -2.00 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis. SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": -2.003030999999828,
+          "current_date": "2026-08-21",
+          "comparison_value_pct": null,
+          "comparison_date": "2023-09-28",
+          "change_pct": -85.866872,
+          "absolute_level": "negative"
+        },
+        "summary": "China gold premium narrowed by 85.87 USD/oz compared to 756 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: -2.00 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis. SOURCE UNAVAILABLE \u2014 cached data used."
+      }
+    }
+  }
+}

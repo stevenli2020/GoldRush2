@@ -19,6 +19,7 @@ WGC_PAGE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
 WGC_OFFICIAL_CHANGES_PAGE_URL = "https://www.gold.org/goldhub/data/gold-reserves-by-country"
 WGC_OFFICIAL_HOLDINGS_PAGE_URL = WGC_OFFICIAL_CHANGES_PAGE_URL
 WGC_GDT_PAGE_URL = "https://www.gold.org/goldhub/data/gold-demand-by-country"
+WGC_PREMIUMS_PAGE_URL = "https://www.gold.org/goldhub/data/gold-premium"
 CACHE_MAX_AGE_DAYS = 7
 USER_AGENT = "Mozilla/5.0 GoldRush2 WGC downloader"
 LAST_FETCH_USED_CACHE = False
@@ -132,6 +133,17 @@ def fetch_wgc_gdt_workbook(cache_dir: Path, *, force: bool = False) -> Path | No
         page_url=WGC_GDT_PAGE_URL,
         cache_pattern=("GDT*.xlsx", "Gold_Demand_Trends_*.xlsx"),
         link_pattern=r"(?:gdt|gold[_-]?demand|demand[_-]?trends)",
+        force=force,
+    )
+
+
+def fetch_wgc_gold_premiums(cache_dir: Path, *, force: bool = False) -> Path | None:
+    """Download WGC's published China premium/discount workbook."""
+    return _fetch_workbook(
+        cache_dir,
+        page_url=WGC_PREMIUMS_PAGE_URL,
+        cache_pattern="gold-premiums.xlsx",
+        link_pattern=r"gold-premiums",
         force=force,
     )
 

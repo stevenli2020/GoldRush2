@@ -11,7 +11,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | Roadmap | Deliverable | Status |
 |---|---|---|
 | DR1 | Define the 11 layers and 45 variables | Draft complete; owner review pending |
-| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-006/L7-001/L7-004/L7-005/L8-001/L9-004 complete (30/45) |
+| DR2 | Shared source collectors and one current extractor JSON per variable | In progress - L0-002/L0-003/L0-005/L0-006/L1-001/L1-002/L1-003/L1-004/L1-005/L1-006/L1-007/L2-001/L2-002/L2-003/L4-001/L4-002/L4-003/L4-004/L4-006/L4-007/L4-008/L4-009/L5-001/L5-002/L5-006/L7-001/L7-004/L7-005/L8-001/L9-001/L9-004 complete (31/45) |
 | DR3 | Versioned fixed variable-weight schema and researched aggregation method | Not started |
 | DR4 | Four current scores, confidence levels, and Gemini report | Not started |
 | DR5 | One-command user workflow, inputs, outputs, and notifications | Not started |
@@ -20,7 +20,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 
 `DR1` records the initial GR2 definition state. Source groups, extractor rules, freshness limits, and weight values remain deliberately blank until their roadmap work begins.
 
-**DR2 completion:** <progress value="30" max="45">30/45</progress> **30/45 variables complete (67%)**
+**DR2 completion:** <progress value="31" max="45">31/45</progress> **31/45 variables complete (69%)**
 
 | # | Variable ID | Variable name | Concise GR2 definition | DR1 | DR2 | DR3 |
 |---:|---|---|---|---|---|---|
@@ -65,7 +65,7 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 39 | L7-004 | Credit-Spread Financial Stress | Credit-market risk and financial stress measured through borrowing spreads. | Carried forward | Complete - FRED `BAMLH0A0HYM2` daily high-yield OAS with 5/63/252/756 valid-observation lookbacks | Not started |
 | 40 | L7-005 | Treasury Repo Funding Stress | Stress in secured short-term US Treasury funding markets. | Carried forward | Complete - aligned FRED `SOFR` minus `EFFR` spread in basis points with 5/63/252/756 valid-observation lookbacks | Not started |
 | 41 | L8-001 | Gold ETF Net Flows | Current investment money flowing into or out of gold ETFs. | Carried forward | Complete - WGC ETF workbook Demand by month sheet, summed per-fund monthly tonnes with 5/63/252/756 valid-observation lookbacks | Not started |
-| 42 | L9-001 | Shanghai Gold Exchange Premium/Discount | The local Chinese physical gold price relative to the international benchmark. | Carried forward | Not started | Not started |
+| 42 | L9-001 | Shanghai Gold Exchange Premium/Discount | The local Chinese physical gold price relative to the international benchmark. | Carried forward | Complete - WGC `gold-premiums.xlsx` Chinese premiums-discounts 5-day moving-average series; weekly 5/63/252/756 lookbacks, preserving USD/oz and optional percentage evidence | Not started |
 | 43 | L9-004 | India Physical Gold Imports and Consumer Demand | Indian gold imports and consumer acquisition as a regional physical-demand signal. | Carried forward | Complete - WGC GDT quarterly India jewellery, bar-and-coin, gross-import and net-import components; net imports drive 4Q/20Q signals; short horizons structurally inapplicable | Not started |
 | 44 | L10-001 | COMEX Managed-Money Net Positioning | Net speculative futures positioning reported for COMEX gold. | Carried forward | Not started | Not started |
 | 45 | L10-002 | COMEX Gold Futures Open Interest | Outstanding COMEX gold futures contracts and associated market participation. | Carried forward | Not started | Not started |
@@ -105,6 +105,8 @@ This tracker records GR2 work only. GR1 rules, statuses, and commit hashes do no
 | 2026-09-01 | L0-006 | Shared WGC GDT collector; dynamically detects the recycled-gold row across `Gold Balance`, `Supply`, and `Supply_and_Demand` sheets and emits quarterly tonnes | Workbook is validated as XLSX and cached for seven days; parsed demand/recycling series share a persistent cache; invalid negative global totals are rejected; short horizons are structurally inapplicable and longer horizons use 4Q/20Q lookbacks | 37 focused WGC/GDT tests passed in WSL; manual placement of the verified GDT workbook produced latest observation 2026-06-30 with signals `0, 0, +1, -1` and confidence `1, 1, 1, 1` | Implemented per Steven on 2026-09-01 |
 | 2026-09-01 | L9-004 | Reused the shared WGC GDT collector; quarterly India rows from `Jewellery`, `Bar and Coin`, and `India Supply` preserve jewellery, bar-and-coin, gross-import and net-import tonnes; net imports drive 4Q/20Q signals | Workbook is validated as XLSX and cached for seven days; the versioned parsed cache retains the India component panel; negative component values fail extraction; source failure uses fresh cache and older cache returns `STALE DATA`; short horizons are structurally inapplicable | 23 focused tests, 60 focused WGC/GDT regression tests, and 478 full-suite tests passed in WSL; live extractor run against the current WGC workbook produced latest observation 2026-06-30 with signals `0, 0, -1, -1` and confidence `1, 1, 1, 1` | Approved by Steven on 2026-09-01 |
 | 2026-09-02 | DR2 caching | Added policy-driven `BaseCollector` normalized caches, source-date refresh checks, FRED/Yahoo incremental refresh, WGC/Treasury adapters, atomic writes, and `gr2 collect` with repeatable `-v` verbosity | Raw source files remain in `data/raw/`; normalized observations and `_meta.json` live under `data/cache/<variable>/`; source failure retains cache with a warning; `--force` records `force_refreshed_at` | 15 new base/integration tests, 43 collector-focused tests, and 493 full-suite tests passed in WSL; CLI dry run, live `L4-001` refresh, and `-vvv` execution trace passed | Implemented — owner approval pending |
+
+| 2026-09-02 | L9-001 | Shared WGC gold-premiums collector; exact `Chinese premiums-discounts` 5-day moving-average series with weekly 5/63/252/756 comparisons; USD/oz preserved and percentage computed when source price columns exist | Raw workbook and parsed `data/cache/wgc/gold_premiums.json` are cached; unavailable source is explicitly annotated in evidence | Focused tests and authenticated live run verified below | Implemented — owner approval pending |
 
 ## Tracker rules
 
