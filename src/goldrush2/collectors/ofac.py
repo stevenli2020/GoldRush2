@@ -42,12 +42,12 @@ class OFACCollector(BaseCollector):
                     h=requests.head(url,timeout=10,allow_redirects=True)
                     if h.status_code==200: return url, d.isoformat()
                 except requests.RequestException: pass
-        r=requests.get(self.ARCHIVE,params={"year":date.today().year},timeout=30); r.raise_for_status(); payload=r.json()
+        r=requests.post(self.ARCHIVE,params={"year":date.today().year},json={},timeout=30); r.raise_for_status(); payload=r.json()
         items=payload if isinstance(payload,list) else payload.get("data",payload.get("items",[]))
         if not items: return "https://sanctionslists.ofac.treas.gov/sdn.xml", date.today().isoformat()
         item=max(items,key=lambda x:x.get("publishDisplayDate",x.get("date","")))
-        name=item.get("fileName") or item.get("filename")
-        return self.DOWNLOAD+requests.utils.quote(name), item.get("publishDisplayDate","")[:10]
+        name=item.get("downloadLink") or item.get("fileName") or item.get("filename")
+        return self.DOWNLOAD+requests.utils.quote(name, safe=""), item.get("publishDisplayDate","")[:10]
     def fetch(self, force=False):
         try:
             url,pub=self._latest_file(); r=requests.get(url,timeout=30); r.raise_for_status(); self.raw_path.parent.mkdir(parents=True,exist_ok=True); self.raw_path.write_bytes(r.content); self._published=pub; return self.raw_path
