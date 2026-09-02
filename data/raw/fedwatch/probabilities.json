@@ -1,0 +1,2414 @@
+{
+  "source_csv": "/mnt/d/Projects/GoldRush2/data/raw/fedwatch/FedMeeting_20260916.csv",
+  "meeting_date": "2026-09-16",
+  "observations": [
+    {
+      "date": "2025-09-02",
+      "easing_prob": 85.6423,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-03",
+      "easing_prob": 89.5329,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-04",
+      "easing_prob": 90.6524,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-05",
+      "easing_prob": 95.0271,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-06",
+      "easing_prob": 95.0271,
+      "is_filled": true,
+      "filled_from": "2025-09-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-07",
+      "easing_prob": 95.0271,
+      "is_filled": true,
+      "filled_from": "2025-09-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-08",
+      "easing_prob": 95.7675,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-09",
+      "easing_prob": 93.0314,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-10",
+      "easing_prob": 94.1203,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-11",
+      "easing_prob": 95.3768,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-12",
+      "easing_prob": 93.0785,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-13",
+      "easing_prob": 93.0785,
+      "is_filled": true,
+      "filled_from": "2025-09-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-14",
+      "easing_prob": 93.0785,
+      "is_filled": true,
+      "filled_from": "2025-09-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-15",
+      "easing_prob": 93.6289,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-16",
+      "easing_prob": 94.7806,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-17",
+      "easing_prob": 93.9914,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-18",
+      "easing_prob": 93.6978,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-19",
+      "easing_prob": 92.3352,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-20",
+      "easing_prob": 92.3352,
+      "is_filled": true,
+      "filled_from": "2025-09-19",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-21",
+      "easing_prob": 92.3352,
+      "is_filled": true,
+      "filled_from": "2025-09-19",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-22",
+      "easing_prob": 90.8587,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-23",
+      "easing_prob": 90.9395,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-24",
+      "easing_prob": 89.6979,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-25",
+      "easing_prob": 82.4278,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-26",
+      "easing_prob": 84.2966,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-27",
+      "easing_prob": 84.2966,
+      "is_filled": true,
+      "filled_from": "2025-09-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-28",
+      "easing_prob": 84.2966,
+      "is_filled": true,
+      "filled_from": "2025-09-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-29",
+      "easing_prob": 85.2482,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-09-30",
+      "easing_prob": 89.2005,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-01",
+      "easing_prob": 93.3714,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-02",
+      "easing_prob": 93.5825,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-03",
+      "easing_prob": 92.1681,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-04",
+      "easing_prob": 92.1681,
+      "is_filled": true,
+      "filled_from": "2025-10-03",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-05",
+      "easing_prob": 92.1681,
+      "is_filled": true,
+      "filled_from": "2025-10-03",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-06",
+      "easing_prob": 90.573,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-07",
+      "easing_prob": 90.9006,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-08",
+      "easing_prob": 89.6971,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-09",
+      "easing_prob": 89.5378,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-10",
+      "easing_prob": 94.8477,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-11",
+      "easing_prob": 94.8477,
+      "is_filled": true,
+      "filled_from": "2025-10-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-12",
+      "easing_prob": 94.8477,
+      "is_filled": true,
+      "filled_from": "2025-10-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-13",
+      "easing_prob": 96.0857,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-14",
+      "easing_prob": 96.1992,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-15",
+      "easing_prob": 95.927,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-16",
+      "easing_prob": 98.0265,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-17",
+      "easing_prob": 97.1913,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-18",
+      "easing_prob": 97.1913,
+      "is_filled": true,
+      "filled_from": "2025-10-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-19",
+      "easing_prob": 97.1913,
+      "is_filled": true,
+      "filled_from": "2025-10-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-20",
+      "easing_prob": 97.1566,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-21",
+      "easing_prob": 97.344,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-22",
+      "easing_prob": 97.2397,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-23",
+      "easing_prob": 95.4763,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-24",
+      "easing_prob": 95.6905,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-25",
+      "easing_prob": 95.6905,
+      "is_filled": true,
+      "filled_from": "2025-10-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-26",
+      "easing_prob": 95.6905,
+      "is_filled": true,
+      "filled_from": "2025-10-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-27",
+      "easing_prob": 94.6325,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-28",
+      "easing_prob": 94.0748,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-29",
+      "easing_prob": 87.2418,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-30",
+      "easing_prob": 87.9742,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-10-31",
+      "easing_prob": 86.5038,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-01",
+      "easing_prob": 86.5038,
+      "is_filled": true,
+      "filled_from": "2025-10-31",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-02",
+      "easing_prob": 86.5038,
+      "is_filled": true,
+      "filled_from": "2025-10-31",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-03",
+      "easing_prob": 87.0395,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-04",
+      "easing_prob": 87.6107,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-05",
+      "easing_prob": 83.7267,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-06",
+      "easing_prob": 88.447,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-07",
+      "easing_prob": 88.8951,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-08",
+      "easing_prob": 88.8951,
+      "is_filled": true,
+      "filled_from": "2025-11-07",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-09",
+      "easing_prob": 88.8951,
+      "is_filled": true,
+      "filled_from": "2025-11-07",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-10",
+      "easing_prob": 86.6005,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-11",
+      "easing_prob": 89.66,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-12",
+      "easing_prob": 88.6675,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-13",
+      "easing_prob": 86.2887,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-14",
+      "easing_prob": 84.6997,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-15",
+      "easing_prob": 84.6997,
+      "is_filled": true,
+      "filled_from": "2025-11-14",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-16",
+      "easing_prob": 84.6997,
+      "is_filled": true,
+      "filled_from": "2025-11-14",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-17",
+      "easing_prob": 85.4861,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-18",
+      "easing_prob": 88.0239,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-19",
+      "easing_prob": 86.6345,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-20",
+      "easing_prob": 89.703,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-21",
+      "easing_prob": 91.8739,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-22",
+      "easing_prob": 91.8739,
+      "is_filled": true,
+      "filled_from": "2025-11-21",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-23",
+      "easing_prob": 91.8739,
+      "is_filled": true,
+      "filled_from": "2025-11-21",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-24",
+      "easing_prob": 92.9962,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-25",
+      "easing_prob": 93.6617,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-26",
+      "easing_prob": 92.4893,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-27",
+      "easing_prob": 92.4893,
+      "is_filled": true,
+      "filled_from": "2025-11-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-28",
+      "easing_prob": 92.0728,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-29",
+      "easing_prob": 92.0728,
+      "is_filled": true,
+      "filled_from": "2025-11-28",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-11-30",
+      "easing_prob": 92.0728,
+      "is_filled": true,
+      "filled_from": "2025-11-28",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-01",
+      "easing_prob": 90.0576,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-02",
+      "easing_prob": 91.3611,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-03",
+      "easing_prob": 92.6241,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-04",
+      "easing_prob": 89.9894,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-05",
+      "easing_prob": 87.6914,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-06",
+      "easing_prob": 87.6914,
+      "is_filled": true,
+      "filled_from": "2025-12-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-07",
+      "easing_prob": 87.6914,
+      "is_filled": true,
+      "filled_from": "2025-12-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-08",
+      "easing_prob": 86.2252,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-09",
+      "easing_prob": 83.705,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-10",
+      "easing_prob": 87.5954,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-11",
+      "easing_prob": 91.0763,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-12",
+      "easing_prob": 90.6736,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-13",
+      "easing_prob": 90.6736,
+      "is_filled": true,
+      "filled_from": "2025-12-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-14",
+      "easing_prob": 90.6736,
+      "is_filled": true,
+      "filled_from": "2025-12-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-15",
+      "easing_prob": 92.0174,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-16",
+      "easing_prob": 92.91,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-17",
+      "easing_prob": 92.9315,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-18",
+      "easing_prob": 93.7584,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-19",
+      "easing_prob": 92.9888,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-20",
+      "easing_prob": 92.9888,
+      "is_filled": true,
+      "filled_from": "2025-12-19",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-21",
+      "easing_prob": 92.9888,
+      "is_filled": true,
+      "filled_from": "2025-12-19",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-22",
+      "easing_prob": 91.9728,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-23",
+      "easing_prob": 90.5256,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-24",
+      "easing_prob": 91.5491,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-25",
+      "easing_prob": 91.5491,
+      "is_filled": true,
+      "filled_from": "2025-12-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-26",
+      "easing_prob": 92.3954,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-27",
+      "easing_prob": 92.3954,
+      "is_filled": true,
+      "filled_from": "2025-12-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-28",
+      "easing_prob": 92.3954,
+      "is_filled": true,
+      "filled_from": "2025-12-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-29",
+      "easing_prob": 93.3099,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-30",
+      "easing_prob": 93.0744,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2025-12-31",
+      "easing_prob": 92.3434,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-01",
+      "easing_prob": 92.3434,
+      "is_filled": true,
+      "filled_from": "2025-12-31",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-02",
+      "easing_prob": 92.148,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-03",
+      "easing_prob": 92.148,
+      "is_filled": true,
+      "filled_from": "2026-01-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-04",
+      "easing_prob": 92.148,
+      "is_filled": true,
+      "filled_from": "2026-01-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-05",
+      "easing_prob": 92.9321,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-06",
+      "easing_prob": 91.6389,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-07",
+      "easing_prob": 92.1596,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-08",
+      "easing_prob": 91.3602,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-09",
+      "easing_prob": 87.5811,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-10",
+      "easing_prob": 87.5811,
+      "is_filled": true,
+      "filled_from": "2026-01-09",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-11",
+      "easing_prob": 87.5811,
+      "is_filled": true,
+      "filled_from": "2026-01-09",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-12",
+      "easing_prob": 86.5352,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-13",
+      "easing_prob": 88.0527,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-14",
+      "easing_prob": 89.0752,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-15",
+      "easing_prob": 83.7794,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-16",
+      "easing_prob": 81.9801,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-17",
+      "easing_prob": 81.9801,
+      "is_filled": true,
+      "filled_from": "2026-01-16",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-18",
+      "easing_prob": 81.9801,
+      "is_filled": true,
+      "filled_from": "2026-01-16",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-19",
+      "easing_prob": 81.9801,
+      "is_filled": true,
+      "filled_from": "2026-01-16",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-20",
+      "easing_prob": 83.1987,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-21",
+      "easing_prob": 81.6769,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-22",
+      "easing_prob": 80.25,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-23",
+      "easing_prob": 81.3819,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-24",
+      "easing_prob": 81.3819,
+      "is_filled": true,
+      "filled_from": "2026-01-23",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-25",
+      "easing_prob": 81.3819,
+      "is_filled": true,
+      "filled_from": "2026-01-23",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-26",
+      "easing_prob": 83.6228,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-27",
+      "easing_prob": 85.9301,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-28",
+      "easing_prob": 84.1381,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-29",
+      "easing_prob": 84.8798,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-30",
+      "easing_prob": 88.2802,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-01-31",
+      "easing_prob": 88.2802,
+      "is_filled": true,
+      "filled_from": "2026-01-30",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-01",
+      "easing_prob": 88.2802,
+      "is_filled": true,
+      "filled_from": "2026-01-30",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-02",
+      "easing_prob": 84.5039,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-03",
+      "easing_prob": 83.6914,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-04",
+      "easing_prob": 84.8106,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-05",
+      "easing_prob": 91.0505,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-06",
+      "easing_prob": 90.3063,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-07",
+      "easing_prob": 90.3063,
+      "is_filled": true,
+      "filled_from": "2026-02-06",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-08",
+      "easing_prob": 90.3063,
+      "is_filled": true,
+      "filled_from": "2026-02-06",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-09",
+      "easing_prob": 91.2891,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-10",
+      "easing_prob": 91.7028,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-11",
+      "easing_prob": 86.8828,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-12",
+      "easing_prob": 89.5146,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-13",
+      "easing_prob": 92.1999,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-14",
+      "easing_prob": 92.1999,
+      "is_filled": true,
+      "filled_from": "2026-02-13",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-15",
+      "easing_prob": 92.1999,
+      "is_filled": true,
+      "filled_from": "2026-02-13",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-16",
+      "easing_prob": 92.1999,
+      "is_filled": true,
+      "filled_from": "2026-02-13",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-17",
+      "easing_prob": 89.7257,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-18",
+      "easing_prob": 89.0566,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-19",
+      "easing_prob": 87.9181,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-20",
+      "easing_prob": 86.6197,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-21",
+      "easing_prob": 86.6197,
+      "is_filled": true,
+      "filled_from": "2026-02-20",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-22",
+      "easing_prob": 86.6197,
+      "is_filled": true,
+      "filled_from": "2026-02-20",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-23",
+      "easing_prob": 88.2606,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-24",
+      "easing_prob": 85.3552,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-25",
+      "easing_prob": 83.7437,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-26",
+      "easing_prob": 84.2094,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-27",
+      "easing_prob": 88.9403,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-02-28",
+      "easing_prob": 88.9403,
+      "is_filled": true,
+      "filled_from": "2026-02-27",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-01",
+      "easing_prob": 88.9403,
+      "is_filled": true,
+      "filled_from": "2026-02-27",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-02",
+      "easing_prob": 81.2559,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-03",
+      "easing_prob": 78.5593,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-04",
+      "easing_prob": 72.7019,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-05",
+      "easing_prob": 67.2841,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-06",
+      "easing_prob": 75.5944,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-07",
+      "easing_prob": 75.5944,
+      "is_filled": true,
+      "filled_from": "2026-03-06",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-08",
+      "easing_prob": 75.5944,
+      "is_filled": true,
+      "filled_from": "2026-03-06",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-09",
+      "easing_prob": 69.033,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-10",
+      "easing_prob": 73.0577,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-11",
+      "easing_prob": 62.715,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-12",
+      "easing_prob": 38.6012,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-13",
+      "easing_prob": 45.0374,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-14",
+      "easing_prob": 45.0374,
+      "is_filled": true,
+      "filled_from": "2026-03-13",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-15",
+      "easing_prob": 45.0374,
+      "is_filled": true,
+      "filled_from": "2026-03-13",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-16",
+      "easing_prob": 50.0411,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-17",
+      "easing_prob": 51.6002,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-18",
+      "easing_prob": 34.2924,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-19",
+      "easing_prob": 1.8759,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-20",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-21",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-03-20",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-22",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-03-20",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-23",
+      "easing_prob": 3.8324,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-24",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-25",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-26",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-27",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-28",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-03-27",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-29",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-03-27",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-30",
+      "easing_prob": 7.3808,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-03-31",
+      "easing_prob": 11.501,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-01",
+      "easing_prob": 11.0619,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-02",
+      "easing_prob": 9.7348,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-03",
+      "easing_prob": 9.7348,
+      "is_filled": true,
+      "filled_from": "2026-04-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-04",
+      "easing_prob": 9.7348,
+      "is_filled": true,
+      "filled_from": "2026-04-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-05",
+      "easing_prob": 9.7348,
+      "is_filled": true,
+      "filled_from": "2026-04-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-06",
+      "easing_prob": 3.7929,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-07",
+      "easing_prob": 3.8105,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-08",
+      "easing_prob": 3.5037,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-09",
+      "easing_prob": 10.9367,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-10",
+      "easing_prob": 7.4428,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-11",
+      "easing_prob": 7.4428,
+      "is_filled": true,
+      "filled_from": "2026-04-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-12",
+      "easing_prob": 7.4428,
+      "is_filled": true,
+      "filled_from": "2026-04-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-13",
+      "easing_prob": 14.7249,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-14",
+      "easing_prob": 14.334,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-15",
+      "easing_prob": 14.9604,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-16",
+      "easing_prob": 14.8716,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-17",
+      "easing_prob": 32.6819,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-18",
+      "easing_prob": 32.6819,
+      "is_filled": true,
+      "filled_from": "2026-04-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-19",
+      "easing_prob": 32.6819,
+      "is_filled": true,
+      "filled_from": "2026-04-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-20",
+      "easing_prob": 25.1329,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-21",
+      "easing_prob": 14.7289,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-22",
+      "easing_prob": 14.9305,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-23",
+      "easing_prob": 16.6942,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-24",
+      "easing_prob": 26.4781,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-25",
+      "easing_prob": 26.4781,
+      "is_filled": true,
+      "filled_from": "2026-04-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-26",
+      "easing_prob": 26.4781,
+      "is_filled": true,
+      "filled_from": "2026-04-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-27",
+      "easing_prob": 20.2883,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-28",
+      "easing_prob": 16.1275,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-29",
+      "easing_prob": 1.4243,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-04-30",
+      "easing_prob": 15.176,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-01",
+      "easing_prob": 14.4753,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-02",
+      "easing_prob": 14.4753,
+      "is_filled": true,
+      "filled_from": "2026-05-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-03",
+      "easing_prob": 14.4753,
+      "is_filled": true,
+      "filled_from": "2026-05-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-04",
+      "easing_prob": 7.526,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-05",
+      "easing_prob": 11.3838,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-06",
+      "easing_prob": 16.0045,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-07",
+      "easing_prob": 9.4906,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-08",
+      "easing_prob": 12.4126,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-09",
+      "easing_prob": 12.4126,
+      "is_filled": true,
+      "filled_from": "2026-05-08",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-10",
+      "easing_prob": 12.4126,
+      "is_filled": true,
+      "filled_from": "2026-05-08",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-11",
+      "easing_prob": 4.6879,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-12",
+      "easing_prob": 3.7053,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-13",
+      "easing_prob": 0.9129,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-14",
+      "easing_prob": 1.8681,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-15",
+      "easing_prob": 1.0468,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-16",
+      "easing_prob": 1.0468,
+      "is_filled": true,
+      "filled_from": "2026-05-15",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-17",
+      "easing_prob": 1.0468,
+      "is_filled": true,
+      "filled_from": "2026-05-15",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-18",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-19",
+      "easing_prob": 0.6545,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-20",
+      "easing_prob": 2.0435,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-21",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-22",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-23",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-05-22",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-24",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-05-22",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-25",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-05-22",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-26",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-27",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-28",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-29",
+      "easing_prob": 0.3286,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-30",
+      "easing_prob": 0.3286,
+      "is_filled": true,
+      "filled_from": "2026-05-29",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-05-31",
+      "easing_prob": 0.3286,
+      "is_filled": true,
+      "filled_from": "2026-05-29",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-01",
+      "easing_prob": 0.3156,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-02",
+      "easing_prob": 1.8411,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-03",
+      "easing_prob": 1.9097,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-04",
+      "easing_prob": 3.3835,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-05",
+      "easing_prob": 1.7289,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-06",
+      "easing_prob": 1.7289,
+      "is_filled": true,
+      "filled_from": "2026-06-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-07",
+      "easing_prob": 1.7289,
+      "is_filled": true,
+      "filled_from": "2026-06-05",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-08",
+      "easing_prob": 1.7184,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-09",
+      "easing_prob": 0.5189,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-10",
+      "easing_prob": 1.6798,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-11",
+      "easing_prob": 1.7568,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-12",
+      "easing_prob": 1.8551,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-13",
+      "easing_prob": 1.8551,
+      "is_filled": true,
+      "filled_from": "2026-06-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-14",
+      "easing_prob": 1.8551,
+      "is_filled": true,
+      "filled_from": "2026-06-12",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-15",
+      "easing_prob": 0.2993,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-16",
+      "easing_prob": 0.3899,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-17",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-18",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-19",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-06-18",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-20",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-06-18",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-21",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-06-18",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-22",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-23",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-24",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-25",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-26",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-27",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-06-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-28",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-06-26",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-29",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-06-30",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-01",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-02",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-03",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-04",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-05",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-02",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-06",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-07",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-08",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-09",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-10",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-11",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-12",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-10",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-13",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-14",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-15",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-16",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-17",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-18",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-19",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-17",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-20",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-21",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-22",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-23",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-24",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-25",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-26",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-24",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-27",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-28",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-29",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-30",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-07-31",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-01",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-31",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-02",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-07-31",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-03",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-04",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-05",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-06",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-07",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-08",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-07",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-09",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-07",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-10",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-11",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-12",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-13",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-14",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-15",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-14",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-16",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-14",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-17",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-18",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-19",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-20",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-21",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-22",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-21",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-23",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-21",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-24",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-25",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-26",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-27",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-28",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-29",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-28",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-30",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-08-28",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-08-31",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-01",
+      "easing_prob": 0.0,
+      "is_filled": false,
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-02",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-03",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-04",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-05",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-06",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-07",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-08",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-09",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-10",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-11",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-12",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-13",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-14",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-15",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    },
+    {
+      "date": "2026-09-16",
+      "easing_prob": 0.0,
+      "is_filled": true,
+      "filled_from": "2026-09-01",
+      "meeting_date": "2026-09-16"
+    }
+  ]
+}

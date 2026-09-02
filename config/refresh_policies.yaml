@@ -48,4 +48,4 @@ L6-002: { data_frequency: Event-driven, refresh_strategy: check_last_observation
 L10-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
 L10-002: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
 L3-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: l1_006_shared, stale_threshold_days: 10 }
-L3-004: { data_frequency: Event-driven, refresh_strategy: check_last_observation_date, source: fedwatch, stale_threshold_days: 7 }
+L3-004: { data_frequency: daily, refresh_strategy: check_last_observation_date, source: fedwatch, stale_threshold_days: 7, description: "FOMC Policy Outcome Probabilities (CME FedWatch CSV)" }

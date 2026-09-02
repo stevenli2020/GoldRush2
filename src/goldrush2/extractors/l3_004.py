@@ -1,39 +1,45 @@
-"""L3-004 extractor for CME FedWatch cut-probability changes."""
+"""L3-004 extractor for CME FedWatch easing-probability changes."""
 
 from __future__ import annotations
 
 import json
 import os
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
 VARIABLE_ID = "L3-004"
-SOURCE_NAME = "CME FedWatch - Policy Outcome Probabilities (cut probability, %)"
-SOURCE_URL = "https://www.cmegroup.com/"
+SOURCE_NAME = "CME FedWatch"
+SOURCE_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch.html"
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 CACHE_PATH = PROJECT_ROOT / "data" / "cache" / "fedwatch" / "l3_004.json"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / "L3-004.json"
-HORIZONS = {"1-5d": (5, 0.9), "1-3m": (13, 0.7), "1-3y": (52, 0.5), "3-10y": (260, 0.3)}
+HORIZONS = {"1-5d": (5, 1.0), "1-3m": (91, 0.8), "1-3y": (364, 0.6), "3-10y": (1820, 0.4)}
+
+
+def _lookback(rows: list[dict[str, Any]], target: date) -> dict[str, Any] | None:
+    for row in reversed(rows):
+        if date.fromisoformat(str(row["date"])) <= target:
+            return row
+    return None
 
 
 def build_output(observations: list[dict[str, Any]]) -> dict[str, Any]:
     rows = sorted(observations, key=lambda row: str(row["date"]))
     latest = rows[-1] if rows else None
-    output = {"variable_id": VARIABLE_ID, "data_frequency": "Daily", "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "observation_date": latest["date"] if latest else None, "horizons": {}}
-    meeting_date = latest.get("meeting_date") if latest else None
-    if meeting_date:
-        days_until = (date.fromisoformat(str(meeting_date)) - date.fromisoformat(str(latest["date"]))).days
-        base_confidence = 0.9 if days_until <= 7 else 0.7 if days_until <= 30 else 0.5
-    else:
-        base_confidence = 0.3
-    for horizon, (lookback, _) in HORIZONS.items():
-        if latest is None or len(rows) <= lookback:
+    output: dict[str, Any] = {"variable_id": VARIABLE_ID, "data_frequency": "Daily", "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "observation_date": latest["date"] if latest else None, "meeting_date": latest.get("meeting_date") if latest else None, "horizons": {}}
+    if latest is None:
+        for horizon in HORIZONS:
+            output["horizons"][horizon] = {"signal": 0, "confidence": 0.0, "evidence": {"error": "Insufficient data"}}
+        return output
+    for horizon, (lookback_days, confidence) in HORIZONS.items():
+        target = date.fromisoformat(str(latest["date"])) - timedelta(days=lookback_days)
+        old = _lookback(rows, target)
+        if old is None:
             output["horizons"][horizon] = {"signal": 0, "confidence": 0.0, "evidence": {"error": "Insufficient data"}}
             continue
-        old = rows[-lookback - 1]
-        change = float(latest["cut_probability"]) - float(old["cut_probability"])
-        output["horizons"][horizon] = {"signal": 1 if change > 0 else -1 if change < 0 else 0, "confidence": base_confidence, "evidence": {"data": {"current_prob": latest["cut_probability"], "comparison_prob": old["cut_probability"], "change_pp": change, "comparison_date": old["date"], "meeting_date": latest.get("meeting_date")}}}
+        change = round(float(latest["easing_prob"]) - float(old["easing_prob"]), 6)
+        output["horizons"][horizon] = {"signal": 1 if change > 0 else -1 if change < 0 else 0, "confidence": confidence, "evidence": {"current_easing_prob": latest["easing_prob"], "lookback_easing_prob": old["easing_prob"], "lookback_date": old["date"], "change": change, "lookback_is_filled": bool(old.get("is_filled", False))}}
     return output
 
 

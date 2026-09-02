@@ -1,0 +1,50 @@
+{
+  "variable_id": "L3-004",
+  "data_frequency": "Daily",
+  "source_name": "CME FedWatch",
+  "source_url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch.html",
+  "observation_date": "2026-09-16",
+  "meeting_date": "2026-09-16",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1.0,
+      "evidence": {
+        "current_easing_prob": 0.0,
+        "lookback_easing_prob": 0.0,
+        "lookback_date": "2026-09-11",
+        "change": 0.0,
+        "lookback_is_filled": true
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 0.8,
+      "evidence": {
+        "current_easing_prob": 0.0,
+        "lookback_easing_prob": 0.0,
+        "lookback_date": "2026-06-17",
+        "change": 0.0,
+        "lookback_is_filled": false
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 0.6,
+      "evidence": {
+        "current_easing_prob": 0.0,
+        "lookback_easing_prob": 93.9914,
+        "lookback_date": "2025-09-17",
+        "change": -93.9914,
+        "lookback_is_filled": false
+      }
+    },
+    "3-10y": {
+      "signal": 0,
+      "confidence": 0.0,
+      "evidence": {
+        "error": "Insufficient data"
+      }
+    }
+  }
+}
