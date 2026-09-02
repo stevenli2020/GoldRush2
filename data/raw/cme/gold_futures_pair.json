@@ -1,0 +1,3535 @@
+{
+  "near_contract": "GCV26.CMX",
+  "far_contract": "GCZ26.CMX",
+  "days_between": 61,
+  "observations": [
+    {
+      "date": "2024-11-27",
+      "near": 2856.800048828125,
+      "far": 2875.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-11-29",
+      "near": 2873.89990234375,
+      "far": 2890.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-02",
+      "near": 2856.10009765625,
+      "far": 2871.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-03",
+      "near": 2863.800048828125,
+      "far": 2878.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-04",
+      "near": 2870.89990234375,
+      "far": 2885.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-05",
+      "near": 2842.0,
+      "far": 2857.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-06",
+      "near": 2851.39990234375,
+      "far": 2866.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-09",
+      "near": 2882.0,
+      "far": 2897.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-10",
+      "near": 2914.5,
+      "far": 2929.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-11",
+      "near": 2950.10009765625,
+      "far": 2965.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-12",
+      "near": 2906.800048828125,
+      "far": 2921.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-13",
+      "near": 2874.300048828125,
+      "far": 2889.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-16",
+      "near": 2868.89990234375,
+      "far": 2883.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-17",
+      "near": 2862.10009765625,
+      "far": 2877.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-18",
+      "near": 2856.10009765625,
+      "far": 2871.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-19",
+      "near": 2814.39990234375,
+      "far": 2829.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-20",
+      "near": 2850.39990234375,
+      "far": 2865.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-23",
+      "near": 2835.10009765625,
+      "far": 2850.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-24",
+      "near": 2845.10009765625,
+      "far": 2860.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-26",
+      "near": 2866.60009765625,
+      "far": 2882.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-27",
+      "near": 2847.300048828125,
+      "far": 2863.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-30",
+      "near": 2839.10009765625,
+      "far": 2856.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2024-12-31",
+      "near": 2868.800048828125,
+      "far": 2886.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-02",
+      "near": 2891.60009765625,
+      "far": 2908.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-03",
+      "near": 2873.199951171875,
+      "far": 2890.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-06",
+      "near": 2864.5,
+      "far": 2881.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-07",
+      "near": 2883.699951171875,
+      "far": 2901.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-08",
+      "near": 2892.89990234375,
+      "far": 2910.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-09",
+      "near": 2911.300048828125,
+      "far": 2928.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-10",
+      "near": 2936.300048828125,
+      "far": 2953.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-13",
+      "near": 2896.89990234375,
+      "far": 2914.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-14",
+      "near": 2903.60009765625,
+      "far": 2920.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-15",
+      "near": 2939.39990234375,
+      "far": 2956.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-16",
+      "near": 2974.60009765625,
+      "far": 2991.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-17",
+      "near": 2973.39990234375,
+      "far": 2990.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-21",
+      "near": 2985.89990234375,
+      "far": 3003.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-22",
+      "near": 2998.0,
+      "far": 3015.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-23",
+      "near": 2992.5,
+      "far": 3010.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-24",
+      "near": 3008.300048828125,
+      "far": 3026.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-27",
+      "near": 2969.0,
+      "far": 2987.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-28",
+      "near": 3003.0,
+      "far": 3021.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-29",
+      "near": 2996.699951171875,
+      "far": 3014.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-30",
+      "near": 3048.10009765625,
+      "far": 3066.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-01-31",
+      "near": 3036.199951171875,
+      "far": 3054.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-03",
+      "near": 3055.60009765625,
+      "far": 3073.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-04",
+      "near": 3076.300048828125,
+      "far": 3094.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-05",
+      "near": 3094.699951171875,
+      "far": 3112.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-06",
+      "near": 3082.0,
+      "far": 3100.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-07",
+      "near": 3097.89990234375,
+      "far": 3116.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-10",
+      "near": 3148.60009765625,
+      "far": 3167.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-11",
+      "near": 3152.5,
+      "far": 3171.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-12",
+      "near": 3152.5,
+      "far": 3172.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-13",
+      "near": 3167.800048828125,
+      "far": 3188.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-14",
+      "near": 3120.0,
+      "far": 3140.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-18",
+      "near": 3168.39990234375,
+      "far": 3188.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-19",
+      "near": 3151.10009765625,
+      "far": 3171.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-20",
+      "near": 3171.5,
+      "far": 3192.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-21",
+      "near": 3167.800048828125,
+      "far": 3188.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-24",
+      "near": 3179.89990234375,
+      "far": 3200.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-25",
+      "near": 3134.89990234375,
+      "far": 3155.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-26",
+      "near": 3145.89990234375,
+      "far": 3166.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-27",
+      "near": 3110.89990234375,
+      "far": 3131.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-02-28",
+      "near": 3062.0,
+      "far": 3082.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-03",
+      "near": 3116.10009765625,
+      "far": 3137.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-04",
+      "near": 3134.89990234375,
+      "far": 3155.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-05",
+      "near": 3139.699951171875,
+      "far": 3160.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-06",
+      "near": 3140.39990234375,
+      "far": 3161.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-07",
+      "near": 3126.300048828125,
+      "far": 3147.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-10",
+      "near": 3109.800048828125,
+      "far": 3130.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-11",
+      "near": 3132.10009765625,
+      "far": 3152.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-12",
+      "near": 3156.800048828125,
+      "far": 3177.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-13",
+      "near": 3202.10009765625,
+      "far": 3222.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-14",
+      "near": 3211.39990234375,
+      "far": 3231.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-17",
+      "near": 3216.60009765625,
+      "far": 3237.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-18",
+      "near": 3254.699951171875,
+      "far": 3275.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-19",
+      "near": 3255.39990234375,
+      "far": 3276.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-20",
+      "near": 3256.800048828125,
+      "far": 3277.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-21",
+      "near": 3229.800048828125,
+      "far": 3250.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-24",
+      "near": 3223.699951171875,
+      "far": 3244.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-25",
+      "near": 3234.699951171875,
+      "far": 3255.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-26",
+      "near": 3231.10009765625,
+      "far": 3251.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-27",
+      "near": 3270.10009765625,
+      "far": 3289.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-28",
+      "near": 3293.89990234375,
+      "far": 3313.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-03-31",
+      "near": 3330.800048828125,
+      "far": 3350.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-01",
+      "near": 3326.10009765625,
+      "far": 3345.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-02",
+      "near": 3348.10009765625,
+      "far": 3367.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-03",
+      "near": 3301.89990234375,
+      "far": 3321.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-04",
+      "near": 3210.0,
+      "far": 3229.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-07",
+      "near": 3147.89990234375,
+      "far": 3168.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-08",
+      "near": 3166.0,
+      "far": 3186.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-09",
+      "near": 3263.60009765625,
+      "far": 3283.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-10",
+      "near": 3364.0,
+      "far": 3384.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-11",
+      "near": 3439.39990234375,
+      "far": 3459.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-14",
+      "near": 3419.800048828125,
+      "far": 3440.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-15",
+      "near": 3434.39990234375,
+      "far": 3455.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-16",
+      "near": 3545.10009765625,
+      "far": 3566.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-17",
+      "near": 3526.60009765625,
+      "far": 3547.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-21",
+      "near": 3626.300048828125,
+      "far": 3647.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-22",
+      "near": 3623.10009765625,
+      "far": 3645.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-23",
+      "near": 3495.89990234375,
+      "far": 3518.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-24",
+      "near": 3552.5,
+      "far": 3574.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-25",
+      "near": 3500.89990234375,
+      "far": 3523.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-28",
+      "near": 3550.800048828125,
+      "far": 3573.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-29",
+      "near": 3535.5,
+      "far": 3557.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-04-30",
+      "near": 3517.60009765625,
+      "far": 3540.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-01",
+      "near": 3418.89990234375,
+      "far": 3442.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-02",
+      "near": 3440.89990234375,
+      "far": 3464.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-05",
+      "near": 3523.199951171875,
+      "far": 3546.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-06",
+      "near": 3626.89990234375,
+      "far": 3650.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-07",
+      "near": 3596.800048828125,
+      "far": 3619.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-08",
+      "near": 3509.60009765625,
+      "far": 3532.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-09",
+      "near": 3547.60009765625,
+      "far": 3570.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-12",
+      "near": 3431.60009765625,
+      "far": 3454.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-13",
+      "near": 3452.89990234375,
+      "far": 3476.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-14",
+      "near": 3390.60009765625,
+      "far": 3413.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-15",
+      "near": 3427.5,
+      "far": 3450.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-16",
+      "near": 3386.300048828125,
+      "far": 3409.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-19",
+      "near": 3435.0,
+      "far": 3458.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-20",
+      "near": 3485.199951171875,
+      "far": 3508.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-21",
+      "near": 3517.0,
+      "far": 3540.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-22",
+      "near": 3499.0,
+      "far": 3522.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-23",
+      "near": 3572.39990234375,
+      "far": 3595.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-27",
+      "near": 3508.5,
+      "far": 3531.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-28",
+      "near": 3501.10009765625,
+      "far": 3524.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-29",
+      "near": 3519.199951171875,
+      "far": 3542.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-05-30",
+      "near": 3490.0,
+      "far": 3513.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-02",
+      "near": 3574.39990234375,
+      "far": 3597.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-03",
+      "near": 3556.89990234375,
+      "far": 3579.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-04",
+      "near": 3578.300048828125,
+      "far": 3601.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-05",
+      "near": 3552.39990234375,
+      "far": 3574.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-06",
+      "near": 3524.10009765625,
+      "far": 3546.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-09",
+      "near": 3532.300048828125,
+      "far": 3554.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-10",
+      "near": 3520.800048828125,
+      "far": 3543.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-11",
+      "near": 3520.10009765625,
+      "far": 3542.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-12",
+      "near": 3577.5,
+      "far": 3599.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-13",
+      "near": 3630.0,
+      "far": 3652.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-16",
+      "near": 3594.199951171875,
+      "far": 3616.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-17",
+      "near": 3585.10009765625,
+      "far": 3607.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-18",
+      "near": 3585.0,
+      "far": 3607.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-20",
+      "near": 3562.699951171875,
+      "far": 3584.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-23",
+      "near": 3571.300048828125,
+      "far": 3593.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-24",
+      "near": 3509.89990234375,
+      "far": 3532.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-25",
+      "near": 3519.5,
+      "far": 3541.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-26",
+      "near": 3524.0,
+      "far": 3546.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-27",
+      "near": 3461.5,
+      "far": 3483.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-06-30",
+      "near": 3481.5,
+      "far": 3503.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-01",
+      "near": 3524.5,
+      "far": 3546.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-02",
+      "near": 3535.800048828125,
+      "far": 3557.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-03",
+      "near": 3520.0,
+      "far": 3541.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-07",
+      "near": 3519.800048828125,
+      "far": 3541.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-08",
+      "near": 3495.800048828125,
+      "far": 3517.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-09",
+      "near": 3498.10009765625,
+      "far": 3519.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-10",
+      "near": 3503.60009765625,
+      "far": 3525.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-11",
+      "near": 3540.199951171875,
+      "far": 3562.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-14",
+      "near": 3537.60009765625,
+      "far": 3559.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-15",
+      "near": 3515.0,
+      "far": 3537.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-16",
+      "near": 3536.10009765625,
+      "far": 3558.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-17",
+      "near": 3522.699951171875,
+      "far": 3544.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-18",
+      "near": 3535.699951171875,
+      "far": 3557.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-21",
+      "near": 3586.60009765625,
+      "far": 3609.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-22",
+      "near": 3627.0,
+      "far": 3649.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-23",
+      "near": 3577.39990234375,
+      "far": 3599.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-24",
+      "near": 3554.300048828125,
+      "far": 3576.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-25",
+      "near": 3512.699951171875,
+      "far": 3534.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-28",
+      "near": 3487.699951171875,
+      "far": 3509.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-29",
+      "near": 3502.5,
+      "far": 3524.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-30",
+      "near": 3473.39990234375,
+      "far": 3495.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-07-31",
+      "near": 3470.5,
+      "far": 3492.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-01",
+      "near": 3518.0,
+      "far": 3539.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-04",
+      "near": 3544.199951171875,
+      "far": 3565.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-05",
+      "near": 3553.300048828125,
+      "far": 3574.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-06",
+      "near": 3551.199951171875,
+      "far": 3572.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-07",
+      "near": 3566.60009765625,
+      "far": 3587.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-08",
+      "near": 3601.0,
+      "far": 3621.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-11",
+      "near": 3528.10009765625,
+      "far": 3550.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-12",
+      "near": 3520.800048828125,
+      "far": 3542.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-13",
+      "near": 3530.10009765625,
+      "far": 3552.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-14",
+      "near": 3504.0,
+      "far": 3525.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-15",
+      "near": 3501.89990234375,
+      "far": 3523.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-18",
+      "near": 3496.5,
+      "far": 3517.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-19",
+      "near": 3476.699951171875,
+      "far": 3498.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-20",
+      "near": 3507.800048828125,
+      "far": 3529.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-21",
+      "near": 3501.199951171875,
+      "far": 3522.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-22",
+      "near": 3537.89990234375,
+      "far": 3559.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-25",
+      "near": 3537.199951171875,
+      "far": 3558.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-26",
+      "near": 3554.39990234375,
+      "far": 3576.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-27",
+      "near": 3572.89990234375,
+      "far": 3595.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-28",
+      "near": 3597.10009765625,
+      "far": 3619.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-08-29",
+      "near": 3640.39990234375,
+      "far": 3662.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-02",
+      "near": 3717.39990234375,
+      "far": 3740.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-03",
+      "near": 3761.800048828125,
+      "far": 3784.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-04",
+      "near": 3732.89990234375,
+      "far": 3755.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-05",
+      "near": 3779.0,
+      "far": 3801.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-08",
+      "near": 3801.10009765625,
+      "far": 3823.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-09",
+      "near": 3805.89990234375,
+      "far": 3827.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-10",
+      "near": 3806.0,
+      "far": 3827.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-11",
+      "near": 3797.10009765625,
+      "far": 3819.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-12",
+      "near": 3810.800048828125,
+      "far": 3832.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-15",
+      "near": 3843.800048828125,
+      "far": 3865.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-16",
+      "near": 3850.5,
+      "far": 3872.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-17",
+      "near": 3843.60009765625,
+      "far": 3865.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-18",
+      "near": 3802.699951171875,
+      "far": 3824.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-19",
+      "near": 3831.0,
+      "far": 3852.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-22",
+      "near": 3901.800048828125,
+      "far": 3923.199951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-23",
+      "near": 3944.0,
+      "far": 3965.300048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-24",
+      "near": 3897.39990234375,
+      "far": 3918.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-25",
+      "near": 3904.0,
+      "far": 3926.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-26",
+      "near": 3942.10009765625,
+      "far": 3964.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-29",
+      "near": 3992.300048828125,
+      "far": 4015.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-09-30",
+      "near": 4009.699951171875,
+      "far": 4032.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-01",
+      "near": 4036.300048828125,
+      "far": 4060.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-02",
+      "near": 4005.5,
+      "far": 4029.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-03",
+      "near": 4046.699951171875,
+      "far": 4071.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-06",
+      "near": 4119.2001953125,
+      "far": 4144.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-07",
+      "near": 4151.2998046875,
+      "far": 4177.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-08",
+      "near": 4221.2998046875,
+      "far": 4248.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-09",
+      "near": 4119.7001953125,
+      "far": 4146.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-10",
+      "near": 4146.2998046875,
+      "far": 4173.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-13",
+      "near": 4282.10009765625,
+      "far": 4309.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-14",
+      "near": 4312.7001953125,
+      "far": 4340.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-15",
+      "near": 4352.39990234375,
+      "far": 4380.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-16",
+      "near": 4457.39990234375,
+      "far": 4484.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-17",
+      "near": 4361.7001953125,
+      "far": 4388.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-20",
+      "near": 4513.60009765625,
+      "far": 4541.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-21",
+      "near": 4255.0,
+      "far": 4281.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-22",
+      "near": 4212.7998046875,
+      "far": 4239.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-23",
+      "near": 4295.39990234375,
+      "far": 4322.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-24",
+      "near": 4287.7001953125,
+      "far": 4315.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-27",
+      "near": 4165.2001953125,
+      "far": 4192.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-28",
+      "near": 4127.10009765625,
+      "far": 4153.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-29",
+      "near": 4148.2998046875,
+      "far": 4176.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-30",
+      "near": 4167.10009765625,
+      "far": 4195.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-10-31",
+      "near": 4145.7998046875,
+      "far": 4173.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-03",
+      "near": 4166.2001953125,
+      "far": 4194.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-04",
+      "near": 4110.5,
+      "far": 4139.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-05",
+      "near": 4144.7998046875,
+      "far": 4174.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-06",
+      "near": 4141.60009765625,
+      "far": 4170.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-07",
+      "near": 4158.60009765625,
+      "far": 4187.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-10",
+      "near": 4273.5,
+      "far": 4302.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-11",
+      "near": 4267.60009765625,
+      "far": 4295.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-12",
+      "near": 4365.7998046875,
+      "far": 4393.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-13",
+      "near": 4349.39990234375,
+      "far": 4376.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-14",
+      "near": 4245.2998046875,
+      "far": 4272.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-17",
+      "near": 4226.5,
+      "far": 4254.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-18",
+      "near": 4216.7001953125,
+      "far": 4243.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-19",
+      "near": 4234.2001953125,
+      "far": 4261.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-20",
+      "near": 4209.5,
+      "far": 4236.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-21",
+      "near": 4225.89990234375,
+      "far": 4250.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-24",
+      "near": 4240.89990234375,
+      "far": 4266.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-25",
+      "near": 4289.5,
+      "far": 4315.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-26",
+      "near": 4316.39990234375,
+      "far": 4342.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-11-28",
+      "near": 4370.2998046875,
+      "far": 4396.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-01",
+      "near": 4393.2001953125,
+      "far": 4419.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-02",
+      "near": 4339.39990234375,
+      "far": 4365.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-03",
+      "near": 4351.0,
+      "far": 4377.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-04",
+      "near": 4359.60009765625,
+      "far": 4385.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-05",
+      "near": 4360.5,
+      "far": 4386.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-08",
+      "near": 4335.60009765625,
+      "far": 4361.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-09",
+      "near": 4355.7001953125,
+      "far": 4381.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-10",
+      "near": 4343.5,
+      "far": 4370.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-11",
+      "near": 4432.7998046875,
+      "far": 4459.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-12",
+      "near": 4449.0,
+      "far": 4476.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-15",
+      "near": 4456.7998046875,
+      "far": 4484.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-16",
+      "near": 4453.39990234375,
+      "far": 4480.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-17",
+      "near": 4495.0,
+      "far": 4522.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-18",
+      "near": 4485.2001953125,
+      "far": 4512.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-19",
+      "near": 4509.10009765625,
+      "far": 4537.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-22",
+      "near": 4593.60009765625,
+      "far": 4622.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-23",
+      "near": 4631.0,
+      "far": 4660.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-24",
+      "near": 4628.2001953125,
+      "far": 4657.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-26",
+      "near": 4680.2001953125,
+      "far": 4710.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-29",
+      "near": 4467.2001953125,
+      "far": 4496.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-30",
+      "near": 4512.5,
+      "far": 4541.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2025-12-31",
+      "near": 4468.5,
+      "far": 4497.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-02",
+      "near": 4455.5,
+      "far": 4484.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-05",
+      "near": 4578.2998046875,
+      "far": 4608.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-06",
+      "near": 4625.10009765625,
+      "far": 4656.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-07",
+      "near": 4590.2998046875,
+      "far": 4620.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-08",
+      "near": 4589.60009765625,
+      "far": 4620.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-09",
+      "near": 4630.7998046875,
+      "far": 4661.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-12",
+      "near": 4746.7998046875,
+      "far": 4777.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-13",
+      "near": 4730.2001953125,
+      "far": 4760.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-14",
+      "near": 4768.10009765625,
+      "far": 4798.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-15",
+      "near": 4756.2998046875,
+      "far": 4787.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-16",
+      "near": 4727.89990234375,
+      "far": 4759.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-20",
+      "near": 4901.2001953125,
+      "far": 4933.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-21",
+      "near": 4975.5,
+      "far": 5007.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-22",
+      "near": 5054.10009765625,
+      "far": 5086.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-23",
+      "near": 5126.2001953125,
+      "far": 5160.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-26",
+      "near": 5237.0,
+      "far": 5272.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-27",
+      "near": 5232.2001953125,
+      "far": 5267.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-28",
+      "near": 5457.39990234375,
+      "far": 5494.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-29",
+      "near": 5472.2998046875,
+      "far": 5508.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-01-30",
+      "near": 4848.2001953125,
+      "far": 4880.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-02",
+      "near": 4750.2001953125,
+      "far": 4780.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-03",
+      "near": 5040.0,
+      "far": 5072.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-04",
+      "near": 5056.39990234375,
+      "far": 5089.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-05",
+      "near": 4991.10009765625,
+      "far": 5022.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-06",
+      "near": 5086.89990234375,
+      "far": 5119.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-09",
+      "near": 5189.2001953125,
+      "far": 5222.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-10",
+      "near": 5139.60009765625,
+      "far": 5172.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-11",
+      "near": 5208.7998046875,
+      "far": 5242.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-12",
+      "near": 5056.10009765625,
+      "far": 5088.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-13",
+      "near": 5152.7998046875,
+      "far": 5183.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-17",
+      "near": 5009.10009765625,
+      "far": 5039.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-18",
+      "near": 5115.39990234375,
+      "far": 5147.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-19",
+      "near": 5103.89990234375,
+      "far": 5136.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-20",
+      "near": 5190.5,
+      "far": 5223.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-23",
+      "near": 5338.10009765625,
+      "far": 5372.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-24",
+      "near": 5288.60009765625,
+      "far": 5322.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-25",
+      "near": 5339.7998046875,
+      "far": 5374.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-26",
+      "near": 5306.89990234375,
+      "far": 5341.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-02-27",
+      "near": 5361.60009765625,
+      "far": 5396.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-02",
+      "near": 5427.0,
+      "far": 5462.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-03",
+      "near": 5235.10009765625,
+      "far": 5269.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-04",
+      "near": 5246.60009765625,
+      "far": 5281.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-05",
+      "near": 5190.2998046875,
+      "far": 5225.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-06",
+      "near": 5271.7998046875,
+      "far": 5306.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-09",
+      "near": 5216.60009765625,
+      "far": 5251.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-10",
+      "near": 5356.7998046875,
+      "far": 5392.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-11",
+      "near": 5294.10009765625,
+      "far": 5330.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-12",
+      "near": 5239.39990234375,
+      "far": 5276.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-13",
+      "near": 5173.7001953125,
+      "far": 5210.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-16",
+      "near": 5113.7001953125,
+      "far": 5150.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-17",
+      "near": 5120.0,
+      "far": 5156.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-18",
+      "near": 5005.89990234375,
+      "far": 5041.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-19",
+      "near": 4710.2998046875,
+      "far": 4745.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-20",
+      "near": 4680.5,
+      "far": 4716.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-23",
+      "near": 4505.7998046875,
+      "far": 4539.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-24",
+      "near": 4499.60009765625,
+      "far": 4532.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-25",
+      "near": 4652.10009765625,
+      "far": 4685.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-26",
+      "near": 4474.0,
+      "far": 4506.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-27",
+      "near": 4591.0,
+      "far": 4624.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-30",
+      "near": 4623.7001953125,
+      "far": 4657.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-03-31",
+      "near": 4746.2001953125,
+      "far": 4780.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-01",
+      "near": 4883.7998046875,
+      "far": 4919.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-02",
+      "near": 4749.39990234375,
+      "far": 4784.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-06",
+      "near": 4754.2001953125,
+      "far": 4788.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-07",
+      "near": 4754.10009765625,
+      "far": 4788.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-08",
+      "near": 4849.10009765625,
+      "far": 4885.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-09",
+      "near": 4891.39990234375,
+      "far": 4928.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-10",
+      "near": 4859.89990234375,
+      "far": 4896.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-13",
+      "near": 4839.5,
+      "far": 4876.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-14",
+      "near": 4923.60009765625,
+      "far": 4960.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-15",
+      "near": 4896.10009765625,
+      "far": 4932.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-16",
+      "near": 4880.2998046875,
+      "far": 4916.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-17",
+      "near": 4951.2998046875,
+      "far": 4987.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-20",
+      "near": 4899.7998046875,
+      "far": 4935.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-21",
+      "near": 4789.10009765625,
+      "far": 4824.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-22",
+      "near": 4822.89990234375,
+      "far": 4858.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-23",
+      "near": 4793.39990234375,
+      "far": 4828.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-24",
+      "near": 4809.7001953125,
+      "far": 4844.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-27",
+      "near": 4762.10009765625,
+      "far": 4797.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-28",
+      "near": 4675.5,
+      "far": 4709.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-29",
+      "near": 4627.7998046875,
+      "far": 4661.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-04-30",
+      "near": 4697.2998046875,
+      "far": 4731.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-01",
+      "near": 4713.0,
+      "far": 4747.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-04",
+      "near": 4600.7001953125,
+      "far": 4635.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-05",
+      "near": 4635.7001953125,
+      "far": 4670.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-06",
+      "near": 4763.10009765625,
+      "far": 4798.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-07",
+      "near": 4780.2998046875,
+      "far": 4815.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-08",
+      "near": 4799.89990234375,
+      "far": 4834.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-11",
+      "near": 4798.0,
+      "far": 4833.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-12",
+      "near": 4755.39990234375,
+      "far": 4790.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-13",
+      "near": 4775.0,
+      "far": 4810.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-14",
+      "near": 4752.89990234375,
+      "far": 4787.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-15",
+      "near": 4627.7998046875,
+      "far": 4662.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-18",
+      "near": 4623.89990234375,
+      "far": 4658.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-19",
+      "near": 4576.2998046875,
+      "far": 4610.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-20",
+      "near": 4600.7001953125,
+      "far": 4634.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-21",
+      "near": 4609.0,
+      "far": 4643.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-22",
+      "near": 4588.7001953125,
+      "far": 4623.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-26",
+      "near": 4567.0,
+      "far": 4601.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-27",
+      "near": 4512.39990234375,
+      "far": 4545.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-28",
+      "near": 4563.7998046875,
+      "far": 4597.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-05-29",
+      "near": 4625.2998046875,
+      "far": 4659.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-01",
+      "near": 4538.2001953125,
+      "far": 4572.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-02",
+      "near": 4551.7998046875,
+      "far": 4585.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-03",
+      "near": 4498.5,
+      "far": 4532.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-04",
+      "near": 4536.7998046875,
+      "far": 4570.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-05",
+      "near": 4396.10009765625,
+      "far": 4429.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-08",
+      "near": 4394.2998046875,
+      "far": 4427.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-09",
+      "near": 4316.89990234375,
+      "far": 4349.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-10",
+      "near": 4162.7001953125,
+      "far": 4194.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-11",
+      "near": 4142.7001953125,
+      "far": 4174.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-12",
+      "near": 4268.2998046875,
+      "far": 4300.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-15",
+      "near": 4381.7001953125,
+      "far": 4414.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-16",
+      "near": 4384.7001953125,
+      "far": 4417.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-17",
+      "near": 4411.89990234375,
+      "far": 4444.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-18",
+      "near": 4275.89990234375,
+      "far": 4308.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-22",
+      "near": 4232.7998046875,
+      "far": 4265.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-23",
+      "near": 4178.7998046875,
+      "far": 4210.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-24",
+      "near": 4037.199951171875,
+      "far": 4068.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-25",
+      "near": 4076.300048828125,
+      "far": 4107.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-26",
+      "near": 4125.2998046875,
+      "far": 4156.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-29",
+      "near": 4067.60009765625,
+      "far": 4098.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-06-30",
+      "near": 4067.300048828125,
+      "far": 4098.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-01",
+      "near": 4111.39990234375,
+      "far": 4142.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-02",
+      "near": 4154.89990234375,
+      "far": 4186.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-06",
+      "near": 4196.7998046875,
+      "far": 4228.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-07",
+      "near": 4186.60009765625,
+      "far": 4218.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-08",
+      "near": 4111.0,
+      "far": 4142.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-09",
+      "near": 4169.7001953125,
+      "far": 4201.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-10",
+      "near": 4142.2998046875,
+      "far": 4173.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-13",
+      "near": 4033.0,
+      "far": 4063.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-14",
+      "near": 4097.10009765625,
+      "far": 4127.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-15",
+      "near": 4079.10009765625,
+      "far": 4109.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-16",
+      "near": 4019.10009765625,
+      "far": 4048.699951171875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-17",
+      "near": 4046.0,
+      "far": 4075.800048828125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-20",
+      "near": 4043.199951171875,
+      "far": 4073.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-21",
+      "near": 4104.0,
+      "far": 4134.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-22",
+      "near": 4179.39990234375,
+      "far": 4210.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-23",
+      "near": 4078.10009765625,
+      "far": 4108.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-24",
+      "near": 4098.89990234375,
+      "far": 4129.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-27",
+      "near": 4105.2998046875,
+      "far": 4136.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-28",
+      "near": 4067.39990234375,
+      "far": 4098.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-29",
+      "near": 4065.300048828125,
+      "far": 4097.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-30",
+      "near": 4129.39990234375,
+      "far": 4160.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-07-31",
+      "near": 4076.60009765625,
+      "far": 4107.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-03",
+      "near": 4060.300048828125,
+      "far": 4090.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-04",
+      "near": 4121.89990234375,
+      "far": 4152.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-05",
+      "near": 4273.2998046875,
+      "far": 4305.2001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-06",
+      "near": 4268.0,
+      "far": 4299.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-07",
+      "near": 4367.10009765625,
+      "far": 4399.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-10",
+      "near": 4387.10009765625,
+      "far": 4419.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-11",
+      "near": 4408.2001953125,
+      "far": 4441.10009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-12",
+      "near": 4434.2998046875,
+      "far": 4467.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-13",
+      "near": 4387.2998046875,
+      "far": 4420.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-14",
+      "near": 4403.7001953125,
+      "far": 4437.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-17",
+      "near": 4440.10009765625,
+      "far": 4473.7001953125,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-18",
+      "near": 4387.7998046875,
+      "far": 4420.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-19",
+      "near": 4511.2998046875,
+      "far": 4545.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-20",
+      "near": 4537.10009765625,
+      "far": 4571.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-21",
+      "near": 4645.10009765625,
+      "far": 4680.60009765625,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-24",
+      "near": 4661.39990234375,
+      "far": 4697.7998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-25",
+      "near": 4658.2001953125,
+      "far": 4694.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-26",
+      "near": 4617.5,
+      "far": 4653.2998046875,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-27",
+      "near": 4627.7998046875,
+      "far": 4664.0,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-28",
+      "near": 4494.7001953125,
+      "far": 4529.89990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-08-31",
+      "near": 4446.7998046875,
+      "far": 4481.5,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    },
+    {
+      "date": "2026-09-01",
+      "near": 4362.7998046875,
+      "far": 4396.39990234375,
+      "near_contract": "GCV26.CMX",
+      "far_contract": "GCZ26.CMX",
+      "days_between": 61
+    }
+  ]
+}
