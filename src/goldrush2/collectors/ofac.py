@@ -32,7 +32,9 @@ class OFACCollector(BaseCollector):
         return min(score,100)
     def _latest_file(self):
         # Prefer the documented date-based delta URLs, then use OFAC's archive API.
-        for days in range(11):
+        # Delta publication can be delayed by weekends and holidays; search a
+        # full 30-day window before falling back to the complete SDN baseline.
+        for days in range(30):
             d=date.today()-timedelta(days=days)
             for stamp in (d.strftime("%Y-%m-%d"), d.strftime("%m%d%Y"), d.strftime("%Y%m%d")):
                 url=f"https://sanctionslists.ofac.treas.gov/deltas/sdn_delta_{stamp}.xml"
