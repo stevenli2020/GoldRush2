@@ -25,6 +25,7 @@ from goldrush2.collectors.yahoo import YahooCollector
 from goldrush2.collectors.gpr import GPRCollector
 from goldrush2.collectors.ofac import OFACCollector
 from goldrush2.collectors.cftc import CFTCCollector
+from goldrush2.collectors.cme_futures import CMEFuturesCollector
 from goldrush2.collectors.fedwatch import FedWatchCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -176,6 +177,14 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         return OFACCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "ofac" / "L6-002.xml", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-002_snapshot.xml")
     if source == "cftc_cot":
         return CFTCCollector(PROJECT_ROOT / "data" / "cache", raw_dir, force=force, always_refresh=always_refresh)
+    if source == "cme_gold_futures":
+        return CMEFuturesCollector(
+            PROJECT_ROOT / "data" / "cache" / "cme",
+            raw_dir / "cme" / "gold_futures_pair.json",
+            raw_dir / "fred" / "SOFR.json",
+            force=force,
+            always_refresh=always_refresh,
+        )
     if source == "fedwatch":
         return FedWatchCollector(PROJECT_ROOT / "data" / "cache" / "fedwatch", raw_dir, force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
@@ -208,7 +217,20 @@ def cmd_collect(args: argparse.Namespace) -> int:
         variable_id = str(variable_id).upper()
         config = policies.get(variable_id)
         if config is None:
-            if variable_id in {"L1-003", "L1-004", "L1-005", "L1-007", "L7-005"}:
+            dependency_sequences = {
+                "L1-003": "TIPSY02 + TIPSY05 + TIPSY10 → L1-003",
+                "L1-007": "L1-001 + L1-002 → L1-007",
+                "L3-001": "L1-006 → L3-001",
+                "L7-005": "SOFR + EFFR → L7-005",
+            }
+            if variable_id in dependency_sequences:
+                print(
+                    f"{variable_id}: no standalone collector policy; collection "
+                    f"sequence is {dependency_sequences[variable_id]}. Its extractor "
+                    f"refreshes the underlying data internally. Use 'gr2 extract {variable_id}' instead."
+                )
+                continue
+            if variable_id in {"L1-004", "L1-005"}:
                 print(
                     f"{variable_id}: no standalone collector policy; its extractor "
                     f"refreshes the underlying FRED data internally. "
@@ -225,6 +247,8 @@ def cmd_collect(args: argparse.Namespace) -> int:
                 from goldrush2.extractors import l1_006
                 output = l1_006.run(force=args.force)
                 print(f"{variable_id}: action=delegated observation_date={output.get('observation_date')} historical_cache={l1_006.SHARED_RATE_CACHE_PATH}")
+            elif variable_id == "L3-001":
+                print("L3-001: action=delegated collection sequence is L1-006 → L3-001; use 'gr2 extract L3-001' after the shared CME history is available")
             else:
                 print(f"{variable_id}: action=delegated detail=collector remains internal to the mixed CME/FRED extractor")
             continue
