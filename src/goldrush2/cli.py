@@ -205,8 +205,16 @@ def cmd_collect(args: argparse.Namespace) -> int:
     variables = get_all_variables(policies) if args.all else [args.variable]
     failures = 0
     for variable_id in variables:
+        variable_id = str(variable_id).upper()
         config = policies.get(variable_id)
         if config is None:
+            if variable_id in {"L1-003", "L1-005"}:
+                print(
+                    f"{variable_id}: no standalone collector policy; its extractor "
+                    f"refreshes the underlying FRED data internally. "
+                    f"Use 'gr2 extract {variable_id}' instead."
+                )
+                continue
             print(f"{variable_id}: unknown variable policy")
             failures += 1
             continue
