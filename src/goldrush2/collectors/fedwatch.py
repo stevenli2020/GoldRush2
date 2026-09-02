@@ -18,6 +18,10 @@ class FedWatchCollector(BaseCollector):
     SOURCE_URL = "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
     CACHE_PATH = Path("data/cache/fedwatch/l3_004.json")
     RAW_PATH = Path("data/raw/fedwatch/probabilities.json")
+    # CME currently exposes only the most recent few snapshots for the next
+    # meeting; probing older dates causes the upstream library to block.
+    HISTORY_DAYS = 5
+    REQUEST_TIMEOUT_SECONDS = 15
 
     def __init__(self, cache_dir: Path, raw_dir: Path, **kwargs: Any) -> None:
         super().__init__(cache_dir, **kwargs)
@@ -54,10 +58,42 @@ class FedWatchCollector(BaseCollector):
 
     def _fetch(self) -> dict[str, Any]:
         started = time.monotonic()
-        self._log("CME FedWatch request started: meeting=next days=260", 2)
+        self._log(f"CME FedWatch request started: meeting=next days={self.HISTORY_DAYS}", 2)
         try:
-            from cme_fedwatch import get_history
-            payload = get_history(meeting="next", days=260)
+            import cme_fedwatch
+            import cme_fedwatch.api as fedwatch_api
+
+            original_session = fedwatch_api.requests.Session
+            original_snapshot = cme_fedwatch._fetch_snapshot
+            request_number = 0
+
+            def session_factory(*args: Any, **kwargs: Any) -> Any:
+                session = original_session(*args, **kwargs)
+                original_get = session.get
+
+                def timed_get(*get_args: Any, **get_kwargs: Any) -> Any:
+                    get_kwargs.setdefault("timeout", self.REQUEST_TIMEOUT_SECONDS)
+                    return original_get(*get_args, **get_kwargs)
+
+                session.get = timed_get
+                return session
+
+            def observable_snapshot(*args: Any, **kwargs: Any) -> Any:
+                nonlocal request_number
+                request_number += 1
+                trade_date = args[0].isoformat() if args and hasattr(args[0], "isoformat") else "unknown"
+                self._log(f"CME FedWatch snapshot {request_number}: trade_date={trade_date}", 3)
+                result = original_snapshot(*args, **kwargs)
+                self._log(f"CME FedWatch snapshot {request_number}: {'received' if result else 'unavailable'}", 3)
+                return result
+
+            fedwatch_api.requests.Session = session_factory
+            cme_fedwatch._fetch_snapshot = observable_snapshot
+            try:
+                payload = cme_fedwatch.get_history(meeting="next", days=self.HISTORY_DAYS)
+            finally:
+                fedwatch_api.requests.Session = original_session
+                cme_fedwatch._fetch_snapshot = original_snapshot
             self._log(f"CME FedWatch request completed: history={len(payload.get('history', []))} elapsed={time.monotonic() - started:.1f}s", 2)
             return payload
         except Exception as exc:
