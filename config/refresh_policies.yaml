@@ -26,6 +26,7 @@ L0-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date
 L5-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
 L5-002: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
 L5-006: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_official_changes }
+L5-003: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: imf_cofer }
 
 L0-003: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
 L8-001: { data_frequency: Monthly, refresh_strategy: check_last_observation_date, source: wgc_etf }
