@@ -21,6 +21,15 @@ class OFACCollector(BaseCollector):
     def state_path(self): return self.cache_dir/"L6-002_state.json"
     @staticmethod
     def _local(tag): return tag.rsplit("}",1)[-1].lower()
+    @staticmethod
+    def _event_score(event):
+        text=(event.get("description") or "").lower(); action=event.get("action","")
+        if action=="REMOVE": return 0
+        score=40 if action=="ADD" and any(w in text for w in ("block","freeze")) else 20 if action=="ADD" and "designat" in text else 10 if action=="UPDATE" else 0
+        score += 30 if any(w in text for w in ("central bank","monetary authority","sovereign")) else 15 if "government" in text else 0
+        score += 20 if any(w in text for w in ("property","assets","funds")) else 10
+        score += 10 if "executive order" in text else 5 if "statute" in text else 0
+        return min(score,100)
     def _latest_file(self):
         # Prefer the documented date-based delta URLs, then use OFAC's archive API.
         for days in range(11):
@@ -64,7 +73,7 @@ class OFACCollector(BaseCollector):
         for e in rows:
             key=e.get("entity_id") or e.get("name")
             if e.get("action")=="REMOVE": active.pop(key,None)
-            else: active[key]={**e,"score":e.get("score",0)}
+            else: active[key]={**e,"score":self._event_score(e)}
         self._atomic_json(self.state_path,{"active_events":list(active.values()),"last_processed_date":today})
         return self.cache_path
     def fetch_latest_observation_date(self):
