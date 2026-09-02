@@ -10,6 +10,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
+try:
+    import google.generativeai as genai
+except ImportError:  # pragma: no cover - environment dependent
+    genai = None
+
 ROOT = Path(__file__).resolve().parents[3]
 CACHE_PATH = ROOT / "data/cache/L3-006.json"
 SCORES_PATH = ROOT / "data/ai_scores/L3-006_scores.json"
@@ -32,15 +37,13 @@ def _load(path: Path, default: Any) -> Any:
 
 
 def _call_gemini(prompt: str, model: str) -> dict[str, Any]:
-    try:
-        from google import genai
-    except ImportError as exc:
-        raise RuntimeError("Gemini support requires the optional google-genai package") from exc
+    if genai is None:
+        raise RuntimeError("Install google-generativeai, beautifulsoup4, and pandas to enable Gemini scoring")
     key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is not configured")
-    client = genai.Client(api_key=key)
-    response = client.models.generate_content(model=model, contents=prompt, config={"response_mime_type": "application/json", "temperature": 0})
+    genai.configure(api_key=key)
+    response = genai.GenerativeModel(model).generate_content(prompt, generation_config={"response_mime_type": "application/json", "temperature": 0})
     text = getattr(response, "text", "") or ""
     parsed = json.loads(text)
     if not isinstance(parsed, dict):
@@ -52,15 +55,17 @@ def _confidence(status: str) -> float:
     return {"PASS": 1.0, "FLAG": 0.5, "BLOCKED": 0.0}.get(status, 0.0)
 
 
-def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]] | None = None) -> dict[str, Any]:
-    statements = sorted(_load(CACHE_PATH, []), key=lambda row: str(row.get("date", "")))
+def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]] | None = None, cache_path: Path | None = None, output_path: Path | None = None) -> dict[str, Any]:
+    cache_path = Path(cache_path or CACHE_PATH)
+    output_path = Path(output_path or OUTPUT_PATH)
+    statements = sorted(_load(cache_path, []), key=lambda row: str(row.get("date", "")))
     if not statements:
         raise ValueError("L3-006 cache contains no statements")
     current = statements[-1]
     prior = statements[-2] if len(statements) > 1 else None
     scores = _load(SCORES_PATH, {})
     if not force and current["date"] in scores:
-        return _write_output(current, statements, scores[current["date"]])
+        return _write_output(current, statements, scores[current["date"]], output_path)
     invoke = call or _call_gemini
     prior_text = prior.get("text", "") if prior else "(none available)"
     model = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
@@ -94,15 +99,19 @@ def score_l3_006(force: bool = False, call: Callable[[str, str], dict[str, Any]]
         RAW_DIR.mkdir(parents=True, exist_ok=True)
         (RAW_DIR / f"{current['date']}_phase1.json").write_text(json.dumps(baseline, indent=2) + "\n", encoding="utf-8")
         (RAW_DIR / f"{current['date']}_jury.json").write_text(json.dumps(raw_jury, indent=2) + "\n", encoding="utf-8")
-        return _write_output(current, statements, entry)
+        return _write_output(current, statements, entry, output_path)
     except Exception as exc:
-        base = {"variable_id": "L3-006", "observation_date": current["date"], "ai_status": "error", "ai": {"error": str(exc)}}
-        OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-        OUTPUT_PATH.write_text(json.dumps(base, indent=2) + "\n", encoding="utf-8")
+        from goldrush2.extractors.l3_006 import build_output
+        base = build_output(statements)
+        base["ai_status"] = "error"
+        base["ai"] = {"error": str(exc)}
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(json.dumps(base, indent=2) + "\n", encoding="utf-8")
         return base
 
 
-def _write_output(current: dict[str, Any], statements: list[dict[str, Any]], entry: dict[str, Any]) -> dict[str, Any]:
+def _write_output(current: dict[str, Any], statements: list[dict[str, Any]], entry: dict[str, Any], output_path: Path | None = None) -> dict[str, Any]:
+    output_path = Path(output_path or OUTPUT_PATH)
     from goldrush2.extractors.l3_006 import build_output
     output = build_output(statements)
     output["ai_status"] = "success"
@@ -111,6 +120,6 @@ def _write_output(current: dict[str, Any], statements: list[dict[str, Any]], ent
     signal = entry.get("signal", 0)
     for horizon in ("1-5d", "1-3m"):
         output["horizons"][horizon] = {"signal": signal, "confidence": confidence, "evidence": {"baseline": entry.get("baseline"), "blended": entry.get("blended"), "change": entry.get("change")}}
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
     return output

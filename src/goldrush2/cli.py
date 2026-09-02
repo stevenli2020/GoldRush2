@@ -229,7 +229,10 @@ def cmd_extract(args: argparse.Namespace) -> int:
         module = importlib.import_module(module_name)
         run = getattr(module, "run")
         output_path = PROJECT_ROOT / "data" / "current" / f"{variable_id}.json"
-        output = run(**_extractor_kwargs(module, variable_id, output_path))
+        kwargs = _extractor_kwargs(module, variable_id, output_path)
+        if "force_refresh" in inspect.signature(run).parameters:
+            kwargs["force_refresh"] = bool(getattr(args, "force", False))
+        output = run(**kwargs)
     except (OSError, ValueError, KeyError, AttributeError, TypeError, ImportError, RuntimeError) as exc:
         print(f"{variable_id}: action=failed detail={exc}")
         return 1
@@ -241,22 +244,6 @@ def cmd_extract(args: argparse.Namespace) -> int:
         observation_date = output.get("observation_date") if isinstance(output, dict) else None
         print(f"{variable_id}: action=extract observation_date={observation_date}")
     return 0
-
-
-def cmd_score(args: argparse.Namespace) -> int:
-    variable_id = args.variable.upper()
-    if variable_id != "L3-006":
-        print(f"Error: AI scoring not supported for {variable_id}")
-        print("Currently only L3-006 supports AI scoring.")
-        return 1
-    try:
-        from goldrush2.ai.fomc_scorer import score_l3_006
-
-        print(json.dumps(score_l3_006(force=args.force), indent=2, default=str))
-        return 0
-    except (OSError, ValueError, RuntimeError) as exc:
-        print(f"Error during scoring: {exc}")
-        return 1
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -275,11 +262,8 @@ def main(argv: list[str] | None = None) -> int:
     output_group.add_argument("--print", dest="print_json", action="store_true", help="print compact JSON after extraction")
     output_group.add_argument("--pretty", action="store_true", help="print indented JSON after extraction")
     extract.add_argument("--check", action="store_true", help="list discovered extractors and mapping status")
+    extract.add_argument("--force", action="store_true", help="force regeneration and AI scoring where supported")
     extract.set_defaults(handler=cmd_extract)
-    score = commands.add_parser("score", help="run optional AI scoring")
-    score.add_argument("variable", help="variable ID")
-    score.add_argument("--force", action="store_true", help="force a new AI score")
-    score.set_defaults(handler=cmd_score)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")

@@ -6,6 +6,11 @@ import os
 from pathlib import Path
 from typing import Any
 
+try:
+    import google.generativeai as genai  # optional; scorer supplies the error state when absent
+except ImportError:  # pragma: no cover - environment dependent
+    genai = None
+
 VARIABLE_ID = "L3-006"
 CACHE_PATH = Path("data/cache/L3-006.json")
 OUTPUT_PATH = Path("data/current/L3-006.json")
@@ -44,6 +49,10 @@ def run(cache_path: Path = CACHE_PATH, output_path: Path = OUTPUT_PATH, force_re
     statements = json.loads(Path(cache_path).read_text(encoding="utf-8"))
     existing = json.loads(output_path.read_text(encoding="utf-8")) if output_path.exists() else None
     output = build_output(statements, existing, force_refresh)
+    if force_refresh or output.get("ai_status") != "success":
+        from goldrush2.ai.fomc_scorer import score_l3_006
+        output = score_l3_006(force=force_refresh, cache_path=cache_path, output_path=output_path)
+        return output
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = output_path.with_suffix(output_path.suffix + ".tmp")
     temporary.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")

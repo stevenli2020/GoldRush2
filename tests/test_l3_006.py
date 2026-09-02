@@ -142,7 +142,3 @@ def test_scorer_api_failure(tmp_path, monkeypatch):
 def test_raw_response_storage(tmp_path, monkeypatch):
     assert fomc_scorer.RAW_DIR.name == "raw"
 
-
-def test_cli_rejects_unknown():
-    from goldrush2.cli import main
-    assert main(["score", "L1-001"]) == 1
