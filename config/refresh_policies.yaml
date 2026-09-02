@@ -8,6 +8,7 @@ L2-003: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred,
 L4-003: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: T5YIE }
 L4-004: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: T10YIE }
 L7-004: { data_frequency: Daily, refresh_strategy: always_refresh, source: fred, series_id: BAMLH0A0HYM2 }
+L7-003: { data_frequency: Quarterly, refresh_strategy: check_last_observation_date, source: bis, series_key: Q.5A.P.A.M.USD.A }
 
 L7-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: fred, series_id: WALCL }
 

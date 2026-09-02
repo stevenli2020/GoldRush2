@@ -10,6 +10,7 @@ from typing import Any
 import yaml
 
 from goldrush2.collectors.base import BaseCollector, CollectorError
+from goldrush2.collectors.bis import BISCollector
 from goldrush2.collectors.fred import FredCollector
 from goldrush2.collectors.treasury import TreasuryCollector
 from goldrush2.collectors.wgc import WGCWorkbookCollector, fetch_wgc_gold_premiums, fetch_wgc_gdt_workbook, fetch_wgc_official_changes, fetch_wgc_workbook
@@ -103,6 +104,8 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
     if source == "yahoo":
         ticker = str(config["ticker"])
         return YahooCollector(cache_dir, ticker, raw_dir / "yahoo" / f"{ticker}.json", force=force, always_refresh=always_refresh)
+    if source == "bis":
+        return BISCollector(PROJECT_ROOT / "data" / "cache" / "bis", raw_dir / "bis" / "Q.5A.P.A.M.USD.A.csv", force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
@@ -151,6 +154,22 @@ def cmd_collect(args: argparse.Namespace) -> int:
     return 1 if failures else 0
 
 
+def cmd_extract(args: argparse.Namespace) -> int:
+    variable_id = args.variable.upper()
+    if variable_id != "L7-003":
+        print(f"{variable_id}: no extractor command is configured")
+        return 1
+    from goldrush2.extractors import l7_003
+
+    try:
+        output = l7_003.run(PROJECT_ROOT / "data" / "cache" / "bis" / f"{variable_id}.json", PROJECT_ROOT / "data" / "current" / f"{variable_id}.json")
+    except (OSError, ValueError, KeyError) as exc:
+        print(f"{variable_id}: action=failed detail={exc}")
+        return 1
+    print(f"{variable_id}: action=extract observation_date={output['observation_date']}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="gr2")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -161,6 +180,9 @@ def main(argv: list[str] | None = None) -> int:
     collect.add_argument("--dry-run", action="store_true", help="show collection plans without source requests")
     collect.add_argument("-v", "--verbose", action="count", default=0, help="show execution details; repeat for more detail")
     collect.set_defaults(handler=cmd_collect)
+    extract = commands.add_parser("extract", help="build current variable output from normalized cache")
+    extract.add_argument("variable", help="variable ID")
+    extract.set_defaults(handler=cmd_extract)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")

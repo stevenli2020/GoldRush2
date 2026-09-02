@@ -1,0 +1,54 @@
+{
+  "variable_id": "L7-003",
+  "data_frequency": "Quarterly",
+  "source_name": "BIS WS_TC(2.0) - Private Non-Financial Sector Credit Growth (YoY, %)",
+  "source_url": "https://www.bis.org/statistics/totcredit.htm",
+  "observation_date": "2025-12-31",
+  "as_of_date": "2026-09-02",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "summary": "Quarterly data does not support 1-5d horizon."
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "summary": "Quarterly data does not support 1-3m horizon."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_yoy": 9.8192962319,
+          "current_date": "2025-12-31",
+          "comparison_yoy": 0.0411886059,
+          "comparison_date": "2024-12-31",
+          "change_yoy_pp": 9.778107626,
+          "flag": null
+        },
+        "summary": "Credit growth YoY rose by 9.78 percentage points compared to 4 quarters ago, indicating credit expansion, bullish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_yoy": 9.8192962319,
+          "current_date": "2025-12-31",
+          "comparison_yoy": 10.9264847099,
+          "comparison_date": "2020-12-31",
+          "change_yoy_pp": -1.107188478,
+          "flag": null
+        },
+        "summary": "Credit growth YoY fell by 1.11 percentage points compared to 20 quarters ago, indicating credit contraction, bearish for gold."
+      }
+    }
+  }
+}
