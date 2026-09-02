@@ -1,6 +1,6 @@
 {
   "variable_id": "L1-006",
-  "as_of_date": "2026-09-01",
+  "as_of_date": "2026-09-02",
   "source_name": "CME 30-Day Fed Funds Futures + FRED DFF/FEDTARMD",
   "source_url": "https://www.cmegroup.com/daily_bulletin/Section10_Interest_Rate_Futures_Continued.pdf",
   "observation_date": "2026-08-29",
@@ -74,7 +74,7 @@
           "threshold_pp": 0.1,
           "frequency": "Annual"
         },
-        "summary": "FEDTARMD annual SEP projection 3.40% dated 2028-01-01 vs current rate 3.63% \u2014 long-term expected rate cut, bullish for gold; this is a central bank forecast, not market-implied."
+        "summary": "FEDTARMD annual SEP projection 3.40% dated 2028-01-01 vs current rate 3.63% \u2014 long-term expected rate cut, bullish for gold; this is a central bank forecast, not market-implied. DEPENDENT SOURCE UNAVAILABLE \u2014 cached data used."
       }
     }
   }

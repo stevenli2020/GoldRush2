@@ -47,3 +47,5 @@ L6-001: { data_frequency: Daily, refresh_strategy: check_last_observation_date, 
 L6-002: { data_frequency: Event-driven, refresh_strategy: check_last_observation_date, source: ofac, stale_threshold_days: 60 }
 L10-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
 L10-002: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
+L3-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: l1_006_shared, stale_threshold_days: 10 }
+L3-004: { data_frequency: Event-driven, refresh_strategy: check_last_observation_date, source: fedwatch, stale_threshold_days: 7 }

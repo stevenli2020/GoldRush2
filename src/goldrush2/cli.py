@@ -25,6 +25,7 @@ from goldrush2.collectors.yahoo import YahooCollector
 from goldrush2.collectors.gpr import GPRCollector
 from goldrush2.collectors.ofac import OFACCollector
 from goldrush2.collectors.cftc import CFTCCollector
+from goldrush2.collectors.fedwatch import FedWatchCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = PROJECT_ROOT / "config" / "refresh_policies.yaml"
@@ -175,6 +176,8 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         return OFACCollector(PROJECT_ROOT / "data" / "cache", raw_dir / "ofac" / "L6-002.xml", force=force, always_refresh=always_refresh, snapshot_path=raw_dir / "L6-002_snapshot.xml")
     if source == "cftc_cot":
         return CFTCCollector(PROJECT_ROOT / "data" / "cache", raw_dir, force=force, always_refresh=always_refresh)
+    if source == "fedwatch":
+        return FedWatchCollector(PROJECT_ROOT / "data" / "cache" / "fedwatch", raw_dir, force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
@@ -207,8 +210,15 @@ def cmd_collect(args: argparse.Namespace) -> int:
             print(f"{variable_id}: unknown variable policy")
             failures += 1
             continue
-        if config.get("source") == "cme_futures":
-            print(f"{variable_id}: action=delegated detail=collector remains internal to the mixed CME/FRED extractor")
+        if config.get("source") in {"cme_futures", "l1_006_shared"}:
+            if args.dry_run:
+                print(f"{variable_id}: action=planned strategy={config.get('refresh_strategy')} source={config.get('source')}")
+            elif variable_id == "L1-006":
+                from goldrush2.extractors import l1_006
+                output = l1_006.run(force=args.force)
+                print(f"{variable_id}: action=delegated observation_date={output.get('observation_date')} historical_cache={l1_006.SHARED_RATE_CACHE_PATH}")
+            else:
+                print(f"{variable_id}: action=delegated detail=collector remains internal to the mixed CME/FRED extractor")
             continue
         try:
             collector = create_collector(variable_id, config, force=args.force)

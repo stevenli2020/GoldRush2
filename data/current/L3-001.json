@@ -1,0 +1,57 @@
+{
+  "variable_id": "L3-001",
+  "data_frequency": "Weekly",
+  "source_name": "CME Fed Funds Futures - Expected Policy Rate (implied, %)",
+  "source_url": "https://www.cmegroup.com/",
+  "observation_date": "2026-09-02",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1.0,
+      "evidence": {
+        "data": {
+          "current_rate": 3.805,
+          "comparison_rate": 3.6325,
+          "change_pp": 0.17250000000000032,
+          "comparison_date": "2026-08-07"
+        }
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 0.8,
+      "evidence": {
+        "data": {
+          "current_rate": 3.805,
+          "comparison_rate": 3.620003,
+          "change_pp": 0.18499700000000008,
+          "comparison_date": "2026-06-12"
+        }
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 0.6,
+      "evidence": {
+        "data": {
+          "current_rate": 3.805,
+          "comparison_rate": 4.214996,
+          "change_pp": -0.409996,
+          "comparison_date": "2025-09-12"
+        }
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 0.4,
+      "evidence": {
+        "data": {
+          "current_rate": 3.805,
+          "comparison_rate": 0.080002,
+          "change_pp": 3.7249980000000003,
+          "comparison_date": "2021-09-17"
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ FRED_TARMD_RAW_PATH = Path(__file__).resolve().parents[3] / "data" / "raw" / "fr
 RAW_CME_PATH = cme.DEFAULT_RAW_PATH
 MANIFEST_CME_PATH = cme.DEFAULT_MANIFEST_PATH
 OUTPUT_PATH = Path(__file__).resolve().parents[3] / "data" / "current" / "L1-006.json"
+SHARED_RATE_CACHE_PATH = Path(__file__).resolve().parents[3] / "data" / "cache" / "L1-006.json"
 
 
 class DependencyError(RuntimeError):
@@ -153,7 +154,27 @@ def _write_output(path: Path, output: dict[str, Any]) -> None:
     path.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
 
 
-def run(*, output_path: Path = OUTPUT_PATH) -> dict[str, Any]:
+def _write_shared_rate_cache(output: dict[str, Any]) -> None:
+    """Append the current nearest-ZQ implied rate for dependent extractors."""
+    data = output.get("horizons", {}).get("1-5d", {}).get("evidence", {}).get("data", {})
+    rate = data.get("implied_rate")
+    observation_date = output.get("observation_date")
+    if rate is None or observation_date is None:
+        return
+    try:
+        rows = json.loads(SHARED_RATE_CACHE_PATH.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        rows = []
+    rows = [row for row in rows if row.get("date") != observation_date]
+    rows.append({"date": observation_date, "rate": rate})
+    rows.sort(key=lambda row: str(row["date"]))
+    SHARED_RATE_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    temporary = SHARED_RATE_CACHE_PATH.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(SHARED_RATE_CACHE_PATH)
+
+
+def run(*, output_path: Path = OUTPUT_PATH, force: bool = False) -> dict[str, Any]:
     """Collect CME, DFF, and FEDTARMD dependencies and write L1-006."""
     rows, observation_date, cme_cached, cme_error = _cme_dependency(RAW_CME_PATH, MANIFEST_CME_PATH)
     dff, dff_cached, dff_error = _fred_dependency("DFF", FRED_DFF_RAW_PATH)
@@ -182,7 +203,13 @@ def run(*, output_path: Path = OUTPUT_PATH) -> dict[str, Any]:
                 prediction = max(tar_md, key=lambda row: str(row["date"]))
                 horizons["3-10y"] = _long_result(prediction, benchmark, cached=dff_cached or tar_md_cached)
             output = {"variable_id": "L1-006", "as_of_date": date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "observation_date": observation_date.isoformat() if not cme_error else None, "current_rate_benchmark": "FRED DFF", "calculation_method": "CME ZQ implied rate (100 - settlement price) versus DFF; FEDTARMD annual SEP supplement for 3-10y", "horizons": horizons}
+    try:
+        cme.refresh_zq_history(force=force, cache_path=SHARED_RATE_CACHE_PATH)
+    except cme.CmeError:
+        # The current L1-006 output remains usable when Yahoo is unavailable.
+        pass
     _write_output(output_path, output)
+    _write_shared_rate_cache(output)
     return output
 
 

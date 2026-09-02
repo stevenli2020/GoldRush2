@@ -1,0 +1,5434 @@
+[
+  {
+    "date": "2000-09-01",
+    "implied_rate": 6.525002
+  },
+  {
+    "date": "2000-09-08",
+    "implied_rate": 6.525002
+  },
+  {
+    "date": "2000-09-15",
+    "implied_rate": 6.525002
+  },
+  {
+    "date": "2000-09-22",
+    "implied_rate": 6.519997
+  },
+  {
+    "date": "2000-09-29",
+    "implied_rate": 6.519997
+  },
+  {
+    "date": "2000-10-06",
+    "implied_rate": 6.5
+  },
+  {
+    "date": "2000-10-12",
+    "implied_rate": 6.5
+  },
+  {
+    "date": "2000-10-20",
+    "implied_rate": 6.5
+  },
+  {
+    "date": "2000-10-27",
+    "implied_rate": 6.504997
+  },
+  {
+    "date": "2000-11-03",
+    "implied_rate": 6.510002
+  },
+  {
+    "date": "2000-11-09",
+    "implied_rate": 6.514999
+  },
+  {
+    "date": "2000-11-17",
+    "implied_rate": 6.519997
+  },
+  {
+    "date": "2000-11-24",
+    "implied_rate": 6.519997
+  },
+  {
+    "date": "2000-12-01",
+    "implied_rate": 6.470001
+  },
+  {
+    "date": "2000-12-08",
+    "implied_rate": 6.459999
+  },
+  {
+    "date": "2000-12-15",
+    "implied_rate": 6.459999
+  },
+  {
+    "date": "2000-12-22",
+    "implied_rate": 6.470001
+  },
+  {
+    "date": "2000-12-29",
+    "implied_rate": 6.5
+  },
+  {
+    "date": "2001-01-05",
+    "implied_rate": 5.970001
+  },
+  {
+    "date": "2001-01-12",
+    "implied_rate": 5.949997
+  },
+  {
+    "date": "2001-01-19",
+    "implied_rate": 5.940002
+  },
+  {
+    "date": "2001-01-26",
+    "implied_rate": 5.974998
+  },
+  {
+    "date": "2001-02-02",
+    "implied_rate": 5.470001
+  },
+  {
+    "date": "2001-02-09",
+    "implied_rate": 5.470001
+  },
+  {
+    "date": "2001-02-16",
+    "implied_rate": 5.480003
+  },
+  {
+    "date": "2001-02-23",
+    "implied_rate": 5.480003
+  },
+  {
+    "date": "2001-03-02",
+    "implied_rate": 5.290001
+  },
+  {
+    "date": "2001-03-09",
+    "implied_rate": 5.300003
+  },
+  {
+    "date": "2001-03-16",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2001-03-23",
+    "implied_rate": 5.290001
+  },
+  {
+    "date": "2001-03-29",
+    "implied_rate": 5.305
+  },
+  {
+    "date": "2001-04-06",
+    "implied_rate": 4.910004
+  },
+  {
+    "date": "2001-04-12",
+    "implied_rate": 4.995003
+  },
+  {
+    "date": "2001-04-20",
+    "implied_rate": 4.809998
+  },
+  {
+    "date": "2001-04-27",
+    "implied_rate": 4.790001
+  },
+  {
+    "date": "2001-05-04",
+    "implied_rate": 4.25
+  },
+  {
+    "date": "2001-05-11",
+    "implied_rate": 4.269997
+  },
+  {
+    "date": "2001-05-18",
+    "implied_rate": 4.214996
+  },
+  {
+    "date": "2001-05-25",
+    "implied_rate": 4.205002
+  },
+  {
+    "date": "2001-06-01",
+    "implied_rate": 3.974998
+  },
+  {
+    "date": "2001-06-08",
+    "implied_rate": 3.985001
+  },
+  {
+    "date": "2001-06-15",
+    "implied_rate": 3.980003
+  },
+  {
+    "date": "2001-06-22",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2001-06-29",
+    "implied_rate": 3.75
+  },
+  {
+    "date": "2001-07-06",
+    "implied_rate": 3.75
+  },
+  {
+    "date": "2001-07-13",
+    "implied_rate": 3.730003
+  },
+  {
+    "date": "2001-07-20",
+    "implied_rate": 3.735001
+  },
+  {
+    "date": "2001-07-27",
+    "implied_rate": 3.764999
+  },
+  {
+    "date": "2001-08-03",
+    "implied_rate": 3.654999
+  },
+  {
+    "date": "2001-08-10",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2001-08-17",
+    "implied_rate": 3.644997
+  },
+  {
+    "date": "2001-08-24",
+    "implied_rate": 3.644997
+  },
+  {
+    "date": "2001-08-31",
+    "implied_rate": 3.650002
+  },
+  {
+    "date": "2001-09-07",
+    "implied_rate": 3.489998
+  },
+  {
+    "date": "2001-09-14",
+    "implied_rate": 3.349998
+  },
+  {
+    "date": "2001-09-21",
+    "implied_rate": 2.889999
+  },
+  {
+    "date": "2001-09-28",
+    "implied_rate": 3.105003
+  },
+  {
+    "date": "2001-10-05",
+    "implied_rate": 2.459999
+  },
+  {
+    "date": "2001-10-12",
+    "implied_rate": 2.480003
+  },
+  {
+    "date": "2001-10-19",
+    "implied_rate": 2.464996
+  },
+  {
+    "date": "2001-10-26",
+    "implied_rate": 2.474998
+  },
+  {
+    "date": "2001-11-02",
+    "implied_rate": 2.184998
+  },
+  {
+    "date": "2001-11-09",
+    "implied_rate": 2.084999
+  },
+  {
+    "date": "2001-11-16",
+    "implied_rate": 2.120003
+  },
+  {
+    "date": "2001-11-23",
+    "implied_rate": 2.105003
+  },
+  {
+    "date": "2001-11-30",
+    "implied_rate": 2.095001
+  },
+  {
+    "date": "2001-12-07",
+    "implied_rate": 1.864998
+  },
+  {
+    "date": "2001-12-14",
+    "implied_rate": 1.805
+  },
+  {
+    "date": "2001-12-21",
+    "implied_rate": 1.82
+  },
+  {
+    "date": "2001-12-28",
+    "implied_rate": 1.830002
+  },
+  {
+    "date": "2002-01-04",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-01-11",
+    "implied_rate": 1.724998
+  },
+  {
+    "date": "2002-01-18",
+    "implied_rate": 1.699997
+  },
+  {
+    "date": "2002-01-25",
+    "implied_rate": 1.709999
+  },
+  {
+    "date": "2002-02-01",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-02-08",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-02-15",
+    "implied_rate": 1.754997
+  },
+  {
+    "date": "2002-02-22",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-03-01",
+    "implied_rate": 1.769997
+  },
+  {
+    "date": "2002-03-08",
+    "implied_rate": 1.779999
+  },
+  {
+    "date": "2002-03-15",
+    "implied_rate": 1.775002
+  },
+  {
+    "date": "2002-03-22",
+    "implied_rate": 1.764999
+  },
+  {
+    "date": "2002-03-28",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-04-05",
+    "implied_rate": 1.754997
+  },
+  {
+    "date": "2002-04-12",
+    "implied_rate": 1.754997
+  },
+  {
+    "date": "2002-04-19",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-04-26",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-05-03",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2002-05-10",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-05-17",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-05-24",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-05-30",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-06-07",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2002-06-14",
+    "implied_rate": 1.764999
+  },
+  {
+    "date": "2002-06-21",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2002-06-28",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2002-07-05",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-07-12",
+    "implied_rate": 1.735001
+  },
+  {
+    "date": "2002-07-19",
+    "implied_rate": 1.739998
+  },
+  {
+    "date": "2002-07-26",
+    "implied_rate": 1.735001
+  },
+  {
+    "date": "2002-08-02",
+    "implied_rate": 1.714996
+  },
+  {
+    "date": "2002-08-09",
+    "implied_rate": 1.709999
+  },
+  {
+    "date": "2002-08-16",
+    "implied_rate": 1.735001
+  },
+  {
+    "date": "2002-08-23",
+    "implied_rate": 1.730003
+  },
+  {
+    "date": "2002-08-30",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-09-06",
+    "implied_rate": 1.724998
+  },
+  {
+    "date": "2002-09-13",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-09-20",
+    "implied_rate": 1.735001
+  },
+  {
+    "date": "2002-09-27",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2002-10-04",
+    "implied_rate": 1.705002
+  },
+  {
+    "date": "2002-10-11",
+    "implied_rate": 1.730003
+  },
+  {
+    "date": "2002-10-18",
+    "implied_rate": 1.745003
+  },
+  {
+    "date": "2002-10-25",
+    "implied_rate": 1.739998
+  },
+  {
+    "date": "2002-11-01",
+    "implied_rate": 1.540001
+  },
+  {
+    "date": "2002-11-08",
+    "implied_rate": 1.355003
+  },
+  {
+    "date": "2002-11-15",
+    "implied_rate": 1.339996
+  },
+  {
+    "date": "2002-11-22",
+    "implied_rate": 1.339996
+  },
+  {
+    "date": "2002-11-29",
+    "implied_rate": 1.339996
+  },
+  {
+    "date": "2002-12-06",
+    "implied_rate": 1.230003
+  },
+  {
+    "date": "2002-12-13",
+    "implied_rate": 1.230003
+  },
+  {
+    "date": "2002-12-20",
+    "implied_rate": 1.245003
+  },
+  {
+    "date": "2002-12-27",
+    "implied_rate": 1.239998
+  },
+  {
+    "date": "2003-01-03",
+    "implied_rate": 1.245003
+  },
+  {
+    "date": "2003-01-10",
+    "implied_rate": 1.235001
+  },
+  {
+    "date": "2003-01-17",
+    "implied_rate": 1.235001
+  },
+  {
+    "date": "2003-01-24",
+    "implied_rate": 1.230003
+  },
+  {
+    "date": "2003-01-31",
+    "implied_rate": 1.235001
+  },
+  {
+    "date": "2003-02-07",
+    "implied_rate": 1.230003
+  },
+  {
+    "date": "2003-02-14",
+    "implied_rate": 1.235001
+  },
+  {
+    "date": "2003-02-21",
+    "implied_rate": 1.254997
+  },
+  {
+    "date": "2003-02-28",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2003-03-07",
+    "implied_rate": 1.224998
+  },
+  {
+    "date": "2003-03-14",
+    "implied_rate": 1.230003
+  },
+  {
+    "date": "2003-03-21",
+    "implied_rate": 1.245003
+  },
+  {
+    "date": "2003-03-28",
+    "implied_rate": 1.254997
+  },
+  {
+    "date": "2003-04-04",
+    "implied_rate": 1.209999
+  },
+  {
+    "date": "2003-04-11",
+    "implied_rate": 1.245003
+  },
+  {
+    "date": "2003-04-17",
+    "implied_rate": 1.239998
+  },
+  {
+    "date": "2003-04-25",
+    "implied_rate": 1.25
+  },
+  {
+    "date": "2003-05-02",
+    "implied_rate": 1.209999
+  },
+  {
+    "date": "2003-05-09",
+    "implied_rate": 1.25
+  },
+  {
+    "date": "2003-05-16",
+    "implied_rate": 1.239998
+  },
+  {
+    "date": "2003-05-23",
+    "implied_rate": 1.254997
+  },
+  {
+    "date": "2003-05-30",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2003-06-06",
+    "implied_rate": 1.190002
+  },
+  {
+    "date": "2003-06-13",
+    "implied_rate": 1.175003
+  },
+  {
+    "date": "2003-06-20",
+    "implied_rate": 1.18
+  },
+  {
+    "date": "2003-06-27",
+    "implied_rate": 1.209999
+  },
+  {
+    "date": "2003-07-03",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2003-07-11",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2003-07-18",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2003-07-25",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-08-01",
+    "implied_rate": 1.014999
+  },
+  {
+    "date": "2003-08-08",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2003-08-15",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-08-22",
+    "implied_rate": 1.029999
+  },
+  {
+    "date": "2003-08-29",
+    "implied_rate": 1.029999
+  },
+  {
+    "date": "2003-09-05",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-09-12",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-09-19",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-09-26",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-10-03",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-10-10",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2003-10-17",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-10-24",
+    "implied_rate": 1.014999
+  },
+  {
+    "date": "2003-10-31",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-11-07",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-11-14",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-11-21",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-11-28",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-12-05",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2003-12-12",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2003-12-19",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2003-12-26",
+    "implied_rate": 0.989998
+  },
+  {
+    "date": "2004-01-02",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-01-09",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2004-01-16",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2004-01-23",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2004-01-30",
+    "implied_rate": 0.995003
+  },
+  {
+    "date": "2004-02-06",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2004-02-13",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2004-02-20",
+    "implied_rate": 1.0
+  },
+  {
+    "date": "2004-02-27",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-03-05",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-03-12",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-03-19",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-03-26",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-04-02",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-04-08",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-04-16",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-04-23",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-04-30",
+    "implied_rate": 1.004997
+  },
+  {
+    "date": "2004-05-07",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2004-05-14",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2004-05-21",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2004-05-28",
+    "implied_rate": 1.010002
+  },
+  {
+    "date": "2004-06-04",
+    "implied_rate": 1.019997
+  },
+  {
+    "date": "2004-06-11",
+    "implied_rate": 1.014999
+  },
+  {
+    "date": "2004-06-18",
+    "implied_rate": 1.014999
+  },
+  {
+    "date": "2004-06-25",
+    "implied_rate": 1.014999
+  },
+  {
+    "date": "2004-07-02",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2004-07-09",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2004-07-16",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2004-07-23",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2004-07-30",
+    "implied_rate": 1.260002
+  },
+  {
+    "date": "2004-08-06",
+    "implied_rate": 1.419998
+  },
+  {
+    "date": "2004-08-13",
+    "implied_rate": 1.434998
+  },
+  {
+    "date": "2004-08-20",
+    "implied_rate": 1.419998
+  },
+  {
+    "date": "2004-08-27",
+    "implied_rate": 1.425003
+  },
+  {
+    "date": "2004-09-03",
+    "implied_rate": 1.574997
+  },
+  {
+    "date": "2004-09-10",
+    "implied_rate": 1.580002
+  },
+  {
+    "date": "2004-09-17",
+    "implied_rate": 1.584999
+  },
+  {
+    "date": "2004-09-24",
+    "implied_rate": 1.595001
+  },
+  {
+    "date": "2004-10-01",
+    "implied_rate": 1.75
+  },
+  {
+    "date": "2004-10-08",
+    "implied_rate": 1.754997
+  },
+  {
+    "date": "2004-10-15",
+    "implied_rate": 1.754997
+  },
+  {
+    "date": "2004-10-22",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2004-10-29",
+    "implied_rate": 1.760002
+  },
+  {
+    "date": "2004-11-05",
+    "implied_rate": 1.919998
+  },
+  {
+    "date": "2004-11-12",
+    "implied_rate": 1.925003
+  },
+  {
+    "date": "2004-11-19",
+    "implied_rate": 1.925003
+  },
+  {
+    "date": "2004-11-26",
+    "implied_rate": 1.925003
+  },
+  {
+    "date": "2004-12-03",
+    "implied_rate": 2.135002
+  },
+  {
+    "date": "2004-12-10",
+    "implied_rate": 2.139999
+  },
+  {
+    "date": "2004-12-17",
+    "implied_rate": 2.150002
+  },
+  {
+    "date": "2004-12-23",
+    "implied_rate": 2.150002
+  },
+  {
+    "date": "2004-12-31",
+    "implied_rate": 2.160004
+  },
+  {
+    "date": "2005-01-07",
+    "implied_rate": 2.245003
+  },
+  {
+    "date": "2005-01-14",
+    "implied_rate": 2.245003
+  },
+  {
+    "date": "2005-01-21",
+    "implied_rate": 2.245003
+  },
+  {
+    "date": "2005-01-28",
+    "implied_rate": 2.264999
+  },
+  {
+    "date": "2005-02-04",
+    "implied_rate": 2.495003
+  },
+  {
+    "date": "2005-02-11",
+    "implied_rate": 2.495003
+  },
+  {
+    "date": "2005-02-18",
+    "implied_rate": 2.495003
+  },
+  {
+    "date": "2005-02-25",
+    "implied_rate": 2.5
+  },
+  {
+    "date": "2005-03-04",
+    "implied_rate": 2.595001
+  },
+  {
+    "date": "2005-03-11",
+    "implied_rate": 2.595001
+  },
+  {
+    "date": "2005-03-18",
+    "implied_rate": 2.610001
+  },
+  {
+    "date": "2005-03-24",
+    "implied_rate": 2.614998
+  },
+  {
+    "date": "2005-04-01",
+    "implied_rate": 2.769997
+  },
+  {
+    "date": "2005-04-08",
+    "implied_rate": 2.775002
+  },
+  {
+    "date": "2005-04-15",
+    "implied_rate": 2.779999
+  },
+  {
+    "date": "2005-04-22",
+    "implied_rate": 2.779999
+  },
+  {
+    "date": "2005-04-29",
+    "implied_rate": 2.779999
+  },
+  {
+    "date": "2005-05-06",
+    "implied_rate": 3.0
+  },
+  {
+    "date": "2005-05-13",
+    "implied_rate": 3.0
+  },
+  {
+    "date": "2005-05-20",
+    "implied_rate": 3.0
+  },
+  {
+    "date": "2005-05-27",
+    "implied_rate": 3.0
+  },
+  {
+    "date": "2005-06-03",
+    "implied_rate": 3.035004
+  },
+  {
+    "date": "2005-06-10",
+    "implied_rate": 3.035004
+  },
+  {
+    "date": "2005-06-17",
+    "implied_rate": 3.035004
+  },
+  {
+    "date": "2005-06-24",
+    "implied_rate": 3.035004
+  },
+  {
+    "date": "2005-07-01",
+    "implied_rate": 3.260002
+  },
+  {
+    "date": "2005-07-08",
+    "implied_rate": 3.260002
+  },
+  {
+    "date": "2005-07-15",
+    "implied_rate": 3.260002
+  },
+  {
+    "date": "2005-07-22",
+    "implied_rate": 3.254997
+  },
+  {
+    "date": "2005-07-29",
+    "implied_rate": 3.260002
+  },
+  {
+    "date": "2005-08-05",
+    "implied_rate": 3.459999
+  },
+  {
+    "date": "2005-08-12",
+    "implied_rate": 3.470001
+  },
+  {
+    "date": "2005-08-19",
+    "implied_rate": 3.480003
+  },
+  {
+    "date": "2005-08-26",
+    "implied_rate": 3.489998
+  },
+  {
+    "date": "2005-09-02",
+    "implied_rate": 3.574997
+  },
+  {
+    "date": "2005-09-09",
+    "implied_rate": 3.584999
+  },
+  {
+    "date": "2005-09-16",
+    "implied_rate": 3.605003
+  },
+  {
+    "date": "2005-09-23",
+    "implied_rate": 3.610001
+  },
+  {
+    "date": "2005-09-30",
+    "implied_rate": 3.620003
+  },
+  {
+    "date": "2005-10-07",
+    "implied_rate": 3.785004
+  },
+  {
+    "date": "2005-10-14",
+    "implied_rate": 3.785004
+  },
+  {
+    "date": "2005-10-21",
+    "implied_rate": 3.775002
+  },
+  {
+    "date": "2005-10-28",
+    "implied_rate": 3.775002
+  },
+  {
+    "date": "2005-11-04",
+    "implied_rate": 4.004997
+  },
+  {
+    "date": "2005-11-11",
+    "implied_rate": 4.004997
+  },
+  {
+    "date": "2005-11-18",
+    "implied_rate": 4.0
+  },
+  {
+    "date": "2005-11-25",
+    "implied_rate": 4.0
+  },
+  {
+    "date": "2005-12-02",
+    "implied_rate": 4.160004
+  },
+  {
+    "date": "2005-12-09",
+    "implied_rate": 4.160004
+  },
+  {
+    "date": "2005-12-16",
+    "implied_rate": 4.160004
+  },
+  {
+    "date": "2005-12-23",
+    "implied_rate": 4.165001
+  },
+  {
+    "date": "2005-12-30",
+    "implied_rate": 4.150002
+  },
+  {
+    "date": "2006-01-06",
+    "implied_rate": 4.264999
+  },
+  {
+    "date": "2006-01-13",
+    "implied_rate": 4.264999
+  },
+  {
+    "date": "2006-01-20",
+    "implied_rate": 4.269997
+  },
+  {
+    "date": "2006-01-27",
+    "implied_rate": 4.279999
+  },
+  {
+    "date": "2006-02-03",
+    "implied_rate": 4.5
+  },
+  {
+    "date": "2006-02-10",
+    "implied_rate": 4.5
+  },
+  {
+    "date": "2006-02-17",
+    "implied_rate": 4.5
+  },
+  {
+    "date": "2006-02-24",
+    "implied_rate": 4.495003
+  },
+  {
+    "date": "2006-03-03",
+    "implied_rate": 4.550003
+  },
+  {
+    "date": "2006-03-10",
+    "implied_rate": 4.559998
+  },
+  {
+    "date": "2006-03-17",
+    "implied_rate": 4.565002
+  },
+  {
+    "date": "2006-03-24",
+    "implied_rate": 4.580002
+  },
+  {
+    "date": "2006-03-31",
+    "implied_rate": 4.584999
+  },
+  {
+    "date": "2006-04-07",
+    "implied_rate": 4.775002
+  },
+  {
+    "date": "2006-04-13",
+    "implied_rate": 4.779999
+  },
+  {
+    "date": "2006-04-21",
+    "implied_rate": 4.785004
+  },
+  {
+    "date": "2006-04-28",
+    "implied_rate": 4.790001
+  },
+  {
+    "date": "2006-05-05",
+    "implied_rate": 4.964996
+  },
+  {
+    "date": "2006-05-12",
+    "implied_rate": 4.955002
+  },
+  {
+    "date": "2006-05-19",
+    "implied_rate": 4.949997
+  },
+  {
+    "date": "2006-05-26",
+    "implied_rate": 4.949997
+  },
+  {
+    "date": "2006-06-02",
+    "implied_rate": 5.029999
+  },
+  {
+    "date": "2006-06-09",
+    "implied_rate": 5.035004
+  },
+  {
+    "date": "2006-06-16",
+    "implied_rate": 5.040001
+  },
+  {
+    "date": "2006-06-23",
+    "implied_rate": 5.025002
+  },
+  {
+    "date": "2006-06-30",
+    "implied_rate": 5.004997
+  },
+  {
+    "date": "2006-07-07",
+    "implied_rate": 5.239998
+  },
+  {
+    "date": "2006-07-14",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-07-21",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-07-28",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-08-04",
+    "implied_rate": 5.290001
+  },
+  {
+    "date": "2006-08-11",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2006-08-18",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-08-25",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-09-01",
+    "implied_rate": 5.260002
+  },
+  {
+    "date": "2006-09-08",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2006-09-15",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2006-09-22",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-09-29",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2006-10-06",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2006-10-13",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2006-10-20",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2006-10-27",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2006-11-03",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-11-10",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-11-17",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-11-24",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2006-12-01",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-12-08",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-12-15",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-12-22",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2006-12-29",
+    "implied_rate": 5.235001
+  },
+  {
+    "date": "2007-01-05",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-01-12",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-01-19",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-01-26",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-02-02",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-02-09",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-02-16",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-02-23",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-03-02",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-03-09",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-03-16",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-03-23",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2007-03-30",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2007-04-05",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-04-13",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-04-20",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-04-27",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-05-04",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-05-11",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-05-18",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-05-25",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-06-01",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-06-08",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-06-15",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-06-22",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-06-29",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-07-06",
+    "implied_rate": 5.245003
+  },
+  {
+    "date": "2007-07-13",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-07-20",
+    "implied_rate": 5.25
+  },
+  {
+    "date": "2007-07-27",
+    "implied_rate": 5.254997
+  },
+  {
+    "date": "2007-08-03",
+    "implied_rate": 5.224998
+  },
+  {
+    "date": "2007-08-10",
+    "implied_rate": 5.205002
+  },
+  {
+    "date": "2007-08-17",
+    "implied_rate": 5.029999
+  },
+  {
+    "date": "2007-08-24",
+    "implied_rate": 4.989998
+  },
+  {
+    "date": "2007-08-31",
+    "implied_rate": 5.019997
+  },
+  {
+    "date": "2007-09-07",
+    "implied_rate": 4.940002
+  },
+  {
+    "date": "2007-09-14",
+    "implied_rate": 4.970001
+  },
+  {
+    "date": "2007-09-21",
+    "implied_rate": 4.93
+  },
+  {
+    "date": "2007-09-28",
+    "implied_rate": 4.974998
+  },
+  {
+    "date": "2007-10-05",
+    "implied_rate": 4.735001
+  },
+  {
+    "date": "2007-10-12",
+    "implied_rate": 4.745003
+  },
+  {
+    "date": "2007-10-19",
+    "implied_rate": 4.735001
+  },
+  {
+    "date": "2007-10-26",
+    "implied_rate": 4.739998
+  },
+  {
+    "date": "2007-11-02",
+    "implied_rate": 4.474998
+  },
+  {
+    "date": "2007-11-09",
+    "implied_rate": 4.425003
+  },
+  {
+    "date": "2007-11-16",
+    "implied_rate": 4.434998
+  },
+  {
+    "date": "2007-11-23",
+    "implied_rate": 4.464996
+  },
+  {
+    "date": "2007-11-30",
+    "implied_rate": 4.480003
+  },
+  {
+    "date": "2007-12-07",
+    "implied_rate": 4.264999
+  },
+  {
+    "date": "2007-12-14",
+    "implied_rate": 4.279999
+  },
+  {
+    "date": "2007-12-21",
+    "implied_rate": 4.254997
+  },
+  {
+    "date": "2007-12-28",
+    "implied_rate": 4.260002
+  },
+  {
+    "date": "2008-01-04",
+    "implied_rate": 4.144997
+  },
+  {
+    "date": "2008-01-11",
+    "implied_rate": 4.099998
+  },
+  {
+    "date": "2008-01-18",
+    "implied_rate": 4.125
+  },
+  {
+    "date": "2008-01-25",
+    "implied_rate": 3.910004
+  },
+  {
+    "date": "2008-02-01",
+    "implied_rate": 2.949997
+  },
+  {
+    "date": "2008-02-08",
+    "implied_rate": 2.915001
+  },
+  {
+    "date": "2008-02-15",
+    "implied_rate": 2.959999
+  },
+  {
+    "date": "2008-02-22",
+    "implied_rate": 2.985001
+  },
+  {
+    "date": "2008-02-28",
+    "implied_rate": 2.980003
+  },
+  {
+    "date": "2008-03-07",
+    "implied_rate": 2.620003
+  },
+  {
+    "date": "2008-03-14",
+    "implied_rate": 2.584999
+  },
+  {
+    "date": "2008-03-20",
+    "implied_rate": 2.595001
+  },
+  {
+    "date": "2008-03-28",
+    "implied_rate": 2.614998
+  },
+  {
+    "date": "2008-04-04",
+    "implied_rate": 2.195
+  },
+  {
+    "date": "2008-04-11",
+    "implied_rate": 2.209999
+  },
+  {
+    "date": "2008-04-18",
+    "implied_rate": 2.245003
+  },
+  {
+    "date": "2008-04-25",
+    "implied_rate": 2.254997
+  },
+  {
+    "date": "2008-05-02",
+    "implied_rate": 1.995003
+  },
+  {
+    "date": "2008-05-09",
+    "implied_rate": 1.989998
+  },
+  {
+    "date": "2008-05-16",
+    "implied_rate": 1.980003
+  },
+  {
+    "date": "2008-05-23",
+    "implied_rate": 1.974998
+  },
+  {
+    "date": "2008-05-30",
+    "implied_rate": 1.980003
+  },
+  {
+    "date": "2008-06-06",
+    "implied_rate": 2.004997
+  },
+  {
+    "date": "2008-06-13",
+    "implied_rate": 2.014999
+  },
+  {
+    "date": "2008-06-20",
+    "implied_rate": 2.010002
+  },
+  {
+    "date": "2008-06-27",
+    "implied_rate": 2.0
+  },
+  {
+    "date": "2008-07-03",
+    "implied_rate": 2.010002
+  },
+  {
+    "date": "2008-07-11",
+    "implied_rate": 2.0
+  },
+  {
+    "date": "2008-07-18",
+    "implied_rate": 1.995003
+  },
+  {
+    "date": "2008-07-25",
+    "implied_rate": 2.0
+  },
+  {
+    "date": "2008-08-01",
+    "implied_rate": 2.014999
+  },
+  {
+    "date": "2008-08-08",
+    "implied_rate": 2.0075
+  },
+  {
+    "date": "2008-08-15",
+    "implied_rate": 2.010002
+  },
+  {
+    "date": "2008-08-22",
+    "implied_rate": 2.0075
+  },
+  {
+    "date": "2008-08-29",
+    "implied_rate": 2.010002
+  },
+  {
+    "date": "2008-09-05",
+    "implied_rate": 2.0075
+  },
+  {
+    "date": "2008-09-12",
+    "implied_rate": 1.982498
+  },
+  {
+    "date": "2008-09-19",
+    "implied_rate": 2.004997
+  },
+  {
+    "date": "2008-09-26",
+    "implied_rate": 1.809998
+  },
+  {
+    "date": "2008-10-03",
+    "implied_rate": 1.410004
+  },
+  {
+    "date": "2008-10-10",
+    "implied_rate": 1.324997
+  },
+  {
+    "date": "2008-10-17",
+    "implied_rate": 1.197502
+  },
+  {
+    "date": "2008-10-24",
+    "implied_rate": 1.047501
+  },
+  {
+    "date": "2008-10-31",
+    "implied_rate": 0.972504
+  },
+  {
+    "date": "2008-11-07",
+    "implied_rate": 0.43
+  },
+  {
+    "date": "2008-11-14",
+    "implied_rate": 0.379997
+  },
+  {
+    "date": "2008-11-21",
+    "implied_rate": 0.415001
+  },
+  {
+    "date": "2008-11-28",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2008-12-05",
+    "implied_rate": 0.272499
+  },
+  {
+    "date": "2008-12-12",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2008-12-19",
+    "implied_rate": 0.172501
+  },
+  {
+    "date": "2008-12-26",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2009-01-02",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2009-01-09",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2009-01-16",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2009-01-23",
+    "implied_rate": 0.167503
+  },
+  {
+    "date": "2009-01-30",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2009-02-06",
+    "implied_rate": 0.239998
+  },
+  {
+    "date": "2009-02-13",
+    "implied_rate": 0.235001
+  },
+  {
+    "date": "2009-02-20",
+    "implied_rate": 0.222504
+  },
+  {
+    "date": "2009-02-27",
+    "implied_rate": 0.222504
+  },
+  {
+    "date": "2009-03-06",
+    "implied_rate": 0.227501
+  },
+  {
+    "date": "2009-03-13",
+    "implied_rate": 0.202499
+  },
+  {
+    "date": "2009-03-20",
+    "implied_rate": 0.197502
+  },
+  {
+    "date": "2009-03-27",
+    "implied_rate": 0.1875
+  },
+  {
+    "date": "2009-04-03",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2009-04-09",
+    "implied_rate": 0.167503
+  },
+  {
+    "date": "2009-04-17",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2009-04-24",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2009-05-01",
+    "implied_rate": 0.209999
+  },
+  {
+    "date": "2009-05-08",
+    "implied_rate": 0.195
+  },
+  {
+    "date": "2009-05-15",
+    "implied_rate": 0.184998
+  },
+  {
+    "date": "2009-05-22",
+    "implied_rate": 0.182503
+  },
+  {
+    "date": "2009-05-29",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2009-06-05",
+    "implied_rate": 0.209999
+  },
+  {
+    "date": "2009-06-12",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2009-06-19",
+    "implied_rate": 0.220001
+  },
+  {
+    "date": "2009-06-26",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2009-07-02",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2009-07-10",
+    "implied_rate": 0.177498
+  },
+  {
+    "date": "2009-07-17",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2009-07-24",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2009-07-31",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2009-08-07",
+    "implied_rate": 0.177498
+  },
+  {
+    "date": "2009-08-14",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2009-08-21",
+    "implied_rate": 0.167503
+  },
+  {
+    "date": "2009-08-28",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2009-09-04",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2009-09-11",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2009-09-18",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2009-09-25",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2009-10-02",
+    "implied_rate": 0.139999
+  },
+  {
+    "date": "2009-10-09",
+    "implied_rate": 0.1325
+  },
+  {
+    "date": "2009-10-16",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2009-10-23",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2009-10-30",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2009-11-06",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2009-11-13",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2009-11-20",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2009-11-27",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2009-12-04",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2009-12-11",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2009-12-18",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2009-12-24",
+    "implied_rate": 0.125
+  },
+  {
+    "date": "2009-12-31",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2010-01-08",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2010-01-15",
+    "implied_rate": 0.112503
+  },
+  {
+    "date": "2010-01-22",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2010-01-29",
+    "implied_rate": 0.112503
+  },
+  {
+    "date": "2010-02-05",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2010-02-12",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2010-02-19",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2010-02-26",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2010-03-05",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2010-03-12",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2010-03-19",
+    "implied_rate": 0.175003
+  },
+  {
+    "date": "2010-03-26",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2010-04-01",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-04-09",
+    "implied_rate": 0.199997
+  },
+  {
+    "date": "2010-04-16",
+    "implied_rate": 0.197502
+  },
+  {
+    "date": "2010-04-23",
+    "implied_rate": 0.199997
+  },
+  {
+    "date": "2010-04-30",
+    "implied_rate": 0.199997
+  },
+  {
+    "date": "2010-05-07",
+    "implied_rate": 0.227501
+  },
+  {
+    "date": "2010-05-14",
+    "implied_rate": 0.209999
+  },
+  {
+    "date": "2010-05-21",
+    "implied_rate": 0.207497
+  },
+  {
+    "date": "2010-05-28",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2010-06-04",
+    "implied_rate": 0.207497
+  },
+  {
+    "date": "2010-06-11",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-06-18",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-06-25",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2010-07-02",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-07-09",
+    "implied_rate": 0.182503
+  },
+  {
+    "date": "2010-07-16",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2010-07-23",
+    "implied_rate": 0.182503
+  },
+  {
+    "date": "2010-07-30",
+    "implied_rate": 0.182503
+  },
+  {
+    "date": "2010-08-06",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2010-08-13",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2010-08-20",
+    "implied_rate": 0.184998
+  },
+  {
+    "date": "2010-08-27",
+    "implied_rate": 0.1875
+  },
+  {
+    "date": "2010-09-03",
+    "implied_rate": 0.184998
+  },
+  {
+    "date": "2010-09-10",
+    "implied_rate": 0.1875
+  },
+  {
+    "date": "2010-09-17",
+    "implied_rate": 0.193001
+  },
+  {
+    "date": "2010-09-24",
+    "implied_rate": 0.195
+  },
+  {
+    "date": "2010-10-01",
+    "implied_rate": 0.195
+  },
+  {
+    "date": "2010-10-08",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-10-15",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-10-22",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-10-29",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-11-05",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-11-12",
+    "implied_rate": 0.1875
+  },
+  {
+    "date": "2010-11-19",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-11-26",
+    "implied_rate": 0.192497
+  },
+  {
+    "date": "2010-12-03",
+    "implied_rate": 0.190002
+  },
+  {
+    "date": "2010-12-10",
+    "implied_rate": 0.175003
+  },
+  {
+    "date": "2010-12-17",
+    "implied_rate": 0.177498
+  },
+  {
+    "date": "2010-12-23",
+    "implied_rate": 0.18
+  },
+  {
+    "date": "2010-12-31",
+    "implied_rate": 0.182503
+  },
+  {
+    "date": "2011-01-07",
+    "implied_rate": 0.177498
+  },
+  {
+    "date": "2011-01-14",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2011-01-21",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2011-01-28",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2011-02-04",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2011-02-11",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2011-02-18",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2011-02-25",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2011-03-04",
+    "implied_rate": 0.150002
+  },
+  {
+    "date": "2011-03-11",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2011-03-18",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2011-03-25",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2011-04-01",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2011-04-08",
+    "implied_rate": 0.105003
+  },
+  {
+    "date": "2011-04-15",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2011-04-21",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2011-04-29",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2011-05-06",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2011-05-13",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2011-05-20",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2011-05-27",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2011-06-03",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2011-06-10",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2011-06-17",
+    "implied_rate": 0.102501
+  },
+  {
+    "date": "2011-06-24",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2011-07-01",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2011-07-08",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2011-07-15",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2011-07-22",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2011-07-29",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2011-08-05",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2011-08-12",
+    "implied_rate": 0.105003
+  },
+  {
+    "date": "2011-08-19",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2011-08-26",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2011-09-02",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2011-09-09",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2011-09-16",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2011-09-23",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2011-09-30",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2011-10-07",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2011-10-14",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2011-10-21",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2011-10-28",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2011-11-04",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2011-11-11",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2011-11-18",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2011-11-25",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2011-12-02",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2011-12-09",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2011-12-16",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2011-12-23",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2011-12-30",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2012-01-06",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2012-01-13",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2012-01-20",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2012-01-27",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2012-02-03",
+    "implied_rate": 0.105003
+  },
+  {
+    "date": "2012-02-10",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2012-02-17",
+    "implied_rate": 0.110001
+  },
+  {
+    "date": "2012-02-24",
+    "implied_rate": 0.105003
+  },
+  {
+    "date": "2012-03-02",
+    "implied_rate": 0.110001
+  },
+  {
+    "date": "2012-03-09",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2012-03-16",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2012-03-23",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2012-03-30",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2012-04-05",
+    "implied_rate": 0.139999
+  },
+  {
+    "date": "2012-04-13",
+    "implied_rate": 0.139999
+  },
+  {
+    "date": "2012-04-20",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2012-04-27",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2012-05-04",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2012-05-11",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2012-05-18",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2012-05-25",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2012-06-01",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2012-06-08",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2012-06-15",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2012-06-22",
+    "implied_rate": 0.167503
+  },
+  {
+    "date": "2012-06-29",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2012-07-06",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2012-07-13",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2012-07-20",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2012-07-27",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2012-08-03",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2012-08-10",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2012-08-17",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2012-08-24",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2012-08-31",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2012-09-07",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2012-09-14",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2012-09-21",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2012-09-28",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2012-10-05",
+    "implied_rate": 0.150002
+  },
+  {
+    "date": "2012-10-12",
+    "implied_rate": 0.150002
+  },
+  {
+    "date": "2012-10-19",
+    "implied_rate": 0.154999
+  },
+  {
+    "date": "2012-10-26",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2012-11-02",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2012-11-09",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2012-11-16",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2012-11-23",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2012-11-30",
+    "implied_rate": 0.162498
+  },
+  {
+    "date": "2012-12-07",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2012-12-14",
+    "implied_rate": 0.157501
+  },
+  {
+    "date": "2012-12-21",
+    "implied_rate": 0.167503
+  },
+  {
+    "date": "2012-12-28",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2013-01-04",
+    "implied_rate": 0.160004
+  },
+  {
+    "date": "2013-01-11",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-01-18",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2013-01-25",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2013-02-01",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2013-02-08",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2013-02-15",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2013-02-22",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2013-03-01",
+    "implied_rate": 0.144997
+  },
+  {
+    "date": "2013-03-08",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-03-15",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-03-22",
+    "implied_rate": 0.150002
+  },
+  {
+    "date": "2013-03-28",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-04-05",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2013-04-12",
+    "implied_rate": 0.142502
+  },
+  {
+    "date": "2013-04-19",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-04-26",
+    "implied_rate": 0.147499
+  },
+  {
+    "date": "2013-05-03",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2013-05-10",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2013-05-17",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2013-05-24",
+    "implied_rate": 0.112503
+  },
+  {
+    "date": "2013-05-31",
+    "implied_rate": 0.110001
+  },
+  {
+    "date": "2013-06-07",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2013-06-14",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2013-06-21",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2013-06-28",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2013-07-05",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2013-07-12",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2013-07-19",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2013-07-26",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2013-08-02",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2013-08-09",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2013-08-16",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2013-08-23",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2013-08-30",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2013-09-06",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-09-13",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-09-20",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-09-27",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-10-04",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2013-10-11",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2013-10-18",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2013-10-25",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2013-11-01",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2013-11-08",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-11-15",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-11-22",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2013-11-29",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2013-12-06",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2013-12-13",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2013-12-20",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2013-12-27",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2014-01-03",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-01-10",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2014-01-17",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2014-01-24",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2014-01-31",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2014-02-07",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2014-02-14",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2014-02-21",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2014-02-28",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2014-03-07",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2014-03-14",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2014-03-21",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2014-03-28",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2014-04-04",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2014-04-11",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2014-04-17",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2014-04-25",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-05-02",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-05-09",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-05-16",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-05-23",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-05-30",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-06-06",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-06-13",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-06-20",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2014-06-27",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2014-07-03",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2014-07-11",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-07-18",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-07-25",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-08-01",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2014-08-08",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-08-15",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-08-22",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-08-29",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-09-05",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-09-12",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-09-19",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2014-09-26",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-10-03",
+    "implied_rate": 0.084999
+  },
+  {
+    "date": "2014-10-10",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-10-17",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-10-24",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-10-31",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2014-11-07",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-11-14",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2014-11-21",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2014-11-28",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2014-12-05",
+    "implied_rate": 0.112503
+  },
+  {
+    "date": "2014-12-12",
+    "implied_rate": 0.110001
+  },
+  {
+    "date": "2014-12-19",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2014-12-26",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-01-02",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2015-01-09",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2015-01-16",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2015-01-23",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2015-01-30",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2015-02-06",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-02-13",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2015-02-20",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2015-02-27",
+    "implied_rate": 0.112503
+  },
+  {
+    "date": "2015-03-06",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2015-03-13",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2015-03-20",
+    "implied_rate": 0.1175
+  },
+  {
+    "date": "2015-03-27",
+    "implied_rate": 0.114998
+  },
+  {
+    "date": "2015-04-02",
+    "implied_rate": 0.125
+  },
+  {
+    "date": "2015-04-10",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-04-17",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-04-24",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-05-01",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-05-08",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2015-05-15",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2015-05-22",
+    "implied_rate": 0.125
+  },
+  {
+    "date": "2015-05-29",
+    "implied_rate": 0.125
+  },
+  {
+    "date": "2015-06-05",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-06-12",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-06-19",
+    "implied_rate": 0.1325
+  },
+  {
+    "date": "2015-06-26",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-07-02",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2015-07-10",
+    "implied_rate": 0.1325
+  },
+  {
+    "date": "2015-07-17",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-07-24",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-07-31",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-08-07",
+    "implied_rate": 0.135002
+  },
+  {
+    "date": "2015-08-14",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2015-08-21",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2015-08-28",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2015-09-04",
+    "implied_rate": 0.169998
+  },
+  {
+    "date": "2015-09-11",
+    "implied_rate": 0.165001
+  },
+  {
+    "date": "2015-09-18",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2015-09-25",
+    "implied_rate": 0.137497
+  },
+  {
+    "date": "2015-10-02",
+    "implied_rate": 0.139999
+  },
+  {
+    "date": "2015-10-09",
+    "implied_rate": 0.1325
+  },
+  {
+    "date": "2015-10-16",
+    "implied_rate": 0.129997
+  },
+  {
+    "date": "2015-10-23",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2015-10-30",
+    "implied_rate": 0.125
+  },
+  {
+    "date": "2015-11-06",
+    "implied_rate": 0.127502
+  },
+  {
+    "date": "2015-11-13",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-11-20",
+    "implied_rate": 0.122498
+  },
+  {
+    "date": "2015-11-27",
+    "implied_rate": 0.120003
+  },
+  {
+    "date": "2015-12-04",
+    "implied_rate": 0.220001
+  },
+  {
+    "date": "2015-12-11",
+    "implied_rate": 0.222504
+  },
+  {
+    "date": "2015-12-18",
+    "implied_rate": 0.2425
+  },
+  {
+    "date": "2015-12-24",
+    "implied_rate": 0.2425
+  },
+  {
+    "date": "2015-12-31",
+    "implied_rate": 0.239998
+  },
+  {
+    "date": "2016-01-08",
+    "implied_rate": 0.334999
+  },
+  {
+    "date": "2016-01-15",
+    "implied_rate": 0.334999
+  },
+  {
+    "date": "2016-01-22",
+    "implied_rate": 0.337502
+  },
+  {
+    "date": "2016-01-29",
+    "implied_rate": 0.342499
+  },
+  {
+    "date": "2016-02-05",
+    "implied_rate": 0.372498
+  },
+  {
+    "date": "2016-02-12",
+    "implied_rate": 0.375
+  },
+  {
+    "date": "2016-02-19",
+    "implied_rate": 0.375
+  },
+  {
+    "date": "2016-02-26",
+    "implied_rate": 0.375
+  },
+  {
+    "date": "2016-03-04",
+    "implied_rate": 0.377502
+  },
+  {
+    "date": "2016-03-11",
+    "implied_rate": 0.370003
+  },
+  {
+    "date": "2016-03-18",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-03-24",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-04-01",
+    "implied_rate": 0.364998
+  },
+  {
+    "date": "2016-04-08",
+    "implied_rate": 0.360001
+  },
+  {
+    "date": "2016-04-15",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-04-22",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-04-29",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-05-06",
+    "implied_rate": 0.362503
+  },
+  {
+    "date": "2016-05-13",
+    "implied_rate": 0.364998
+  },
+  {
+    "date": "2016-05-20",
+    "implied_rate": 0.364998
+  },
+  {
+    "date": "2016-05-27",
+    "implied_rate": 0.3675
+  },
+  {
+    "date": "2016-06-03",
+    "implied_rate": 0.372498
+  },
+  {
+    "date": "2016-06-10",
+    "implied_rate": 0.3675
+  },
+  {
+    "date": "2016-06-17",
+    "implied_rate": 0.370003
+  },
+  {
+    "date": "2016-06-24",
+    "implied_rate": 0.377502
+  },
+  {
+    "date": "2016-07-01",
+    "implied_rate": 0.379997
+  },
+  {
+    "date": "2016-07-08",
+    "implied_rate": 0.387497
+  },
+  {
+    "date": "2016-07-15",
+    "implied_rate": 0.392502
+  },
+  {
+    "date": "2016-07-22",
+    "implied_rate": 0.392502
+  },
+  {
+    "date": "2016-07-29",
+    "implied_rate": 0.392502
+  },
+  {
+    "date": "2016-08-05",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2016-08-12",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2016-08-19",
+    "implied_rate": 0.400002
+  },
+  {
+    "date": "2016-08-26",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2016-09-02",
+    "implied_rate": 0.415001
+  },
+  {
+    "date": "2016-09-09",
+    "implied_rate": 0.417503
+  },
+  {
+    "date": "2016-09-16",
+    "implied_rate": 0.407501
+  },
+  {
+    "date": "2016-09-23",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2016-09-30",
+    "implied_rate": 0.397499
+  },
+  {
+    "date": "2016-10-07",
+    "implied_rate": 0.394997
+  },
+  {
+    "date": "2016-10-14",
+    "implied_rate": 0.394997
+  },
+  {
+    "date": "2016-10-21",
+    "implied_rate": 0.394997
+  },
+  {
+    "date": "2016-10-28",
+    "implied_rate": 0.394997
+  },
+  {
+    "date": "2016-11-04",
+    "implied_rate": 0.407501
+  },
+  {
+    "date": "2016-11-10",
+    "implied_rate": 0.407501
+  },
+  {
+    "date": "2016-11-18",
+    "implied_rate": 0.407501
+  },
+  {
+    "date": "2016-11-25",
+    "implied_rate": 0.407501
+  },
+  {
+    "date": "2016-12-02",
+    "implied_rate": 0.529999
+  },
+  {
+    "date": "2016-12-09",
+    "implied_rate": 0.532501
+  },
+  {
+    "date": "2016-12-16",
+    "implied_rate": 0.535004
+  },
+  {
+    "date": "2016-12-23",
+    "implied_rate": 0.535004
+  },
+  {
+    "date": "2016-12-30",
+    "implied_rate": 0.535004
+  },
+  {
+    "date": "2017-01-06",
+    "implied_rate": 0.647499
+  },
+  {
+    "date": "2017-01-13",
+    "implied_rate": 0.647499
+  },
+  {
+    "date": "2017-01-20",
+    "implied_rate": 0.647499
+  },
+  {
+    "date": "2017-01-27",
+    "implied_rate": 0.650002
+  },
+  {
+    "date": "2017-02-03",
+    "implied_rate": 0.657501
+  },
+  {
+    "date": "2017-02-10",
+    "implied_rate": 0.657501
+  },
+  {
+    "date": "2017-02-17",
+    "implied_rate": 0.657501
+  },
+  {
+    "date": "2017-02-24",
+    "implied_rate": 0.657501
+  },
+  {
+    "date": "2017-03-03",
+    "implied_rate": 0.769997
+  },
+  {
+    "date": "2017-03-10",
+    "implied_rate": 0.779999
+  },
+  {
+    "date": "2017-03-17",
+    "implied_rate": 0.785004
+  },
+  {
+    "date": "2017-03-24",
+    "implied_rate": 0.785004
+  },
+  {
+    "date": "2017-03-31",
+    "implied_rate": 0.785004
+  },
+  {
+    "date": "2017-04-07",
+    "implied_rate": 0.892502
+  },
+  {
+    "date": "2017-04-13",
+    "implied_rate": 0.892502
+  },
+  {
+    "date": "2017-04-21",
+    "implied_rate": 0.892502
+  },
+  {
+    "date": "2017-04-28",
+    "implied_rate": 0.894997
+  },
+  {
+    "date": "2017-05-05",
+    "implied_rate": 0.904999
+  },
+  {
+    "date": "2017-05-12",
+    "implied_rate": 0.904999
+  },
+  {
+    "date": "2017-05-19",
+    "implied_rate": 0.904999
+  },
+  {
+    "date": "2017-05-26",
+    "implied_rate": 0.904999
+  },
+  {
+    "date": "2017-06-02",
+    "implied_rate": 1.029999
+  },
+  {
+    "date": "2017-06-09",
+    "implied_rate": 1.032501
+  },
+  {
+    "date": "2017-06-16",
+    "implied_rate": 1.040001
+  },
+  {
+    "date": "2017-06-23",
+    "implied_rate": 1.040001
+  },
+  {
+    "date": "2017-06-30",
+    "implied_rate": 1.040001
+  },
+  {
+    "date": "2017-07-07",
+    "implied_rate": 1.150002
+  },
+  {
+    "date": "2017-07-14",
+    "implied_rate": 1.150002
+  },
+  {
+    "date": "2017-07-21",
+    "implied_rate": 1.150002
+  },
+  {
+    "date": "2017-07-28",
+    "implied_rate": 1.150002
+  },
+  {
+    "date": "2017-08-04",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-08-11",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-08-18",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-08-25",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-09-01",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-09-08",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-09-15",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-09-22",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-09-29",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-10-06",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-10-13",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-10-20",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-10-27",
+    "implied_rate": 1.154999
+  },
+  {
+    "date": "2017-11-03",
+    "implied_rate": 1.157501
+  },
+  {
+    "date": "2017-11-10",
+    "implied_rate": 1.157501
+  },
+  {
+    "date": "2017-11-17",
+    "implied_rate": 1.157501
+  },
+  {
+    "date": "2017-11-24",
+    "implied_rate": 1.157501
+  },
+  {
+    "date": "2017-12-01",
+    "implied_rate": 1.290001
+  },
+  {
+    "date": "2017-12-08",
+    "implied_rate": 1.292503
+  },
+  {
+    "date": "2017-12-15",
+    "implied_rate": 1.294998
+  },
+  {
+    "date": "2017-12-22",
+    "implied_rate": 1.297501
+  },
+  {
+    "date": "2017-12-29",
+    "implied_rate": 1.300003
+  },
+  {
+    "date": "2018-01-05",
+    "implied_rate": 1.412498
+  },
+  {
+    "date": "2018-01-12",
+    "implied_rate": 1.412498
+  },
+  {
+    "date": "2018-01-19",
+    "implied_rate": 1.412498
+  },
+  {
+    "date": "2018-01-26",
+    "implied_rate": 1.412498
+  },
+  {
+    "date": "2018-02-02",
+    "implied_rate": 1.417503
+  },
+  {
+    "date": "2018-02-09",
+    "implied_rate": 1.417503
+  },
+  {
+    "date": "2018-02-16",
+    "implied_rate": 1.417503
+  },
+  {
+    "date": "2018-02-23",
+    "implied_rate": 1.419998
+  },
+  {
+    "date": "2018-03-02",
+    "implied_rate": 1.4925
+  },
+  {
+    "date": "2018-03-09",
+    "implied_rate": 1.497498
+  },
+  {
+    "date": "2018-03-16",
+    "implied_rate": 1.5
+  },
+  {
+    "date": "2018-03-23",
+    "implied_rate": 1.502502
+  },
+  {
+    "date": "2018-03-29",
+    "implied_rate": 1.502502
+  },
+  {
+    "date": "2018-04-06",
+    "implied_rate": 1.682503
+  },
+  {
+    "date": "2018-04-13",
+    "implied_rate": 1.684998
+  },
+  {
+    "date": "2018-04-20",
+    "implied_rate": 1.6875
+  },
+  {
+    "date": "2018-04-27",
+    "implied_rate": 1.690002
+  },
+  {
+    "date": "2018-05-04",
+    "implied_rate": 1.702499
+  },
+  {
+    "date": "2018-05-11",
+    "implied_rate": 1.699997
+  },
+  {
+    "date": "2018-05-18",
+    "implied_rate": 1.699997
+  },
+  {
+    "date": "2018-05-25",
+    "implied_rate": 1.699997
+  },
+  {
+    "date": "2018-06-01",
+    "implied_rate": 1.822502
+  },
+  {
+    "date": "2018-06-08",
+    "implied_rate": 1.82
+  },
+  {
+    "date": "2018-06-15",
+    "implied_rate": 1.817497
+  },
+  {
+    "date": "2018-06-22",
+    "implied_rate": 1.824997
+  },
+  {
+    "date": "2018-06-29",
+    "implied_rate": 1.82
+  },
+  {
+    "date": "2018-07-06",
+    "implied_rate": 1.915001
+  },
+  {
+    "date": "2018-07-13",
+    "implied_rate": 1.910004
+  },
+  {
+    "date": "2018-07-20",
+    "implied_rate": 1.910004
+  },
+  {
+    "date": "2018-07-27",
+    "implied_rate": 1.912498
+  },
+  {
+    "date": "2018-08-03",
+    "implied_rate": 1.915001
+  },
+  {
+    "date": "2018-08-10",
+    "implied_rate": 1.912498
+  },
+  {
+    "date": "2018-08-17",
+    "implied_rate": 1.915001
+  },
+  {
+    "date": "2018-08-24",
+    "implied_rate": 1.917503
+  },
+  {
+    "date": "2018-08-31",
+    "implied_rate": 1.915001
+  },
+  {
+    "date": "2018-09-07",
+    "implied_rate": 1.949997
+  },
+  {
+    "date": "2018-09-14",
+    "implied_rate": 1.952499
+  },
+  {
+    "date": "2018-09-21",
+    "implied_rate": 1.952499
+  },
+  {
+    "date": "2018-09-28",
+    "implied_rate": 1.955002
+  },
+  {
+    "date": "2018-10-05",
+    "implied_rate": 2.1875
+  },
+  {
+    "date": "2018-10-12",
+    "implied_rate": 2.184998
+  },
+  {
+    "date": "2018-10-19",
+    "implied_rate": 2.1875
+  },
+  {
+    "date": "2018-10-26",
+    "implied_rate": 2.190002
+  },
+  {
+    "date": "2018-11-02",
+    "implied_rate": 2.202499
+  },
+  {
+    "date": "2018-11-09",
+    "implied_rate": 2.205002
+  },
+  {
+    "date": "2018-11-16",
+    "implied_rate": 2.199997
+  },
+  {
+    "date": "2018-11-23",
+    "implied_rate": 2.199997
+  },
+  {
+    "date": "2018-11-30",
+    "implied_rate": 2.197502
+  },
+  {
+    "date": "2018-12-07",
+    "implied_rate": 2.269997
+  },
+  {
+    "date": "2018-12-14",
+    "implied_rate": 2.269997
+  },
+  {
+    "date": "2018-12-21",
+    "implied_rate": 2.277496
+  },
+  {
+    "date": "2018-12-28",
+    "implied_rate": 2.275002
+  },
+  {
+    "date": "2019-01-04",
+    "implied_rate": 2.400002
+  },
+  {
+    "date": "2019-01-11",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-01-18",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-01-25",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-02-01",
+    "implied_rate": 2.400002
+  },
+  {
+    "date": "2019-02-08",
+    "implied_rate": 2.397499
+  },
+  {
+    "date": "2019-02-15",
+    "implied_rate": 2.397499
+  },
+  {
+    "date": "2019-02-22",
+    "implied_rate": 2.400002
+  },
+  {
+    "date": "2019-03-01",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-03-08",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-03-15",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-03-22",
+    "implied_rate": 2.404999
+  },
+  {
+    "date": "2019-03-29",
+    "implied_rate": 2.404999
+  },
+  {
+    "date": "2019-04-05",
+    "implied_rate": 2.410004
+  },
+  {
+    "date": "2019-04-12",
+    "implied_rate": 2.410004
+  },
+  {
+    "date": "2019-04-18",
+    "implied_rate": 2.415001
+  },
+  {
+    "date": "2019-04-26",
+    "implied_rate": 2.425003
+  },
+  {
+    "date": "2019-05-03",
+    "implied_rate": 2.400002
+  },
+  {
+    "date": "2019-05-10",
+    "implied_rate": 2.3825
+  },
+  {
+    "date": "2019-05-17",
+    "implied_rate": 2.389999
+  },
+  {
+    "date": "2019-05-24",
+    "implied_rate": 2.389999
+  },
+  {
+    "date": "2019-05-31",
+    "implied_rate": 2.389999
+  },
+  {
+    "date": "2019-06-07",
+    "implied_rate": 2.357498
+  },
+  {
+    "date": "2019-06-14",
+    "implied_rate": 2.360001
+  },
+  {
+    "date": "2019-06-21",
+    "implied_rate": 2.377502
+  },
+  {
+    "date": "2019-06-28",
+    "implied_rate": 2.377502
+  },
+  {
+    "date": "2019-07-05",
+    "implied_rate": 2.389999
+  },
+  {
+    "date": "2019-07-12",
+    "implied_rate": 2.392502
+  },
+  {
+    "date": "2019-07-19",
+    "implied_rate": 2.400002
+  },
+  {
+    "date": "2019-07-26",
+    "implied_rate": 2.402496
+  },
+  {
+    "date": "2019-08-02",
+    "implied_rate": 2.150002
+  },
+  {
+    "date": "2019-08-09",
+    "implied_rate": 2.129997
+  },
+  {
+    "date": "2019-08-16",
+    "implied_rate": 2.127502
+  },
+  {
+    "date": "2019-08-23",
+    "implied_rate": 2.127502
+  },
+  {
+    "date": "2019-08-30",
+    "implied_rate": 2.127502
+  },
+  {
+    "date": "2019-09-06",
+    "implied_rate": 2.029999
+  },
+  {
+    "date": "2019-09-13",
+    "implied_rate": 2.042503
+  },
+  {
+    "date": "2019-09-20",
+    "implied_rate": 2.044998
+  },
+  {
+    "date": "2019-09-27",
+    "implied_rate": 2.042503
+  },
+  {
+    "date": "2019-10-04",
+    "implied_rate": 1.837502
+  },
+  {
+    "date": "2019-10-11",
+    "implied_rate": 1.822502
+  },
+  {
+    "date": "2019-10-18",
+    "implied_rate": 1.832497
+  },
+  {
+    "date": "2019-10-25",
+    "implied_rate": 1.834999
+  },
+  {
+    "date": "2019-11-01",
+    "implied_rate": 1.584999
+  },
+  {
+    "date": "2019-11-08",
+    "implied_rate": 1.567497
+  },
+  {
+    "date": "2019-11-15",
+    "implied_rate": 1.559998
+  },
+  {
+    "date": "2019-11-22",
+    "implied_rate": 1.557503
+  },
+  {
+    "date": "2019-11-29",
+    "implied_rate": 1.555
+  },
+  {
+    "date": "2019-12-06",
+    "implied_rate": 1.557503
+  },
+  {
+    "date": "2019-12-13",
+    "implied_rate": 1.552498
+  },
+  {
+    "date": "2019-12-20",
+    "implied_rate": 1.552498
+  },
+  {
+    "date": "2019-12-27",
+    "implied_rate": 1.555
+  },
+  {
+    "date": "2020-01-03",
+    "implied_rate": 1.552498
+  },
+  {
+    "date": "2020-01-10",
+    "implied_rate": 1.552498
+  },
+  {
+    "date": "2020-01-17",
+    "implied_rate": 1.547501
+  },
+  {
+    "date": "2020-01-24",
+    "implied_rate": 1.550003
+  },
+  {
+    "date": "2020-01-31",
+    "implied_rate": 1.550003
+  },
+  {
+    "date": "2020-02-07",
+    "implied_rate": 1.587502
+  },
+  {
+    "date": "2020-02-14",
+    "implied_rate": 1.582497
+  },
+  {
+    "date": "2020-02-21",
+    "implied_rate": 1.582497
+  },
+  {
+    "date": "2020-02-28",
+    "implied_rate": 1.584999
+  },
+  {
+    "date": "2020-03-06",
+    "implied_rate": 0.877502
+  },
+  {
+    "date": "2020-03-13",
+    "implied_rate": 0.720001
+  },
+  {
+    "date": "2020-03-20",
+    "implied_rate": 0.675003
+  },
+  {
+    "date": "2020-03-27",
+    "implied_rate": 0.652496
+  },
+  {
+    "date": "2020-04-03",
+    "implied_rate": 0.057503
+  },
+  {
+    "date": "2020-04-09",
+    "implied_rate": 0.055
+  },
+  {
+    "date": "2020-04-17",
+    "implied_rate": 0.055
+  },
+  {
+    "date": "2020-04-24",
+    "implied_rate": 0.047501
+  },
+  {
+    "date": "2020-05-01",
+    "implied_rate": 0.047501
+  },
+  {
+    "date": "2020-05-08",
+    "implied_rate": 0.052498
+  },
+  {
+    "date": "2020-05-15",
+    "implied_rate": 0.050003
+  },
+  {
+    "date": "2020-05-22",
+    "implied_rate": 0.050003
+  },
+  {
+    "date": "2020-05-29",
+    "implied_rate": 0.050003
+  },
+  {
+    "date": "2020-06-05",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2020-06-12",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2020-06-19",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2020-06-26",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2020-07-02",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2020-07-10",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-07-17",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-07-24",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2020-07-31",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2020-08-07",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-08-14",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2020-08-21",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2020-08-28",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2020-09-04",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-09-11",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-09-18",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2020-09-25",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-10-02",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2020-10-09",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-10-16",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-10-23",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-10-30",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-11-06",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-11-13",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-11-20",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2020-11-27",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-12-04",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-12-11",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-12-18",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2020-12-24",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2020-12-31",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2021-01-08",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2021-01-15",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2021-01-22",
+    "implied_rate": 0.089996
+  },
+  {
+    "date": "2021-01-29",
+    "implied_rate": 0.087502
+  },
+  {
+    "date": "2021-02-05",
+    "implied_rate": 0.065002
+  },
+  {
+    "date": "2021-02-12",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2021-02-19",
+    "implied_rate": 0.072502
+  },
+  {
+    "date": "2021-02-26",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2021-03-05",
+    "implied_rate": 0.065002
+  },
+  {
+    "date": "2021-03-12",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2021-03-19",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2021-03-26",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2021-04-01",
+    "implied_rate": 0.0625
+  },
+  {
+    "date": "2021-04-09",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2021-04-16",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2021-04-23",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2021-04-30",
+    "implied_rate": 0.07
+  },
+  {
+    "date": "2021-05-07",
+    "implied_rate": 0.0625
+  },
+  {
+    "date": "2021-05-14",
+    "implied_rate": 0.0625
+  },
+  {
+    "date": "2021-05-21",
+    "implied_rate": 0.059998
+  },
+  {
+    "date": "2021-05-28",
+    "implied_rate": 0.059998
+  },
+  {
+    "date": "2021-06-04",
+    "implied_rate": 0.067497
+  },
+  {
+    "date": "2021-06-11",
+    "implied_rate": 0.065002
+  },
+  {
+    "date": "2021-06-18",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-06-25",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-07-02",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2021-07-09",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2021-07-16",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2021-07-23",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2021-07-30",
+    "implied_rate": 0.099998
+  },
+  {
+    "date": "2021-08-06",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2021-08-13",
+    "implied_rate": 0.097504
+  },
+  {
+    "date": "2021-08-20",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2021-08-27",
+    "implied_rate": 0.095001
+  },
+  {
+    "date": "2021-09-03",
+    "implied_rate": 0.074997
+  },
+  {
+    "date": "2021-09-10",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-09-17",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-09-24",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-10-01",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-10-08",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2021-10-15",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2021-10-22",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-10-29",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-11-05",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2021-11-12",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-11-19",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-11-26",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-12-03",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2021-12-10",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2021-12-17",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2021-12-23",
+    "implied_rate": 0.077499
+  },
+  {
+    "date": "2021-12-31",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2022-01-07",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2022-01-14",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2022-01-21",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2022-01-28",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2022-02-04",
+    "implied_rate": 0.092499
+  },
+  {
+    "date": "2022-02-11",
+    "implied_rate": 0.102501
+  },
+  {
+    "date": "2022-02-18",
+    "implied_rate": 0.082497
+  },
+  {
+    "date": "2022-02-25",
+    "implied_rate": 0.080002
+  },
+  {
+    "date": "2022-03-04",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2022-03-11",
+    "implied_rate": 0.205002
+  },
+  {
+    "date": "2022-03-18",
+    "implied_rate": 0.202499
+  },
+  {
+    "date": "2022-03-25",
+    "implied_rate": 0.199997
+  },
+  {
+    "date": "2022-04-01",
+    "implied_rate": 0.342499
+  },
+  {
+    "date": "2022-04-08",
+    "implied_rate": 0.345001
+  },
+  {
+    "date": "2022-04-14",
+    "implied_rate": 0.330002
+  },
+  {
+    "date": "2022-04-22",
+    "implied_rate": 0.332497
+  },
+  {
+    "date": "2022-04-29",
+    "implied_rate": 0.330002
+  },
+  {
+    "date": "2022-05-06",
+    "implied_rate": 0.767502
+  },
+  {
+    "date": "2022-05-13",
+    "implied_rate": 0.764999
+  },
+  {
+    "date": "2022-05-20",
+    "implied_rate": 0.764999
+  },
+  {
+    "date": "2022-05-27",
+    "implied_rate": 0.767502
+  },
+  {
+    "date": "2022-06-03",
+    "implied_rate": 1.084999
+  },
+  {
+    "date": "2022-06-10",
+    "implied_rate": 1.102501
+  },
+  {
+    "date": "2022-06-17",
+    "implied_rate": 1.207497
+  },
+  {
+    "date": "2022-06-24",
+    "implied_rate": 1.205002
+  },
+  {
+    "date": "2022-07-01",
+    "implied_rate": 1.675003
+  },
+  {
+    "date": "2022-07-08",
+    "implied_rate": 1.68
+  },
+  {
+    "date": "2022-07-15",
+    "implied_rate": 1.684998
+  },
+  {
+    "date": "2022-07-22",
+    "implied_rate": 1.68
+  },
+  {
+    "date": "2022-07-29",
+    "implied_rate": 1.675003
+  },
+  {
+    "date": "2022-08-05",
+    "implied_rate": 2.345001
+  },
+  {
+    "date": "2022-08-12",
+    "implied_rate": 2.332497
+  },
+  {
+    "date": "2022-08-19",
+    "implied_rate": 2.332497
+  },
+  {
+    "date": "2022-08-26",
+    "implied_rate": 2.332497
+  },
+  {
+    "date": "2022-09-02",
+    "implied_rate": 2.527496
+  },
+  {
+    "date": "2022-09-09",
+    "implied_rate": 2.550003
+  },
+  {
+    "date": "2022-09-16",
+    "implied_rate": 2.567497
+  },
+  {
+    "date": "2022-09-23",
+    "implied_rate": 2.557503
+  },
+  {
+    "date": "2022-09-30",
+    "implied_rate": 2.557503
+  },
+  {
+    "date": "2022-10-07",
+    "implied_rate": 3.080002
+  },
+  {
+    "date": "2022-10-14",
+    "implied_rate": 3.082497
+  },
+  {
+    "date": "2022-10-21",
+    "implied_rate": 3.082497
+  },
+  {
+    "date": "2022-10-28",
+    "implied_rate": 3.082497
+  },
+  {
+    "date": "2022-11-04",
+    "implied_rate": 3.785004
+  },
+  {
+    "date": "2022-11-11",
+    "implied_rate": 3.782501
+  },
+  {
+    "date": "2022-11-18",
+    "implied_rate": 3.782501
+  },
+  {
+    "date": "2022-11-25",
+    "implied_rate": 3.782501
+  },
+  {
+    "date": "2022-12-02",
+    "implied_rate": 4.1175
+  },
+  {
+    "date": "2022-12-09",
+    "implied_rate": 4.1175
+  },
+  {
+    "date": "2022-12-16",
+    "implied_rate": 4.105003
+  },
+  {
+    "date": "2022-12-23",
+    "implied_rate": 4.105003
+  },
+  {
+    "date": "2022-12-30",
+    "implied_rate": 4.102501
+  },
+  {
+    "date": "2023-01-06",
+    "implied_rate": 4.332497
+  },
+  {
+    "date": "2023-01-13",
+    "implied_rate": 4.332497
+  },
+  {
+    "date": "2023-01-20",
+    "implied_rate": 4.332497
+  },
+  {
+    "date": "2023-01-27",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2023-02-03",
+    "implied_rate": 4.572502
+  },
+  {
+    "date": "2023-02-10",
+    "implied_rate": 4.57
+  },
+  {
+    "date": "2023-02-17",
+    "implied_rate": 4.572502
+  },
+  {
+    "date": "2023-02-24",
+    "implied_rate": 4.57
+  },
+  {
+    "date": "2023-03-03",
+    "implied_rate": 4.667503
+  },
+  {
+    "date": "2023-03-10",
+    "implied_rate": 4.662498
+  },
+  {
+    "date": "2023-03-17",
+    "implied_rate": 4.625
+  },
+  {
+    "date": "2023-03-24",
+    "implied_rate": 4.647499
+  },
+  {
+    "date": "2023-03-31",
+    "implied_rate": 4.650002
+  },
+  {
+    "date": "2023-04-06",
+    "implied_rate": 4.82
+  },
+  {
+    "date": "2023-04-14",
+    "implied_rate": 4.830002
+  },
+  {
+    "date": "2023-04-21",
+    "implied_rate": 4.830002
+  },
+  {
+    "date": "2023-04-28",
+    "implied_rate": 4.830002
+  },
+  {
+    "date": "2023-05-05",
+    "implied_rate": 5.044998
+  },
+  {
+    "date": "2023-05-12",
+    "implied_rate": 5.052498
+  },
+  {
+    "date": "2023-05-19",
+    "implied_rate": 5.057503
+  },
+  {
+    "date": "2023-05-26",
+    "implied_rate": 5.057503
+  },
+  {
+    "date": "2023-06-02",
+    "implied_rate": 5.125
+  },
+  {
+    "date": "2023-06-09",
+    "implied_rate": 5.120003
+  },
+  {
+    "date": "2023-06-16",
+    "implied_rate": 5.080002
+  },
+  {
+    "date": "2023-06-23",
+    "implied_rate": 5.077499
+  },
+  {
+    "date": "2023-06-30",
+    "implied_rate": 5.074997
+  },
+  {
+    "date": "2023-07-07",
+    "implied_rate": 5.112503
+  },
+  {
+    "date": "2023-07-14",
+    "implied_rate": 5.114998
+  },
+  {
+    "date": "2023-07-21",
+    "implied_rate": 5.114998
+  },
+  {
+    "date": "2023-07-28",
+    "implied_rate": 5.120003
+  },
+  {
+    "date": "2023-08-04",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2023-08-11",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-08-18",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2023-08-25",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-09-01",
+    "implied_rate": 5.334999
+  },
+  {
+    "date": "2023-09-08",
+    "implied_rate": 5.337502
+  },
+  {
+    "date": "2023-09-15",
+    "implied_rate": 5.332497
+  },
+  {
+    "date": "2023-09-22",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-09-29",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-10-06",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-10-13",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-10-20",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-10-27",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-11-03",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-11-10",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-11-17",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2023-11-24",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2023-12-01",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-12-08",
+    "implied_rate": 5.332497
+  },
+  {
+    "date": "2023-12-15",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2023-12-22",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2023-12-29",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-01-05",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-01-12",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-01-19",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-01-26",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-02-02",
+    "implied_rate": 5.32
+  },
+  {
+    "date": "2024-02-09",
+    "implied_rate": 5.324997
+  },
+  {
+    "date": "2024-02-16",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-02-23",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-03-01",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-03-08",
+    "implied_rate": 5.324997
+  },
+  {
+    "date": "2024-03-15",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-03-22",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-03-28",
+    "implied_rate": 5.332497
+  },
+  {
+    "date": "2024-04-05",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-04-12",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-04-19",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-04-26",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-05-03",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-05-10",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-05-17",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-05-24",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-05-31",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-06-07",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-06-14",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-06-21",
+    "implied_rate": 5.332497
+  },
+  {
+    "date": "2024-06-28",
+    "implied_rate": 5.332497
+  },
+  {
+    "date": "2024-07-05",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-07-12",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-07-19",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-07-26",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-08-02",
+    "implied_rate": 5.300003
+  },
+  {
+    "date": "2024-08-09",
+    "implied_rate": 5.322502
+  },
+  {
+    "date": "2024-08-16",
+    "implied_rate": 5.327499
+  },
+  {
+    "date": "2024-08-23",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-08-30",
+    "implied_rate": 5.330002
+  },
+  {
+    "date": "2024-09-06",
+    "implied_rate": 5.202499
+  },
+  {
+    "date": "2024-09-13",
+    "implied_rate": 5.1875
+  },
+  {
+    "date": "2024-09-20",
+    "implied_rate": 5.129997
+  },
+  {
+    "date": "2024-09-27",
+    "implied_rate": 5.129997
+  },
+  {
+    "date": "2024-10-04",
+    "implied_rate": 4.822502
+  },
+  {
+    "date": "2024-10-11",
+    "implied_rate": 4.827499
+  },
+  {
+    "date": "2024-10-18",
+    "implied_rate": 4.830002
+  },
+  {
+    "date": "2024-10-25",
+    "implied_rate": 4.830002
+  },
+  {
+    "date": "2024-11-01",
+    "implied_rate": 4.642502
+  },
+  {
+    "date": "2024-11-08",
+    "implied_rate": 4.635002
+  },
+  {
+    "date": "2024-11-15",
+    "implied_rate": 4.637497
+  },
+  {
+    "date": "2024-11-22",
+    "implied_rate": 4.639999
+  },
+  {
+    "date": "2024-11-29",
+    "implied_rate": 4.639999
+  },
+  {
+    "date": "2024-12-06",
+    "implied_rate": 4.489998
+  },
+  {
+    "date": "2024-12-13",
+    "implied_rate": 4.482498
+  },
+  {
+    "date": "2024-12-20",
+    "implied_rate": 4.474998
+  },
+  {
+    "date": "2024-12-27",
+    "implied_rate": 4.477501
+  },
+  {
+    "date": "2025-01-03",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-01-10",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-01-17",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-01-24",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-01-31",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-02-07",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-02-14",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-02-21",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-02-28",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-03-07",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-03-14",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-03-21",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-03-28",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-04-04",
+    "implied_rate": 4.315002
+  },
+  {
+    "date": "2025-04-11",
+    "implied_rate": 4.32
+  },
+  {
+    "date": "2025-04-17",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-04-25",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-05-02",
+    "implied_rate": 4.324997
+  },
+  {
+    "date": "2025-05-09",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-05-16",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-05-23",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-05-30",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-06-06",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-06-13",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-06-20",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-06-27",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-07-04",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-07-11",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-07-18",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-07-25",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-08-01",
+    "implied_rate": 4.322502
+  },
+  {
+    "date": "2025-08-08",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-08-15",
+    "implied_rate": 4.327499
+  },
+  {
+    "date": "2025-08-22",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-08-29",
+    "implied_rate": 4.330002
+  },
+  {
+    "date": "2025-09-05",
+    "implied_rate": 4.212502
+  },
+  {
+    "date": "2025-09-12",
+    "implied_rate": 4.214996
+  },
+  {
+    "date": "2025-09-19",
+    "implied_rate": 4.222504
+  },
+  {
+    "date": "2025-09-26",
+    "implied_rate": 4.227501
+  },
+  {
+    "date": "2025-10-03",
+    "implied_rate": 4.080002
+  },
+  {
+    "date": "2025-10-10",
+    "implied_rate": 4.084999
+  },
+  {
+    "date": "2025-10-17",
+    "implied_rate": 4.087502
+  },
+  {
+    "date": "2025-10-24",
+    "implied_rate": 4.089996
+  },
+  {
+    "date": "2025-10-31",
+    "implied_rate": 4.087502
+  },
+  {
+    "date": "2025-11-07",
+    "implied_rate": 3.872498
+  },
+  {
+    "date": "2025-11-14",
+    "implied_rate": 3.875
+  },
+  {
+    "date": "2025-11-21",
+    "implied_rate": 3.879997
+  },
+  {
+    "date": "2025-11-28",
+    "implied_rate": 3.877502
+  },
+  {
+    "date": "2025-12-05",
+    "implied_rate": 3.737503
+  },
+  {
+    "date": "2025-12-12",
+    "implied_rate": 3.722504
+  },
+  {
+    "date": "2025-12-19",
+    "implied_rate": 3.724998
+  },
+  {
+    "date": "2025-12-26",
+    "implied_rate": 3.722504
+  },
+  {
+    "date": "2026-01-02",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-01-09",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-01-16",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-01-23",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-01-30",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-02-06",
+    "implied_rate": 3.637497
+  },
+  {
+    "date": "2026-02-13",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-02-20",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-02-27",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-03-06",
+    "implied_rate": 3.637497
+  },
+  {
+    "date": "2026-03-13",
+    "implied_rate": 3.637497
+  },
+  {
+    "date": "2026-03-20",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-03-27",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-04-02",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-04-10",
+    "implied_rate": 3.639999
+  },
+  {
+    "date": "2026-04-17",
+    "implied_rate": 3.642502
+  },
+  {
+    "date": "2026-04-24",
+    "implied_rate": 3.642502
+  },
+  {
+    "date": "2026-05-01",
+    "implied_rate": 3.642502
+  },
+  {
+    "date": "2026-05-08",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-05-15",
+    "implied_rate": 3.627502
+  },
+  {
+    "date": "2026-05-22",
+    "implied_rate": 3.627502
+  },
+  {
+    "date": "2026-05-29",
+    "implied_rate": 3.629997
+  },
+  {
+    "date": "2026-06-05",
+    "implied_rate": 3.622498
+  },
+  {
+    "date": "2026-06-12",
+    "implied_rate": 3.620003
+  },
+  {
+    "date": "2026-06-18",
+    "implied_rate": 3.625
+  },
+  {
+    "date": "2026-06-26",
+    "implied_rate": 3.627502
+  },
+  {
+    "date": "2026-07-02",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-07-10",
+    "implied_rate": 3.629997
+  },
+  {
+    "date": "2026-07-17",
+    "implied_rate": 3.629997
+  },
+  {
+    "date": "2026-07-24",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-07-31",
+    "implied_rate": 3.627502
+  },
+  {
+    "date": "2026-08-07",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-08-14",
+    "implied_rate": 3.6325
+  },
+  {
+    "date": "2026-08-21",
+    "implied_rate": 3.629997
+  },
+  {
+    "date": "2026-08-28",
+    "implied_rate": 3.629997
+  },
+  {
+    "date": "2026-09-02",
+    "implied_rate": 3.805
+  }
+]

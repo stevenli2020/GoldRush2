@@ -16,6 +16,9 @@ CME_BULLETIN_URL = "https://www.cmegroup.com/daily_bulletin/Section10_Interest_R
 SOURCE_URL = CME_BULLETIN_URL
 DEFAULT_RAW_PATH = Path(__file__).resolve().parents[3] / "data" / "raw" / "cme" / "Section10_Interest_Rate_Futures_Continued.pdf"
 DEFAULT_MANIFEST_PATH = DEFAULT_RAW_PATH.with_name("manifest.json")
+DEFAULT_ZQ_RAW_PATH = DEFAULT_RAW_PATH.with_name("ZQ=F_full.json")
+DEFAULT_ZQ_CACHE_PATH = Path(__file__).resolve().parents[3] / "data" / "cache" / "L1-006.json"
+ZQ_HISTORY_MAX_AGE_DAYS = 7
 MONTH_CODES = {1: "F", 2: "G", 3: "H", 4: "J", 5: "K", 6: "M", 7: "N", 8: "Q", 9: "U", 10: "V", 11: "X", 12: "Z"}
 MONTHS = {name: number for number, name in enumerate(("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"), 1)}
 
@@ -30,6 +33,67 @@ class CmeNetworkError(CmeError):
 
 class CmeDataError(CmeError):
     """Raised when the CME bulletin is not a usable PDF/table."""
+
+
+def _write_json_atomic(path: Path, value: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as handle:
+        json.dump(value, handle, indent=2)
+        handle.write("\n")
+        temporary = Path(handle.name)
+    temporary.replace(path)
+
+
+def _load_rate_cache(path: Path) -> list[dict[str, str | float]]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        return []
+    if not isinstance(value, list):
+        return []
+    return [row for row in value if isinstance(row, dict) and row.get("date") and row.get("rate") is not None]
+
+
+def normalize_zq_history(frame: object) -> list[dict[str, str | float]]:
+    """Convert Yahoo's daily continuous ZQ contract into weekly implied rates."""
+    try:
+        import pandas as pd
+    except ImportError as exc:
+        raise CmeDataError("pandas is required to normalize ZQ history") from exc
+    close = frame["Close"]  # type: ignore[index]
+    if isinstance(close, pd.DataFrame):
+        close = close.iloc[:, 0]
+    close = pd.to_numeric(close, errors="coerce").dropna()
+    if close.empty:
+        raise CmeDataError("Yahoo ZQ history contained no closing prices")
+    close.index = pd.to_datetime(close.index, utc=True).tz_localize(None)
+    weekly = close.groupby(close.index.to_period("W-FRI")).last()
+    rows = []
+    for period, price in weekly.items():
+        observation_date = close[close.index.to_period("W-FRI") == period].index.max().date().isoformat()
+        rows.append({"date": observation_date, "rate": round(100.0 - float(price), 6)})
+    return rows
+
+
+def refresh_zq_history(*, force: bool = False, raw_path: Path = DEFAULT_ZQ_RAW_PATH, cache_path: Path = DEFAULT_ZQ_CACHE_PATH) -> list[dict[str, str | float]]:
+    """Fetch Yahoo ZQ history on first use and refresh it at most every seven days."""
+    if cache_path.exists() and not force:
+        age = max(0.0, datetime.now(timezone.utc).timestamp() - cache_path.stat().st_mtime)
+        if age < ZQ_HISTORY_MAX_AGE_DAYS * 86400:
+            return _load_rate_cache(cache_path)
+    try:
+        import yfinance as yf
+        frame = yf.download("ZQ=F", period="max", interval="1d", auto_adjust=False, progress=False, threads=False)
+        rows = normalize_zq_history(frame)
+    except Exception as exc:
+        existing = _load_rate_cache(cache_path)
+        if existing:
+            return existing
+        raise CmeNetworkError(f"Yahoo ZQ history unavailable: {exc}") from exc
+    raw_rows = [{"date": row["date"], "implied_rate": row["rate"]} for row in rows]
+    _write_json_atomic(raw_path, raw_rows)
+    _write_json_atomic(cache_path, rows)
+    return rows
 
 
 def month_end_business_day(year: int, month: int) -> date:
