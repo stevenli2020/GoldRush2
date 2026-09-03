@@ -48,5 +48,7 @@ L6-002: { data_frequency: Event-driven, refresh_strategy: check_last_observation
 L10-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
 L10-002: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: cftc_cot, stale_threshold_days: 10 }
 L3-001: { data_frequency: Weekly, refresh_strategy: check_last_observation_date, source: l1_006_shared, stale_threshold_days: 10 }
+L3-002: { data_frequency: Daily, refresh_strategy: always_refresh, source: ois_checkmyswap, stale_threshold_days: 7 }
+L3-003: { data_frequency: Daily, refresh_strategy: always_refresh, source: ois_checkmyswap, stale_threshold_days: 7 }
 L3-004: { data_frequency: daily, refresh_strategy: check_last_observation_date, source: fedwatch, stale_threshold_days: 7, description: "FOMC Policy Outcome Probabilities (CME FedWatch CSV)" }
 L0-009: { data_frequency: Daily, refresh_strategy: always_refresh, source: cme_gold_futures, stale_threshold_days: 7, description: "COMEX Gold forward/lease rate proxy (specific contracts plus SOFR)" }

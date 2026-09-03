@@ -27,6 +27,8 @@ from goldrush2.collectors.ofac import OFACCollector
 from goldrush2.collectors.cftc import CFTCCollector
 from goldrush2.collectors.cme_futures import CMEFuturesCollector
 from goldrush2.collectors.fedwatch import FedWatchCollector
+from goldrush2.collectors.cme import CMECurveCollector
+from goldrush2.collectors.ois import OISCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = PROJECT_ROOT / "config" / "refresh_policies.yaml"
@@ -187,6 +189,10 @@ def create_collector(variable_id: str, config: dict[str, Any], *, force: bool = 
         )
     if source == "fedwatch":
         return FedWatchCollector(PROJECT_ROOT / "data" / "cache" / "fedwatch", raw_dir, force=force, always_refresh=always_refresh)
+    if source == "cme_curve":
+        return CMECurveCollector(PROJECT_ROOT / "data" / "cache" / "cme", raw_dir / "cme" / "ZQ_curve_latest.json", force=force, always_refresh=always_refresh)
+    if source == "ois_checkmyswap":
+        return OISCollector(PROJECT_ROOT / "data" / "cache" / "ois", raw_dir / "dtcc" / "checkmyswap_latest.json", force=force, always_refresh=always_refresh)
     if source.startswith("wgc_"):
         return WGCWorkbookCollector(cache_dir, raw_dir / "wgc", _wgc_fetcher(source), _wgc_normalizer(variable_id), force=force, always_refresh=always_refresh)
     if source == "treasury":
