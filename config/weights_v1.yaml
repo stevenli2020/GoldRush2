@@ -1,0 +1,206 @@
+version: v1.1
+description: Causal relative weights. Reserve-share proxy excluded. Structural omission
+  applied at runtime.
+created: '2026-09-04'
+horizons:
+  1-5d:
+    # High-impact market and policy indicators drive the short-horizon score.
+    # Rationale: positioning and policy repricing are the most direct near-term channels.
+    L10-001: 15
+    # Rationale: open-interest confirmation strengthens the positioning signal.
+    L10-002: 8
+    # Rationale: expected policy repricing directly changes gold opportunity cost.
+    L3-001: 12
+    # Rationale: FedWatch captures near-term easing expectations.
+    L3-004: 8
+    # Rationale: the curve provides complementary policy-path information.
+    L3-002: 8
+    L3-003: 5
+    L3-006: 5
+    L3-005: 2
+    # Rationale: broad macro conditions receive material but bounded influence.
+    L1-001: 10
+    # Rationale: the companion macro indicator is a high-coverage confirmation.
+    L1-002: 8
+    L1-004: 6
+    # Rationale: the current policy-rate opportunity-cost measure is material.
+    L1-006: 8
+    L1-003: 4
+    L1-005: 2
+    L1-007: 1
+    # Rationale: liquidity conditions are a major transmission channel for gold.
+    L2-001: 10
+    L2-002: 5
+    L2-003: 2
+    L4-001: 2
+    L4-002: 2
+    L4-003: 4
+    L4-004: 4
+    L4-009: 1
+    L5-001: 1
+    L5-006: 1
+    L6-001: 4
+    L6-002: 2
+    L7-001: 3
+    L7-004: 4
+    L7-005: 4
+    # Rationale: risk appetite is a high-impact cross-asset driver.
+    L8-001: 8
+    L9-001: 4
+    L0-002: 1
+    L0-003: 3
+    L0-009: 3
+  1-3m:
+    # Rationale: macro and policy expectations dominate the medium horizon.
+    L1-001: 12
+    # Rationale: the companion macro indicator improves medium-horizon coverage.
+    L1-002: 10
+    # Rationale: this medium-horizon macro series is materially informative.
+    L1-004: 8
+    # Rationale: current policy opportunity cost remains important.
+    L1-006: 8
+    L1-003: 5
+    L1-005: 3
+    L1-007: 2
+    # Rationale: expected policy repricing is a primary medium-horizon driver.
+    L3-001: 10
+    # Rationale: the policy curve complements the expected-rate signal.
+    L3-002: 8
+    L3-003: 6
+    L3-004: 6
+    L3-005: 4
+    L3-006: 5
+    # Rationale: broad macro conditions receive substantial medium-horizon weight.
+    L2-001: 10
+    L2-002: 6
+    L2-003: 3
+    L4-001: 5
+    L4-002: 5
+    L4-003: 6
+    L4-004: 6
+    L4-009: 2
+    L5-001: 4
+    L5-006: 2
+    L6-001: 5
+    L6-002: 3
+    L7-001: 5
+    L7-004: 5
+    L7-005: 4
+    # Rationale: risk appetite is an important medium-horizon transmission channel.
+    L8-001: 12
+    L9-001: 6
+    L10-001: 8
+    L10-002: 4
+    L0-002: 2
+    L0-003: 4
+    L0-009: 4
+  1-3y:
+    # Rationale: macro regime indicators anchor the long-horizon score.
+    L4-001: 8
+    # Rationale: the related macro regime indicator is similarly material.
+    L4-002: 8
+    # Rationale: this long-horizon macro input captures persistent conditions.
+    L4-003: 8
+    L4-004: 8
+    # Rationale: fiscal and policy persistence make this a major long-horizon input.
+    L4-006: 10
+    # Rationale: the companion fiscal/policy measure is a major structural driver.
+    L4-007: 10
+    L4-008: 6
+    L4-009: 5
+    # Rationale: reserve-flow information is material over multi-year horizons.
+    L5-001: 10
+    # Rationale: the associated flow measure provides long-horizon confirmation.
+    L5-003: 8
+    L5-006: 4
+    # Rationale: the broad macro indicator remains important over three years.
+    L1-001: 8
+    L1-002: 6
+    L1-004: 5
+    L1-006: 5
+    L1-003: 4
+    L1-005: 4
+    L1-007: 6
+    # Rationale: the long-horizon liquidity regime is a key structural driver.
+    L7-001: 8
+    L7-003: 6
+    L7-004: 5
+    L7-005: 3
+    L6-001: 5
+    L6-002: 6
+    L3-001: 4
+    L3-002: 3
+    L3-003: 4
+    L3-004: 2
+    L3-005: 4
+    L3-006: 2
+    L2-001: 6
+    L2-002: 5
+    L2-003: 3
+    L8-001: 6
+    L9-001: 3
+    L9-004: 4
+    L10-001: 2
+    L10-002: 1
+    L0-001: 4
+    L0-002: 4
+    L0-003: 3
+    L0-005: 4
+    L0-006: 3
+    L0-009: 2
+  3-10y:
+    L4-001: 5
+    L4-002: 5
+    L4-003: 6
+    # Rationale: persistent macro regime conditions dominate this horizon.
+    L4-004: 8
+    # Rationale: fiscal and policy persistence are major structural drivers.
+    L4-006: 12
+    # Rationale: the companion fiscal/policy measure is a major structural driver.
+    L4-007: 15
+    # Rationale: long-run macro conditions materially affect the structural score.
+    L4-008: 10
+    L4-009: 6
+    # Rationale: reserve-flow information is central to the long-run framework.
+    L5-001: 10
+    # Rationale: the associated flow measure provides long-run confirmation.
+    L5-003: 12
+    L5-006: 4
+    # Rationale: persistent macro conditions are material at this horizon.
+    L0-001: 8
+    # Rationale: the related macro series is a high-impact long-run input.
+    L0-002: 8
+    L0-003: 3
+    L0-005: 5
+    L0-006: 4
+    L0-009: 2
+    # Rationale: liquidity conditions are a major long-run transmission channel.
+    L7-001: 8
+    L7-003: 6
+    L7-004: 3
+    L7-005: 2
+    L1-001: 6
+    L1-002: 4
+    L1-004: 3
+    L1-006: 3
+    L1-003: 4
+    L1-005: 5
+    # Rationale: the broad macro indicator remains materially informative.
+    L1-007: 8
+    L6-001: 4
+    # Rationale: reserve diversification is relevant to long-run gold demand.
+    L6-002: 8
+    L2-001: 4
+    L2-002: 5
+    L2-003: 4
+    L3-001: 1
+    L3-002: 1
+    L3-003: 2
+    L3-004: 1
+    L3-005: 2
+    L3-006: 1
+    L8-001: 2
+    L9-001: 2
+    L9-004: 5
+    L10-001: 1
+    L10-002: 1

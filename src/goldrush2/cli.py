@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from datetime import date, timedelta
 import importlib
+import importlib.util
 import inspect
 import json
 import pkgutil
@@ -305,6 +306,19 @@ def cmd_extract(args: argparse.Namespace) -> int:
     return 0
 
 
+
+def cmd_analyze(args: argparse.Namespace) -> int:
+    # ``cli.py`` is the installed module, so ``cli/`` is not a Python package.
+    # Load the presentation command from its source file without changing the
+    # existing collect/extract entrypoint layout.
+    analyze_path = PROJECT_ROOT / "src" / "goldrush2" / "cli" / "analyze.py"
+    spec = importlib.util.spec_from_file_location("goldrush2_cli_analyze", analyze_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load analyze command: {analyze_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.run(args)
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="gr2")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -324,6 +338,8 @@ def main(argv: list[str] | None = None) -> int:
     extract.add_argument("--force", action="store_true", help="force regeneration and AI scoring where supported")
     extract.add_argument("-v", "--verbose", action="count", default=0, help="show execution details; repeat for more detail")
     extract.set_defaults(handler=cmd_extract)
+    analyze = commands.add_parser("analyze", help="compute aggregated outlook scores from current data")
+    analyze.set_defaults(handler=cmd_analyze)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")
