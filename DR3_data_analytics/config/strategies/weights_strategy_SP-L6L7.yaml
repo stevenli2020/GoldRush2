@@ -1,0 +1,7 @@
+strategy: {id: SP-L6L7, name: Geopolitical Liquidity Crisis, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &l6l7 {L1-001: 0.10, L2-001: 0.05, L4-001: 0.05, L6-001: 0.40, L7-001: 0.30, L8-001: 0.05, L9-001: 0.05}
+  1-3m: *l6l7
+  1-3y: *l6l7
+  3-10y: *l6l7
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

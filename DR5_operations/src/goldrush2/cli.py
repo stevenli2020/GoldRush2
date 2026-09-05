@@ -312,6 +312,15 @@ def cmd_analyze(args: argparse.Namespace) -> int:
 
     return run(args)
 
+
+def cmd_analyze_strategies(args: argparse.Namespace) -> int:
+    """Write DR3's non-official current-outlook strategy comparison."""
+    from goldrush2.dr3.analytics.multi_strategy import run_multi_strategy
+
+    result = run_multi_strategy()
+    print(f"Wrote {len(result['strategies'])} current-outlook strategies.")
+    return 0
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="gr2")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -333,6 +342,8 @@ def main(argv: list[str] | None = None) -> int:
     extract.set_defaults(handler=cmd_extract)
     analyze = commands.add_parser("analyze", help="compute aggregated outlook scores from current data")
     analyze.set_defaults(handler=cmd_analyze)
+    strategies = commands.add_parser("analyze-strategies", help="compare fixed DR3 current-outlook strategies")
+    strategies.set_defaults(handler=cmd_analyze_strategies)
     args = parser.parse_args(argv)
     if args.command == "collect" and bool(args.variable) == bool(args.all):
         parser.error("collect requires either a variable ID or --all")

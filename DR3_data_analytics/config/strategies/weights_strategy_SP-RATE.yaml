@@ -1,0 +1,7 @@
+strategy: {id: SP-RATE, name: Real Rate Dominant, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &rate {L1-001: 0.60, L2-001: 0.10, L4-001: 0.15, L5-001: 0.05, L7-001: 0.05, L8-001: 0.05}
+  1-3m: *rate
+  1-3y: *rate
+  3-10y: *rate
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

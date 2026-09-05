@@ -1,0 +1,7 @@
+strategy: {id: SP-SHORT, name: Short Term Marginal Forces, type: timeframe_filter, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: {L1-001: 0.05, L2-001: 0.20, L7-001: 0.10, L8-001: 0.35, L9-001: 0.15, L10-001: 0.15}
+  1-3m: {L1-001: 0.10, L2-001: 0.20, L4-001: 0.05, L7-001: 0.10, L8-001: 0.30, L9-001: 0.15, L10-001: 0.10}
+  1-3y: {L0-002: 0.05, L1-001: 0.20, L2-001: 0.15, L4-001: 0.10, L5-001: 0.10, L6-001: 0.05, L8-001: 0.25, L9-001: 0.10}
+  3-10y: {L0-002: 0.10, L1-001: 0.30, L2-001: 0.05, L4-001: 0.20, L5-001: 0.15, L6-001: 0.05, L7-001: 0.05, L8-001: 0.10}
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

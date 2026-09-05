@@ -1,0 +1,28 @@
+meta:
+  version: "1.1"
+  frozen: true
+  description: >
+    GR2 MVP-compliant sparse strategy set for DR3 current-outlook-only comparison.
+    No backtesting, walk-forward testing, auto-selection, hashing, regime state machine, or external indicators.
+excluded_layers:
+  L3:
+    applies_to: sparse_strategies_only
+    reason: L3 is temporarily excluded for overlap, pipeline validation, and sparsity reasons.
+    status: temporary
+    baseline_exception: SP-ALL includes all current ADMIT variables, including L3.
+strategies:
+  - {id: SP-RATE, file: weights_strategy_SP-RATE.yaml, type: hypothesis}
+  - {id: SP-USD, file: weights_strategy_SP-USD.yaml, type: hypothesis}
+  - {id: SP-INFL, file: weights_strategy_SP-INFL.yaml, type: hypothesis}
+  - {id: SP-CB, file: weights_strategy_SP-CB.yaml, type: hypothesis}
+  - {id: SP-FLOW, file: weights_strategy_SP-FLOW.yaml, type: hypothesis}
+  - {id: SP-TECH, file: weights_strategy_SP-TECH.yaml, type: hypothesis, production_eligible: false}
+  - {id: SP-REGIME-PROXY, file: weights_strategy_SP-REGIME-PROXY.yaml, type: hypothesis}
+  - {id: SP-ANTI-FIAT, file: weights_strategy_SP-ANTI-FIAT.yaml, type: hypothesis}
+  - {id: SP-MACRO, file: weights_strategy_SP-MACRO.yaml, type: hypothesis}
+  - {id: SP-L0L5, file: weights_strategy_SP-L0L5.yaml, type: hypothesis}
+  - {id: SP-L6L7, file: weights_strategy_SP-L6L7.yaml, type: hypothesis}
+  - {id: SP-SPARSE, file: weights_strategy_SP-SPARSE.yaml, type: structural}
+  - {id: SP-SHORT, file: weights_strategy_SP-SHORT.yaml, type: timeframe_filter}
+  - {id: SP-LONG, file: weights_strategy_SP-LONG.yaml, type: timeframe_filter}
+  - {id: SP-ALL, file: baseline_SP-ALL.yaml, type: baseline, include_in_official_ranking: false}

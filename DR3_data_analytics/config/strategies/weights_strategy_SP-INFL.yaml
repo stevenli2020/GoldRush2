@@ -1,0 +1,7 @@
+strategy: {id: SP-INFL, name: Inflation Dominant, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &infl {L1-001: 0.10, L2-001: 0.05, L4-001: 0.60, L5-001: 0.15, L7-001: 0.05, L8-001: 0.05}
+  1-3m: *infl
+  1-3y: *infl
+  3-10y: *infl
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

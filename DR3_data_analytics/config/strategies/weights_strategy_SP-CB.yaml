@@ -1,0 +1,7 @@
+strategy: {id: SP-CB, name: Central Bank Dominant, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &cb {L0-002: 0.10, L1-001: 0.10, L4-001: 0.05, L5-001: 0.60, L7-001: 0.05, L8-001: 0.05, L9-001: 0.05}
+  1-3m: *cb
+  1-3y: *cb
+  3-10y: *cb
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

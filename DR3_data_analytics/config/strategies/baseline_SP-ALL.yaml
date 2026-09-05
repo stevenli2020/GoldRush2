@@ -1,0 +1,11 @@
+strategy:
+  id: SP-ALL
+  name: Uniform Baseline over Current ADMIT Pool
+  type: baseline
+  version: "1.1"
+  frozen: true
+horizon_weights: AUTO_UNIFORM_ADMIT
+validation:
+  sum_tolerance: 0.001
+  max_variables: null
+  exempt_from_max_variables: true

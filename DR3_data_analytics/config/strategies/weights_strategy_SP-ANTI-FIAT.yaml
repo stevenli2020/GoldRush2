@@ -1,0 +1,7 @@
+strategy: {id: SP-ANTI-FIAT, name: Anti Fiat Credibility, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &anti {L0-002: 0.15, L1-001: 0.05, L4-006: 0.40, L5-001: 0.30, L7-001: 0.05, L8-001: 0.05}
+  1-3m: *anti
+  1-3y: *anti
+  3-10y: *anti
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

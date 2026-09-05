@@ -1,0 +1,9 @@
+strategy: {id: SP-TECH, name: Derivatives Positioning Experiment, type: hypothesis, version: "1.1", frozen: true}
+production_eligible: false
+experimental_purpose: Tests whether L10 has independent predictive value; it is not a primary production driver.
+horizon_weights:
+  1-5d: &tech {L1-001: 0.10, L2-001: 0.10, L4-001: 0.05, L7-001: 0.10, L8-001: 0.05, L10-001: 0.60}
+  1-3m: *tech
+  1-3y: *tech
+  3-10y: *tech
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

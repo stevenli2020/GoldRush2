@@ -18,3 +18,4 @@
 | DR3-04 | Implement `DR3_data_analytics/src/goldrush2/dr3/analyze.py` & CLI registration | **Complete** | `gr2 analyze` help and live execution verified |
 | DR3-05 | Write unit tests for missing-data degradation | **Complete** | Eight focused tests pass |
 | DR3-06 | Verify end-to-end scoring with live DR2 data | **Complete** | Generated `DR3_data_analytics/data/current_scores.json`; live run completed successfully |
+| DR3-07 | Implement frozen sparse strategy comparison | **Complete** | 14 sparse strategies plus `SP-ALL`; hard validation, `gr2 analyze-strategies`, and non-official current-only output verified |

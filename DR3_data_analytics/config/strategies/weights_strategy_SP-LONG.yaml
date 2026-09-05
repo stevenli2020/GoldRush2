@@ -1,0 +1,7 @@
+strategy: {id: SP-LONG, name: Long Term Structural Forces, type: timeframe_filter, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: {L1-001: 0.05, L2-001: 0.05, L4-001: 0.05, L6-001: 0.05, L7-001: 0.10, L8-001: 0.40, L10-001: 0.30}
+  1-3m: {L0-002: 0.05, L1-001: 0.15, L2-001: 0.10, L4-001: 0.15, L5-001: 0.10, L6-001: 0.05, L7-001: 0.10, L8-001: 0.20, L10-001: 0.10}
+  1-3y: {L0-002: 0.15, L1-001: 0.25, L2-001: 0.05, L4-001: 0.25, L5-001: 0.20, L8-001: 0.10}
+  3-10y: {L0-002: 0.20, L1-001: 0.20, L2-001: 0.05, L4-001: 0.25, L5-001: 0.25, L8-001: 0.05}
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}

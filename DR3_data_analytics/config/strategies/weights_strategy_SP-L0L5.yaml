@@ -1,0 +1,7 @@
+strategy: {id: SP-L0L5, name: Stock and Official Sector, type: hypothesis, version: "1.1", frozen: true}
+horizon_weights:
+  1-5d: &l0l5 {L0-002: 0.40, L1-001: 0.05, L4-001: 0.10, L5-001: 0.35, L7-001: 0.05, L8-001: 0.05}
+  1-3m: *l0l5
+  1-3y: *l0l5
+  3-10y: *l0l5
+validation: {sum_tolerance: 0.001, max_variables: 15, exempt_from_max_variables: false}
