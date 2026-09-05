@@ -1,0 +1,123 @@
+{
+  "from": "20240902",
+  "count": 1,
+  "data": [
+    {
+      "currency": "USD",
+      "curve": [
+        {
+          "closeTrades": 3,
+          "date": "2026-09-02",
+          "days": 365,
+          "method": "close-thin",
+          "rate": 4.17,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "1Y",
+          "trades": 94
+        },
+        {
+          "closeTrades": 9,
+          "date": "2026-09-02",
+          "days": 730,
+          "method": "close-thin",
+          "rate": 4.24,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "2Y",
+          "trades": 145
+        },
+        {
+          "closeTrades": 8,
+          "date": "2026-09-02",
+          "days": 1095,
+          "method": "close-thin",
+          "rate": 4.25,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "3Y",
+          "trades": 98
+        },
+        {
+          "closeTrades": 3,
+          "date": "2026-09-02",
+          "days": 1460,
+          "method": "close-thin",
+          "rate": 4.27,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "4Y",
+          "trades": 34
+        },
+        {
+          "closeTrades": 24,
+          "date": "2026-09-02",
+          "days": 1825,
+          "method": "close",
+          "rate": 4.27,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "5Y",
+          "trades": 234
+        },
+        {
+          "closeTrades": 6,
+          "date": "2026-09-02",
+          "days": 2555,
+          "method": "close-thin",
+          "rate": 4.31,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "7Y",
+          "trades": 84
+        },
+        {
+          "closeTrades": 44,
+          "date": "2026-09-02",
+          "days": 3650,
+          "method": "close",
+          "rate": 4.41,
+          "rateBps": 4,
+          "source": "DTCC:CFTC",
+          "tenor": "10Y",
+          "trades": 322
+        },
+        {
+          "closeTrades": 6,
+          "date": "2026-09-02",
+          "days": 5475,
+          "method": "close-thin",
+          "rate": 4.56,
+          "rateBps": 5,
+          "source": "DTCC:CFTC",
+          "tenor": "15Y",
+          "trades": 19
+        },
+        {
+          "closeTrades": 6,
+          "date": "2026-09-02",
+          "days": 7300,
+          "method": "close-thin",
+          "rate": 4.63,
+          "rateBps": 5,
+          "source": "DTCC:CFTC",
+          "tenor": "20Y",
+          "trades": 38
+        },
+        {
+          "closeTrades": 28,
+          "date": "2026-09-02",
+          "days": 10950,
+          "method": "close",
+          "rate": 4.58,
+          "rateBps": 5,
+          "source": "DTCC:CFTC",
+          "tenor": "30Y",
+          "trades": 146
+        }
+      ],
+      "date": "2026-09-02",
+      "fetchedAt": "2026-09-03T01:00:03.751699420+00:00"
+    }
+  ]
+}

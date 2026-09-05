@@ -1,1 +1,0 @@
-"""GoldRush2 package."""

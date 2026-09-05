@@ -1,0 +1,66 @@
+{
+  "variable_id": "L4-006",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED FYFSGDA188S - Federal Surplus/Deficit as % of GDP",
+  "source_url": "https://fred.stlouisfed.org/series/FYFSGDA188S",
+  "data_frequency": "Quarterly",
+  "observation_date": "2025-01-01",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": null,
+          "current_date": null,
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null
+        },
+        "summary": "Quarterly data does not support 1-5d horizon."
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": null,
+          "current_date": null,
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null
+        },
+        "summary": "Quarterly data does not support 1-3m horizon."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": -5.76906,
+          "current_date": "2025-01-01",
+          "comparison_value": -3.77157,
+          "comparison_date": "2018-01-01",
+          "change_absolute": -1.99749
+        },
+        "summary": "Deficit/GDP ratio fell by 2.00 percentage points (deficit widened), bullish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": -5.76906,
+          "current_date": "2025-01-01",
+          "comparison_value": -1.79638,
+          "comparison_date": "2006-01-01",
+          "change_absolute": -3.97268
+        },
+        "summary": "Deficit/GDP ratio fell by 3.97 percentage points (deficit widened), bullish for gold."
+      }
+    }
+  }
+}

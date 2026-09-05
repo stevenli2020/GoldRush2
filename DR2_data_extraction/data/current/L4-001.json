@@ -1,0 +1,66 @@
+{
+  "variable_id": "L4-001",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED CPIAUCSL - Consumer Price Index for All Urban Consumers",
+  "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+  "data_frequency": "Monthly",
+  "observation_date": "2026-07-01",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 332.813,
+          "current_date": "2026-07-01",
+          "comparison_value": 330.293,
+          "comparison_date": "2026-03-01",
+          "change_absolute": 2.52
+        },
+        "summary": "CPI index rose by 2.52 points compared to 2026-03-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 332.813,
+          "current_date": "2026-07-01",
+          "comparison_value": 266.614,
+          "comparison_date": "2021-04-01",
+          "change_absolute": 66.199
+        },
+        "summary": "CPI index rose by 66.20 points compared to 2021-04-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 332.813,
+          "current_date": "2026-07-01",
+          "comparison_value": 194.9,
+          "comparison_date": "2005-07-01",
+          "change_absolute": 137.913
+        },
+        "summary": "CPI index rose by 137.91 points compared to 2005-07-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 332.813,
+          "current_date": "2026-07-01",
+          "comparison_value": 30.69,
+          "comparison_date": "1963-07-01",
+          "change_absolute": 302.123
+        },
+        "summary": "CPI index rose by 302.12 points compared to 1963-07-01, indicating accelerating inflation, bearish for gold."
+      }
+    }
+  }
+}

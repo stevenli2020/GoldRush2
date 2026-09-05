@@ -1,0 +1,65 @@
+{
+  "variable_id": "L4-003",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED T5YIE - 5-Year Breakeven Inflation Rate",
+  "source_url": "https://fred.stlouisfed.org/series/T5YIE",
+  "observation_date": "2026-09-03",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.37,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.3,
+          "comparison_date": "2026-08-28",
+          "change_percentage_points": 0.07
+        },
+        "summary": "5Y breakeven inflation rose by 0.07 percentage points, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.37,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.48,
+          "comparison_date": "2026-06-05",
+          "change_percentage_points": -0.11
+        },
+        "summary": "5Y breakeven inflation fell by 0.11 percentage points, bullish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.37,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.46,
+          "comparison_date": "2025-09-03",
+          "change_percentage_points": -0.09
+        },
+        "summary": "5Y breakeven inflation fell by 0.09 percentage points, bullish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.37,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.25,
+          "comparison_date": "2023-08-25",
+          "change_percentage_points": 0.12
+        },
+        "summary": "5Y breakeven inflation rose by 0.12 percentage points, bearish for gold."
+      }
+    }
+  }
+}

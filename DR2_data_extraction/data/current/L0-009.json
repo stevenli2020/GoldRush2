@@ -1,0 +1,76 @@
+{
+  "variable_id": "L0-009",
+  "data_frequency": "Daily",
+  "source_name": "CME Gold Futures + SOFR - Gold Forward/Lease Rate Proxy (%)",
+  "source_url": "https://www.cmegroup.com/",
+  "observation_date": "2026-09-03",
+  "horizons": {
+    "1-5d": {
+      "signal": 1,
+      "confidence": 1.0,
+      "evidence": {
+        "data": {
+          "current_value": -1.07978814,
+          "current_date": "2026-09-03",
+          "comparison_value": -1.13276251,
+          "comparison_date": "2026-08-27",
+          "change_pp": 0.05297437,
+          "forward_rate": 4.73978814,
+          "sofr": 3.66,
+          "near_contract": "GCV26.CMX",
+          "far_contract": "GCZ26.CMX",
+          "days_between": 61,
+          "sofr_is_filled": false
+        },
+        "summary": "Gold forward-lease proxy rose, indicating tighter bullion market conditions, bullish for gold by 0.0530 percentage points compared to 5 valid observations ago."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1.0,
+      "evidence": {
+        "data": {
+          "current_value": -1.07978814,
+          "current_date": "2026-09-03",
+          "comparison_value": -0.89412355,
+          "comparison_date": "2026-06-04",
+          "change_pp": -0.18566459,
+          "forward_rate": 4.73978814,
+          "sofr": 3.66,
+          "near_contract": "GCV26.CMX",
+          "far_contract": "GCZ26.CMX",
+          "days_between": 61,
+          "sofr_is_filled": false
+        },
+        "summary": "Gold forward-lease proxy fell, indicating looser bullion market conditions, bearish for gold by 0.1857 percentage points compared to 63 valid observations ago."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1.0,
+      "evidence": {
+        "data": {
+          "current_value": -1.07978814,
+          "current_date": "2026-09-03",
+          "comparison_value": 0.75733251,
+          "comparison_date": "2025-09-03",
+          "change_pp": -1.83712065,
+          "forward_rate": 4.73978814,
+          "sofr": 3.66,
+          "near_contract": "GCV26.CMX",
+          "far_contract": "GCZ26.CMX",
+          "days_between": 61,
+          "sofr_is_filled": false
+        },
+        "summary": "Gold forward-lease proxy fell, indicating looser bullion market conditions, bearish for gold by 1.8371 percentage points compared to 252 valid observations ago."
+      }
+    },
+    "3-10y": {
+      "signal": 0,
+      "confidence": 0.0,
+      "evidence": {
+        "error": "Insufficient valid observations"
+      }
+    }
+  }
+}

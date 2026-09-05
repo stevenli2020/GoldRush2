@@ -1,0 +1,70 @@
+{
+  "variable_id": "L7-001",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED WALCL - Federal Reserve Total Assets",
+  "source_url": "https://fred.stlouisfed.org/series/WALCL",
+  "data_frequency": "Weekly",
+  "observation_date": "2026-09-02",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 6737204.0,
+          "current_date": "2026-09-02",
+          "comparison_value": 6748567.0,
+          "comparison_date": "2026-08-05",
+          "change_absolute": -11363.0,
+          "change_pct": -0.1683764864
+        },
+        "summary": "Fed balance sheet contracted by 0.17%, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 6737204.0,
+          "current_date": "2026-09-02",
+          "comparison_value": 6662200.0,
+          "comparison_date": "2025-06-25",
+          "change_absolute": 75004.0,
+          "change_pct": 1.1258142956
+        },
+        "summary": "Fed balance sheet expanded by 1.13%, bullish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 6737204.0,
+          "current_date": "2026-09-02",
+          "comparison_value": 8663117.0,
+          "comparison_date": "2021-11-10",
+          "change_absolute": -1925913.0,
+          "change_pct": -22.2311784546
+        },
+        "summary": "Fed balance sheet contracted by 22.23%, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 6737204.0,
+          "current_date": "2026-09-02",
+          "comparison_value": 2893560.0,
+          "comparison_date": "2012-03-14",
+          "change_absolute": 3843644.0,
+          "change_pct": 132.8344323256
+        },
+        "summary": "Fed balance sheet expanded by 132.83%, bullish for gold."
+      }
+    }
+  }
+}

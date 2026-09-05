@@ -1,0 +1,66 @@
+{
+  "variable_id": "L4-002",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED PCEPILFE - Core PCE Price Index (ex. food and energy)",
+  "source_url": "https://fred.stlouisfed.org/series/PCEPILFE",
+  "data_frequency": "Monthly",
+  "observation_date": "2026-07-01",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 130.658,
+          "current_date": "2026-07-01",
+          "comparison_value": 129.343,
+          "comparison_date": "2026-03-01",
+          "change_absolute": 1.315
+        },
+        "summary": "Core PCE index rose by 1.31 points compared to 2026-03-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 130.658,
+          "current_date": "2026-07-01",
+          "comparison_value": 108.099,
+          "comparison_date": "2021-05-01",
+          "change_absolute": 22.559
+        },
+        "summary": "Core PCE index rose by 22.56 points compared to 2021-05-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 130.658,
+          "current_date": "2026-07-01",
+          "comparison_value": 82.243,
+          "comparison_date": "2005-08-01",
+          "change_absolute": 48.415
+        },
+        "summary": "Core PCE index rose by 48.41 points compared to 2005-08-01, indicating accelerating inflation, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 130.658,
+          "current_date": "2026-07-01",
+          "comparison_value": 16.588,
+          "comparison_date": "1963-08-01",
+          "change_absolute": 114.07
+        },
+        "summary": "Core PCE index rose by 114.07 points compared to 1963-08-01, indicating accelerating inflation, bearish for gold."
+      }
+    }
+  }
+}

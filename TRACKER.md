@@ -13,8 +13,8 @@
 | Task ID | Task Description | Status | Notes |
 |---|---|---|---|
 | DR3-01 | Design & approve dynamic weight normalization logic | **Complete** | V1.1 formulas verified by focused tests and live scoring |
-| DR3-02 | Create `config/weights_v1.yaml` | **Complete** | Valid YAML, structural omissions, excluded reserve-share proxy, and rationales verified |
-| DR3-03 | Implement `src/goldrush2/analytics/aggregator.py` | **Complete** | Confidence-weighted score denominator, availability, applicability, and Top-5 monitoring verified |
-| DR3-04 | Implement `src/goldrush2/cli/analyze.py` & CLI registration | **Complete** | `gr2 analyze` help and live execution verified |
+| DR3-02 | Create `DR3_data_analytics/config/weights_v1.yaml` | **Complete** | Valid YAML, structural omissions, excluded reserve-share proxy, and rationales verified |
+| DR3-03 | Implement `DR3_data_analytics/src/goldrush2/dr3/analytics/aggregator.py` | **Complete** | Confidence-weighted score denominator, availability, applicability, and Top-5 monitoring verified |
+| DR3-04 | Implement `DR3_data_analytics/src/goldrush2/dr3/analyze.py` & CLI registration | **Complete** | `gr2 analyze` help and live execution verified |
 | DR3-05 | Write unit tests for missing-data degradation | **Complete** | Eight focused tests pass |
-| DR3-06 | Verify end-to-end scoring with live DR2 data | **Complete** | Generated `data/current/current_scores.json`; live run completed successfully |
+| DR3-06 | Verify end-to-end scoring with live DR2 data | **Complete** | Generated `DR3_data_analytics/data/current_scores.json`; live run completed successfully |

@@ -1,0 +1,66 @@
+{
+  "variable_id": "L1-007",
+  "as_of_date": "2026-09-04",
+  "observation_date": "2026-09-02",
+  "source_name": "Derived from DFII10 and DFII5 (5Y5Y forward real rate)",
+  "source_url": "https://fred.stlouisfed.org/series/DFII10 and https://fred.stlouisfed.org/series/DFII5",
+  "calculation_formula": "((((1 + r10/100)^10 / (1 + r5/100)^5) ^ (1/5)) - 1) * 100",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.7106615128681844,
+          "current_date": "2026-09-02",
+          "comparison_value": 2.6107142157343333,
+          "comparison_date": "2026-08-27",
+          "change_percentage_points": 0.0999472971
+        },
+        "summary": "The 5Y5Y forward real rate rose by 0.10 percentage points, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.7106615128681844,
+          "current_date": "2026-09-02",
+          "comparison_value": 2.521652900688287,
+          "comparison_date": "2026-06-04",
+          "change_percentage_points": 0.1890086122
+        },
+        "summary": "The 5Y5Y forward real rate rose by 0.19 percentage points, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.7106615128681844,
+          "current_date": "2026-09-02",
+          "comparison_value": 2.4836746987951797,
+          "comparison_date": "2025-09-02",
+          "change_percentage_points": 0.2269868141
+        },
+        "summary": "The 5Y5Y forward real rate rose by 0.23 percentage points, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.7106615128681844,
+          "current_date": "2026-09-02",
+          "comparison_value": 1.6705638766519648,
+          "comparison_date": "2023-08-24",
+          "change_percentage_points": 1.0400976362
+        },
+        "summary": "The 5Y5Y forward real rate rose by 1.04 percentage points, bearish for gold."
+      }
+    }
+  }
+}

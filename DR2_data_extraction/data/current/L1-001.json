@@ -1,0 +1,65 @@
+{
+  "variable_id": "L1-001",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED - 10-Year TIPS Real Yield (DFII10)",
+  "source_url": "https://fred.stlouisfed.org/series/DFII10",
+  "observation_date": "2026-09-02",
+  "horizons": {
+    "1-5d": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.45,
+          "current_date": "2026-09-02",
+          "comparison_value": 2.34,
+          "comparison_date": "2026-08-27",
+          "change_percentage_points": 0.11
+        },
+        "summary": "The 10Y real yield rose by 0.11 percentage points, bearish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.45,
+          "current_date": "2026-09-02",
+          "comparison_value": 2.11,
+          "comparison_date": "2026-06-04",
+          "change_percentage_points": 0.34
+        },
+        "summary": "The 10Y real yield rose by 0.34 percentage points, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.45,
+          "current_date": "2026-09-02",
+          "comparison_value": 1.87,
+          "comparison_date": "2025-09-02",
+          "change_percentage_points": 0.58
+        },
+        "summary": "The 10Y real yield rose by 0.58 percentage points, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.45,
+          "current_date": "2026-09-02",
+          "comparison_value": 1.91,
+          "comparison_date": "2023-08-24",
+          "change_percentage_points": 0.54
+        },
+        "summary": "The 10Y real yield rose by 0.54 percentage points, bearish for gold."
+      }
+    }
+  }
+}

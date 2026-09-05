@@ -8,18 +8,14 @@ The project is organized around the five delivery stages. The `DR*` folders are 
 
 ```text
 DR1_definition/          Layer, variable, and scope definition
-DR2_data_extraction/     Source collection, normalization, and variable extraction
-DR3_data_analytics/      Weighting and aggregation of variable outputs
+DR2_data_extraction/     DR2 source code, policy, data, diagnostics, and tests
+DR3_data_analytics/      DR3 analytics code, weights, score output, and tests
 DR4_data_presentation/   Score presentation and evidence-grounded reporting
-DR5_operations/          End-to-end operation, user workflow, and notifications
+DR5_operations/          CLI package root, end-to-end operation, and CLI tests
 
-src/goldrush2/           Executable Python package and the gr2 CLI
-tests/                   Automated tests
-scripts/                 One-off diagnostics and backfill utilities
-config/                  Runtime collection policies and analytics weights
-data/raw/                Latest source responses and downloaded workbooks
-data/cache/              Normalized observations and refresh metadata
-data/current/            Latest per-variable signals and aggregate scores
+pyproject.toml           Shared Python package definition and CLI entry points
+PROJECT.md               Project-wide scope and delivery contract
+TRACKER.md               Project-wide roadmap and completion status
 ```
 
 Read `AGENTS.md` before making changes. `PROJECT.md` is the project definition and `TRACKER.md` is the live roadmap. These project-wide documents remain at the root intentionally.
@@ -44,11 +40,11 @@ gr2 extract L0-006
 gr2 extract L7-003 --pretty
 ```
 
-`gr2 collect` writes source material to `data/raw/` and normalized data to `data/cache/`. `gr2 extract` discovers `l<layer>_<variable>` modules under `src/goldrush2/extractors` and writes the current signal JSON to `data/current/`. `gr2 analyze` reads those current outputs and `config/weights_v1.yaml` to write `data/current/current_scores.json`.
+`gr2 collect` writes source material to `DR2_data_extraction/data/raw/` and normalized data to `DR2_data_extraction/data/cache/`. `gr2 extract` discovers modules under `DR2_data_extraction/src/goldrush2/dr2/extractors/` and writes current variable JSON to `DR2_data_extraction/data/current/`. `gr2 analyze` reads those outputs with `DR3_data_analytics/config/weights_v1.yaml` and writes `DR3_data_analytics/data/current_scores.json`.
 
 ## Verification
 
 ```bash
-pytest tests/analytics/test_aggregator.py -q
+pytest DR3_data_analytics/tests/test_aggregator.py -q
 pytest -q
 ```

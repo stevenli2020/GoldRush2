@@ -1,0 +1,74 @@
+{
+  "variable_id": "L9-001",
+  "data_frequency": "Weekly",
+  "source_name": "WGC - China Physical Gold Premium/Discount (USD/oz)",
+  "source_url": "https://www.gold.org/",
+  "observation_date": "2026-08-28",
+  "as_of_date": "2026-09-04",
+  "horizons": {
+    "1-5d": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": 6.223479000000043,
+          "current_date": "2026-08-28",
+          "comparison_value_pct": null,
+          "comparison_date": "2026-08-21",
+          "change_pct": 8.22651,
+          "absolute_level": "positive"
+        },
+        "summary": "China gold premium widened by 8.23 USD/oz compared to 5 weeks ago, indicating strengthening physical demand, bullish for gold. Current premium: +6.22 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": 6.223479000000043,
+          "current_date": "2026-08-28",
+          "comparison_value_pct": null,
+          "comparison_date": "2026-06-02",
+          "change_pct": -7.047172,
+          "absolute_level": "positive"
+        },
+        "summary": "China gold premium narrowed by 7.05 USD/oz compared to 63 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: +6.22 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": 6.223479000000043,
+          "current_date": "2026-08-28",
+          "comparison_value_pct": null,
+          "comparison_date": "2025-09-10",
+          "change_pct": 27.638011,
+          "absolute_level": "positive"
+        },
+        "summary": "China gold premium widened by 27.64 USD/oz compared to 252 weeks ago, indicating strengthening physical demand, bullish for gold. Current premium: +6.22 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value_pct": null,
+          "current_value_usd": 6.223479000000043,
+          "current_date": "2026-08-28",
+          "comparison_value_pct": null,
+          "comparison_date": "2023-10-05",
+          "change_pct": -39.074109,
+          "absolute_level": "positive"
+        },
+        "summary": "China gold premium narrowed by 39.07 USD/oz compared to 756 weeks ago, indicating weakening physical demand, bearish for gold. Current premium: +6.22 USD/oz. Percentage unavailable in the WGC workbook; USD/oz used as the signal basis."
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "variable_id": "L4-008",
+  "as_of_date": "2026-09-04",
+  "source_name": "U.S. Treasury Fiscal Data - Monthly Treasury Statement Table 3",
+  "source_url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_3",
+  "data_frequency": "Annual fiscal year",
+  "observation_date": "2025-09-30",
+  "horizons": {
+    "1-5d": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": null,
+          "current_date": null,
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null
+        },
+        "summary": "Annual fiscal-year data does not support 1-5d horizon."
+      }
+    },
+    "1-3m": {
+      "signal": 0,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": null,
+          "current_date": null,
+          "comparison_value": null,
+          "comparison_date": null,
+          "change_absolute": null
+        },
+        "summary": "Annual fiscal-year data does not support 1-3m horizon."
+      }
+    },
+    "1-3y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 23.222596271472774,
+          "current_date": "2025-09-30",
+          "comparison_value": 23.035124714645125,
+          "comparison_date": "2024-09-30",
+          "change_absolute": 0.1874715568
+        },
+        "summary": "Interest/revenue ratio rose by 0.19 percentage points (fiscal deterioration), bullish for gold. Note: annual fiscal-year data, short-term horizons not applicable."
+      }
+    },
+    "3-10y": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 23.222596271472774,
+          "current_date": "2025-09-30",
+          "comparison_value": 15.282414642315379,
+          "comparison_date": "2020-09-30",
+          "change_absolute": 7.9401816292
+        },
+        "summary": "Interest/revenue ratio rose by 7.94 percentage points (fiscal deterioration), bullish for gold. Note: annual fiscal-year data, short-term horizons not applicable."
+      }
+    }
+  }
+}

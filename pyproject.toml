@@ -12,9 +12,25 @@ dependencies = ["pypdf>=5,<7", "cme-fedwatch>=0.1.3,<1", "yfinance>=0.2,<1", "pa
 gr2 = "goldrush2.cli:main"
 goldrush2 = "goldrush2.cli:main"
 
+[tool.setuptools]
+packages = [
+    "goldrush2",
+    "goldrush2.dr2",
+    "goldrush2.dr2.ai",
+    "goldrush2.dr2.collectors",
+    "goldrush2.dr2.extractors",
+    "goldrush2.dr3",
+    "goldrush2.dr3.analytics",
+]
+
+[tool.setuptools.package-dir]
+goldrush2 = "DR5_operations/src/goldrush2"
+"goldrush2.dr2" = "DR2_data_extraction/src/goldrush2/dr2"
+"goldrush2.dr3" = "DR3_data_analytics/src/goldrush2/dr3"
+
 [project.optional-dependencies]
 dev = ["pytest>=8,<10"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+testpaths = ["DR2_data_extraction/tests", "DR3_data_analytics/tests", "DR5_operations/tests"]
+pythonpath = ["DR5_operations/src", "DR2_data_extraction/src", "DR3_data_analytics/src"]

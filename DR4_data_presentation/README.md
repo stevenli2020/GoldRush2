@@ -4,7 +4,8 @@ DR4 will present the four current scores and generate a short evidence-grounded 
 
 Current inputs:
 
-- [`data/current/`](../data/current/) — per-variable signals and aggregate score output.
-- [`src/goldrush2/ai/`](../src/goldrush2/ai/) — existing AI support code that DR4 may build on.
+- [`../DR2_data_extraction/data/current/`](../DR2_data_extraction/data/current/) — current variable signals.
+- [`../DR3_data_analytics/data/current_scores.json`](../DR3_data_analytics/data/current_scores.json) — aggregate score output.
+- [`../DR2_data_extraction/src/goldrush2/dr2/ai/`](../DR2_data_extraction/src/goldrush2/dr2/ai/) — existing AI support code that DR4 may build on.
 
 DR4 is not yet implemented. Its requirements remain defined in [`PROJECT.md`](../PROJECT.md).

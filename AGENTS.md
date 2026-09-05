@@ -18,4 +18,4 @@
 
 ### 9. Keep collection caches layered and source-aware.
 
-Raw source responses belong in `data/raw/`; normalized per-variable observations and `_meta.json` belong in `data/cache/`; signal outputs belong only in `data/current/`. Use the policy in `config/refresh_policies.yaml`, preserve cached data when a source is unavailable, and make cache writes atomic.
+Raw source responses belong in `DR2_data_extraction/data/raw/`; normalized per-variable observations and `_meta.json` belong in `DR2_data_extraction/data/cache/`; signal outputs belong only in `DR2_data_extraction/data/current/`. Use the policy in `DR2_data_extraction/config/refresh_policies.yaml`, preserve cached data when a source is unavailable, and make cache writes atomic.

@@ -1,0 +1,70 @@
+{
+  "variable_id": "L7-004",
+  "as_of_date": "2026-09-04",
+  "source_name": "FRED BAMLH0A0HYM2 - ICE BofA US High Yield Index Option-Adjusted Spread",
+  "source_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+  "data_frequency": "Daily",
+  "observation_date": "2026-09-03",
+  "horizons": {
+    "1-5d": {
+      "signal": 1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.65,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.6,
+          "comparison_date": "2026-08-28",
+          "change_absolute": 0.05,
+          "change_pct": 1.9230769231
+        },
+        "summary": "High-yield credit spread widened by 0.05 percentage points, bullish for gold."
+      }
+    },
+    "1-3m": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.65,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.78,
+          "comparison_date": "2026-06-09",
+          "change_absolute": -0.13,
+          "change_pct": -4.6762589928
+        },
+        "summary": "High-yield credit spread narrowed by 0.13 percentage points, bearish for gold."
+      }
+    },
+    "1-3y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.65,
+          "current_date": "2026-09-03",
+          "comparison_value": 2.72,
+          "comparison_date": "2025-09-19",
+          "change_absolute": -0.07,
+          "change_pct": -2.5735294118
+        },
+        "summary": "High-yield credit spread narrowed by 0.07 percentage points, bearish for gold."
+      }
+    },
+    "3-10y": {
+      "signal": -1,
+      "confidence": 1,
+      "evidence": {
+        "data": {
+          "current_value": 2.65,
+          "current_date": "2026-09-03",
+          "comparison_value": 4.25,
+          "comparison_date": "2023-10-17",
+          "change_absolute": -1.6,
+          "change_pct": -37.6470588235
+        },
+        "summary": "High-yield credit spread narrowed by 1.60 percentage points, bearish for gold."
+      }
+    }
+  }
+}
