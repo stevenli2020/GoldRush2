@@ -19,3 +19,4 @@
 | DR3-05 | Write unit tests for missing-data degradation | **Complete** | Eight focused tests pass |
 | DR3-06 | Verify end-to-end scoring with live DR2 data | **Complete** | Generated `DR3_data_analytics/data/current_scores.json`; live run completed successfully |
 | DR3-07 | Implement frozen sparse strategy comparison | **Complete** | 14 sparse strategies plus `SP-ALL`; hard validation, `gr2 analyze-strategies`, and non-official current-only output verified |
+| DR3-08 | Audit sparse-input semantics and contributions | **Audit complete; corrections pending** | See `DR3_data_analytics/SIGNAL_AUDIT.md`; 11 inputs/44 horizons reviewed, 56 sparse attribution rows available. Earlier completion records refer to implementation, not economic validation. |
