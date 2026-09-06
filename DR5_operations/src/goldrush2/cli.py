@@ -299,6 +299,13 @@ def cmd_extract(args: argparse.Namespace) -> int:
         if "verbose" in inspect.signature(run).parameters:
             kwargs["verbose"] = int(getattr(args, "verbose", 0))
         output = run(**kwargs)
+        if variable_id in {"L0-002","L0-003","L0-005","L0-006","L1-005","L3-005","L4-001","L4-002","L4-006","L4-007","L4-009","L5-002","L5-003","L5-006","L7-003","L9-004"}:
+            for horizon in output.get("horizons", {}).values():
+                if "status" not in horizon:
+                    evidence = horizon.setdefault("evidence", {})
+                    summary = str(evidence.get("summary", ""))
+                    horizon["status"] = "NOT_APPLICABLE" if "does not support" in summary.lower() else ("VALID" if float(horizon.get("confidence", 0.0)) > 0 else "INSUFFICIENT_HISTORY")
+            output_path.write_text(json.dumps(output, indent=2, default=str) + "\n", encoding="utf-8")
     except (OSError, ValueError, KeyError, AttributeError, TypeError, ImportError, RuntimeError) as exc:
         print(f"{variable_id}: action=failed detail={exc}")
         return 1
