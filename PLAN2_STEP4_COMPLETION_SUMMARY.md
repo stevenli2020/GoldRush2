@@ -1,7 +1,7 @@
 # Plan 2 Step 4 — Completion Summary for Review
 
 **Scope:** L4-001 controlled refresh and unchanged strategy comparison
-**Final status:** superseded; P0 correction applied and Step 4 reopened for review
+**Final status:** P0 correction approved; Step 4 closed and Plan 2 archived
 **Final commits:** [`4e55b9e`](https://github.com/stevenli2020/GoldRush2/commit/4e55b9e), [`8a4b953`](https://github.com/stevenli2020/GoldRush2/commit/8a4b953)
 
 ## Objective
@@ -44,7 +44,7 @@ The previous final evidence below is retained only as the incident record and mu
 
 The latest smoothed observation ends in September 2025 because the source series has a missing October 2025 observation. This is a source-history gap, not a credential failure or a reference-date fallback.
 
-The corrected rerun now produces zero-confidence output because the source payload lacks an explicit publication-date field and the prior realtime/vintage date cannot substitute for it.
+The corrected rerun now produces zero-confidence output because the source payload lacks an explicit publication-date field and the prior realtime/vintage date cannot substitute for it. Q approved the correction and authorized Tranche 2 Step 1/Step 2 contract drafting.
 
 ## Strategy comparison
 
@@ -70,4 +70,4 @@ These deltas come from replacing the obsolete CPI-index directional rule with th
 
 ## Next correction tranche
 
-The recommended next tranche remains L8-001 ETF flows and L5-001 official-sector purchases through their shared monthly WGC collector, but it is blocked until this P0 correction and matrix are reviewed and approved. No Tranche 2 implementation has started.
+The next tranche is L8-001 ETF flows and L5-001 official-sector purchases through their shared monthly WGC collector. Only the source-contract and evidence-rule drafts are authorized; extractor implementation and refresh remain pending D/Q approval.

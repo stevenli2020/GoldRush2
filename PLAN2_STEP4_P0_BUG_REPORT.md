@@ -1,6 +1,6 @@
 # Plan 2 Step 4 — P0 FRED Metadata and Stale-Gating Bug Report
 
-**Status:** fixed and verified; Plan 2 remains conditionally suspended; Tranche 2 is prohibited.
+**Status:** fixed and verified; Plan 2 archived by owner/Q approval; Tranche 2 Step 1 authorized.
 
 ## Finding
 
@@ -24,4 +24,4 @@ The stale check also compared the decision date with that incorrectly mapped pub
 
 ## Disposition
 
-The earlier Plan 2 Step 4 completion record is superseded by this P0 finding. Plan 2 Step 4 is reopened for review, and no L8/L5 Tranche 2 implementation may begin until the owner approves the corrected matrix and the publication-date source contract.
+The earlier Plan 2 Step 4 completion record was superseded during the incident review. After approval of this correction, Plan 2 Step 4 is closed. Tranche 2 may proceed only through the authorized Step 1/Step 2 contract drafts; no L8/L5 extractor implementation is authorized yet.

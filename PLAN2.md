@@ -2,7 +2,7 @@
 
 ## Status
 
-Conditionally suspended after a P0 L4-001 metadata/stale-gating bug was found during review. The bug report is [`PLAN2_STEP4_P0_BUG_REPORT.md`](PLAN2_STEP4_P0_BUG_REPORT.md); the prior completion record is superseded pending review. Tranche 2 is prohibited.
+Archived after owner/Q approval of the P0 L4-001 metadata/stale-gating correction. The incident record is [`PLAN2_STEP4_P0_BUG_REPORT.md`](PLAN2_STEP4_P0_BUG_REPORT.md). Tranche 2 Step 1 is authorized; its draft contracts are [`PLAN2_TRANCHE2_STEP1_WGC_SOURCE_CONTRACTS.md`](PLAN2_TRANCHE2_STEP1_WGC_SOURCE_CONTRACTS.md) and [`PLAN2_TRANCHE2_STEP2_WGC_EVIDENCE_RULES.md`](PLAN2_TRANCHE2_STEP2_WGC_EVIDENCE_RULES.md).
 
 ## Objective
 
@@ -36,7 +36,7 @@ Refresh only the affected sources, regenerate their current JSON, run `gr2 analy
 
 Deliverable: reviewed post-correction comparison and an owner decision on the next correction tranche.
 
-The L4-001 tranche is reopened for P0 correction and review. The next proposed tranche remains L8-001 and L5-001 through their shared monthly WGC collector, but it must not start until the P0 matrix is approved and the source-publication contract is closed.
+The L4-001 tranche is closed. Tranche 2 now begins with source-contract and evidence-rule drafts for L8-001 and L5-001 through their shared monthly WGC collector. No extractor implementation or refresh is authorized until D/Q approve the drafts.
 
 ## Acceptance gates
 
