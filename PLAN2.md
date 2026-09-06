@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed for owner review. Plan 1 is approved and complete in commit `efa4aaa`. Plan 2 is not implementation authorization.
+Active after D/Q approval. Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`.
 
 ## Objective
 
@@ -28,7 +28,7 @@ Deliverable: [`PLAN2_STEP2_EVIDENCE_RULES.md`](PLAN2_STEP2_EVIDENCE_RULES.md), n
 
 Implement only the approved rules in Python. Add fixtures and focused tests for daily, weekly, and monthly calendars; holidays and missing periods; exact boundary counts; units; revisions; and source-confirmed latest observations. Preserve the one-current-JSON-per-variable contract and the existing stale/missing-data labels.
 
-Deliverable: corrected extractors, tests, and a verification record. Frozen strategy weights and Plan 1 gating remain unchanged.
+Deliverable: corrected extractors, tests, and a verification record. The L4-001 first tranche is documented in [`PLAN2_STEP3_IMPLEMENTATION.md`](PLAN2_STEP3_IMPLEMENTATION.md). Frozen strategy weights and Plan 1 gating remain unchanged.
 
 ### Plan 2 Task 4 — Controlled refresh and comparison review
 

@@ -58,7 +58,19 @@ def parse_observations(payload: Any) -> list[dict[str, str | float]]:
         if not math.isfinite(value):
             raise FredDataError(f"FRED observation {position} is not finite")
 
-        parsed.append({"date": observation_date, "value": value})
+        record: dict[str, str | float] = {"date": observation_date, "value": value}
+        # FRED's real-time availability date is the earliest source date at
+        # which this observation can be used. Preserve it as publication_date
+        # for extractors that enforce release-lag alignment. Never substitute
+        # the observation/reference date when the source does not provide it.
+        publication_date = observation.get("publication_date") or observation.get("realtime_start")
+        if isinstance(publication_date, str):
+            try:
+                date.fromisoformat(publication_date)
+            except ValueError:
+                raise FredDataError(f"FRED observation {position} has an invalid publication date")
+            record["publication_date"] = publication_date
+        parsed.append(record)
 
     return parsed
 

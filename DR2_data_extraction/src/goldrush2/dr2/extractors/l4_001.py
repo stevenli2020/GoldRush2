@@ -1,10 +1,10 @@
-"""DR2 extractor for L4-001: monthly CPI index comparisons."""
+"""DR2 extractor for L4-001: publication-aligned CPI purchasing power."""
 
 from __future__ import annotations
 
 import json
 import time
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -16,57 +16,109 @@ DATA_FREQUENCY = "Monthly"
 SOURCE_NAME = "FRED CPIAUCSL - Consumer Price Index for All Urban Consumers"
 SOURCE_URL = "https://fred.stlouisfed.org/series/CPIAUCSL"
 CACHE_MAX_AGE_DAYS = 7
+MAX_PUBLICATION_AGE_DAYS = 62
 HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 252, "3-10y": 756}
 from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 RAW_PATH = PROJECT_ROOT / "data" / "raw" / "fred" / f"{SERIES_ID}.json"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / f"{VARIABLE_ID}.json"
 
 
-def _empty_data() -> dict[str, None]:
-    return {"current_value": None, "current_date": None, "comparison_value": None, "comparison_date": None, "change_absolute": None}
+def _empty_data() -> dict[str, Any]:
+    return {"current_value": None, "current_date": None, "publication_date": None, "CPI_YoY_12m_MA": None}
 
 
 def _degraded(summary: str, data: dict[str, Any] | None = None) -> dict[str, Any]:
     return {"signal": 0, "confidence": 0, "evidence": {"data": data or _empty_data(), "summary": summary}}
 
 
-def _valid(current: dict[str, str | float], comparison: dict[str, str | float], *, cached: bool) -> dict[str, Any]:
-    current_value = float(current["value"])
-    comparison_value = float(comparison["value"])
-    change = round(current_value - comparison_value, 10)
-    if change > 0:
-        signal, summary = -1, f"CPI index rose by {change:.2f} points compared to {comparison['date']}, indicating accelerating inflation, bearish for gold."
-    elif change < 0:
-        signal, summary = 1, f"CPI index fell by {abs(change):.2f} points compared to {comparison['date']}, indicating decelerating inflation, bullish for gold."
+def _month_key(value: str) -> int:
+    parsed = datetime.strptime(value[:7], "%Y-%m")
+    return parsed.year * 12 + parsed.month
+
+
+def _publication_date(row: dict[str, Any]) -> str | None:
+    value = row.get("publication_date")
+    if not isinstance(value, str):
+        return None
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return None
+    return value
+
+
+def _eligible(observations: list[dict[str, str | float]], decision_date: str) -> list[dict[str, Any]]:
+    """Keep only observations published by the decision date."""
+    eligible: list[dict[str, Any]] = []
+    for row in observations:
+        publication_date = _publication_date(row)
+        if publication_date is None or publication_date > decision_date:
+            continue
+        eligible.append({**row, "publication_date": publication_date})
+    return sorted(eligible, key=lambda item: str(item["date"]))
+
+
+def _smoothed_rates(observations: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Calculate monthly CPI YoY rates and their trailing 12-month mean."""
+    by_month = {_month_key(str(row["date"])): row for row in observations}
+    yoy: dict[int, float] = {}
+    for month, row in by_month.items():
+        prior = by_month.get(month - 12)
+        if prior is not None and float(prior["value"]) != 0:
+            yoy[month] = (float(row["value"]) / float(prior["value"]) - 1) * 100
+    smoothed: list[dict[str, Any]] = []
+    for month in sorted(yoy):
+        window = [yoy.get(month - offset) for offset in range(12)]
+        if any(value is None for value in window):
+            continue
+        row = by_month[month]
+        smoothed.append({"date": str(row["date"]), "publication_date": str(row["publication_date"]), "value": float(row["value"]), "yoy": yoy[month], "ma": sum(window) / 12})
+    return smoothed
+
+
+def _valid(current: dict[str, Any], *, cached: bool) -> dict[str, Any]:
+    rate = float(current["ma"])
+    if rate < 1.5:
+        signal = -1.0
+    elif rate < 2.5:
+        signal = 0.0
+    elif rate < 4.0:
+        signal = 0.5
     else:
-        signal, summary = 0, "CPI index was unchanged, neutral for gold."
+        signal = 1.0
+    direction = "below purchasing-power pressure anchor" if signal < 0 else "within the neutral purchasing-power band" if signal == 0 else "above the purchasing-power pressure anchor"
+    summary = f"CPI_YoY_12m_MA is {rate:.2f}%, {direction}; L4-001 reflects purchasing-power erosion only."
     if cached:
         summary += " SOURCE UNAVAILABLE — cached data used."
-    return {"signal": signal, "confidence": 1, "evidence": {"data": {"current_value": current_value, "current_date": current["date"], "comparison_value": comparison_value, "comparison_date": comparison["date"], "change_absolute": change}, "summary": summary}}
+    return {"signal": signal, "confidence": 1, "evidence": {"data": {"CPI_YoY_12m": round(float(current["yoy"]), 6), "CPI_YoY_12m_MA": round(rate, 6), "current_value": float(current["value"]), "observation_date": current["date"], "publication_date": current["publication_date"]}, "summary": summary}}
 
 
 def build_output(observations: list[dict[str, str | float]], *, cached: bool = False, as_of_date: str | None = None) -> dict[str, Any]:
-    """Build the four-horizon CPI result from valid monthly FRED observations."""
-    ordered = sorted(observations, key=lambda item: str(item["date"]))
-    current = ordered[-1] if ordered else None
+    """Build CPI output using only publication-eligible monthly observations."""
+    decision_date = as_of_date or date.today().isoformat()
+    ordered = _eligible(observations, decision_date)
+    smoothed = _smoothed_rates(ordered)
+    current = smoothed[-1] if smoothed else None
     horizons: dict[str, Any] = {}
-    for horizon, lookback in HORIZON_LOOKBACKS.items():
-        if current is None or len(ordered) < lookback:
+    stale = current is not None and (date.fromisoformat(decision_date) - date.fromisoformat(current["publication_date"])).days > MAX_PUBLICATION_AGE_DAYS
+    for horizon in HORIZON_LOOKBACKS:
+        if current is None:
             data = _empty_data()
-            if current is not None:
-                data["current_value"], data["current_date"] = float(current["value"]), str(current["date"])
-            summary = f"MISSING DATA — {lookback} valid monthly observations are required; {len(ordered)} are available."
+            summary = f"INSUFFICIENT HISTORY — publication-aligned CPI history cannot calculate CPI_YoY_12m_MA; {len(ordered)} eligible monthly observations are available."
             if cached:
                 summary += " SOURCE UNAVAILABLE — cached data used."
             horizons[horizon] = _degraded(summary, data)
+        elif stale:
+            data = {"CPI_YoY_12m_MA": round(float(current["ma"]), 6), "observation_date": current["date"], "publication_date": current["publication_date"]}
+            horizons[horizon] = _degraded(f"STALE DATA — latest eligible CPI publication is older than {MAX_PUBLICATION_AGE_DAYS} days.", data)
         else:
-            horizons[horizon] = _valid(current, ordered[-lookback], cached=cached)
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "horizons": horizons}
+            horizons[horizon] = _valid(current, cached=cached)
+    return {"variable_id": VARIABLE_ID, "as_of_date": decision_date, "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "publication_date": str(current["publication_date"]) if current else None, "horizons": horizons}
 
 
 def build_degraded_output(summary: str, *, as_of_date: str | None = None) -> dict[str, Any]:
     """Build a zero-confidence result for a collection failure."""
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": None, "horizons": {horizon: _degraded(summary) for horizon in HORIZON_LOOKBACKS}}
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": None, "publication_date": None, "horizons": {horizon: _degraded(summary) for horizon in HORIZON_LOOKBACKS}}
 
 
 def _cache_is_fresh(path: Path) -> bool:
