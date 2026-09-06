@@ -7,6 +7,9 @@ from pathlib import Path
 import pandas as pd
 from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 CACHE_PATH=PROJECT_ROOT / "data/cache/L6-001.json"
+# V1 policy proposal: TRANCHE3_CONFIDENCE_DECAY_RULE_PROPOSAL.md.
+# These are evidence-quality weights, not calibrated probabilities.
+CONFIDENCE_BY_HORIZON = {"1-5d": 1.0, "1-3m": 0.7}
 def run(cache_path=CACHE_PATH, output_path=PROJECT_ROOT / "data/current/L6-001.json", force_refresh=False, verbose=0):
     rows=json.loads(Path(cache_path).read_text()) if Path(cache_path).exists() else []
     df=pd.DataFrame(rows)
@@ -30,7 +33,7 @@ def run(cache_path=CACHE_PATH, output_path=PROJECT_ROOT / "data/current/L6-001.j
             pass
     freshness_date=vintage_date or estimated_availability_date
     gap=(date.today()-freshness_date).days if freshness_date is not None else None
-    for h,conf in (("1-5d",1.0),("1-3m",0.7)):
+    for h,conf in CONFIDENCE_BY_HORIZON.items():
         if len(df)<60: horizons[h]={"signal":0,"confidence":0,"status":"INSUFFICIENT_DATA","evidence":{"reason":"Insufficient history for 60 observations"}}; continue
         vals=df["value"].tail(60); ma5=float(vals.tail(5).mean()); ma20=float(vals.tail(20).mean()); std=float(vals.std(ddof=0)); score=max(-1.0,min(1.0,(ma5-ma20)/max(std,0.1))); sig=1 if score>0 else -1 if score<0 else 0
         effective_conf=conf

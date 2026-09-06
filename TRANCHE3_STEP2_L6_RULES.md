@@ -1,6 +1,6 @@
 # Tranche 3 Step 2 — L6-001 Source Contract and Evidence Rules
 
-**Status:** approved; Step 3 implemented
+**Status:** approved; Step 3 implemented; schedule-estimated exception approved for V1
 **Variable:** L6-001 Geopolitical Risk
 
 ## Source contract
@@ -37,5 +37,7 @@ This is a source-availability contract gap, not evidence that geopolitical risk 
 ## Approved decisions
 
 - Retain Caldara–Iacoviello `GPRD_ACT`; no migration to AI-GPR or ACLED in this tranche.
-- Use Monday/next-business-day freshness tolerance with explicit source vintage/update dates only. Ignore filesystem mtime and `retrieved_at` for freshness.
+- Prefer real source `vintage_date`. If machine-readable version metadata is unavailable but the official Monday/next-business-day schedule is available, allow the explicitly marked `schedule_estimated` exception. Record `availability_source`, `estimated_availability_date`, `retrieved_at`, and `vintage_date: null`; ignore filesystem mtime.
+- Schedule estimation is bounded by the seven-day tolerance. It must degrade to `STALE` with confidence zero when exceeded.
+- Deprecation path: when a reliable machine-readable source vintage becomes available, `schedule_estimated` must stop being selected for that source; existing estimated records remain auditable historical outputs.
 - Keep `1-3y` and `3-10y` as `NOT_APPLICABLE` for L6-001.
