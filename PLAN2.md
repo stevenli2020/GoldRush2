@@ -2,7 +2,7 @@
 
 ## Status
 
-Closed for the L4-001 tranche after controlled refresh and comparison. Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`; Step 4 is documented in `DR3_data_analytics/PLAN2_STEP4_L4_COMPARISON.md`.
+Closed for the L4-001 tranche after controlled refresh and comparison. The consolidated review record is [`PLAN2_STEP4_COMPLETION_SUMMARY.md`](PLAN2_STEP4_COMPLETION_SUMMARY.md). Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`; Step 4 evidence is in `DR3_data_analytics/PLAN2_STEP4_L4_COMPARISON.md`.
 
 ## Objective
 
