@@ -1,5 +1,18 @@
 # Sparse signal audit and correction sequence
 
+## Plan 1 Step 3 regression verification
+
+Completed the Step 3 test matrix in `tests/test_multi_strategy.py`. WSL command: `pytest DR3_data_analytics/tests/test_multi_strategy.py -q` (25 passed).
+
+- Stale +1/confidence 0, invalid signals/confidence, and explicit inapplicability are excluded; valid zero remains usable.
+- Valid positive fractional confidence retains full configured directional contribution without redistribution.
+- Mixed-sign contributions reconcile across all strategy horizons; cancellation at 20% coverage differs from missing inputs at 0% coverage even when both scores are zero.
+- Malformed files and absent horizons produce missing usable inputs with warnings; malformed-file details remain in loader stderr (not misrepresented as a parsed invalid-signal record).
+- Real `cli.main(['analyze-strategies'])` runs with temporary IO defaults. Copied strategy YAML, input JSON and an official-score sentinel remain byte-for-byte unchanged. No hash checks or production output writes are needed.
+- Output tests cover four horizons for every strategy and baseline registry membership. They no longer require a hard-coded 45-variable count or read live current data.
+
+Tests use temporary files and do not refresh sources. The earlier test-limitations section below records historical limitations; local-data dependence, hard-coded ADMIT count and single-strategy horizon coverage have now been addressed. Step 4's full current-input comparison and delivery review remain separate.
+
 ## Plan 1 Step 2 implementation update
 
 The comparison JSON now carries structured contributions, input status, reasons, source explanations, usable configured-weight coverage and warnings for every strategy/horizon, including the baseline. See README.md for field definitions. The source's stale warning is retained even when the official-score model discards that field. No economic rule, weight or fractional-confidence multiplier was changed. Focused WSL verification: 22 tests passed, including neutral-versus-missing coverage, stale-source explanation, applicability, invalid signals, and contribution reconciliation across all strategy horizons. Historical findings below remain a record of the original behavior.

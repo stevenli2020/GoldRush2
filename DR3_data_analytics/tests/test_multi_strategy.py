@@ -8,6 +8,73 @@ from goldrush2.paths import DR3_STRATEGIES_DIR
 from goldrush2.dr3.analytics.models import VariableResult
 
 
+def test_comparison_command_preserves_weights_inputs_and_official_output(tmp_path, monkeypatch):
+    from goldrush2 import cli, paths
+    from goldrush2.dr3.analytics import aggregator, multi_strategy
+
+    configs = tmp_path / 'strategies'
+    shutil.copytree(DR3_STRATEGIES_DIR, configs)
+    inputs = tmp_path / 'inputs'
+    inputs.mkdir()
+    (inputs / 'L1-001.json').write_text(json.dumps({
+        'variable_id': 'L1-001', 'horizons': {
+            h: {'signal': -1, 'confidence': 0.4, 'evidence': {'data': {}}}
+            for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}))
+    official = tmp_path / 'current_scores.json'
+    official.write_bytes(b'{"official_sentinel": true}\n')
+    comparison = tmp_path / 'comparison.json'
+    protected = [*configs.glob('*.yaml'), *inputs.glob('*.json'), official]
+    before = {path: path.read_bytes() for path in protected}
+    # Redirect IO defaults only; exercise the real CLI dispatch, loader and scorer.
+    monkeypatch.setattr(multi_strategy.run_multi_strategy, '__defaults__', (configs, comparison, inputs))
+    monkeypatch.setattr(paths, 'DR3_SCORES_PATH', official)
+    monkeypatch.setattr(aggregator, 'SCORES_OUTPUT_FILE', official)
+    assert cli.main(['analyze-strategies']) == 0
+    assert {path: path.read_bytes() for path in protected} == before
+    output = json.loads(comparison.read_text())
+    assert output['official_strategy'] is None
+    assert len(output['strategies']) == 15
+    for h in output['strategies']['SP-RATE']['horizons'].values():
+        assert h['score'] == -60
+        assert h['usable_weight_coverage'] == 0.6
+
+
+def test_cancellation_is_distinct_from_no_usable_data(tmp_path):
+    empty = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'empty.json')
+    for vid, signal in [('L1-001', 1), ('L2-001', -1)]:
+        (tmp_path / f'{vid}.json').write_text(json.dumps({
+            'variable_id': vid, 'horizons': {
+                h: {'signal': signal, 'confidence': 1, 'evidence': {'data': {}}}
+                for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}))
+    result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'mixed.json')
+    # SP-SPARSE gives each input 10%; cancellation is known neutrality at 20% coverage.
+    for h in ('1-5d', '1-3m', '1-3y', '3-10y'):
+        missing = empty['strategies']['SP-SPARSE']['horizons'][h]
+        mixed = result['strategies']['SP-SPARSE']['horizons'][h]
+        assert missing['score'] == mixed['score'] == 0
+        assert missing['usable_weight_coverage'] == 0
+        assert mixed['usable_weight_coverage'] == 0.2
+        assert mixed['contributions']['L1-001']['contribution'] == 10
+        assert mixed['contributions']['L2-001']['contribution'] == -10
+
+
+def test_missing_horizon_invalid_file_and_valid_neutral(tmp_path, capsys):
+    (tmp_path / 'L1-001.json').write_text('{broken json')
+    (tmp_path / 'L2-001.json').write_text(json.dumps({'variable_id': 'L2-001', 'horizons': {}}))
+    (tmp_path / 'L4-001.json').write_text(json.dumps({'variable_id': 'L4-001', 'horizons': {
+        '1-5d': {'signal': 0, 'confidence': 1, 'evidence': {'data': {}}}}}))
+    result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
+    horizon = result['strategies']['SP-RATE']['horizons']['1-5d']
+    assert horizon['score'] == 0
+    assert horizon['usable_weight_coverage'] == 0.15
+    assert horizon['contributions']['L4-001']['input_status'] == 'VALID'
+    for vid in ('L1-001', 'L2-001'):
+        assert horizon['contributions'][vid]['input_status'] == 'MISSING'
+        assert horizon['contributions'][vid]['contribution'] == 0
+        assert any(vid in warning for warning in horizon['warnings'])
+    assert 'Failed to parse L1-001.json' in capsys.readouterr().err
+
+
 @pytest.mark.parametrize('signal,confidence,applicable,expected,warning', [
     (1, 0, None, 0, 'zero confidence'),
     (-1, 0, None, 0, 'zero confidence'),
@@ -134,14 +201,18 @@ def test_missing_current_signal_is_neutral_without_weight_renormalization():
 
 def test_multi_strategy_output_is_current_only_and_non_official(tmp_path):
     output_path = tmp_path / "dr3_multi_strategy_outlook.json"
-    result = run_multi_strategy(output_path=output_path)
+    result = run_multi_strategy(data_dir=tmp_path, output_path=output_path)
     persisted = json.loads(output_path.read_text(encoding="utf-8"))
     assert result == persisted
     assert result["mode"] == "current_outlook_only"
     assert result["official_strategy"] is None
-    assert result["admit_variable_count"] == 45
+    from goldrush2.dr3.analytics.multi_strategy import production_variable_ids
+    assert result["admit_variable_count"] == len(production_variable_ids())
     assert len(result["strategies"]) == 15
     assert set(result["strategies"]["SP-RATE"]["horizons"]) == {"1-5d", "1-3m", "1-3y", "3-10y"}
     assert result["strategies"]["SP-TECH"]["production_eligible"] is False
     assert result["strategies"]["SP-ALL"]["production_eligible"] is False
     assert result["strategies"]["SP-ALL"]["horizons"]["1-5d"]["active_variables"] == "AUTO_UNIFORM_ADMIT"
+    for strategy in result['strategies'].values():
+        assert set(strategy['horizons']) == {'1-5d', '1-3m', '1-3y', '3-10y'}
+    assert set(result['strategies']['SP-ALL']['horizons']['1-5d']['contributions']) == production_variable_ids()
