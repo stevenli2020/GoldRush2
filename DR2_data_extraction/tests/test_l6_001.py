@@ -50,3 +50,19 @@ def test_tuesday_after_holiday_vintage_is_fresh(tmp_path):
     out=run(p,tmp_path/'o.json')
     assert out['horizons']['1-3m']['confidence']==0.7
     assert out['horizons']['1-3m']['status']=='VALID'
+
+def test_schedule_estimated_monday_activation(tmp_path):
+    p=_cache(tmp_path); (tmp_path/'L6-001_meta.json').write_text(json.dumps({'downloaded_at':'2026-09-04T14:20:43Z'}))
+    out=run(p,tmp_path/'o.json')
+    assert out['availability_source']=='schedule_estimated'
+    assert out['vintage_date'] is None
+    assert out['estimated_availability_date']=='2026-09-07'
+    assert out['horizons']['1-5d']['status']=='VALID'
+    assert out['horizons']['1-5d']['confidence']==1
+
+def test_schedule_estimated_stale_after_tolerance(tmp_path):
+    p=_cache(tmp_path); (tmp_path/'L6-001_meta.json').write_text(json.dumps({'downloaded_at':'2026-08-01T14:20:43Z'}))
+    out=run(p,tmp_path/'o.json')
+    assert out['availability_source']=='schedule_estimated'
+    assert out['horizons']['1-5d']['status']=='STALE'
+    assert out['horizons']['1-5d']['confidence']==0
