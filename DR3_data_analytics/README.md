@@ -4,7 +4,8 @@ DR3 combines current variable signals into one score, confidence level, and avai
 
 Canonical implementation:
 
-- [`SIGNAL_AUDIT.md`](SIGNAL_AUDIT.md) — findings, reference scores, evidence locations, repeatable verification methods, test limitations, and pending corrections.
+- [`SIGNAL_AUDIT.md`](SIGNAL_AUDIT.md) — findings, reference scores, evidence locations, repeatable verification methods, and Plan 1 closure.
+- [`../PLAN2.md`](../PLAN2.md) — proposed source-semantic correction tasks awaiting review.
 
 - [`config/weights_v1.yaml`](config/weights_v1.yaml) — versioned variable weights.
 - [`src/goldrush2/dr3/analytics/`](src/goldrush2/dr3/analytics/) — aggregation models and engine.
@@ -15,7 +16,7 @@ Canonical implementation:
 - [`SCORE_DELTA_REPORT.md`](SCORE_DELTA_REPORT.md) — fixed initial-matrix versus current-run audit comparison.
 - [`tests/`](tests/) — analytics tests.
 
-The approved V1.1 design rationale is in [`DR3_PROPOSAL_zh.md`](DR3_PROPOSAL_zh.md). Run `gr2 analyze` after the required DR2 extractors have produced current JSON outputs.
+The approved V1.1 design rationale is in [`DR3_PROPOSAL_zh.md`](DR3_PROPOSAL_zh.md). Plan 2 source-rule work remains proposed; run `gr2 analyze` after the required DR2 extractors have produced current JSON outputs.
 
 `gr2 analyze-strategies` evaluates all 14 sparse strategies and the `SP-ALL` baseline from current DR2 signals only. It does not rank or select a strategy and does not change the existing official-score path.
 

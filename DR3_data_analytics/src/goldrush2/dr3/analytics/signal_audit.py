@@ -27,9 +27,9 @@ def render_audit() -> str:
             evidence = json.dumps(item.get('evidence', {}), ensure_ascii=False).replace('|', '\\|').replace('\n', ' ')
             lines.append(f"| {horizon} | {item.get('signal')} | {item.get('confidence')} | {evidence} |")
         lines.append('')
-    lines += ['## Attribution of the existing formula', '',
-              'These contributions reproduce 100 × weight × signal. Zero-confidence inputs are deliberately shown as counted when the current engine counts them; this is diagnosis, not an approved correction.', '',
-              '| Strategy | Horizon | Score | Contributions (points) | Zero-confidence points counted |', '|---|---|---:|---|---:|']
+    lines += ['## Attribution of the current formula', '',
+              'These contributions reproduce 100 × weight × signal × confidence for valid inputs. Zero-confidence inputs are hard-gated to zero; configured weight is never redistributed.', '',
+              '| Strategy | Horizon | Score | Contributions (points) | Zero-confidence points gated |', '|---|---|---:|---|---:|']
     for config in configs:
         for horizon, weights in config['horizon_weights'].items():
             total = zero_conf = 0
@@ -37,10 +37,13 @@ def render_audit() -> str:
             for vid, weight in weights.items():
                 item = variables[vid].get('horizons', {}).get(horizon, {})
                 signal = item.get('signal')
-                contribution = 100 * weight * (signal if signal in (-1, 0, 1) else 0)
+                confidence = item.get('confidence')
+                contribution = (100 * weight * signal * confidence
+                                if signal in (-1, 0, 1) and isinstance(confidence, (int, float)) and confidence > 0
+                                else 0)
                 total += contribution
                 if item.get('confidence') == 0:
-                    zero_conf += contribution
+                    zero_conf += 100 * weight * (signal if signal in (-1, 0, 1) else 0)
                 parts.append(f'{vid}: {contribution:+.2f}')
             lines.append(f"| {config['strategy']['id']} | {horizon} | {total:.2f} | {'; '.join(parts)} | {zero_conf:+.2f} |")
     return '\n'.join(lines) + '\n'

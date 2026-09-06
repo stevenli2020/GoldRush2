@@ -10,6 +10,10 @@ Q's final arithmetic boundary supersedes the Step 1 interim behavior: confidence
 
 The completed current-data run has 16 of 60 strategy-horizon results below the coverage floor. For example, SP-L6L7 changes from +10 to -30 at 1-5d and from +50 to +10 at 1-3m after stale L6-001 is excluded; both remain `DEGRADED` at 60% coverage. The report is the source of record for every row and zeroed-input explanation.
 
+## Plan 1 approval and closure
+
+The owner approved Plan 1 after review. Steps 1–4 are complete and tracked as approved in the root `TRACKER.md`; implementation and comparison evidence are committed in `efa4aaa`. The remaining source-frequency, economic-method, and extractor corrections are proposed in [`PLAN2.md`](../PLAN2.md), not silently included in Plan 1.
+
 ## Plan 1 Step 3 regression verification
 
 Completed the Step 3 test matrix in `tests/test_multi_strategy.py`. WSL command: `pytest DR3_data_analytics/tests/test_multi_strategy.py -q` (25 passed).
@@ -21,7 +25,7 @@ Completed the Step 3 test matrix in `tests/test_multi_strategy.py`. WSL command:
 - Real `cli.main(['analyze-strategies'])` runs with temporary IO defaults. Copied strategy YAML, input JSON and an official-score sentinel remain byte-for-byte unchanged. No hash checks or production output writes are needed.
 - Output tests cover four horizons for every strategy and baseline registry membership. They no longer require a hard-coded 45-variable count or read live current data.
 
-Tests use temporary files and do not refresh sources. The earlier test-limitations section below records historical limitations; local-data dependence, hard-coded ADMIT count and single-strategy horizon coverage have now been addressed. Step 4's full current-input comparison and delivery review remain separate.
+Tests use temporary files and do not refresh sources. The earlier test-limitations section below records historical limitations; local-data dependence, hard-coded ADMIT count and single-strategy horizon coverage have now been addressed. Step 4's full current-input comparison and delivery review are complete; source-semantic correction remains Plan 2 work.
 
 ## Plan 1 Step 2 implementation update
 
@@ -160,7 +164,7 @@ For each variable, record the exact source series or workbook sheet, unit, repor
 
 This live-source verification remains pending. Do not use the current audit to certify a cache as fresh or a source value as correct.
 
-### E. Required regression cases for the correction work (not yet implemented)
+### E. Plan 2 regression cases (not yet implemented)
 
 | Case | Expected evidence or behavior |
 |---|---|
@@ -186,5 +190,5 @@ After approved corrections, run focused tests, refresh affected current inputs, 
 - Sparse implementation: `c84b5f0`; owner fully approved the implementation. This does not validate economic predictiveness.
 - Q corrected SP-SHORT 1-3y L8-001 from 0.20 to 0.25; other strategy weights remain frozen.
 - Initial audit/tool: `aaeb70c`; diagnostics executed successfully in WSL.
-- Frequency/source checks, economic method decisions, degradation corrections and post-correction scoring remain open.
+- Plan 1 gating, diagnostics, coverage status, and delta reporting are approved and complete. Frequency/source checks and economic method decisions remain open under proposed Plan 2.
 - CPI channel remains the first economic decision. No new signs, thresholds or lookbacks have been approved through this audit.
