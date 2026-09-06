@@ -17,7 +17,7 @@ SOURCE_NAME = "FRED CPIAUCSL - Consumer Price Index for All Urban Consumers"
 SOURCE_URL = "https://fred.stlouisfed.org/series/CPIAUCSL"
 CACHE_MAX_AGE_DAYS = 7
 MAX_PUBLICATION_AGE_DAYS = 62
-HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 252, "3-10y": 756}
+HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 1, "1-3y": 48, "3-10y": 132}
 from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 RAW_PATH = PROJECT_ROOT / "data" / "raw" / "fred" / f"{SERIES_ID}.json"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / f"{VARIABLE_ID}.json"

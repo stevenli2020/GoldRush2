@@ -12,7 +12,7 @@ VARIABLE_ID = "L5-003"
 SOURCE_NAME = "IMF COFER - USD Share of Allocated Global FX Reserves (%)"
 SOURCE_URL = "https://data.imf.org/COFER"
 CACHE_PATH = PROJECT_ROOT / "data/cache/imf/L5-003.json"
-LOOKBACKS = {"1-3y": 4, "3-10y": 20}
+LOOKBACKS = {"1-3y": 12, "3-10y": 40}
 
 
 def quarter_rows(observations: list[dict[str, Any]]) -> list[dict[str, Any]]:

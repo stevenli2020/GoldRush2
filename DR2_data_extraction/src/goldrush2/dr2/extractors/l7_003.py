@@ -11,7 +11,7 @@ from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 VARIABLE_ID = "L7-003"
 SOURCE_NAME = "BIS WS_TC(2.0) - Private Non-Financial Sector Credit Growth (YoY, %)"
 SOURCE_URL = "https://www.bis.org/statistics/totcredit.htm"
-LOOKBACKS = {"1-3y": 4, "3-10y": 20}
+LOOKBACKS = {"1-3y": 12, "3-10y": 40}
 
 
 def add_yoy(observations: list[dict[str, Any]]) -> list[dict[str, Any]]:

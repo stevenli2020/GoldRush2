@@ -23,7 +23,7 @@ class GPRCollector(BaseCollector):
             page=requests.get(self.SOURCE_URL, timeout=30); page.raise_for_status()
             match=re.search(r'href=["\']([^"\']*data_gpr_daily_recent(?:_[0-9]{8})?\.dta)["\']', page.text, re.I)
             if not match: raise SourceUnavailableError("GPR page contains no daily DTA link")
-            url=urljoin(self.SOURCE_URL, match.group(1)); r=requests.get(url, timeout=30); r.raise_for_status(); self.raw_path.parent.mkdir(parents=True, exist_ok=True); self.raw_path.write_bytes(r.content); self.source_url=url; return self.raw_path
+            url=urljoin(self.SOURCE_URL, match.group(1)); r=requests.get(url, timeout=30); r.raise_for_status(); self.raw_path.parent.mkdir(parents=True, exist_ok=True); self.raw_path.write_bytes(r.content); self.source_url=url; self.source_vintage_date=(re.search(r"_(\d{8})\.dta", url, re.I).group(1) if re.search(r"_(\d{8})\.dta", url, re.I) else None); return self.raw_path
         except Exception as exc:
             if self.snapshot_path and self.snapshot_path.exists(): return self.snapshot_path
             raise SourceUnavailableError(f"GPR source unavailable: {exc}") from exc
@@ -49,7 +49,9 @@ class GPRCollector(BaseCollector):
                 out.append({"date":dt.date().isoformat(),"value":val})
             except (TypeError,ValueError): continue
         if not out: raise SourceUnavailableError("GPR data contains no valid observations")
-        self._save_updated([], out, "full"); return self.cache_path
+        self._save_updated([], out, "full")
+        meta = self.load_meta(); meta["source_vintage_date"] = getattr(self, "source_vintage_date", None); meta["source_url"] = getattr(self, "source_url", self.SOURCE_URL); self.save_meta(meta)
+        return self.cache_path
     def fetch_latest_observation_date(self):
         try:
             p=self.fetch(); df=self._read(Path(p)); dt=pd.to_datetime(df[ next(c for c in df.columns if str(c).lower()=="date") ], errors="coerce").max(); return dt.date().isoformat()

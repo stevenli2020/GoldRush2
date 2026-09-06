@@ -10,8 +10,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 252, "3-10y": 756}
-QUARTER_HORIZON_LOOKBACKS = {"1-3y": 4, "3-10y": 20}
+HORIZON_LOOKBACKS = {"1-5d": 5, "1-3m": 63, "1-3y": 36, "3-10y": 120}
+QUARTER_HORIZON_LOOKBACKS = {"1-3y": 12, "3-10y": 40}
 GDT_CACHE_VERSION = 2
 
 
@@ -278,7 +278,7 @@ def build_quarterly_output(
     for horizon in ("1-5d", "1-3m"):
         horizons[horizon] = {"signal": 0, "confidence": 1, "evidence": {"summary": f"Quarterly data does not support {horizon} horizon."}}
     for horizon, lookback in QUARTER_HORIZON_LOOKBACKS.items():
-        if current is None or len(ordered) <= lookback:
+        if current is None or len(ordered) < lookback:
             data = empty_data()
             if current is not None:
                 data.update({"current_value": float(current["value"]), "current_date": str(current["date"])})
@@ -289,7 +289,7 @@ def build_quarterly_output(
                 summary += " SOURCE UNAVAILABLE — cached data used."
             horizons[horizon] = degraded(summary, data)
             continue
-        comparison = ordered[-1 - lookback]
+        comparison = ordered[-lookback]
         current_value, comparison_value = float(current["value"]), float(comparison["value"])
         change = round(current_value - comparison_value, 10)
         change_pct = round(change / comparison_value * 100, 10) if comparison_value else None
