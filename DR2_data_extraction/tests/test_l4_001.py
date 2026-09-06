@@ -8,10 +8,10 @@ from goldrush2.dr2.collectors.fred import FredError, parse_observations
 from goldrush2.dr2.extractors import l4_001
 
 
-def monthly_observations(*, rate: float = 2.0, publication_date: str = "2026-08-15", months: int = 36):
+def monthly_observations(*, rate: float = 2.0, publication_date: str = "2026-08-15", months: int = 36, start_year: int = 2024):
     rows = []
     for index in range(months):
-        year = 2024 + index // 12
+        year = start_year + index // 12
         month = index % 12 + 1
         current_date = f"{year:04d}-{month:02d}-01"
         value = 100.0 * (1 + rate / 100) ** (index / 12)
@@ -62,7 +62,7 @@ def test_insufficient_history_is_zero_confidence():
 
 
 def test_stale_publication_is_zero_confidence():
-    output = l4_001.build_output(monthly_observations(publication_date="2026-01-01"), as_of_date="2026-12-31")
+    output = l4_001.build_output(monthly_observations(publication_date="2026-01-01", start_year=2022, months=48), as_of_date="2027-12-31")
     assert output["horizons"]["1-5d"]["confidence"] == 0
     assert "STALE DATA" in output["horizons"]["1-5d"]["evidence"]["summary"]
 
@@ -72,9 +72,19 @@ def test_missing_values_are_ignored():
     assert parsed == [{"date": "2026-02-01", "value": 320.5}]
 
 
-def test_fred_realtime_start_is_preserved_as_publication_date():
+def test_fred_realtime_start_is_not_used_as_publication_date():
     parsed = parse_observations({"observations": [{"date": "2026-02-01", "realtime_start": "2026-02-12", "value": "320.5"}]})
-    assert parsed == [{"date": "2026-02-01", "publication_date": "2026-02-12", "value": 320.5}]
+    assert parsed == [{"date": "2026-02-01", "vintage_date": "2026-02-12", "value": 320.5}]
+
+
+def test_stale_uses_observation_period_not_fred_vintage_date():
+    rows = monthly_observations(publication_date="2026-08-12", start_year=2022, months=48)
+    rows = [row for row in rows if row["date"] <= "2025-09-01"]
+    output = l4_001.build_output(rows, as_of_date="2026-09-06")
+    assert output["observation_date"] == "2025-09-01"
+    assert output["horizons"]["1-5d"]["signal"] == 0
+    assert output["horizons"]["1-5d"]["confidence"] == 0
+    assert "STALE DATA" in output["horizons"]["1-5d"]["evidence"]["summary"]
 
 
 def test_fresh_cache_fallback_is_degraded_without_publication_dates(monkeypatch, tmp_path):

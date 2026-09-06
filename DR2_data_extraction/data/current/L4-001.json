@@ -4,63 +4,59 @@
   "source_name": "FRED CPIAUCSL - Consumer Price Index for All Urban Consumers",
   "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
   "data_frequency": "Monthly",
-  "observation_date": "2025-09-01",
-  "publication_date": "2026-08-12",
+  "observation_date": null,
+  "publication_date": null,
   "horizons": {
     "1-5d": {
-      "signal": 0.5,
-      "confidence": 1,
+      "signal": 0,
+      "confidence": 0,
       "evidence": {
         "data": {
-          "CPI_YoY_12m": 3.022572,
-          "CPI_YoY_12m_MA": 2.702537,
-          "current_value": 324.245,
-          "observation_date": "2025-09-01",
-          "publication_date": "2026-08-12"
+          "current_value": null,
+          "current_date": null,
+          "publication_date": null,
+          "CPI_YoY_12m_MA": null
         },
-        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only."
+        "summary": "INSUFFICIENT HISTORY \u2014 publication-aligned CPI history cannot calculate CPI_YoY_12m_MA; 0 eligible monthly observations are available."
       }
     },
     "1-3m": {
-      "signal": 0.5,
-      "confidence": 1,
+      "signal": 0,
+      "confidence": 0,
       "evidence": {
         "data": {
-          "CPI_YoY_12m": 3.022572,
-          "CPI_YoY_12m_MA": 2.702537,
-          "current_value": 324.245,
-          "observation_date": "2025-09-01",
-          "publication_date": "2026-08-12"
+          "current_value": null,
+          "current_date": null,
+          "publication_date": null,
+          "CPI_YoY_12m_MA": null
         },
-        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only."
+        "summary": "INSUFFICIENT HISTORY \u2014 publication-aligned CPI history cannot calculate CPI_YoY_12m_MA; 0 eligible monthly observations are available."
       }
     },
     "1-3y": {
-      "signal": 0.5,
-      "confidence": 1,
+      "signal": 0,
+      "confidence": 0,
       "evidence": {
         "data": {
-          "CPI_YoY_12m": 3.022572,
-          "CPI_YoY_12m_MA": 2.702537,
-          "current_value": 324.245,
-          "observation_date": "2025-09-01",
-          "publication_date": "2026-08-12"
+          "current_value": null,
+          "current_date": null,
+          "publication_date": null,
+          "CPI_YoY_12m_MA": null
         },
-        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only."
+        "summary": "INSUFFICIENT HISTORY \u2014 publication-aligned CPI history cannot calculate CPI_YoY_12m_MA; 0 eligible monthly observations are available."
       }
     },
     "3-10y": {
-      "signal": 0.5,
-      "confidence": 1,
+      "signal": 0,
+      "confidence": 0,
       "evidence": {
         "data": {
-          "CPI_YoY_12m": 3.022572,
-          "CPI_YoY_12m_MA": 2.702537,
-          "current_value": 324.245,
-          "observation_date": "2025-09-01",
-          "publication_date": "2026-08-12"
+          "current_value": null,
+          "current_date": null,
+          "publication_date": null,
+          "CPI_YoY_12m_MA": null
         },
-        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only."
+        "summary": "INSUFFICIENT HISTORY \u2014 publication-aligned CPI history cannot calculate CPI_YoY_12m_MA; 0 eligible monthly observations are available."
       }
     }
   }

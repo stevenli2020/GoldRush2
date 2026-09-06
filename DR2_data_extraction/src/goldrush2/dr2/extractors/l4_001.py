@@ -100,7 +100,10 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
     smoothed = _smoothed_rates(ordered)
     current = smoothed[-1] if smoothed else None
     horizons: dict[str, Any] = {}
-    stale = current is not None and (date.fromisoformat(decision_date) - date.fromisoformat(current["publication_date"])).days > MAX_PUBLICATION_AGE_DAYS
+    # Freshness is a variable-specific data-availability rule.  It must be
+    # based on the latest evidence observation period, never on FRED vintage
+    # metadata or an incorrectly mapped publication date.
+    stale = current is not None and (date.fromisoformat(decision_date) - date.fromisoformat(current["date"])).days > MAX_PUBLICATION_AGE_DAYS
     for horizon in HORIZON_LOOKBACKS:
         if current is None:
             data = _empty_data()
@@ -110,7 +113,7 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
             horizons[horizon] = _degraded(summary, data)
         elif stale:
             data = {"CPI_YoY_12m_MA": round(float(current["ma"]), 6), "observation_date": current["date"], "publication_date": current["publication_date"]}
-            horizons[horizon] = _degraded(f"STALE DATA — latest eligible CPI publication is older than {MAX_PUBLICATION_AGE_DAYS} days.", data)
+            horizons[horizon] = _degraded(f"STALE DATA — latest smoothed CPI observation period is older than {MAX_PUBLICATION_AGE_DAYS} days.", data)
         else:
             horizons[horizon] = _valid(current, cached=cached)
     return {"variable_id": VARIABLE_ID, "as_of_date": decision_date, "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "publication_date": str(current["publication_date"]) if current else None, "horizons": horizons}

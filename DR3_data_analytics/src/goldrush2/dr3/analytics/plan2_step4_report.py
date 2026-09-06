@@ -21,13 +21,17 @@ def render(pre_path: Path, post_path: Path) -> str:
     l4_data = l4["horizons"]["1-5d"]["evidence"].get("data", {})
     l4_summary = l4["horizons"]["1-5d"]["evidence"].get("summary", "")
     source_mode = "live FRED data" if "SOURCE UNAVAILABLE" not in l4_summary else "cached FRED data after source unavailability"
+    rate = l4_data.get("CPI_YoY_12m_MA")
+    rate_text = f"{float(rate):.2f}%" if rate is not None else "unavailable"
+    signal = l4["horizons"]["1-5d"].get("signal", 0)
+    confidence = l4["horizons"]["1-5d"].get("confidence", 0)
     lines = [
         "# Plan 2 Step 4 — L4-001 Controlled Refresh Comparison",
         "",
         "This report compares the frozen strategy run captured immediately before the L4-001 refresh with the unchanged strategy engine after the refresh.",
         "The comparison is current-outlook evidence, not a backtest or a strategy ranking.",
         "",
-        f"L4-001 now uses publication-aligned `CPI_YoY_12m_MA` and emits `+0.5` for the refreshed {l4_data.get('CPI_YoY_12m_MA'):.2f}% smoothed rate. The refresh used {source_mode}; its latest smoothed observation is dated {l4_data.get('observation_date')} with publication date {l4_data.get('publication_date')}.",
+        f"L4-001 uses publication-aligned `CPI_YoY_12m_MA`; the refreshed smoothed rate is {rate_text}, signal `{signal}`, confidence `{confidence}`. The refresh used {source_mode}; its latest eligible smoothed observation is dated {l4_data.get('observation_date')} with publication date {l4_data.get('publication_date')}.",
         "",
         "| Strategy | Horizon | Pre Score | Post Score | Delta | L4 Pre Contribution | L4 Post Contribution | Post Coverage | Status |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
@@ -44,8 +48,8 @@ def render(pre_path: Path, post_path: Path) -> str:
         "",
         "## Interpretation",
         "",
-        "- The L4-001 contribution changes from the old CPI index-direction output to the approved smoothed rate output. Because the refreshed `CPI_YoY_12m_MA` is 2.70%, L4-001 contributes a positive half-strength signal wherever its strategy weight is present.",
-        "- The strategy configurations and horizon weights were not changed. Score deltas therefore arise from the L4-001 refresh and the explicit acceptance of the approved half-strength signal.",
+        "- FRED `realtime_start` is vintage metadata, not a publication date. When no explicit publication date is available, the extractor conservatively produces zero-confidence output rather than treating the vintage date as release evidence.",
+        "- The strategy configurations and horizon weights were not changed. Any L4-001 score delta is therefore attributable to the corrected input gate; no stale CPI contribution is allowed through.",
         "- `DEGRADED` statuses remain data-coverage warnings; they are not converted into rankings or suppressed scores.",
         "",
         "## Next correction tranche",

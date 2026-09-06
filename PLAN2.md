@@ -2,7 +2,7 @@
 
 ## Status
 
-Closed for the L4-001 tranche after controlled refresh and comparison. The consolidated review record is [`PLAN2_STEP4_COMPLETION_SUMMARY.md`](PLAN2_STEP4_COMPLETION_SUMMARY.md). Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`; Step 4 evidence is in `DR3_data_analytics/PLAN2_STEP4_L4_COMPARISON.md`.
+Conditionally suspended after a P0 L4-001 metadata/stale-gating bug was found during review. The bug report is [`PLAN2_STEP4_P0_BUG_REPORT.md`](PLAN2_STEP4_P0_BUG_REPORT.md); the prior completion record is superseded pending review. Tranche 2 is prohibited.
 
 ## Objective
 
@@ -36,7 +36,7 @@ Refresh only the affected sources, regenerate their current JSON, run `gr2 analy
 
 Deliverable: reviewed post-correction comparison and an owner decision on the next correction tranche.
 
-The L4-001 tranche is complete. The next proposed tranche is L8-001 and L5-001 through their shared monthly WGC collector; it requires its own source-contract and evidence-rule approval before implementation.
+The L4-001 tranche is reopened for P0 correction and review. The next proposed tranche remains L8-001 and L5-001 through their shared monthly WGC collector, but it must not start until the P0 matrix is approved and the source-publication contract is closed.
 
 ## Acceptance gates
 

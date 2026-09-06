@@ -1,12 +1,16 @@
 # Plan 2 Step 4 — Completion Summary for Review
 
 **Scope:** L4-001 controlled refresh and unchanged strategy comparison
-**Final status:** complete for the L4-001 tranche
+**Final status:** superseded; P0 correction applied and Step 4 reopened for review
 **Final commits:** [`4e55b9e`](https://github.com/stevenli2020/GoldRush2/commit/4e55b9e), [`8a4b953`](https://github.com/stevenli2020/GoldRush2/commit/8a4b953)
 
 ## Objective
 
 Refresh only the L4-001 input, rerun the unchanged 15-strategy current-outlook comparison, explain the score changes, and identify the next correction tranche.
+
+## P0 review correction
+
+The earlier final table in this document was invalid. FRED `realtime_start` had been mapped to `publication_date`, and stale age was calculated from that metadata date. This made the `2025-09-01` smoothed observation appear fresh on `2026-09-06`, incorrectly yielding confidence `1.0`. The corrected parser treats `realtime_start` as `vintage_date` only, and the extractor gates freshness from the evidence observation period. Because the live FRED rows do not carry an explicit publication date, the corrected L4-001 JSON is conservatively zero-confidence (`signal=0`, `confidence=0`) with `INSUFFICIENT HISTORY`; no stale CPI signal reaches DR3. See [`PLAN2_STEP4_P0_BUG_REPORT.md`](PLAN2_STEP4_P0_BUG_REPORT.md).
 
 ## Execution chronology
 
@@ -22,11 +26,11 @@ During this run, the approved L4-001 extractor emitted `+0.5`, exposing a second
 - DR3 accepts the approved discrete signal set `-1`, `-0.5`, `0`, `+0.5`, and `+1`.
 - Added regression tests for dotenv loading and half-strength signals.
 
-### 3. Final live refresh
+### 3. Final live refresh (superseded result)
 
 The final `gr2 extract L4-001 -vv` run reached FRED successfully. The final output no longer contains `SOURCE UNAVAILABLE — cached data used`.
 
-Final L4-001 evidence:
+The previous final evidence below is retained only as the incident record and must not be used for decisions:
 
 | Field | Result |
 |---|---|
@@ -39,6 +43,8 @@ Final L4-001 evidence:
 | Causal channel | Purchasing-power erosion only |
 
 The latest smoothed observation ends in September 2025 because the source series has a missing October 2025 observation. This is a source-history gap, not a credential failure or a reference-date fallback.
+
+The corrected rerun now produces zero-confidence output because the source payload lacks an explicit publication-date field and the prior realtime/vintage date cannot substitute for it.
 
 ## Strategy comparison
 
@@ -64,4 +70,4 @@ These deltas come from replacing the obsolete CPI-index directional rule with th
 
 ## Next correction tranche
 
-The recommended next tranche is L8-001 ETF flows and L5-001 official-sector purchases through their shared monthly WGC collector. Before implementation, approve their source publication contracts and evidence rules, including calendar-aligned windows, release lag, revisions, and flow-versus-change semantics.
+The recommended next tranche remains L8-001 ETF flows and L5-001 official-sector purchases through their shared monthly WGC collector, but it is blocked until this P0 correction and matrix are reviewed and approved. No Tranche 2 implementation has started.
