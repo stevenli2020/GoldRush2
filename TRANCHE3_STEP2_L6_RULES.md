@@ -1,6 +1,6 @@
 # Tranche 3 Step 2 — L6-001 Source Contract and Evidence Rules (Draft)
 
-**Status:** draft for D/Q approval; no extractor changes
+**Status:** approved; Step 3 implementation in progress
 **Variable:** L6-001 Geopolitical Risk
 
 ## Source contract
@@ -19,8 +19,8 @@ This is a source-availability contract gap, not evidence that geopolitical risk 
 
 - **Quantity:** daily `GPRD_ACT` level, with the existing 5-day versus 20-day mean spread standardized by the 60-observation population standard deviation.
 - **Publication alignment:** `observation_date` is the measured news day; `publication_date` must be the explicit source update/vintage date when captured from the dated download link or page metadata. `retrieved_at` and filesystem mtime are provenance only.
-- **Freshness:** use the source's Monday/next-business-day schedule. A latest observation within the expected weekly release window is not stale merely because a weekend intervenes. If the source update evidence is unavailable or the gap exceeds the approved schedule tolerance, emit confidence zero.
-- **History:** require 60 valid daily observations for the 1-5d and 1-3m calculations, with no silent row compression across malformed dates. Long horizons remain `NOT_APPLICABLE` unless D/Q approve a separate structural aggregation rule.
+- **Freshness:** use the source's Monday/next-business-day schedule, including Tuesday after a Monday federal holiday. A latest observation within the expected weekly release window is not stale merely because a weekend intervenes. A five-day weekend-gap fixture is explicitly tested. If explicit source update/vintage evidence is unavailable or the gap exceeds the approved schedule tolerance, emit confidence zero. Filesystem mtime and `retrieved_at` are ignored.
+- **History:** require 60 valid daily observations for the 1-5d and 1-3m calculations, with no silent row compression across malformed dates. `1-3y` and `3-10y` are `NOT_APPLICABLE`.
 - **Direction:** positive standardized recent-vs-medium spread → `+1`; negative → `-1`; exact zero → `0`. This is a geopolitical-risk level signal only; no policy or macro interpretation is added here.
 - **Revision handling:** retain the source vintage/download URL and refresh the normalized cache when a newer dated vintage is available. Revisions must be visible in provenance.
 - **Degradation:** missing source/update evidence, fewer than 60 valid observations, stale beyond the approved weekly tolerance, or parse failure → `signal=0`, `confidence=0`, explicit `STALE DATA`/`INSUFFICIENT HISTORY`/`SOURCE UNAVAILABLE`, and a status field identifying the cause.

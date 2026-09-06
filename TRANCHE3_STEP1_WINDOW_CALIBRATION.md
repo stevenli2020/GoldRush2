@@ -1,6 +1,6 @@
 # Tranche 3 Step 1 — Long-Horizon Evidence Window Calibration (Draft)
 
-**Status:** draft for D/Q approval; no extractor changes
+**Status:** approved; Step 3 implementation in progress
 **Scope:** monthly and quarterly variables currently feeding the 4-horizon strategy matrix
 
 ## Finding
@@ -19,7 +19,7 @@ The correct contract must distinguish:
 | Frequency | Variables identified | Current pattern | Problem |
 |---|---|---|---|
 | Monthly | L0-002, L0-003, L1-005, L4-001, L4-002, L4-009, L5-001, L5-002, L5-006, L8-001 | Shared or local `5/63/252/756` row counts in several modules | Row counts are not month-based horizons; 756 monthly rows is structurally excessive |
-| Quarterly | L0-005, L0-006, L3-005, L4-006, L4-007, L5-003, L7-003, L9-004 | Mixed explicit 8Q/20Q rules and fixed short-horizon placeholders | Some rules are already frequency-aware; others need an applicability audit, not blind replacement |
+| Quarterly | L0-005, L0-006, L3-005, L4-006, L4-007, L5-003, L7-003, L9-004 | Global default 12Q for 1-3y and 40Q for 3-10y, with variable overrides/degradation | Sources lacking this depth must degrade or use an explicitly approved variable-specific shorter rule |
 
 ## Proposed V1 calibration for approval
 
@@ -27,7 +27,7 @@ The correct contract must distinguish:
 |---|---|---|---|---|
 | Monthly level/flow series | Source-specific applicability; do not manufacture daily signal | Latest complete month plus source-release gate; no 63-row requirement | 36 complete monthly observations (3 years) | 120 complete monthly observations (10 years) |
 | Monthly derived 12-month statistic | Same | At least 24 months including warmup | At least 48 months including warmup | At least 132 months including warmup |
-| Quarterly series | Usually `NOT_APPLICABLE` | Usually `NOT_APPLICABLE` | Retain 8 quarters unless variable rule says otherwise | Retain 20 quarters unless variable rule says otherwise |
+| Quarterly series | Usually `NOT_APPLICABLE` | Usually `NOT_APPLICABLE` | 12 complete quarters | 40 complete quarters |
 
 The 120-month rule is a proposed structural minimum, not a claim that ten years guarantees predictive validity. It prevents the current 63-year artifact while retaining a materially longer sample than a single horizon comparison. Derived statistics add their warmup explicitly rather than hiding it in a row count.
 
@@ -39,9 +39,9 @@ The 120-month rule is a proposed structural minimum, not a claim that ten years 
 4. Do not alter frozen strategy weights, signs, or source contracts in this step.
 5. Step 3 must add boundary tests at one observation below and exactly at each proposed minimum, plus missing-period tests.
 
-## Approval questions
+## Approved decisions
 
-- Approve 36/120 complete months for ordinary monthly series?
-- Approve 48/132 months where a 12-month derived statistic needs warmup?
-- Retain 8/20 quarters as the default quarterly rule, subject to per-variable applicability?
-- Should 1-5d and 1-3m monthly horizons be `NOT_APPLICABLE` for slow variables, or remain source-specific current-month signals?
+- Ordinary monthly series: 36/120 complete months.
+- Derived 12-month statistics: 48/132 months including warmup.
+- Quarterly global defaults: 12/40 complete quarters, with explicit variable-specific overrides or degradation.
+- Slow macro variables such as L4/L5 are `NOT_APPLICABLE` on 1-5d; faster monthly flows such as L8-001 retain release-gated applicability.
