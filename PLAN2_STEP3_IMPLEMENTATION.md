@@ -10,6 +10,7 @@
 - Monthly observations are eligible only when their source `publication_date` is on or before the decision date. `reference_date`/observation date is never used as a publication substitute.
 - FRED `realtime_start` is preserved as `publication_date` when the source payload does not provide a dedicated publication field. If no publication metadata exists, the observation is not eligible.
 - The exact approved mapping is `<1.5 -> -1.0`, `[1.5,2.5) -> 0.0`, `[2.5,4.0) -> +0.5`, and `>=4.0 -> +1.0`.
+- DR3 accepts the approved discrete signal set `-1`, `-0.5`, `0`, `+0.5`, and `+1`; the L4-001 `+0.5` output is therefore not discarded as invalid.
 - Insufficient publication-aligned history and publication age beyond 62 days return signal `0`, confidence `0.0`, with an explicit degradation summary. The 62-day limit represents two monthly release intervals for this tranche and remains variable-specific.
 - All four horizons use the latest eligible smoothed CPI evidence; no policy-expectations or rate-pressure logic is introduced.
 
@@ -26,6 +27,7 @@
 
 - Target L4-001 suite: 15 tests passed.
 - Affected FRED/L4 compatibility suite: 142 tests passed.
+- Full DR3 analytics suite after the signal-contract correction: 36 tests passed.
 - Full DR2 suite: 783 passed, 1 unrelated pre-existing failure in `DR2_data_extraction/tests/test_l6_001.py::test_snapshot_fallback` (GPR collector fallback). No L4/FRED test failed.
 
 ## Review boundary

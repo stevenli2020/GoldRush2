@@ -154,7 +154,7 @@ Each variable JSON uses this minimal structure:
 
 Contract rules:
 
-- `signal` is always `-1`, `0`, or `1`.
+- `signal` is one of the approved discrete values `-1`, `-0.5`, `0`, `0.5`, or `1`.
 - Fresh deterministic results use confidence `1.0`.
 - Qualitative Gemini-derived results use confidence from `0.0` to `1.0`.
 - A structurally inapplicable horizon uses signal `0` and confidence `1.0` because neutrality is an intentional deterministic rule.

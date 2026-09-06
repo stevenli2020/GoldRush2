@@ -81,6 +81,7 @@ def test_missing_horizon_invalid_file_and_valid_neutral(tmp_path, capsys):
     (1, 0, None, 0, 'zero confidence'),
     (-1, 0, None, 0, 'zero confidence'),
     (1, 0.4, None, 1, ''),
+    (0.5, 1, None, 0.5, ''),
     (-1, 1, None, -1, ''),
     (0, 1, None, 0, ''),
     (1, 1, False, 0, 'INAPPLICABLE'),

@@ -39,11 +39,11 @@ def render_audit() -> str:
                 signal = item.get('signal')
                 confidence = item.get('confidence')
                 contribution = (100 * weight * signal * confidence
-                                if signal in (-1, 0, 1) and isinstance(confidence, (int, float)) and confidence > 0
+                                if isinstance(signal, (int, float)) and -1 <= signal <= 1 and isinstance(confidence, (int, float)) and confidence > 0
                                 else 0)
                 total += contribution
                 if item.get('confidence') == 0:
-                    zero_conf += 100 * weight * (signal if signal in (-1, 0, 1) else 0)
+                    zero_conf += 100 * weight * (signal if isinstance(signal, (int, float)) and -1 <= signal <= 1 else 0)
                 parts.append(f'{vid}: {contribution:+.2f}')
             lines.append(f"| {config['strategy']['id']} | {horizon} | {total:.2f} | {'; '.join(parts)} | {zero_conf:+.2f} |")
     return '\n'.join(lines) + '\n'

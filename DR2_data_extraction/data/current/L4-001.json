@@ -1,65 +1,66 @@
 {
   "variable_id": "L4-001",
-  "as_of_date": "2026-09-04",
+  "as_of_date": "2026-09-06",
   "source_name": "FRED CPIAUCSL - Consumer Price Index for All Urban Consumers",
   "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
   "data_frequency": "Monthly",
-  "observation_date": "2026-07-01",
+  "observation_date": "2025-09-01",
+  "publication_date": "2026-08-12",
   "horizons": {
     "1-5d": {
-      "signal": -1,
+      "signal": 0.5,
       "confidence": 1,
       "evidence": {
         "data": {
-          "current_value": 332.813,
-          "current_date": "2026-07-01",
-          "comparison_value": 330.293,
-          "comparison_date": "2026-03-01",
-          "change_absolute": 2.52
+          "CPI_YoY_12m": 3.022572,
+          "CPI_YoY_12m_MA": 2.702537,
+          "current_value": 324.245,
+          "observation_date": "2025-09-01",
+          "publication_date": "2026-08-12"
         },
-        "summary": "CPI index rose by 2.52 points compared to 2026-03-01, indicating accelerating inflation, bearish for gold."
+        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only. SOURCE UNAVAILABLE \u2014 cached data used."
       }
     },
     "1-3m": {
-      "signal": -1,
+      "signal": 0.5,
       "confidence": 1,
       "evidence": {
         "data": {
-          "current_value": 332.813,
-          "current_date": "2026-07-01",
-          "comparison_value": 266.614,
-          "comparison_date": "2021-04-01",
-          "change_absolute": 66.199
+          "CPI_YoY_12m": 3.022572,
+          "CPI_YoY_12m_MA": 2.702537,
+          "current_value": 324.245,
+          "observation_date": "2025-09-01",
+          "publication_date": "2026-08-12"
         },
-        "summary": "CPI index rose by 66.20 points compared to 2021-04-01, indicating accelerating inflation, bearish for gold."
+        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only. SOURCE UNAVAILABLE \u2014 cached data used."
       }
     },
     "1-3y": {
-      "signal": -1,
+      "signal": 0.5,
       "confidence": 1,
       "evidence": {
         "data": {
-          "current_value": 332.813,
-          "current_date": "2026-07-01",
-          "comparison_value": 194.9,
-          "comparison_date": "2005-07-01",
-          "change_absolute": 137.913
+          "CPI_YoY_12m": 3.022572,
+          "CPI_YoY_12m_MA": 2.702537,
+          "current_value": 324.245,
+          "observation_date": "2025-09-01",
+          "publication_date": "2026-08-12"
         },
-        "summary": "CPI index rose by 137.91 points compared to 2005-07-01, indicating accelerating inflation, bearish for gold."
+        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only. SOURCE UNAVAILABLE \u2014 cached data used."
       }
     },
     "3-10y": {
-      "signal": -1,
+      "signal": 0.5,
       "confidence": 1,
       "evidence": {
         "data": {
-          "current_value": 332.813,
-          "current_date": "2026-07-01",
-          "comparison_value": 30.69,
-          "comparison_date": "1963-07-01",
-          "change_absolute": 302.123
+          "CPI_YoY_12m": 3.022572,
+          "CPI_YoY_12m_MA": 2.702537,
+          "current_value": 324.245,
+          "observation_date": "2025-09-01",
+          "publication_date": "2026-08-12"
         },
-        "summary": "CPI index rose by 302.12 points compared to 1963-07-01, indicating accelerating inflation, bearish for gold."
+        "summary": "CPI_YoY_12m_MA is 2.70%, above the purchasing-power pressure anchor; L4-001 reflects purchasing-power erosion only. SOURCE UNAVAILABLE \u2014 cached data used."
       }
     }
   }

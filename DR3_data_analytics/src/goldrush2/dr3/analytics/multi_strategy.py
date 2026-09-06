@@ -16,6 +16,7 @@ from goldrush2.dr3.analytics.aggregator import HORIZONS, load_variable_results
 from goldrush2.paths import DR2_CURRENT_DIR, DR3_MULTI_STRATEGY_OUTPUT_PATH, DR3_STRATEGIES_DIR
 
 MIN_USABLE_WEIGHT_COVERAGE = 0.70
+VALID_SIGNAL_VALUES = (-1, -0.5, 0, 0.5, 1)
 
 class StrategyValidationError(ValueError):
     """Raised when an immutable strategy configuration is not valid."""
@@ -113,8 +114,8 @@ def _input_status(variables: dict[str, Any], variable_id: str, horizon: str) -> 
         reason = "MISSING DATA: variable or horizon absent"
     elif item.evidence.data.applicable is False:
         reason = "INAPPLICABLE: explicitly excluded for this horizon"
-    elif type(item.signal) not in (int, float) or item.signal not in (-1, 0, 1):
-        reason = "INVALID SIGNAL: expected -1, 0 or 1"
+    elif type(item.signal) not in (int, float) or item.signal not in VALID_SIGNAL_VALUES:
+        reason = "INVALID SIGNAL: expected one of -1, -0.5, 0, 0.5 or 1"
     elif (type(item.confidence) not in (int, float)
           or not math.isfinite(item.confidence) or not 0 <= item.confidence <= 1):
         reason = "INVALID CONFIDENCE: expected a finite number from 0 to 1"
@@ -127,11 +128,11 @@ def _input_status(variables: dict[str, Any], variable_id: str, horizon: str) -> 
     return status, reason
 
 
-def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -> int:
+def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -> float:
     """Gate unusable inputs without rescaling valid signals or their weights."""
     status, reason = _input_status(variables, variable_id, horizon)
     if status == "VALID":
-        return int(variables[variable_id].horizons[horizon].signal)
+        return float(variables[variable_id].horizons[horizon].signal)
     print(f"{variable_id} {horizon}: {reason}; contribution=0", file=sys.stderr)
     return 0
 
@@ -187,7 +188,7 @@ def run_multi_strategy(
                 confidence = item.confidence if item else None
                 # Hard gate at zero; otherwise confidence is a linear decay.
                 # Configured weights always retain their original denominator.
-                points = round(float(weight) * int(signal) * float(confidence) * 100, 6) if status == "VALID" else 0.0
+                points = round(float(weight) * float(signal) * float(confidence) * 100, 6) if status == "VALID" else 0.0
                 if status == "VALID":
                     usable_weight += weight
                 elif weight > 0:

@@ -2,7 +2,7 @@
 
 ## Status
 
-Active after D/Q approval. Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`.
+Closed for the L4-001 tranche after controlled refresh and comparison. Plan 1 is approved and complete in commit `efa4aaa`; Plan 2 Step 2 is closed in `a3f21ba`; Step 4 is documented in `DR3_data_analytics/PLAN2_STEP4_L4_COMPARISON.md`.
 
 ## Objective
 
@@ -35,6 +35,8 @@ Deliverable: corrected extractors, tests, and a verification record. The L4-001 
 Refresh only the affected sources, regenerate their current JSON, run `gr2 analyze-strategies`, and explain every material score change through the structured contributions and coverage/status fields. Update the delta report and tracker. Do not rank strategies or claim predictive accuracy from the refreshed snapshot.
 
 Deliverable: reviewed post-correction comparison and an owner decision on the next correction tranche.
+
+The L4-001 tranche is complete. The next proposed tranche is L8-001 and L5-001 through their shared monthly WGC collector; it requires its own source-contract and evidence-rule approval before implementation.
 
 ## Acceptance gates
 
