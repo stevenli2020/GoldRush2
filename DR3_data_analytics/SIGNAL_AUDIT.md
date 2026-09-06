@@ -1,5 +1,9 @@
 # Sparse signal audit and correction sequence
 
+## Plan 1 Step 2 implementation update
+
+The comparison JSON now carries structured contributions, input status, reasons, source explanations, usable configured-weight coverage and warnings for every strategy/horizon, including the baseline. See README.md for field definitions. The source's stale warning is retained even when the official-score model discards that field. No economic rule, weight or fractional-confidence multiplier was changed. Focused WSL verification: 22 tests passed, including neutral-versus-missing coverage, stale-source explanation, applicability, invalid signals, and contribution reconciliation across all strategy horizons. Historical findings below remain a record of the original behavior.
+
 ## Plan 1 Step 1 implementation update
 
 Input gating is implemented in `multi_strategy._current_signal`: missing variables/horizons, invalid signals, invalid confidence, zero confidence and explicit `applicable: false` contribute zero with a reason on stderr. Valid neutral inputs remain valid. Positive fractional confidence does not multiply the signal. Configured weights are not redistributed. Step 2's structured contribution/status/coverage output is pending. The findings below describe the original audited behavior, including its stale-input defect.

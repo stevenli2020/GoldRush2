@@ -17,3 +17,7 @@ Canonical implementation:
 The approved V1.1 design rationale is in [`DR3_PROPOSAL_zh.md`](DR3_PROPOSAL_zh.md). Run `gr2 analyze` after the required DR2 extractors have produced current JSON outputs.
 
 `gr2 analyze-strategies` evaluates all 14 sparse strategies and the `SP-ALL` baseline from current DR2 signals only. It does not rank or select a strategy and does not change the existing official-score path.
+
+Each horizon now includes `contributions` keyed by variable ID: configured `weight`, stored numeric `signal` and `confidence` (null for missing/non-numeric/non-finite values), `contribution` in score points, `input_status`, `reason`, and source `evidence_summary`. Status is VALID, MISSING, INVALID, INAPPLICABLE, UNAVAILABLE, or STALE. STALE is identified from the source evidence on zero-confidence inputs, not inferred from observation age. Unreadable files appear as missing usable data; the loader logs the parse failure.
+
+`usable_weight_coverage` is the sum of VALID configured weights divided by all configured weights, including valid neutral inputs and excluding inapplicable/degraded inputs. It is not a confidence-weighted percentage and does not rescale scores. `warnings` lists excluded positive-weight inputs and available source explanations. Sum contributions and round to six decimals to reconcile to `score`.

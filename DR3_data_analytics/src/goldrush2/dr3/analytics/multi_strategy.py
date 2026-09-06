@@ -13,7 +13,7 @@ from typing import Any
 import yaml
 
 from goldrush2.dr3.analytics.aggregator import HORIZONS, load_variable_results
-from goldrush2.paths import DR3_MULTI_STRATEGY_OUTPUT_PATH, DR3_STRATEGIES_DIR
+from goldrush2.paths import DR2_CURRENT_DIR, DR3_MULTI_STRATEGY_OUTPUT_PATH, DR3_STRATEGIES_DIR
 
 
 class StrategyValidationError(ValueError):
@@ -104,8 +104,8 @@ def _uniform_weights(variable_ids: set[str]) -> dict[str, float]:
     return {variable_id: 1.0 / len(variable_ids) for variable_id in sorted(variable_ids)}
 
 
-def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -> int:
-    """Gate unusable inputs without rescaling valid signals or their weights."""
+def _input_status(variables: dict[str, Any], variable_id: str, horizon: str) -> tuple[str, str]:
+    """Classify inputs using the Step 1 gate, independently of strategy weight."""
     variable = variables.get(variable_id)
     item = variable.horizons.get(horizon) if variable else None
     if item is None:
@@ -120,7 +120,17 @@ def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -
     elif item.confidence == 0:
         reason = "UNAVAILABLE: zero confidence (including stale or missing data)"
     else:
-        return int(item.signal)
+        return "VALID", ""
+    status = ("MISSING" if item is None else "INAPPLICABLE" if reason.startswith("INAPPLICABLE")
+              else "INVALID" if reason.startswith("INVALID") else "UNAVAILABLE")
+    return status, reason
+
+
+def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -> int:
+    """Gate unusable inputs without rescaling valid signals or their weights."""
+    status, reason = _input_status(variables, variable_id, horizon)
+    if status == "VALID":
+        return int(variables[variable_id].horizons[horizon].signal)
     print(f"{variable_id} {horizon}: {reason}; contribution=0", file=sys.stderr)
     return 0
 
@@ -134,6 +144,14 @@ def run_multi_strategy(
     known_ids = production_variable_ids()
     strategies = load_strategy_set(strategies_dir, known_ids)
     variables = load_variable_results(data_dir)
+    # Keep source warning text that the shared official-score model omits.
+    source_evidence = {}
+    for vid in known_ids:
+        path = (data_dir or DR2_CURRENT_DIR) / f"{vid}.json"
+        try:
+            source_evidence[vid] = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            source_evidence[vid] = {}
     output: dict[str, Any] = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "mode": "current_outlook_only",
@@ -150,10 +168,43 @@ def run_multi_strategy(
         horizons: dict[str, Any] = {}
         for horizon in HORIZONS:
             weights = _uniform_weights(known_ids) if is_baseline else config["horizon_weights"][horizon]
-            score = sum(_current_signal(variables, variable_id, horizon) * weight for variable_id, weight in weights.items())
+            contributions = {}
+            warnings = []
+            usable_weight = 0.0
+            for vid, weight in weights.items():
+                status, reason = _input_status(variables, vid, horizon)
+                item = variables[vid].horizons.get(horizon) if vid in variables else None
+                raw = source_evidence.get(vid)
+                raw_horizons = raw.get("horizons", {}) if isinstance(raw, dict) else {}
+                raw_item = raw_horizons.get(horizon, {}) if isinstance(raw_horizons, dict) else {}
+                evidence = raw_item.get("evidence", {}) if isinstance(raw_item, dict) else {}
+                evidence = evidence if isinstance(evidence, dict) else {}
+                detail = " ".join(str(evidence[k]) for k in ("summary", "warning", "reason") if evidence.get(k))
+                if status == "UNAVAILABLE" and "stale" in detail.lower():
+                    status = "STALE"
+                signal = item.signal if item else None
+                confidence = item.confidence if item else None
+                points = float(weight) * int(signal) * 100 if status == "VALID" else 0.0
+                if status == "VALID":
+                    usable_weight += weight
+                elif weight > 0:
+                    warnings.append(f"{vid}: {reason}" + (f"; {detail}" if detail else ""))
+                contributions[vid] = {
+                    "weight": weight,
+                    "signal": signal if type(signal) in (int, float) and math.isfinite(signal) else None,
+                    "confidence": confidence if type(confidence) in (int, float) and math.isfinite(confidence) else None,
+                    "contribution": points,
+                    "input_status": status,
+                    "reason": reason,
+                    "evidence_summary": detail,
+                }
+            score = sum(entry["contribution"] for entry in contributions.values())
             horizons[horizon] = {
-                "score": round(score * 100, 6),
+                "score": round(score, 6),
                 "active_variables": "AUTO_UNIFORM_ADMIT" if is_baseline else sorted(weights),
+                "contributions": contributions,
+                "usable_weight_coverage": round(usable_weight / sum(weights.values()), 6),
+                "warnings": warnings,
             }
         output["strategies"][strategy["id"]] = {
             "type": strategy["type"],

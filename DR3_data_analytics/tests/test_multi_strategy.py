@@ -44,6 +44,39 @@ def test_fixed_weight_scoring_with_unusable_input(tmp_path):
     assert all(h['score'] == 10 for h in result['strategies']['SP-RATE']['horizons'].values())
 
 
+def test_structured_contributions_and_coverage(tmp_path):
+    cases = {
+        'L1-001': (1, 0, {}, 'Cached data is stale'),
+        'L2-001': (-1, 0.4, {}, ''),
+        'L4-001': (0, 1, {}, ''),
+        'L5-001': (1, 1, {'applicable': False}, ''),
+        'L7-001': (None, 1, {}, ''),
+    }
+    for vid, (signal, confidence, data, warning) in cases.items():
+        (tmp_path / f'{vid}.json').write_text(json.dumps({
+            'variable_id': vid, 'horizons': {
+                h: {'signal': signal, 'confidence': confidence,
+                    'evidence': {'data': data, 'warning': warning}}
+                for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}))
+    result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
+    horizon = result['strategies']['SP-RATE']['horizons']['1-5d']
+    assert horizon['score'] == -10
+    assert horizon['usable_weight_coverage'] == 0.25  # valid dollar and neutral CPI
+    entries = horizon['contributions']
+    assert {vid: item['input_status'] for vid, item in entries.items()} == {
+        'L1-001': 'STALE', 'L2-001': 'VALID', 'L4-001': 'VALID',
+        'L5-001': 'INAPPLICABLE', 'L7-001': 'INVALID', 'L8-001': 'MISSING'}
+    assert entries['L1-001']['signal'] == 1
+    assert entries['L1-001']['contribution'] == 0
+    assert entries['L2-001']['confidence'] == 0.4
+    assert entries['L2-001']['contribution'] == -10
+    assert any('Cached data is stale' in warning for warning in horizon['warnings'])
+    for strategy in result['strategies'].values():
+        assert len(strategy['horizons']) == 4
+        for output in strategy['horizons'].values():
+            assert output['score'] == pytest.approx(sum(e['contribution'] for e in output['contributions'].values()), abs=1e-6)
+
+
 def test_strategy_set_contains_the_frozen_fifteen_configs():
     strategies = load_strategy_set()
     assert len(strategies) == 15
