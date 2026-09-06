@@ -1,6 +1,8 @@
 """Expert-reviewed tests for DR3 aggregation engine."""
 import json
 import subprocess
+import sys
+from pathlib import Path
 from pathlib import Path
 import pytest
 import yaml
@@ -80,6 +82,7 @@ def test_top_five_warning_uses_normalized_configured_weights():
 
 def test_cli_analyze_command():
     # End-to-end test
-    result = subprocess.run(["gr2", "analyze"], capture_output=True, text=True)
+    gr2 = Path(sys.executable).with_name("gr2")
+    result = subprocess.run([str(gr2), "analyze"], capture_output=True, text=True)
     assert result.returncode == 0
     assert "GoldRush2" in result.stdout or "DR3" in result.stdout

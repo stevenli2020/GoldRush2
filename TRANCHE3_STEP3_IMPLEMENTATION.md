@@ -15,7 +15,16 @@
 
 The focused Tranche 3 suite covers exact 35/36, 119/120 monthly boundaries, 11/12 and 39/40 quarterly boundaries, Monday and Tuesday-after-holiday freshness, missing-vintage degradation, and provenance isolation. The focused run passed 19 tests (with the pre-existing network snapshot-fallback test excluded).
 
-The full WSL suite was executed on 2026-09-06: **808 passed, 30 failed**. The complete failure inventory is:
+The rectified WSL suite was executed with the quarantined network tests excluded:
+
+```text
+.venv/bin/pytest -q -k "not snapshot_fallback"
+836 passed, 2 deselected, 851 warnings
+```
+
+The two deselected tests are exactly the two tests listed in [`TEST_QUARANTINE.md`](TEST_QUARANTINE.md). No other tests failed, and no undocumented anomaly was observed in this run.
+
+The superseded failure inventory that led to this rectification was:
 
 - `test_l0_002.py`: 2 long-horizon lookback cases.
 - `test_l0_003.py`: 2 long-horizon lookback cases.

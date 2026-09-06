@@ -9,15 +9,15 @@ from goldrush2.dr2.extractors import l9_004
 from goldrush2.dr2.extractors._wgc_common import quarter_end_date
 
 
-def observations(count: int = 21, *, current: float = 200.0, comparison: float = 100.0) -> list[dict]:
+def observations(count: int = 45, *, current: float = 200.0, comparison: float = 100.0) -> list[dict]:
     rows = []
     for index in range(count):
         year, quarter = 2020 + index // 4, index % 4 + 1
         net_imports = 150.0
         rows.append({"date": quarter_end_date(year, quarter), "value": net_imports, "components": {"jewellery": 80.0, "bar_coin": 40.0, "gross_imports": 180.0, "net_imports": net_imports}})
-    if count > 4:
-        rows[-5]["value"] = comparison
-        rows[-5]["components"]["net_imports"] = comparison
+    if count > 12:
+        rows[-12]["value"] = comparison
+        rows[-12]["components"]["net_imports"] = comparison
     rows[-1]["value"] = current
     rows[-1]["components"]["net_imports"] = current
     return rows
@@ -78,16 +78,16 @@ def test_parser_requires_every_component_row(tmp_path, component):
         l9_004.parse_india_workbook(gdt_workbook(tmp_path, missing_component=component), cache_path=None)
 
 
-@pytest.mark.parametrize("horizon,lookback", [("1-3y", 4), ("3-10y", 20)])
+@pytest.mark.parametrize("horizon,lookback", [("1-3y", 12), ("3-10y", 40)])
 @pytest.mark.parametrize("current,comparison,signal", [(200.0, 100.0, 1), (50.0, 100.0, -1), (100.0, 100.0, 0)])
 def test_net_import_signal_directions_and_lookbacks(horizon, lookback, current, comparison, signal):
     rows = observations(current=current)
-    rows[-1 - lookback]["value"] = comparison
-    rows[-1 - lookback]["components"]["net_imports"] = comparison
+    rows[-lookback]["value"] = comparison
+    rows[-lookback]["components"]["net_imports"] = comparison
     result = l9_004.build_output(rows)
     assert result["horizons"][horizon]["signal"] == signal
     assert result["horizons"][horizon]["confidence"] == 1
-    assert result["horizons"][horizon]["evidence"]["data"]["comparison_date"] == rows[-1 - lookback]["date"]
+    assert result["horizons"][horizon]["evidence"]["data"]["comparison_date"] == rows[-lookback]["date"]
 
 
 def test_short_horizons_are_inapplicable():
@@ -143,7 +143,7 @@ def test_extraction_failure_is_degraded(monkeypatch, tmp_path):
 
 
 def test_output_schema():
-    result = l9_004.build_output(observations(), as_of_date="2026-09-01")
+    result = l9_004.build_output(observations(21), as_of_date="2026-09-01")
     assert result["variable_id"] == "L9-004"
     assert result["as_of_date"] == "2026-09-01"
     assert result["data_frequency"] == "Quarterly"

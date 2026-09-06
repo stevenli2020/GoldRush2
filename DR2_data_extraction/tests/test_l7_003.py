@@ -28,12 +28,14 @@ def test_missing_prior_year_is_blank():
 
 @pytest.mark.parametrize("current,comparison,signal", [(30, 20, 1), (10, 20, -1), (20, 20, 0)])
 def test_signal_directions(current, comparison, signal):
-    observations = rows(26)
+    observations = rows(45)
+    for row in observations:
+        row["value"] = 100.0
     observations[-1]["value"] = current
-    observations[-5]["value"] = comparison
+    observations[-13]["value"] = comparison
     # The latest quarter is also the prior-year comparison for the current
     # YoY value; set the comparison's prior-year level explicitly.
-    observations[-5 - 4]["value"] = 20
+    observations[-13 - 4]["value"] = 100.0
     assert build_output(observations)["horizons"]["1-3y"]["signal"] == signal
 
 

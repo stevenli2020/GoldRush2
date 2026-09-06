@@ -23,9 +23,11 @@ def test_qoq_change():
 
 @pytest.mark.parametrize("current,comparison,signal", [(58, 59, 1), (60, 59, -1), (59, 59, 0)])
 def test_signal_directions(current, comparison, signal):
-    observations = rows()
+    observations = rows(45)
+    for row in observations:
+        row["value"] = 100.0
     observations[-1]["value"] = current
-    observations[-5]["value"] = comparison
+    observations[-13]["value"] = comparison
     assert build_output(observations)["horizons"]["1-3y"]["signal"] == signal
 
 

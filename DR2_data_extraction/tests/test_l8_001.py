@@ -16,7 +16,7 @@ def observations(count=756, current=200.0, comparison=100.0):
     return rows
 
 
-@pytest.mark.parametrize("horizon, lookback", [("1-5d", 5), ("1-3m", 63), ("1-3y", 252), ("3-10y", 756)])
+@pytest.mark.parametrize("horizon, lookback", [("1-5d", 5), ("1-3m", 63), ("1-3y", 36), ("3-10y", 120)])
 @pytest.mark.parametrize("current, comparison, signal", [(200.0, 100.0, 1), (50.0, 100.0, -1), (100.0, 100.0, 0)])
 def test_directions_and_lookbacks(horizon, lookback, current, comparison, signal):
     rows = observations(current=current, comparison=100.0)

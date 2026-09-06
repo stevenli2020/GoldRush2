@@ -8,19 +8,19 @@ from openpyxl import Workbook
 from goldrush2.dr2.extractors import l0_005
 
 
-def observations(count=21, current=200.0, comparison=100.0):
+def observations(count=45, current=200.0, comparison=100.0):
     rows = [{"date": f"{2020 + i // 4:04d}-{(i % 4 + 1) * 3:02d}-30", "value": 150.0} for i in range(count)]
-    if count > 4:
-        rows[-1 - 4]["value"] = comparison
+    if count > 12:
+        rows[-12]["value"] = comparison
     rows[-1]["value"] = current
     return rows
 
 
-@pytest.mark.parametrize("horizon, lookback", [("1-3y", 4), ("3-10y", 20)])
+@pytest.mark.parametrize("horizon, lookback", [("1-3y", 12), ("3-10y", 40)])
 @pytest.mark.parametrize("current, comparison, signal", [(200.0, 100.0, 1), (50.0, 100.0, -1), (100.0, 100.0, 0)])
 def test_signal_directions_and_lookbacks(horizon, lookback, current, comparison, signal):
     rows = observations(current=current)
-    rows[-1 - lookback]["value"] = comparison
+    rows[-lookback]["value"] = comparison
     result = l0_005.build_output(rows)
     assert result["horizons"][horizon]["signal"] == signal
     assert result["horizons"][horizon]["confidence"] == 1
