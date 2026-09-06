@@ -16,3 +16,7 @@ L4-006 was missed because the initial audit focused on shared WGC helpers and th
 | Annual/event-driven | Source-specific applicability; no monthly/quarterly row-count substitution. |
 
 The registry and consistency checker are deliverables of this remediation. L4-006 is frozen as `NOT_APPLICABLE` with zero confidence pending approval.
+
+## Validation status
+
+The window consistency checker and Python syntax validation pass. The full WSL suite with the two quarantined network tests excluded currently reports **827 passed, 11 failed, 2 deselected**. All 11 failures are legacy L4-006 tests asserting the pre-freeze directional behavior and old 8/20 lookbacks; they are intentionally incompatible with the new zero-confidence gate and require test-contract updates before a zero-failure claim can be made.
