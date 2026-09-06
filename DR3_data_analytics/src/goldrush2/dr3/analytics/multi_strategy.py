@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import importlib
 import json
+import math
 import pkgutil
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -103,10 +105,24 @@ def _uniform_weights(variable_ids: set[str]) -> dict[str, float]:
 
 
 def _current_signal(variables: dict[str, Any], variable_id: str, horizon: str) -> int:
-    """Return a valid current signal; absent or malformed values are neutral."""
+    """Gate unusable inputs without rescaling valid signals or their weights."""
     variable = variables.get(variable_id)
-    signal = variable.horizons[horizon].signal if variable and horizon in variable.horizons else None
-    return signal if signal in {-1, 0, 1} else 0
+    item = variable.horizons.get(horizon) if variable else None
+    if item is None:
+        reason = "MISSING DATA: variable or horizon absent"
+    elif item.evidence.data.applicable is False:
+        reason = "INAPPLICABLE: explicitly excluded for this horizon"
+    elif type(item.signal) not in (int, float) or item.signal not in (-1, 0, 1):
+        reason = "INVALID SIGNAL: expected -1, 0 or 1"
+    elif (type(item.confidence) not in (int, float)
+          or not math.isfinite(item.confidence) or not 0 <= item.confidence <= 1):
+        reason = "INVALID CONFIDENCE: expected a finite number from 0 to 1"
+    elif item.confidence == 0:
+        reason = "UNAVAILABLE: zero confidence (including stale or missing data)"
+    else:
+        return int(item.signal)
+    print(f"{variable_id} {horizon}: {reason}; contribution=0", file=sys.stderr)
+    return 0
 
 
 def run_multi_strategy(

@@ -5,6 +5,43 @@ import pytest
 
 from goldrush2.dr3.analytics.multi_strategy import StrategyValidationError, _current_signal, _validate_weights, load_strategy_set, run_multi_strategy
 from goldrush2.paths import DR3_STRATEGIES_DIR
+from goldrush2.dr3.analytics.models import VariableResult
+
+
+@pytest.mark.parametrize('signal,confidence,applicable,expected,warning', [
+    (1, 0, None, 0, 'zero confidence'),
+    (-1, 0, None, 0, 'zero confidence'),
+    (1, 0.4, None, 1, ''),
+    (-1, 1, None, -1, ''),
+    (0, 1, None, 0, ''),
+    (1, 1, False, 0, 'INAPPLICABLE'),
+    (None, 1, None, 0, 'INVALID SIGNAL'),
+    ([], 1, None, 0, 'INVALID SIGNAL'),
+    (True, 1, None, 0, 'INVALID SIGNAL'),
+    (2, 1, None, 0, 'INVALID SIGNAL'),
+    (1, float('nan'), None, 0, 'INVALID CONFIDENCE'),
+    (1, None, None, 0, 'INVALID CONFIDENCE'),
+    (1, 2, None, 0, 'INVALID CONFIDENCE'),
+])
+def test_input_gate(signal, confidence, applicable, expected, warning, capsys):
+    variable = VariableResult.from_dict({'variable_id': 'L6-001', 'horizons': {
+        '1-5d': {'signal': signal, 'confidence': confidence,
+                 'evidence': {'data': {'applicable': applicable}}}}})
+    assert _current_signal({'L6-001': variable}, 'L6-001', '1-5d') == expected
+    stderr = capsys.readouterr().err
+    assert warning in stderr if warning else not stderr
+
+
+def test_fixed_weight_scoring_with_unusable_input(tmp_path):
+    # SP-RATE has 60% real yields and 10% dollar. Stale yields must not
+    # contribute; fractional dollar confidence must not shrink its 10 points.
+    for vid, confidence in [('L1-001', 0), ('L2-001', 0.4)]:
+        payload = {'variable_id': vid, 'horizons': {
+            h: {'signal': 1, 'confidence': confidence, 'evidence': {'data': {}}}
+            for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}
+        (tmp_path / f'{vid}.json').write_text(json.dumps(payload))
+    result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
+    assert all(h['score'] == 10 for h in result['strategies']['SP-RATE']['horizons'].values())
 
 
 def test_strategy_set_contains_the_frozen_fifteen_configs():

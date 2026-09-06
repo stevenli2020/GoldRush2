@@ -1,5 +1,11 @@
 # Sparse signal audit and correction sequence
 
+## Plan 1 Step 1 implementation update
+
+Input gating is implemented in `multi_strategy._current_signal`: missing variables/horizons, invalid signals, invalid confidence, zero confidence and explicit `applicable: false` contribute zero with a reason on stderr. Valid neutral inputs remain valid. Positive fractional confidence does not multiply the signal. Configured weights are not redistributed. Step 2's structured contribution/status/coverage output is pending. The findings below describe the original audited behavior, including its stale-input defect.
+
+Verification: `pytest DR3_data_analytics/tests/test_multi_strategy.py -q` in WSL: 21 passed. Added input-gate cases and an isolated end-to-end fixture proving that a stale 60% input plus a valid 10% input at confidence 0.4 yields +10, not +70, +4 or +100. No collector refresh or economic rule change was performed.
+
 2026-09-06. Status: initial audit completed; economic rule corrections proposed, not implemented.
 
 ## Scope and evidence
