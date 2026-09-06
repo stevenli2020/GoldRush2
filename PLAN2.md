@@ -22,7 +22,7 @@ Deliverable: [`PLAN2_STEP1_SOURCE_CONTRACTS.md`](PLAN2_STEP1_SOURCE_CONTRACTS.md
 
 For every priority variable and horizon, specify the economic quantity being measured, calendar-based evidence window, minimum observations, applicability, direction rationale, confidence rule, and release-lag treatment. Keep source facts, annotations, and interpretation separate. Do not infer a sign from the desired aggregate outcome.
 
-Deliverable: [`PLAN2_STEP2_EVIDENCE_RULES.md`](PLAN2_STEP2_EVIDENCE_RULES.md), followed by owner approval. No code changes begin until the relevant rules are approved.
+Deliverable: [`PLAN2_STEP2_EVIDENCE_RULES.md`](PLAN2_STEP2_EVIDENCE_RULES.md), now approved and closed by D/Q. Step 3 may implement the locked L4-001 rule without changing its causal channel or thresholds.
 
 ### Plan 2 Task 3 — Frequency-aware extractor implementation
 

@@ -1,6 +1,6 @@
 # Plan 2 Step 2 — Evidence Rules Draft
 
-**Status:** draft submitted for D/Q review; not approved for implementation
+**Status:** approved and closed by D/Q
 **Date:** 2026-09-06
 **Dependency:** [`PLAN2_STEP1_SOURCE_CONTRACTS.md`](PLAN2_STEP1_SOURCE_CONTRACTS.md)
 
@@ -20,21 +20,18 @@ L4-001 maps only **purchasing-power erosion** (“盾”). It must not map monet
 
 The evidence window is selected using CPI observation records whose `publication_date` is on or before the decision timestamp. Release lag is handled by truncating the eligible set at that publication cutoff; an observation with a future publication date is not usable. The extractor must retain both the CPI reference period and publication date in `evidence.data`.
 
-### Quantitative mapping supplied by Q
+### Approved quantitative mapping and smoothing
 
-The draft records the locked anchors exactly as supplied:
+The decision quantity is `CPI_YoY_12m_MA`, the 12-month moving average of CPI year-over-year inflation. CPI level may rise while the smoothed inflation rate falls; that is not a contradiction and must not introduce a policy-expectations or rate-pressure signal.
 
-- `2.5%` is the neutral anchor.
-- `> 4.0%` maps to `+1`.
-- `2.5%–4.0%` maps to `+0.5` as an intermediate positive state.
-- `< 1.5%` maps to `-1`.
+The approved discrete mapping is:
 
-The following two points require explicit D/Q resolution before coding:
+- `< 1.5%` → `-1.0`
+- `[1.5%, 2.5%)` → `0.0`
+- `[2.5%, 4.0%)` → `+0.5`
+- `>= 4.0%` → `+1.0`
 
-1. The `2.5%` neutral anchor overlaps the stated `2.5%–4.0% -> +0.5` interval.
-2. The interval `1.5%–2.5%` has no supplied mapping.
-
-No interpretation is silently added here. The final rule sheet must state whether the boundary is inclusive and what signal applies to the unresolved interval. The current CPI level-change rule is not approved for reuse.
+The boundaries are inclusive/exclusive exactly as written. The current CPI index-level comparison and its “accelerating inflation” interpretation are not approved for reuse. No policy-expectations, rate-hike, real-yield, or L3 channel may be introduced into L4-001.
 
 ### Degradation
 
@@ -59,4 +56,4 @@ These are scaffolds for review, not implementation authorization.
 
 ## Approval gate for Step 3
 
-Step 3 may begin only after D/Q approves the source contract and evidence rule for each variable being changed. Approval must explicitly resolve L4-001's two threshold gaps and confirm the publication-date fields and release-lag cutoff. Frozen strategy weights, Plan 1 gating, the 70% coverage threshold, and current-outlook-only scope remain unchanged.
+Step 3 may begin under this approved L4-001 rule. The extractor must use `publication_date`—never `reference_date`—for eligibility and release-lag cutoffs, calculate `CPI_YoY_12m_MA`, and preserve the locked causal channel and thresholds. Frozen strategy weights, Plan 1 gating, the 70% coverage threshold, and current-outlook-only scope remain unchanged.
