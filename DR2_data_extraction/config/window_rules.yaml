@@ -1,0 +1,5 @@
+version: v1.1
+monthly_ordinary: {1-3y: 36, 3-10y: 120}
+monthly_derived_12m: {1-3y: 48, 3-10y: 132}
+quarterly: {1-3y: 12, 3-10y: 40}
+daily: {short_fast_window: 5, medium_context_window: 20}

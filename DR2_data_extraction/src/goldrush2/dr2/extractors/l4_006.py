@@ -16,7 +16,7 @@ DATA_FREQUENCY = "Quarterly"
 SOURCE_NAME = "FRED FYFSGDA188S - Federal Surplus/Deficit as % of GDP"
 SOURCE_URL = "https://fred.stlouisfed.org/series/FYFSGDA188S"
 CACHE_MAX_AGE_DAYS = 7
-HORIZON_LOOKBACKS = {"1-3y": 8, "3-10y": 20}
+HORIZON_LOOKBACKS = {"1-3y": 12, "3-10y": 40}
 from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 RAW_PATH = PROJECT_ROOT / "data" / "raw" / "fred" / f"{SERIES_ID}.json"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / f"{VARIABLE_ID}.json"
@@ -27,7 +27,7 @@ def _empty_data() -> dict[str, None]:
 
 
 def _degraded(summary: str, data: dict[str, Any] | None = None, *, confidence: int = 0) -> dict[str, Any]:
-    return {"signal": 0, "confidence": confidence, "evidence": {"data": data if data is not None else _empty_data(), "summary": summary}}
+    return {"signal": 0, "confidence": confidence, "status": "NOT_APPLICABLE" if "does not support" in summary.lower() else "DEGRADED", "evidence": {"data": data if data is not None else _empty_data(), "summary": summary}}
 
 
 def _valid(current: dict[str, str | float], comparison: dict[str, str | float], *, cached: bool) -> dict[str, Any]:
@@ -41,7 +41,7 @@ def _valid(current: dict[str, str | float], comparison: dict[str, str | float], 
         signal, summary = 0, "Deficit/GDP ratio was unchanged, neutral for gold."
     if cached:
         summary += " SOURCE UNAVAILABLE — cached data used."
-    return {"signal": signal, "confidence": 1, "evidence": {"data": {"current_value": current_value, "current_date": current["date"], "comparison_value": comparison_value, "comparison_date": comparison["date"], "change_absolute": change}, "summary": summary}}
+    return {"signal": signal, "confidence": 1, "status": "NOT_APPLICABLE", "evidence": {"data": {"current_value": current_value, "current_date": current["date"], "comparison_value": comparison_value, "comparison_date": comparison["date"], "change_absolute": change}, "summary": summary}}
 
 
 def build_output(observations: list[dict[str, str | float]], *, cached: bool = False, as_of_date: str | None = None) -> dict[str, Any]:
@@ -53,7 +53,10 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
         summary = "Quarterly data does not support 1-5d horizon." if horizon == "1-5d" else "Quarterly data does not support 1-3m horizon."
         if cached:
             summary += " SOURCE UNAVAILABLE — cached data used."
-        horizons[horizon] = _degraded(summary, confidence=1)
+        horizons[horizon] = _degraded(summary, confidence=0)
+    for horizon, lookback in HORIZON_LOOKBACKS.items():
+        horizons[horizon] = _degraded("L4-006 is pending formal directional approval; contribution disabled.")
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "horizons": horizons}
     for horizon, lookback in HORIZON_LOOKBACKS.items():
         if current is None or len(ordered) < lookback:
             data = _empty_data()
