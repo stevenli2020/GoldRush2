@@ -15,6 +15,7 @@ import yaml
 from goldrush2.dr3.analytics.aggregator import HORIZONS, load_variable_results
 from goldrush2.paths import DR2_CURRENT_DIR, DR3_MULTI_STRATEGY_OUTPUT_PATH, DR3_STRATEGIES_DIR
 
+MIN_USABLE_WEIGHT_COVERAGE = 0.70
 
 class StrategyValidationError(ValueError):
     """Raised when an immutable strategy configuration is not valid."""
@@ -184,7 +185,9 @@ def run_multi_strategy(
                     status = "STALE"
                 signal = item.signal if item else None
                 confidence = item.confidence if item else None
-                points = float(weight) * int(signal) * 100 if status == "VALID" else 0.0
+                # Hard gate at zero; otherwise confidence is a linear decay.
+                # Configured weights always retain their original denominator.
+                points = round(float(weight) * int(signal) * float(confidence) * 100, 6) if status == "VALID" else 0.0
                 if status == "VALID":
                     usable_weight += weight
                 elif weight > 0:
@@ -199,16 +202,19 @@ def run_multi_strategy(
                     "evidence_summary": detail,
                 }
             score = sum(entry["contribution"] for entry in contributions.values())
+            coverage = usable_weight / sum(weights.values())
             horizons[horizon] = {
                 "score": round(score, 6),
                 "active_variables": "AUTO_UNIFORM_ADMIT" if is_baseline else sorted(weights),
                 "contributions": contributions,
-                "usable_weight_coverage": round(usable_weight / sum(weights.values()), 6),
+                "usable_weight_coverage": round(coverage, 6),
+                "status": "VALID" if coverage >= MIN_USABLE_WEIGHT_COVERAGE else "DEGRADED",
                 "warnings": warnings,
             }
         output["strategies"][strategy["id"]] = {
             "type": strategy["type"],
             "production_eligible": bool(index.get("production_eligible", not is_baseline)),
+            "status": "VALID" if all(item["status"] == "VALID" for item in horizons.values()) else "DEGRADED",
             "horizons": horizons,
         }
 

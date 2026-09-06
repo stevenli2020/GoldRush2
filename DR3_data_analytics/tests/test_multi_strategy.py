@@ -4,6 +4,7 @@ import shutil
 import pytest
 
 from goldrush2.dr3.analytics.multi_strategy import StrategyValidationError, _current_signal, _validate_weights, load_strategy_set, run_multi_strategy
+from goldrush2.dr3.analytics.score_delta_report import render_report
 from goldrush2.paths import DR3_STRATEGIES_DIR
 from goldrush2.dr3.analytics.models import VariableResult
 
@@ -35,8 +36,9 @@ def test_comparison_command_preserves_weights_inputs_and_official_output(tmp_pat
     assert output['official_strategy'] is None
     assert len(output['strategies']) == 15
     for h in output['strategies']['SP-RATE']['horizons'].values():
-        assert h['score'] == -60
+        assert h['score'] == -24
         assert h['usable_weight_coverage'] == 0.6
+        assert h['status'] == 'DEGRADED'
 
 
 def test_cancellation_is_distinct_from_no_usable_data(tmp_path):
@@ -101,14 +103,14 @@ def test_input_gate(signal, confidence, applicable, expected, warning, capsys):
 
 def test_fixed_weight_scoring_with_unusable_input(tmp_path):
     # SP-RATE has 60% real yields and 10% dollar. Stale yields must not
-    # contribute; fractional dollar confidence must not shrink its 10 points.
+    # contribute; fractional dollar confidence linearly decays its 10 points.
     for vid, confidence in [('L1-001', 0), ('L2-001', 0.4)]:
         payload = {'variable_id': vid, 'horizons': {
             h: {'signal': 1, 'confidence': confidence, 'evidence': {'data': {}}}
             for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}
         (tmp_path / f'{vid}.json').write_text(json.dumps(payload))
     result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
-    assert all(h['score'] == 10 for h in result['strategies']['SP-RATE']['horizons'].values())
+    assert all(h['score'] == 4 for h in result['strategies']['SP-RATE']['horizons'].values())
 
 
 def test_structured_contributions_and_coverage(tmp_path):
@@ -127,7 +129,7 @@ def test_structured_contributions_and_coverage(tmp_path):
                 for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}))
     result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
     horizon = result['strategies']['SP-RATE']['horizons']['1-5d']
-    assert horizon['score'] == -10
+    assert horizon['score'] == -4
     assert horizon['usable_weight_coverage'] == 0.25  # valid dollar and neutral CPI
     entries = horizon['contributions']
     assert {vid: item['input_status'] for vid, item in entries.items()} == {
@@ -136,12 +138,35 @@ def test_structured_contributions_and_coverage(tmp_path):
     assert entries['L1-001']['signal'] == 1
     assert entries['L1-001']['contribution'] == 0
     assert entries['L2-001']['confidence'] == 0.4
-    assert entries['L2-001']['contribution'] == -10
+    assert entries['L2-001']['contribution'] == -4
     assert any('Cached data is stale' in warning for warning in horizon['warnings'])
     for strategy in result['strategies'].values():
         assert len(strategy['horizons']) == 4
         for output in strategy['horizons'].values():
             assert output['score'] == pytest.approx(sum(e['contribution'] for e in output['contributions'].values()), abs=1e-6)
+
+
+def test_coverage_threshold_and_strategy_status(tmp_path):
+    for vid in ('L1-001', 'L2-001'):
+        (tmp_path / f'{vid}.json').write_text(json.dumps({
+            'variable_id': vid, 'horizons': {
+                h: {'signal': 1, 'confidence': 1, 'evidence': {'data': {}}}
+                for h in ('1-5d', '1-3m', '1-3y', '3-10y')}}))
+    result = run_multi_strategy(data_dir=tmp_path, output_path=tmp_path / 'result.json')
+    rate = result['strategies']['SP-RATE']
+    # SP-RATE's two valid inputs cover exactly 70%, the approved validity floor.
+    assert all(h['usable_weight_coverage'] == 0.7 and h['status'] == 'VALID' for h in rate['horizons'].values())
+    assert rate['status'] == 'VALID'
+    assert result['strategies']['SP-CB']['status'] == 'DEGRADED'
+
+
+def test_score_delta_report_covers_each_frozen_strategy_horizon(tmp_path):
+    comparison_path = tmp_path / 'comparison.json'
+    run_multi_strategy(data_dir=tmp_path, output_path=comparison_path)
+    report = render_report(comparison_path)
+    assert report.count('| SP-RATE |') == 4
+    assert '| SP-L6L7 | 1-5d | +10.0 | +0.0 | -10.0 | 0% | DEGRADED |' in report
+    assert '60 of 60 strategy-horizon results are DEGRADED' in report
 
 
 def test_strategy_set_contains_the_frozen_fifteen_configs():

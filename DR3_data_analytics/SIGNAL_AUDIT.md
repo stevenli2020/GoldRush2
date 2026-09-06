@@ -1,11 +1,21 @@
 # Sparse signal audit and correction sequence
 
+## Plan 1 Step 4 comparison and delivery update
+
+Step 4 adds a 70% usable configured-weight validity floor. Each horizon now reports `VALID` at or above the floor and `DEGRADED` below it; a strategy is `VALID` only when all four horizons meet the floor. This makes a score based on incomplete inputs explicitly non-decision-ready without altering its fixed configuration.
+
+Q's final arithmetic boundary supersedes the Step 1 interim behavior: confidence zero is a hard gate with an exactly zero contribution; a valid confidence strictly between zero and one applies linear soft decay, `100 * weight * signal * confidence`; and the denominator remains the frozen total configured weight. No missing or degraded weight is redistributed or renormalized.
+
+`SCORE_DELTA_REPORT.md` records the owner-supplied initial v1.1 matrix against the current post-audit run, with the contribution statuses that explain zeroed inputs. It is a diagnostic comparison of stored current data, not a backtest, ranking, or prediction validation.
+
+The completed current-data run has 16 of 60 strategy-horizon results below the coverage floor. For example, SP-L6L7 changes from +10 to -30 at 1-5d and from +50 to +10 at 1-3m after stale L6-001 is excluded; both remain `DEGRADED` at 60% coverage. The report is the source of record for every row and zeroed-input explanation.
+
 ## Plan 1 Step 3 regression verification
 
 Completed the Step 3 test matrix in `tests/test_multi_strategy.py`. WSL command: `pytest DR3_data_analytics/tests/test_multi_strategy.py -q` (25 passed).
 
 - Stale +1/confidence 0, invalid signals/confidence, and explicit inapplicability are excluded; valid zero remains usable.
-- Valid positive fractional confidence retains full configured directional contribution without redistribution.
+- Valid positive fractional confidence uses linear soft decay without redistribution; zero confidence remains hard-gated.
 - Mixed-sign contributions reconcile across all strategy horizons; cancellation at 20% coverage differs from missing inputs at 0% coverage even when both scores are zero.
 - Malformed files and absent horizons produce missing usable inputs with warnings; malformed-file details remain in loader stderr (not misrepresented as a parsed invalid-signal record).
 - Real `cli.main(['analyze-strategies'])` runs with temporary IO defaults. Copied strategy YAML, input JSON and an official-score sentinel remain byte-for-byte unchanged. No hash checks or production output writes are needed.
@@ -15,11 +25,11 @@ Tests use temporary files and do not refresh sources. The earlier test-limitatio
 
 ## Plan 1 Step 2 implementation update
 
-The comparison JSON now carries structured contributions, input status, reasons, source explanations, usable configured-weight coverage and warnings for every strategy/horizon, including the baseline. See README.md for field definitions. The source's stale warning is retained even when the official-score model discards that field. No economic rule, weight or fractional-confidence multiplier was changed. Focused WSL verification: 22 tests passed, including neutral-versus-missing coverage, stale-source explanation, applicability, invalid signals, and contribution reconciliation across all strategy horizons. Historical findings below remain a record of the original behavior.
+The comparison JSON now carries structured contributions, input status, reasons, source explanations, usable configured-weight coverage and warnings for every strategy/horizon, including the baseline. See README.md for field definitions. The source's stale warning is retained even when the official-score model discards that field. At this Step 2 point, no economic rule, weight or fractional-confidence multiplier was changed; Step 4 subsequently adopted Q's explicit soft-decay boundary. Focused WSL verification: 22 tests passed, including neutral-versus-missing coverage, stale-source explanation, applicability, invalid signals, and contribution reconciliation across all strategy horizons. Historical findings below remain a record of the original behavior.
 
 ## Plan 1 Step 1 implementation update
 
-Input gating is implemented in `multi_strategy._current_signal`: missing variables/horizons, invalid signals, invalid confidence, zero confidence and explicit `applicable: false` contribute zero with a reason on stderr. Valid neutral inputs remain valid. Positive fractional confidence does not multiply the signal. Configured weights are not redistributed. Step 2's structured contribution/status/coverage output is pending. The findings below describe the original audited behavior, including its stale-input defect.
+Input gating is implemented in `multi_strategy._current_signal`: missing variables/horizons, invalid signals, invalid confidence, zero confidence and explicit `applicable: false` contribute zero with a reason on stderr. Valid neutral inputs remain valid. At this Step 1 point, positive fractional confidence did not multiply the signal; Step 4 supersedes that interim behavior with Q's explicit soft-decay boundary. Configured weights are not redistributed. Step 2's structured contribution/status/coverage output is pending. The findings below describe the original audited behavior, including its stale-input defect.
 
 Verification: `pytest DR3_data_analytics/tests/test_multi_strategy.py -q` in WSL: 21 passed. Added input-gate cases and an isolated end-to-end fixture proving that a stale 60% input plus a valid 10% input at confidence 0.4 yields +10, not +70, +4 or +100. No collector refresh or economic rule change was performed.
 
@@ -55,11 +65,11 @@ SP-SHORT 1-5d is +70: real yields -5, dollar +20, Fed assets -10, ETF flows +35,
 
 SP-SHORT 1-3m is -20: real yields -10, dollar +20, CPI -5, Fed assets +10, ETF flows -30, premium -15, positioning +10. The largest negative input compares July 2026 with May 2021.
 
-The fixed scoring equation remains 100 * sum(weight * signal). Its output currently conceals missingness, confidence and applicability; neutral zero and missing zero cannot be distinguished in the score table. Confidence 1 means a deterministic rule ran, not 100% confidence in future price direction.
+The original audited scoring equation was 100 * sum(weight * signal). Step 4 uses `100 * sum(weight * signal * confidence)` for valid inputs, hard-gates confidence zero, and keeps the total frozen configured-weight denominator. Neutral zero and missing zero remain distinct in structured output. Confidence 1 means a deterministic rule ran, not 100% confidence in future price direction.
 
 ## Correction sequence and verification gates
 
-1. Repair unusable-input handling and show per-variable contribution, usable configured weight, and explicit missing/stale/applicability reasons. Preserve frozen weights; do not silently renormalize or introduce a fractional-confidence multiplier. Test stale +1/confidence 0, missing JSON, null signals, structural neutrality and cancellation separately.
+1. Repair unusable-input handling and show per-variable contribution, usable configured weight, and explicit missing/stale/applicability reasons. Preserve frozen weights; do not silently renormalize. Step 4 adds Q's approved linear fractional-confidence multiplier. Test stale +1/confidence 0, missing JSON, null signals, structural neutrality and cancellation separately.
 2. Verify source frequency and release dates for the four priority inputs (CPI, ETF flows, official purchases, Fed assets), then fiscal balance and premiums. Check latest data at source; snapshot age alone cannot prove staleness.
 3. Write one explicit rule per variable/horizon: economic quantity, evidence window, minimum observations, gold-direction rationale, applicability and confidence. Calendar dates must accompany every comparison. Choose rules for their meaning, not their resulting sign. A lookback is evidence for an outlook, not the outlook itself.
 4. Implement approved rules with fixtures that expose daily/monthly/weekly mismatches, missing calendar periods and off-by-one errors. Tests must check actual dates and meaning, not merely mirror row offsets.
