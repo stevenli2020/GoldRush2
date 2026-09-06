@@ -4,6 +4,8 @@ DR3 combines current variable signals into one score, confidence level, and avai
 
 Canonical implementation:
 
+- [`SIGNAL_AUDIT.md`](SIGNAL_AUDIT.md) — findings, reference scores, evidence locations, repeatable verification methods, test limitations, and pending corrections.
+
 - [`config/weights_v1.yaml`](config/weights_v1.yaml) — versioned variable weights.
 - [`src/goldrush2/dr3/analytics/`](src/goldrush2/dr3/analytics/) — aggregation models and engine.
 - [`src/goldrush2/dr3/analyze.py`](src/goldrush2/dr3/analyze.py) — `gr2 analyze` command.
