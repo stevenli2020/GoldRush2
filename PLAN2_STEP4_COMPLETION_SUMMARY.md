@@ -1,7 +1,7 @@
 # Plan 2 Step 4 — Completion Summary for Review
 
-**Scope:** L4-001 controlled refresh and unchanged strategy comparison  
-**Final status:** complete for the L4-001 tranche  
+**Scope:** L4-001 controlled refresh and unchanged strategy comparison
+**Final status:** complete for the L4-001 tranche
 **Final commits:** [`4e55b9e`](https://github.com/stevenli2020/GoldRush2/commit/4e55b9e), [`8a4b953`](https://github.com/stevenli2020/GoldRush2/commit/8a4b953)
 
 ## Objective
