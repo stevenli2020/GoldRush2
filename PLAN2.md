@@ -36,7 +36,7 @@ Refresh only the affected sources, regenerate their current JSON, run `gr2 analy
 
 Deliverable: reviewed post-correction comparison and an owner decision on the next correction tranche.
 
-The L4-001 tranche is closed. Tranche 2 Step 1/2 contracts were approved and Step 3 is implemented for review in [`PLAN2_TRANCHE2_STEP3_IMPLEMENTATION.md`](PLAN2_TRANCHE2_STEP3_IMPLEMENTATION.md). Step 4 controlled refresh remains pending; frozen weights are unchanged.
+The L4-001 tranche is closed. Tranche 2 Step 1/2 contracts were approved, Step 3 was implemented, and Step 4 controlled refresh/comparison is documented in [`PLAN2_TRANCHE2_STEP4_COMPLETION_SUMMARY.md`](PLAN2_TRANCHE2_STEP4_COMPLETION_SUMMARY.md) for review. Frozen weights are unchanged.
 
 ## Acceptance gates
 

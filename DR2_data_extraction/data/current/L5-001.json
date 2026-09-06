@@ -1,29 +1,31 @@
 {
   "variable_id": "L5-001",
-  "as_of_date": "2026-09-04",
+  "as_of_date": "2026-09-06",
   "source_name": "WGC/IMF IFS Official-Sector Gold Purchases (tonnes)",
-  "source_url": "https://www.gold.org/",
+  "source_url": "https://www.gold.org/goldhub/data/gold-reserves-by-country",
   "data_frequency": "Monthly",
   "observation_date": "2026-07-01",
+  "publication_date": null,
+  "estimated_availability_date": "2026-08-11",
+  "availability_source": "wgc_schedule_bound_v1",
+  "source_page_date": null,
+  "retrieved_at": "2026-09-06T10:53:07.532315+00:00",
   "horizons": {
     "1-5d": {
-      "signal": 1,
-      "confidence": 1,
+      "signal": 0,
+      "confidence": 0,
+      "status": "NOT_APPLICABLE",
       "evidence": {
         "data": {
-          "current_value": 23.3103485685,
-          "current_date": "2026-07-01",
-          "comparison_value": -47.9711713113,
-          "comparison_date": "2026-03-01",
-          "change_absolute": 71.2815198798,
-          "change_pct": -148.5924106736
+          "current_date": "2026-07-01"
         },
-        "summary": "Official-sector net purchases rose by 71.28 (-148.59%), bullish for gold."
+        "summary": "NOT_APPLICABLE \u2014 monthly WGC data has no 1-5d marginal pricing applicability."
       }
     },
     "1-3m": {
       "signal": -1,
-      "confidence": 1,
+      "confidence": 1.0,
+      "status": "VALID",
       "evidence": {
         "data": {
           "current_value": 23.3103485685,
@@ -31,14 +33,20 @@
           "comparison_value": 71.1186008193,
           "comparison_date": "2021-05-01",
           "change_absolute": -47.8082522508,
-          "change_pct": -67.2232745021
+          "change_pct": -67.2232745021,
+          "publication_date": null,
+          "estimated_availability_date": "2026-08-11",
+          "availability_source": "wgc_schedule_bound_v1",
+          "source_page_date": null,
+          "retrieved_at": "2026-09-06T10:53:07.532315+00:00"
         },
-        "summary": "Official-sector net purchases fell by 47.81 (-67.22%), bearish for gold."
+        "summary": "Official-sector net purchases fell by 47.81; schedule-bound availability confirmed on 2026-08-11."
       }
     },
     "1-3y": {
       "signal": 1,
-      "confidence": 1,
+      "confidence": 1.0,
+      "status": "VALID",
       "evidence": {
         "data": {
           "current_value": 23.3103485685,
@@ -46,14 +54,20 @@
           "comparison_value": -51.3883563207,
           "comparison_date": "2005-08-01",
           "change_absolute": 74.6987048892,
-          "change_pct": -145.3611483952
+          "change_pct": -145.3611483952,
+          "publication_date": null,
+          "estimated_availability_date": "2026-08-11",
+          "availability_source": "wgc_schedule_bound_v1",
+          "source_page_date": null,
+          "retrieved_at": "2026-09-06T10:53:07.532315+00:00"
         },
-        "summary": "Official-sector net purchases rose by 74.70 (-145.36%), bullish for gold."
+        "summary": "Official-sector net purchases rose by 74.70; schedule-bound availability confirmed on 2026-08-11."
       }
     },
     "3-10y": {
       "signal": 0,
       "confidence": 0,
+      "status": "INSUFFICIENT_DATA",
       "evidence": {
         "data": {
           "current_value": 23.3103485685,
@@ -61,9 +75,12 @@
           "comparison_value": null,
           "comparison_date": null,
           "change_absolute": null,
-          "change_pct": null
+          "change_pct": null,
+          "estimated_availability_date": "2026-08-11",
+          "availability_source": "wgc_schedule_bound_v1",
+          "publication_date": null
         },
-        "summary": "MISSING DATA \u2014 756 valid monthly observations are required; 295 are available."
+        "summary": "MISSING DATA \u2014 756 eligible calendar-month observations are required; 295 are available."
       }
     }
   }

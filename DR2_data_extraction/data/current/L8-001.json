@@ -1,14 +1,20 @@
 {
   "variable_id": "L8-001",
-  "as_of_date": "2026-09-04",
+  "as_of_date": "2026-09-06",
   "source_name": "WGC ETF Flows - Global Gold ETF Net Flows (tonnes)",
-  "source_url": "https://www.gold.org/",
+  "source_url": "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows",
   "data_frequency": "Monthly",
   "observation_date": "2026-07-31",
+  "publication_date": null,
+  "estimated_availability_date": "2026-08-08",
+  "availability_source": "wgc_schedule_bound_v1",
+  "source_page_date": null,
+  "retrieved_at": "2026-09-06T10:52:57.288380+00:00",
   "horizons": {
     "1-5d": {
       "signal": 1,
-      "confidence": 1,
+      "confidence": 1.0,
+      "status": "VALID",
       "evidence": {
         "data": {
           "current_value": 23.46395211,
@@ -16,14 +22,20 @@
           "comparison_value": -84.27305249,
           "comparison_date": "2026-03-31",
           "change_absolute": 107.7370046,
-          "change_pct": -127.8427699208
+          "change_pct": -127.8427699208,
+          "publication_date": null,
+          "estimated_availability_date": "2026-08-08",
+          "availability_source": "wgc_schedule_bound_v1",
+          "source_page_date": null,
+          "retrieved_at": "2026-09-06T10:52:57.288380+00:00"
         },
-        "summary": "Gold ETF net flow rose by 107.74 (-127.84%), bullish for gold."
+        "summary": "Gold ETF net flow rose by 107.74; schedule-bound availability confirmed on 2026-08-08."
       }
     },
     "1-3m": {
       "signal": -1,
-      "confidence": 1,
+      "confidence": 1.0,
+      "status": "VALID",
       "evidence": {
         "data": {
           "current_value": 23.46395211,
@@ -31,14 +43,20 @@
           "comparison_value": 61.08180037,
           "comparison_date": "2021-05-31",
           "change_absolute": -37.61784826,
-          "change_pct": -61.5860174915
+          "change_pct": -61.5860174915,
+          "publication_date": null,
+          "estimated_availability_date": "2026-08-08",
+          "availability_source": "wgc_schedule_bound_v1",
+          "source_page_date": null,
+          "retrieved_at": "2026-09-06T10:52:57.288380+00:00"
         },
-        "summary": "Gold ETF net flow fell by 37.62 (-61.59%), bearish for gold."
+        "summary": "Gold ETF net flow fell by 37.62; schedule-bound availability confirmed on 2026-08-08."
       }
     },
     "1-3y": {
       "signal": 1,
-      "confidence": 1,
+      "confidence": 1.0,
+      "status": "VALID",
       "evidence": {
         "data": {
           "current_value": 23.46395211,
@@ -46,14 +64,20 @@
           "comparison_value": 7.00293494,
           "comparison_date": "2005-08-31",
           "change_absolute": 16.46101717,
-          "change_pct": 235.0588333468
+          "change_pct": 235.0588333468,
+          "publication_date": null,
+          "estimated_availability_date": "2026-08-08",
+          "availability_source": "wgc_schedule_bound_v1",
+          "source_page_date": null,
+          "retrieved_at": "2026-09-06T10:52:57.288380+00:00"
         },
-        "summary": "Gold ETF net flow rose by 16.46 (+235.06%), bullish for gold."
+        "summary": "Gold ETF net flow rose by 16.46; schedule-bound availability confirmed on 2026-08-08."
       }
     },
     "3-10y": {
       "signal": 0,
       "confidence": 0,
+      "status": "INSUFFICIENT_DATA",
       "evidence": {
         "data": {
           "current_value": 23.46395211,
@@ -61,9 +85,12 @@
           "comparison_value": null,
           "comparison_date": null,
           "change_absolute": null,
-          "change_pct": null
+          "change_pct": null,
+          "estimated_availability_date": "2026-08-08",
+          "availability_source": "wgc_schedule_bound_v1",
+          "publication_date": null
         },
-        "summary": "MISSING DATA \u2014 756 valid monthly observations are required; 281 are available."
+        "summary": "MISSING DATA \u2014 756 eligible calendar-month observations are required; 281 are available."
       }
     }
   }
