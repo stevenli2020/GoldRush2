@@ -13,6 +13,7 @@ import re
 from typing import Any
 
 import yaml
+from dotenv import load_dotenv
 
 from goldrush2.dr2.collectors.base import BaseCollector, CollectorError
 from goldrush2.dr2.collectors.bis import BISCollector
@@ -33,6 +34,11 @@ from goldrush2.paths import DR2_CACHE_DIR, DR2_CONFIG_DIR, DR2_CURRENT_DIR, DR2_
 
 POLICY_PATH = DR2_CONFIG_DIR / "refresh_policies.yaml"
 EXTRACTORS_PACKAGE = "goldrush2.dr2.extractors"
+
+
+def load_environment() -> None:
+    """Load GR2's ignored project credentials before any command runs."""
+    load_dotenv(DR2_ROOT.parent / ".env", override=False)
 
 
 def load_policies(path: Path = POLICY_PATH) -> dict[str, dict[str, Any]]:
@@ -322,6 +328,7 @@ def cmd_analyze_strategies(args: argparse.Namespace) -> int:
     return 0
 
 def main(argv: list[str] | None = None) -> int:
+    load_environment()
     parser = argparse.ArgumentParser(prog="gr2")
     commands = parser.add_subparsers(dest="command", required=True)
     collect = commands.add_parser("collect", help="refresh normalized source caches")

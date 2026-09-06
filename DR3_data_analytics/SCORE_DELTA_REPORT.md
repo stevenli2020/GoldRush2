@@ -3,7 +3,7 @@
 This report compares the owner-recorded initial v1.1 matrix with the current current-outlook run after Plan 1 input gating, soft confidence decay, and the 70% usable-coverage threshold.
 It is a current-data diagnostic, not a backtest or a strategy ranking.
 
-Generated from comparison run: `2026-09-06T09:28:17.456656+00:00`.
+Generated from comparison run: `2026-09-06T09:55:15.635315+00:00`.
 
 | Strategy | Horizon | Pre-Audit Score | Post-Audit Score | Delta | Post Coverage | Status | Primary Zeroed Variables |
 |---|---|---:|---:|---:|---:|---|---|

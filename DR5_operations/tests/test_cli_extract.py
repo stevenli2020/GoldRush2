@@ -8,6 +8,15 @@ from types import SimpleNamespace
 from goldrush2 import cli
 
 
+def test_main_loads_project_environment_before_dispatch(monkeypatch):
+    loaded = []
+    monkeypatch.setattr(cli, "load_dotenv", lambda path, override=False: loaded.append((path, override)))
+    monkeypatch.setattr(cli, "discover_extractors", lambda: {})
+
+    assert cli.main(["extract", "--check"]) == 0
+    assert loaded == [(cli.DR2_ROOT.parent / ".env", False)]
+
+
 def test_discover_extractors_finds_all_current_modules():
     discovered = cli.discover_extractors()
 

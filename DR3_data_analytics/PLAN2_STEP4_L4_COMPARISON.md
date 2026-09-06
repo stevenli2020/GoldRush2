@@ -3,7 +3,7 @@
 This report compares the frozen strategy run captured immediately before the L4-001 refresh with the unchanged strategy engine after the refresh.
 The comparison is current-outlook evidence, not a backtest or a strategy ranking.
 
-L4-001 now uses publication-aligned `CPI_YoY_12m_MA` and emits `+0.5` for the refreshed 2.70% smoothed rate. The refreshed source was unavailable, so the extractor used a cached observation published 2026-08-12; the cache remained within the 62-day L4 freshness limit on the 2026-09-06 run.
+L4-001 now uses publication-aligned `CPI_YoY_12m_MA` and emits `+0.5` for the refreshed 2.70% smoothed rate. The refresh used live FRED data; its latest smoothed observation is dated 2025-09-01 with publication date 2026-08-12.
 
 | Strategy | Horizon | Pre Score | Post Score | Delta | L4 Pre Contribution | L4 Post Contribution | Post Coverage | Status |
 |---|---|---:|---:|---:|---:|---:|---:|---|

@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-from goldrush2.paths import DR3_ROOT
+from goldrush2.paths import DR2_CURRENT_DIR, DR3_ROOT
 
 HORIZONS = ("1-5d", "1-3m", "1-3y", "3-10y")
 
@@ -17,13 +17,17 @@ def _score(value: float) -> str:
 def render(pre_path: Path, post_path: Path) -> str:
     pre = json.loads(pre_path.read_text(encoding="utf-8"))
     post = json.loads(post_path.read_text(encoding="utf-8"))
+    l4 = json.loads((DR2_CURRENT_DIR / "L4-001.json").read_text(encoding="utf-8"))
+    l4_data = l4["horizons"]["1-5d"]["evidence"].get("data", {})
+    l4_summary = l4["horizons"]["1-5d"]["evidence"].get("summary", "")
+    source_mode = "live FRED data" if "SOURCE UNAVAILABLE" not in l4_summary else "cached FRED data after source unavailability"
     lines = [
         "# Plan 2 Step 4 — L4-001 Controlled Refresh Comparison",
         "",
         "This report compares the frozen strategy run captured immediately before the L4-001 refresh with the unchanged strategy engine after the refresh.",
         "The comparison is current-outlook evidence, not a backtest or a strategy ranking.",
         "",
-        "L4-001 now uses publication-aligned `CPI_YoY_12m_MA` and emits `+0.5` for the refreshed 2.70% smoothed rate. The refreshed source was unavailable, so the extractor used a cached observation published 2026-08-12; the cache remained within the 62-day L4 freshness limit on the 2026-09-06 run.",
+        f"L4-001 now uses publication-aligned `CPI_YoY_12m_MA` and emits `+0.5` for the refreshed {l4_data.get('CPI_YoY_12m_MA'):.2f}% smoothed rate. The refresh used {source_mode}; its latest smoothed observation is dated {l4_data.get('observation_date')} with publication date {l4_data.get('publication_date')}.",
         "",
         "| Strategy | Horizon | Pre Score | Post Score | Delta | L4 Pre Contribution | L4 Post Contribution | Post Coverage | Status |",
         "|---|---|---:|---:|---:|---:|---:|---:|---|",
