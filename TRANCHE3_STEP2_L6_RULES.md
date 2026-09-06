@@ -1,6 +1,6 @@
-# Tranche 3 Step 2 — L6-001 Source Contract and Evidence Rules (Draft)
+# Tranche 3 Step 2 — L6-001 Source Contract and Evidence Rules
 
-**Status:** approved; Step 3 implementation in progress
+**Status:** approved; Step 3 implemented
 **Variable:** L6-001 Geopolitical Risk
 
 ## Source contract
@@ -34,8 +34,8 @@ This is a source-availability contract gap, not evidence that geopolitical risk 
 5. Malformed/missing dates do not get compressed into a valid 60-row window.
 6. Snapshot fallback is explicitly labelled and never appears as a fresh live source.
 
-## Approval questions
+## Approved decisions
 
-- Approve the original Recent GPR `GPRD_ACT` source rather than migrating to AI-GPR or ACLED?
-- Approve the weekly freshness tolerance and explicit vintage-date provenance rule?
-- Keep 1-3y and 3-10y `NOT_APPLICABLE` for L6-001, or commission a separate monthly aggregation method?
+- Retain Caldara–Iacoviello `GPRD_ACT`; no migration to AI-GPR or ACLED in this tranche.
+- Use Monday/next-business-day freshness tolerance with explicit source vintage/update dates only. Ignore filesystem mtime and `retrieved_at` for freshness.
+- Keep `1-3y` and `3-10y` as `NOT_APPLICABLE` for L6-001.

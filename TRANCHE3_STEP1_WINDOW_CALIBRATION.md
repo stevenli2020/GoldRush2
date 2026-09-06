@@ -1,6 +1,6 @@
-# Tranche 3 Step 1 — Long-Horizon Evidence Window Calibration (Draft)
+# Tranche 3 Step 1 — Long-Horizon Evidence Window Calibration
 
-**Status:** approved; Step 3 implementation in progress
+**Status:** approved; Step 3 implemented
 **Scope:** monthly and quarterly variables currently feeding the 4-horizon strategy matrix
 
 ## Finding
