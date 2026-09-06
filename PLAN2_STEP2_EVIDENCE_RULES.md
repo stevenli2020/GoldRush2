@@ -1,7 +1,7 @@
 # Plan 2 Step 2 — Evidence Rules Draft
 
-**Status:** draft submitted for D/Q review; not approved for implementation  
-**Date:** 2026-09-06  
+**Status:** draft submitted for D/Q review; not approved for implementation
+**Date:** 2026-09-06
 **Dependency:** [`PLAN2_STEP1_SOURCE_CONTRACTS.md`](PLAN2_STEP1_SOURCE_CONTRACTS.md)
 
 ## Global rule contract

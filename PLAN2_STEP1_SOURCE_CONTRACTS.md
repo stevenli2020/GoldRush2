@@ -1,7 +1,7 @@
 # Plan 2 Step 1 — Source and Frequency Contract Inventory
 
-**Status:** completed for review  
-**Date:** 2026-09-06  
+**Status:** completed for review
+**Date:** 2026-09-06
 **Scope:** repository-backed inventory only; no source refresh or extractor change was performed.
 
 ## Contract rules carried into Step 2
