@@ -21,7 +21,7 @@ def observations(count=756, current=200.0, comparison=100.0):
 def test_directions_and_lookbacks(horizon, lookback, current, comparison, signal):
     rows = observations(current=current, comparison=100.0)
     rows[-lookback]["value"] = comparison
-    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, rows, value_label="Gold ETF net flow")
+    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, rows, as_of_date="2065-01-01", value_label="Gold ETF net flow")
     assert result["horizons"][horizon]["signal"] == signal
     assert result["horizons"][horizon]["confidence"] == 1
 
@@ -38,12 +38,12 @@ def test_flow_parser_sums_funds_and_excludes_total(tmp_path):
 
 
 def test_negative_flows_are_valid():
-    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(current=-2, comparison=-1), value_label="Gold ETF net flow")
+    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(current=-2, comparison=-1), as_of_date="2065-01-01", value_label="Gold ETF net flow")
     assert result["horizons"]["1-5d"]["signal"] == -1
 
 
 def test_insufficient_history():
-    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(4), value_label="Gold ETF net flow")
+    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(4), as_of_date="2065-01-01", value_label="Gold ETF net flow")
     assert result["horizons"]["1-5d"]["confidence"] == 0
 
 
@@ -75,7 +75,29 @@ def test_stale_output(monkeypatch, tmp_path):
 
 
 def test_schema():
-    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(), value_label="Gold ETF net flow")
+    result = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, observations(), as_of_date="2065-01-01", value_label="Gold ETF net flow")
     assert result["variable_id"] == "L8-001"
     assert result["data_frequency"] == "Monthly"
     assert set(result["horizons"]) == {"1-5d", "1-3m", "1-3y", "3-10y"}
+
+
+def test_schedule_bound_t7_t8_crossing():
+    rows = [{"date": f"2026-{month:02d}-28", "value": float(month)} for month in range(2, 7)]
+    pending = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, rows, as_of_date="2026-07-07")
+    active = l8_001.build_output(l8_001.VARIABLE_ID, l8_001.SOURCE_NAME, l8_001.SOURCE_URL, rows, as_of_date="2026-07-08")
+    assert pending["horizons"]["1-5d"]["status"] == "PENDING_RELEASE"
+    assert pending["horizons"]["1-5d"]["confidence"] == 0
+    assert active["horizons"]["1-5d"]["status"] == "VALID"
+    assert active["horizons"]["1-5d"]["confidence"] == 1
+
+
+def test_holdings_shaped_workbook_is_rejected(tmp_path):
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.title = "Holdings"
+    sheet.append(["Date", "Holdings (tonnes)"])
+    sheet.append([date(2026, 6, 30), 100.0])
+    path = tmp_path / "holdings.xlsx"
+    workbook.save(path)
+    with pytest.raises(ValueError, match="Demand by month"):
+        l8_001.parse_flows_workbook(path)

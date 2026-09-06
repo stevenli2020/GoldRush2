@@ -36,7 +36,7 @@ Refresh only the affected sources, regenerate their current JSON, run `gr2 analy
 
 Deliverable: reviewed post-correction comparison and an owner decision on the next correction tranche.
 
-The L4-001 tranche is closed. Tranche 2 now begins with source-contract and evidence-rule drafts for L8-001 and L5-001 through their shared monthly WGC collector. No extractor implementation or refresh is authorized until D/Q approve the drafts.
+The L4-001 tranche is closed. Tranche 2 Step 1/2 contracts were approved and Step 3 is implemented for review in [`PLAN2_TRANCHE2_STEP3_IMPLEMENTATION.md`](PLAN2_TRANCHE2_STEP3_IMPLEMENTATION.md). Step 4 controlled refresh remains pending; frozen weights are unchanged.
 
 ## Acceptance gates
 

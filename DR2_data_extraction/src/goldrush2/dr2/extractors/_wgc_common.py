@@ -6,7 +6,7 @@ import json
 import math
 import re
 import calendar
-from datetime import date, datetime
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -357,6 +357,76 @@ def empty_data() -> dict[str, Any]:
 def degraded(summary: str, data: dict[str, Any] | None = None) -> dict[str, Any]:
     """Build a zero-confidence horizon result."""
     return {"signal": 0, "confidence": 0, "evidence": {"data": data or empty_data(), "summary": summary}}
+
+
+def month_end_plus_days(observation_date: str, days: int) -> str:
+    """Return a conservative calendar-day availability bound for a month."""
+    parsed = date.fromisoformat(observation_date)
+    last_day = calendar.monthrange(parsed.year, parsed.month)[1]
+    return (parsed.replace(day=last_day) + timedelta(days=days)).isoformat()
+
+
+def _scheduled_degraded(summary: str, data: dict[str, Any], status: str) -> dict[str, Any]:
+    return {"signal": 0, "confidence": 0, "status": status, "evidence": {"data": data, "summary": summary}}
+
+
+def build_schedule_bound_output(
+    variable_id: str,
+    source_name: str,
+    source_url: str,
+    observations: list[dict[str, Any]],
+    *,
+    as_of_date: str | None,
+    cached: bool,
+    value_label: str,
+    schedule_days: int,
+    availability_source: str = "wgc_schedule_bound_v1",
+    not_applicable_horizons: set[str] | None = None,
+    hold_latest_pending: bool = True,
+    source_page_date: str | None = None,
+    retrieved_at: str | None = None,
+    rising_signal: int = 1,
+    falling_signal: int = -1,
+) -> dict[str, Any]:
+    """Build WGC output with estimated availability isolated from publication_date."""
+    decision_date = as_of_date or date.today().isoformat()
+    ordered = sorted(observations, key=lambda item: str(item["date"]))
+    eligible = [row for row in ordered if month_end_plus_days(str(row["date"]), schedule_days) <= decision_date]
+    current = eligible[-1] if eligible else (ordered[-1] if ordered else None)
+    estimated = month_end_plus_days(str(current["date"]), schedule_days) if current else None
+    latest_bound = month_end_plus_days(str(ordered[-1]["date"]), schedule_days) if ordered else None
+    horizons: dict[str, Any] = {}
+    not_applicable_horizons = not_applicable_horizons or set()
+    for horizon, lookback in HORIZON_LOOKBACKS.items():
+        if horizon in not_applicable_horizons:
+            horizons[horizon] = _scheduled_degraded("NOT_APPLICABLE — monthly WGC data has no 1-5d marginal pricing applicability.", {"current_date": str(current["date"]) if current else None}, "NOT_APPLICABLE")
+            continue
+        if hold_latest_pending and ordered and latest_bound and latest_bound > decision_date:
+            data = {"current_value": float(ordered[-1]["value"]), "current_date": str(ordered[-1]["date"]), "publication_date": None, "estimated_availability_date": latest_bound, "availability_source": availability_source, "source_page_date": source_page_date, "retrieved_at": retrieved_at}
+            horizons[horizon] = _scheduled_degraded(f"PENDING_RELEASE — estimated availability is {latest_bound}; decision date is {decision_date}.", data, "PENDING_RELEASE")
+            continue
+        if current is None or len(eligible) < lookback:
+            data = empty_data()
+            if current is not None:
+                data.update({"current_value": float(current["value"]), "current_date": str(current["date"]), "estimated_availability_date": estimated, "availability_source": availability_source, "publication_date": None})
+            horizons[horizon] = _scheduled_degraded(f"MISSING DATA — {lookback} eligible calendar-month observations are required; {len(eligible)} are available.", data, "INSUFFICIENT_DATA")
+            continue
+        comparison = eligible[-lookback]
+        current_value, comparison_value = float(current["value"]), float(comparison["value"])
+        change = round(current_value - comparison_value, 10)
+        change_pct = round(change / comparison_value * 100, 10) if comparison_value else None
+        if change > 0:
+            signal, direction = rising_signal, "rose"
+        elif change < 0:
+            signal, direction = falling_signal, "fell"
+        else:
+            signal, direction = 0, "was unchanged"
+        data = {"current_value": current_value, "current_date": str(current["date"]), "comparison_value": comparison_value, "comparison_date": str(comparison["date"]), "change_absolute": change, "change_pct": change_pct, "publication_date": None, "estimated_availability_date": estimated, "availability_source": availability_source, "source_page_date": source_page_date, "retrieved_at": retrieved_at}
+        summary = f"{value_label} {direction} by {abs(change):.2f}; schedule-bound availability confirmed on {estimated}."
+        if cached:
+            summary += " SOURCE UNAVAILABLE — cached data used."
+        horizons[horizon] = {"signal": signal, "confidence": 1.0, "status": "VALID", "evidence": {"data": data, "summary": summary}}
+    return {"variable_id": variable_id, "as_of_date": decision_date, "source_name": source_name, "source_url": source_url, "data_frequency": "Monthly", "observation_date": str(current["date"]) if current else None, "publication_date": None, "estimated_availability_date": estimated, "availability_source": availability_source, "source_page_date": source_page_date, "retrieved_at": retrieved_at, "horizons": horizons}
 
 
 def build_output(

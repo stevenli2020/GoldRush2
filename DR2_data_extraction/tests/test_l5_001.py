@@ -22,7 +22,11 @@ def observations(count=756, current=20.0, comparison=10.0):
 def test_directions_and_lookbacks(horizon, lookback, current, comparison, signal):
     rows = observations(current=current, comparison=10.0)
     rows[-lookback]["value"] = comparison
-    result = l5_001.build_output(rows)
+    result = l5_001.build_output(rows, as_of_date="2065-01-01")
+    if horizon == "1-5d":
+        assert result["horizons"][horizon]["status"] == "NOT_APPLICABLE"
+        assert result["horizons"][horizon]["confidence"] == 0
+        return
     assert result["horizons"][horizon]["signal"] == signal
     assert result["horizons"][horizon]["confidence"] == 1
 
@@ -41,14 +45,24 @@ def test_parser_aggregates_canonical_rows_and_excludes_star(tmp_path):
 
 
 def test_insufficient_history():
-    assert l5_001.build_output(observations(4))["horizons"]["1-5d"]["confidence"] == 0
+    assert l5_001.build_output(observations(4), as_of_date="2065-01-01")["horizons"]["1-5d"]["confidence"] == 0
 
 
 def test_schema():
-    result = l5_001.build_output(observations())
+    result = l5_001.build_output(observations(), as_of_date="2065-01-01")
     assert result["variable_id"] == "L5-001"
     assert result["data_frequency"] == "Monthly"
     assert set(result["horizons"]) == {"1-5d", "1-3m", "1-3y", "3-10y"}
+
+
+def test_l5_lag_alignment_on_2026_09_06():
+    rows = [{"date": "2026-07-31", "value": 20.0}, {"date": "2026-08-31", "value": 25.0}]
+    result = l5_001.build_output(rows, as_of_date="2026-09-06")
+    assert result["observation_date"] == "2026-07-31"
+    assert result["estimated_availability_date"] == "2026-08-11"
+    assert result["horizons"]["1-5d"]["status"] == "NOT_APPLICABLE"
+    assert result["horizons"]["1-5d"]["confidence"] == 0
+    assert result["horizons"]["1-3m"]["status"] == "INSUFFICIENT_DATA"
 
 
 def test_source_failure(monkeypatch, tmp_path):
@@ -64,4 +78,3 @@ def test_stale_cache(monkeypatch, tmp_path):
     monkeypatch.setattr(l5_001.wgc, "LAST_FETCH_STALE", True)
     result = l5_001.run(output_path=tmp_path / "out.json", raw_dir=tmp_path)
     assert "STALE DATA" in result["horizons"]["1-5d"]["evidence"]["summary"]
-

@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from openpyxl import load_workbook
 
 from goldrush2.dr2.collectors import wgc
-from goldrush2.dr2.extractors._wgc_common import HORIZON_LOOKBACKS, build_output, degraded, finite, parse_date
+from goldrush2.dr2.extractors._wgc_common import HORIZON_LOOKBACKS, build_schedule_bound_output, degraded, finite, parse_date
 
 VARIABLE_ID = "L8-001"
 SOURCE_NAME = "WGC ETF Flows - Global Gold ETF Net Flows (tonnes)"
-SOURCE_URL = "https://www.gold.org/"
+SOURCE_URL = "https://www.gold.org/goldhub/data/gold-etfs-holdings-and-flows"
 from goldrush2.paths import DR2_ROOT as PROJECT_ROOT
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "wgc"
 OUTPUT_PATH = PROJECT_ROOT / "data" / "current" / f"{VARIABLE_ID}.json"
+
+
+def build_output(variable_id: str, source_name: str, source_url: str, observations: list[dict[str, Any]], *, cached: bool = False, as_of_date: str | None = None, value_label: str = "Gold ETF net flow") -> dict[str, Any]:
+    return build_schedule_bound_output(variable_id, source_name, source_url, observations, as_of_date=as_of_date, cached=cached, value_label=value_label, schedule_days=8)
 
 
 def parse_flows_workbook(path: Path) -> list[dict[str, Any]]:
@@ -50,7 +54,7 @@ def parse_flows_workbook(path: Path) -> list[dict[str, Any]]:
 
 def build_degraded_output(summary: str, *, as_of_date: str | None = None) -> dict[str, Any]:
     """Build a zero-confidence output for a WGC collection failure."""
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": "Monthly", "observation_date": None, "horizons": {horizon: degraded(summary) for horizon in HORIZON_LOOKBACKS}}
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": "Monthly", "observation_date": None, "publication_date": None, "estimated_availability_date": None, "availability_source": "wgc_schedule_bound_v1", "horizons": {horizon: degraded(summary) for horizon in HORIZON_LOOKBACKS}}
 
 
 def run(*, output_path: Path = OUTPUT_PATH, raw_dir: Path = RAW_DIR) -> dict[str, Any]:
@@ -61,7 +65,7 @@ def run(*, output_path: Path = OUTPUT_PATH, raw_dir: Path = RAW_DIR) -> dict[str
         output = build_degraded_output(summary)
     else:
         try:
-            output = build_output(VARIABLE_ID, SOURCE_NAME, SOURCE_URL, parse_flows_workbook(workbook), cached=wgc.LAST_FETCH_USED_CACHE, value_label="Gold ETF net flow")
+            output = build_schedule_bound_output(VARIABLE_ID, SOURCE_NAME, SOURCE_URL, parse_flows_workbook(workbook), as_of_date=date.today().isoformat(), cached=wgc.LAST_FETCH_USED_CACHE, value_label="Gold ETF net flow", schedule_days=8, retrieved_at=datetime.now(timezone.utc).isoformat())
         except (OSError, ValueError, KeyError) as exc:
             output = build_degraded_output(f"EXTRACTION FAILED — {exc}")
     output_path.parent.mkdir(parents=True, exist_ok=True)
