@@ -14,7 +14,7 @@ Canonical implementation:
 - [`config/strategies/`](config/strategies/) — immutable sparse current-outlook strategy configurations.
 - [`data/current/dr3_multi_strategy_outlook.json`](data/current/dr3_multi_strategy_outlook.json) — non-official comparison output from `gr2 analyze-strategies`.
 - [`SCORE_DELTA_REPORT.md`](SCORE_DELTA_REPORT.md) — fixed initial-matrix versus current-run audit comparison.
-- [`PLAN2_STEP4_L4_COMPARISON.md`](PLAN2_STEP4_L4_COMPARISON.md) — controlled pre/post comparison for the L4-001 refresh.
+- [`PLAN2_STEP4_L4_COMPARISON.md`](../docs/archives/plan2/PLAN2_STEP4_L4_COMPARISON.md) — controlled pre/post comparison for the L4-001 refresh.
 - [`tests/`](tests/) — analytics tests.
 
 The approved V1.1 design rationale is in [`DR3_PROPOSAL_zh.md`](DR3_PROPOSAL_zh.md). Plan 2 source-rule work remains proposed; run `gr2 analyze` after the required DR2 extractors have produced current JSON outputs.
