@@ -56,7 +56,7 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
         horizons[horizon] = _degraded(summary, confidence=0)
     for horizon, lookback in HORIZON_LOOKBACKS.items():
         horizons[horizon] = _degraded("L4-006 is pending formal directional approval; contribution disabled.")
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "horizons": horizons}
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "window_config": "v1.1_quarterly_12_40", "observation_date": str(current["date"]) if current else None, "horizons": horizons}
     for horizon, lookback in HORIZON_LOOKBACKS.items():
         if current is None or len(ordered) < lookback:
             data = _empty_data()

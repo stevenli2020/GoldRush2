@@ -299,6 +299,12 @@ def cmd_extract(args: argparse.Namespace) -> int:
         if "verbose" in inspect.signature(run).parameters:
             kwargs["verbose"] = int(getattr(args, "verbose", 0))
         output = run(**kwargs)
+        expected_window = {"Monthly": "v1.1_monthly_36_120", "Quarterly": "v1.1_quarterly_12_40", "Daily": "v1.1_daily_5_20"}.get(str(output.get("data_frequency", "")))
+        declared_window = output.get("window_config")
+        if declared_window is not None and declared_window != expected_window:
+            raise ValueError(f"CRITICAL: {variable_id} window_config {declared_window!r} does not match approved {expected_window!r}")
+        if expected_window is not None:
+            output["window_config"] = expected_window
         if variable_id in {"L0-002","L0-003","L0-005","L0-006","L1-005","L3-005","L4-001","L4-002","L4-006","L4-007","L4-009","L5-002","L5-003","L5-006","L7-003","L9-004"}:
             for horizon in output.get("horizons", {}).values():
                 if "status" not in horizon:
