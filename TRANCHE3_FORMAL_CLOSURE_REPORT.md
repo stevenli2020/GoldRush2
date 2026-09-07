@@ -7,6 +7,17 @@
 - Fresh L4-006 output contains `window_config: v1.1_quarterly_12_40` and valid horizons have confidence `1.0`.
 - Full WSL suite: **840 passed, 2 deselected, 991 warnings**.
 
+## Deployment Verification
+
+The repository's deployment target is the GitHub `main` branch (`stevenli2020/GoldRush2`); no separate CDN or application deployment workflow is configured in this repository. The server-side check therefore used the raw files served from GitHub `main` after commit `f29f9ba`.
+
+| File | Local SHA-256 | GitHub main SHA-256 | Match |
+|---|---|---|---|
+| `DR2_data_extraction/data/current/L4-006.json` | `7786d804e84418c302080337498e951a2dff68f02e7ff4cfd034a223c2522ea6` | `7786d804e84418c302080337498e951a2dff68f02e7ff4cfd034a223c2522ea6` | YES |
+| `DR3_data_analytics/data/current/dr3_multi_strategy_outlook.json` | `b837a4b9507fc91a039fc57518fab46dd14e8f6396e7fe55adfa9770100f30a9` | `b837a4b9507fc91a039fc57518fab46dd14e8f6396e7fe55adfa9770100f30a9` | YES |
+
+The deployed `L4-006.json` includes `window_config: "v1.1_quarterly_12_40"` and `3-10y.confidence: 1.0`. The detailed, full `pytest -v` output is recorded in `TRANCHE3_FINAL_PYTEST_LOG.md`.
+
 ## Final strategy matrix
 
 | Strategy | 1-5d | 1-3m | 1-3y | 3-10y |
