@@ -1,3 +1,4 @@
+$ gr2 extract L4-006 --force --pretty
 {
   "variable_id": "L4-006",
   "as_of_date": "2026-09-07",
@@ -69,3 +70,5 @@
     }
   }
 }
+$ gr2 analyze-strategies
+Wrote 15 current-outlook strategies.
