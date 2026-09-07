@@ -2,7 +2,7 @@
 from pathlib import Path
 import re, sys
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 TARGET = ROOT / "DR2_data_extraction/src/goldrush2/dr2/extractors"
 FORBIDDEN = ("252", "756")
 errors = []
