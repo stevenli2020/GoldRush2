@@ -301,7 +301,7 @@ def cmd_extract(args: argparse.Namespace) -> int:
         output = run(**kwargs)
         expected_window = {"Monthly": "v1.1_monthly_36_120", "Quarterly": "v1.1_quarterly_12_40", "Daily": "v1.1_daily_5_20"}.get(str(output.get("data_frequency", "")))
         declared_window = output.get("window_config")
-        if declared_window is not None and declared_window != expected_window:
+        if expected_window is not None and (declared_window is None or declared_window != expected_window):
             raise ValueError(f"CRITICAL: {variable_id} window_config {declared_window!r} does not match approved {expected_window!r}")
         if expected_window is not None:
             output["window_config"] = expected_window

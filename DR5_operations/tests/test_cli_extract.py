@@ -102,3 +102,12 @@ def test_extract_rejects_invalid_window_config(monkeypatch, tmp_path, capsys):
     monkeypatch.setattr(cli.importlib, "import_module", lambda name: SimpleNamespace(run=run))
     assert cli.main(["extract", "L0-006"]) == 1
     assert "CRITICAL" in capsys.readouterr().out
+
+def test_extract_rejects_missing_window_config(monkeypatch, tmp_path, capsys):
+    def run(*, output_path: Path):
+        return {"data_frequency": "Monthly", "observation_date": "2026-01-01"}
+    monkeypatch.setattr(cli, "DR2_CURRENT_DIR", tmp_path)
+    monkeypatch.setattr(cli, "discover_extractors", lambda: {"L0-006": "fake.extractor"})
+    monkeypatch.setattr(cli.importlib, "import_module", lambda name: SimpleNamespace(run=run))
+    assert cli.main(["extract", "L0-006"]) == 1
+    assert "CRITICAL" in capsys.readouterr().out

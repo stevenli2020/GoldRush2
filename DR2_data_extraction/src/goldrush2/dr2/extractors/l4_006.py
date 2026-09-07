@@ -41,7 +41,7 @@ def _valid(current: dict[str, str | float], comparison: dict[str, str | float], 
         signal, summary = 0, "Deficit/GDP ratio was unchanged, neutral for gold."
     if cached:
         summary += " SOURCE UNAVAILABLE — cached data used."
-    return {"signal": signal, "confidence": 1, "status": "NOT_APPLICABLE", "evidence": {"data": {"current_value": current_value, "current_date": current["date"], "comparison_value": comparison_value, "comparison_date": comparison["date"], "change_absolute": change}, "summary": summary}}
+    return {"signal": signal, "confidence": 1, "status": "VALID", "evidence": {"data": {"current_value": current_value, "current_date": current["date"], "comparison_value": comparison_value, "comparison_date": comparison["date"], "change_absolute": change}, "summary": summary}}
 
 
 def build_output(observations: list[dict[str, str | float]], *, cached: bool = False, as_of_date: str | None = None) -> dict[str, Any]:
@@ -55,9 +55,6 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
             summary += " SOURCE UNAVAILABLE — cached data used."
         horizons[horizon] = _degraded(summary, confidence=0)
     for horizon, lookback in HORIZON_LOOKBACKS.items():
-        horizons[horizon] = _degraded("L4-006 is pending formal directional approval; contribution disabled.")
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "window_config": "v1.1_quarterly_12_40", "observation_date": str(current["date"]) if current else None, "horizons": horizons}
-    for horizon, lookback in HORIZON_LOOKBACKS.items():
         if current is None or len(ordered) < lookback:
             data = _empty_data()
             if current is not None:
@@ -65,13 +62,13 @@ def build_output(observations: list[dict[str, str | float]], *, cached: bool = F
             horizons[horizon] = _degraded(f"MISSING DATA — {lookback} valid quarterly observations are required; {len(ordered)} are available.", data)
         else:
             horizons[horizon] = _valid(current, ordered[-lookback], cached=cached)
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": str(current["date"]) if current else None, "horizons": horizons}
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "window_config": "v1.1_quarterly_12_40", "observation_date": str(current["date"]) if current else None, "horizons": horizons}
 
 
 def build_degraded_output(summary: str, *, as_of_date: str | None = None) -> dict[str, Any]:
     """Build a zero-confidence result for a collection failure."""
     horizons = {horizon: _degraded(summary) for horizon in ("1-5d", "1-3m", "1-3y", "3-10y")}
-    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "observation_date": None, "horizons": horizons}
+    return {"variable_id": VARIABLE_ID, "as_of_date": as_of_date or date.today().isoformat(), "source_name": SOURCE_NAME, "source_url": SOURCE_URL, "data_frequency": DATA_FREQUENCY, "window_config": "v1.1_quarterly_12_40", "observation_date": None, "horizons": horizons}
 
 
 def _cache_is_fresh(path: Path) -> bool:

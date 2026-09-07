@@ -17,14 +17,14 @@ def observations(count=20, comparison_index=None, current=-6.0, comparison=-5.5)
     return rows
 
 
-@pytest.mark.parametrize("horizon", ["1-3y", "3-10y"])
-def test_quarterly_signal_directions_are_frozen(horizon):
-    result = l4_006.build_output(observations(45))
+@pytest.mark.parametrize("horizon, lookback", [("1-3y", 12), ("3-10y", 40)])
+@pytest.mark.parametrize("current, comparison, signal", [(-6.0, -5.5, 1), (-5.0, -5.5, -1), (-5.5, -5.5, 0)])
+def test_quarterly_signal_directions_are_approved(horizon, lookback, current, comparison, signal):
+    result = l4_006.build_output(observations(45, comparison_index=45-lookback, current=current, comparison=comparison))
     item = result["horizons"][horizon]
-    assert item["signal"] == 0
-    assert item["confidence"] == 0
-    assert item["status"] in {"NOT_APPLICABLE", "DEGRADED"}
-    assert "pending formal directional approval" in item["evidence"]["summary"]
+    assert item["signal"] == signal
+    assert item["confidence"] == 1
+    assert item["status"] == "VALID"
 
 
 def test_short_horizons_are_inapplicable():
@@ -39,8 +39,8 @@ def test_schema_and_quarterly_dates():
     result = l4_006.build_output(observations(20), as_of_date="2026-09-01")
     assert result["data_frequency"] == "Quarterly"
     assert set(result["horizons"]) == {"1-5d", "1-3m", "1-3y", "3-10y"}
-    assert result["horizons"]["1-3y"]["confidence"] == 0
-    assert "pending formal directional approval" in result["horizons"]["1-3y"]["evidence"]["summary"]
+    assert result["horizons"]["1-3y"]["confidence"] == 1
+    assert result["horizons"]["1-3y"]["status"] == "VALID"
 
 
 def test_missing_values_ignored():
@@ -50,7 +50,7 @@ def test_missing_values_ignored():
 def test_insufficient_history():
     result = l4_006.build_output(observations(7))
     assert result["horizons"]["1-3y"]["confidence"] == 0
-    assert "pending formal directional approval" in result["horizons"]["1-3y"]["evidence"]["summary"]
+    assert result["horizons"]["1-3y"]["status"] == "DEGRADED"
 
 
 def test_empty_series_degrades_applicable_horizons():
@@ -66,7 +66,7 @@ def test_twenty_quarter_lookback_uses_first_observation():
 
 def test_cached_valid_result_is_annotated():
     result = l4_006.build_output(observations(20), cached=True)
-    assert "pending formal directional approval" in result["horizons"]["1-3y"]["evidence"]["summary"]
+    assert "cached data used" in result["horizons"]["1-3y"]["evidence"]["summary"]
 
 
 def test_fresh_and_stale_cache(monkeypatch, tmp_path):

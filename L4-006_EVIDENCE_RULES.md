@@ -1,6 +1,6 @@
 # L4-006 Evidence Rules — Draft for D Approval
 
-**Status:** pending formal directional approval; production contribution disabled
+**Status:** approved; directional rule active
 
 ## Causal channel
 
@@ -16,7 +16,7 @@ L4-006 measures federal deficit/surplus as a share of GDP. A widening deficit (a
 
 ## Directional mapping
 
-Before approval, every horizon is forced to `signal=0`, `confidence=0`, `status=NOT_APPLICABLE`. The provisional proposed mapping is: deficit/GDP falls → `+1`; rises → `-1`; unchanged → `0`.
+Approved mapping: deficit/GDP falls → `+1`; rises → `-1`; unchanged → `0`. Valid horizons use confidence `1.0`; unsupported short horizons remain `NOT_APPLICABLE`.
 
 ## Degradation
 
